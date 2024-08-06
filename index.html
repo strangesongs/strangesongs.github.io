@@ -18,7 +18,7 @@
         <![endif]-->
         <section>
             <h4>watch read listen 2024</h4>
-            <p><i>last updated 8.15.2024</i></p>
+            <p id="last-updated"><i>last updated 8.15.2024</i></p>
         </section>
         
 
@@ -171,52 +171,8 @@
             </ul>
         </section>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                // Function to update the count of <li> items within the specific section
-                function updateShowCount() {
-                    const section = document.getElementById('show-section'); // Select the section with the ID 'show-section'
-                    const ul = section.querySelector('ul'); // Select the <ul> within the section
-                    const liCount = ul.querySelectorAll('li').length; // Count the <li> items
-                    document.getElementById('show-count').textContent = liCount; // Update the <span> with the count
-                }
-        
-                // Call the function to update the count on page load
-                updateShowCount();
-            });
-        </script>
+        <script src="scripts.js"></script>
 
-
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                // Function to update the count of <li> items within the specific section
-                function updateFilmCount() {
-                    const section = document.getElementById('film-section'); // Select the section with the ID 'film-section'
-                    const ul = section.querySelector('ul'); // Select the <ul> within the section
-                    const liCount = ul.querySelectorAll('li').length; // Count the <li> items
-                    document.getElementById('film-count').textContent = liCount; // Update the <span> with the count
-                }
-
-                // Call the function to update the count on page load
-                updateFilmCount();
-            });
-        </script>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                // Function to update the count of <li> items within the specific section
-                function updateFilmCount() {
-                    const section = document.getElementById('film-section'); // Select the section with the ID 'film-section'
-                    const ul = section.querySelector('ul'); // Select the <ul> within the section
-                    const liCount = ul.querySelectorAll('li').length; // Count the <li> items
-                    document.getElementById('film-count').textContent = liCount; // Update the <span> with the count
-                }
-
-                // Call the function to update the count on page load
-                updateFilmCount();
-            });
-        </script>
-            
     </body>
     <footer>
         <p><a href="mailto:jcrtll@pm.me">jcrtll@pm.me</a></p>
