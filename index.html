@@ -18,14 +18,15 @@
         <![endif]-->
         <section>
             <h4>watch read listen 2024</h4>
-            <p><i>last updated 6.19.2024</i></p>
+            <p><i>last updated 8.15.2024</i></p>
         </section>
         
 
-        <section>
+        <section id="film-selection">
             <h3>watch</h3>
             <p>date TITLE (year) d. director / format / location / notes</p>
             <p>* denotes repeat viewing</p>
+            <p>current film count: <span id="film-count">0</span></p>
             <ul>
                 <li>1.14 THE DEVILS (1971) d. ken russell / streaming criterion channel</li>
                 <li>1.18 TAIPEI STORY (1985) d. edward yang / DCP / Los Feliz 3 / edward yang retrospective at AC</li>
@@ -89,14 +90,13 @@
                 <br>
                 <li>8.2 GOODBYE DRAGON INN (2003) d. tsai ming-liang / 4k restoration / egyptian theater / q+a with ming-liang and Lee kang-sheng</li>
                 <li>8.3 WALKABOUT (1971) d. nicolas roeg / criterion channel *</li>
-            
             </ul>
         </section>
 
-        <section>
+               <section id="read-section">
             <h3>read</h3>
             <p>date finished TITLE (year) author (notes)</p>
-            <p>current book count: </p>
+            <p>current book count: <span id="book-count">0</span></p>
             <ul>
                 <li>1.1 THE SECRET TO SUPERHUMAN STRENGTH (2021) alison bechdel</li>
                 <li>1.8 THE HISTORY OF LAST NIGHT'S DREAM (2007) rodger kamenetz (started 2023)</li>
@@ -106,13 +106,11 @@
                 <li>1.15 THE BROTHERS K (1992) david james duncan (abandoned)</li>
                 <li>1.21 OCCULT FEATURES OF ANARCHISM (2019) erica lagalisse</li>
                 <br>
-
-                <li>2.1 HOW TO CHANGE YOUR MIND (2018) michael pollan</lil> 
+                <li>2.1 HOW TO CHANGE YOUR MIND (2018) michael pollan</li>
                 <li>2.3 REFINING YOUR LIFE: FROM THE ZEN KITCHEN TO ENLIGHTEMENT (1983) dogen zenji and kosho uchiyama</li>
                 <li>2.25 STUCK RUBBER BABY (1995) howard cruse</li>
                 <br>
-
-                <li>3.3 THE THEORY & PRACTICE OF RIVERS (1985) jim harrison</li> 
+                <li>3.3 THE THEORY & PRACTICE OF RIVERS (1985) jim harrison</li>
                 <li>3.16 THE WAY IT IS: NEW AND SELECTED POEMS (1998) william stafford</li>
                 <li>3.19 MUSICKING: THE MEANINGS OF PERFORMING AND LISTENING (1998) christopher small</li>
                 <li>3.23 NOVELIST AS A VOCATION (2015) haruki murakami</li>
@@ -120,18 +118,15 @@
                 <li>4.20 THE WIND-UP BIRD CHRONICLE (1995) haruki murakami</li>
                 <li>4.30 PASSING FOR HUMAN (2018) liana finck</li>
                 <br>
-
-                <li>5.13 SABRINA (2018) nick drnaso </li>
+                <li>5.13 SABRINA (2018) nick drnaso</li>
                 <li>5.19 ACTING CLASS (2022) nick drnaso</li>
                 <li>5.30 ON BREAD AND POETRY: A PANEL DISCUSSION BETWEEN GARY SNYDER, LEW WELCH AND PHILIP WHALEN (1977)</li>
                 <br>
-
                 <li>6.1 100 POEMS FROM THE JAPANESE (1955) kenneth rexroth</li>
                 <li>6.14 WHY BUDDHISM IS TRUE (2017) robert wright</li>
                 <li>6.15 THE KINDNESS OF STRANGERS: POEMS 1969 - 1974 (1976) philip whalen</li>
-                <li>6.15 A MAN HOLDING AN ACOUSTIC PANEL (1971) david shapiro
+                <li>6.15 A MAN HOLDING AN ACOUSTIC PANEL (1971) david shapiro</li>
                 <li>6.21 NO MEAT REQUIRED: THE CULTURAL HISTORY AND CULINARY FUTURE OF PLANT-BASED EATING (2023) alicia kennedy</li>
-
                 <li>7.2 100 POEMS FROM THE CHINESE (1971) kenneth rexroth</li>
                 <li>7.5 ROAD TO HEAVEN: ENCOUNTERS WITH CHINESE HERMITS (1993) bill porter</li>
                 <li>7.6 ZEN AND THE ART OF MOTORCYCLE MAINTENANCE (1974) robert m. pirsig</li>
@@ -144,7 +139,7 @@
                 <li>8.5 LOSING OURSELVES (2022) jay l. garfield</li>
             </ul>
         </section>
-        
+
         <section id="show-section">
             <h3>listen</h3>
             <p>date PERFORMER / venue / notes</p>
@@ -160,10 +155,8 @@
                 <li>3.8 LA PHILHARMONIC W/MAO FUJITA, CONDUCTOR DOMINGO HINDOYAN / walt disney music hall / <a href="https://www.laphil.com/events/performances/2469/2024-03-09/prokofiev-and-rachmaninoff">GUBAIDULINA poema-skazka, RACHMANINOFF piano concerto no. 2 in c minor, op. 18, PROKOFIEV symphony no. 5 in B-flat major, op. 100</a></li>
                 <li>3.19 TIMO ANDRES, ANTON BATAGOV, LARA DOWNES, JENNY LIN, MAKI NAMEKAWA / walt disney music hall / <a href="https://www.laphil.com/events/performances/2474/2024-03-19/philip-glass-the-complete-etudes-1-20">PHILIP GLASS: the complete etudes, 1-20</a></li>
                 <br>
-
                 <li>4.21 JOSH JOHNSON, JEREMIAH CHIU, DJ ROCIO WYLDEFLOWER CONTRERAS / 2220 archives</li>
                 <br>
-
                 <li>5.5 JEFF PARKER, SETTING / zebulon</li>
                 <li>5.25 MYRIAM GENDRON / JIM WHITE + MELISSA ANDERSON / zebulon</li>
                 <li>5.30 NATURAL INFORMATION SOCIETY / JEFF PARKER, JOSH JOHNSON, ANNA BUTTERSS, MIKEL PATRICK AVERY QUARTET / lodge room</li>
@@ -190,6 +183,37 @@
         
                 // Call the function to update the count on page load
                 updateShowCount();
+            });
+        </script>
+
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Function to update the count of <li> items within the specific section
+                function updateFilmCount() {
+                    const section = document.getElementById('film-section'); // Select the section with the ID 'film-section'
+                    const ul = section.querySelector('ul'); // Select the <ul> within the section
+                    const liCount = ul.querySelectorAll('li').length; // Count the <li> items
+                    document.getElementById('film-count').textContent = liCount; // Update the <span> with the count
+                }
+
+                // Call the function to update the count on page load
+                updateFilmCount();
+            });
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Function to update the count of <li> items within the specific section
+                function updateFilmCount() {
+                    const section = document.getElementById('film-section'); // Select the section with the ID 'film-section'
+                    const ul = section.querySelector('ul'); // Select the <ul> within the section
+                    const liCount = ul.querySelectorAll('li').length; // Count the <li> items
+                    document.getElementById('film-count').textContent = liCount; // Update the <span> with the count
+                }
+
+                // Call the function to update the count on page load
+                updateFilmCount();
             });
         </script>
             
