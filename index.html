@@ -90,14 +90,13 @@
                 <li>8.2 GOODBYE DRAGON INN (2003) d. tsai ming-liang / 4k restoration / egyptian theater / q+a with ming-liang and Lee kang-sheng</li>
                 <li>8.3 WALKABOUT (1971) d. nicolas roeg / criterion channel *</li>
             
-            
-            
             </ul>
         </section>
 
         <section>
             <h3>read</h3>
             <p>date finished TITLE (year) author (notes)</p>
+            <p>current book count: </p>
             <ul>
                 <li>1.1 THE SECRET TO SUPERHUMAN STRENGTH (2021) alison bechdel</li>
                 <li>1.8 THE HISTORY OF LAST NIGHT'S DREAM (2007) rodger kamenetz (started 2023)</li>
@@ -141,12 +140,15 @@
                 <li>7.21 TRIP TRAP: HAIKU ON THE ROAD (1998) jack kerouac, lew welch and albert saijo</li>
                 <li>7.30 OPENING THE HAND OF THOUGHT (1993) kosho uchiyama</li>
                 <li>7.30 ON FLOWER WREATH HILL (1976) kenneth rexroth</li>
+                <br>
+                <li>8.5 LOSING OURSELVES (2022) jay l. garfield</li>
             </ul>
         </section>
         
         <section>
             <h3>listen</h3>
             <p>date PERFORMER / venue / notes</p>
+            <p>current show count: <span id="show-count">0</span></p>
             <ul>
                 <li>1.22 MARY LATTIMORE + STEVE GUNN / zebulon / mary lattimore residency, solo and collaboration sets</li>
                 <li>1.26 LA PHILHARMONIC W/ANNE-SOPHIE MUTTER & PABLO FERRÁNDEZ, CONDUCTOR GUSTAVO DUDAMEL / walt disney music hall / <a href="https://www.laphil.com/events/performances/2847/2024-01-26/brahms-bruckner-with-dudamel">BRAHMS double concerto and BRUCKNER symphony #1</a></li>
@@ -173,11 +175,22 @@
                 <br>
                 <li>7.22 JEFF PARKER ETA IVTET (JOSH JOHNSON, ANNA BUTTERSS AND JAY BELLEROSE) / zebulon</li>
                 <li>7.28 PHISH (LIVE @ ALPINE VALLEY MUSIC THEATRE EAST TROY, WI) / couch tour</li>
-
-
-                
             </ul>
         </section>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Function to update the count of <li> items
+                function updateShowCount() {
+                    const ul = document.querySelector('section ul'); // Select the <ul> within the <section>
+                    const liCount = ul.querySelectorAll('li').length; // Count the <li> items
+                    document.getElementById('show-count').textContent = liCount; // Update the <span> with the count
+                }
+    
+                // Call the function to update the count on page load
+                updateShowCount();
+            });
+        </script>
             
     </body>
     <footer>
