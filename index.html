@@ -145,7 +145,7 @@
             </ul>
         </section>
         
-        <section>
+        <section id="show-section">
             <h3>listen</h3>
             <p>date PERFORMER / venue / notes</p>
             <p>current show count: <span id="show-count">0</span></p>
@@ -180,13 +180,14 @@
 
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                // Function to update the count of <li> items
+                // Function to update the count of <li> items within the specific section
                 function updateShowCount() {
-                    const ul = document.querySelector('section ul'); // Select the <ul> within the <section>
+                    const section = document.getElementById('show-section'); // Select the section with the ID 'show-section'
+                    const ul = section.querySelector('ul'); // Select the <ul> within the section
                     const liCount = ul.querySelectorAll('li').length; // Count the <li> items
                     document.getElementById('show-count').textContent = liCount; // Update the <span> with the count
                 }
-    
+        
                 // Call the function to update the count on page load
                 updateShowCount();
             });
