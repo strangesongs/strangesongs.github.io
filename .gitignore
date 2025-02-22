@@ -3,9 +3,7 @@ node_modules/
 package-lock.json
 
 # Build output
-*.html
-!index.html
-!templates/*.html
+dist/
 
 # System files
 .DS_Store

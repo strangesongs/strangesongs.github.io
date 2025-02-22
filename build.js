@@ -5,6 +5,11 @@ const frontMatter = require('front-matter');
 const ejs = require('ejs');
 
 async function buildYear(year) {
+    // Create dist directory if it doesn't exist
+    if (!fs.existsSync('dist')) {
+        fs.mkdirSync('dist');
+    }
+
     const sections = ['films', 'books', 'shows'].map(section => {
         const filePath = `content/${year}/${section}.md`;
         const md = fs.readFileSync(filePath, 'utf8');
@@ -20,7 +25,7 @@ async function buildYear(year) {
         content: sections.join('\n')
     });
 
-    fs.writeFileSync(`${year}.html`, html);
+    fs.writeFileSync(`dist/${year}.html`, html);
 }
 
 async function build() {
