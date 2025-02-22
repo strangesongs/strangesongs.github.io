@@ -1,8 +1,14 @@
-const marked = require('marked');
+const { marked } = require('marked');
 const fs = require('fs');
 const path = require('path');
 const frontMatter = require('front-matter');
 const ejs = require('ejs');
+
+// Configure marked options
+marked.setOptions({
+    mangle: false,
+    headerIds: false
+});
 
 async function buildYear(year) {
     // Create dist directory if it doesn't exist
@@ -20,9 +26,10 @@ async function buildYear(year) {
         </section>`;
     });
 
-    const template = fs.readFileSync('index.html', 'utf8');
+    const template = fs.readFileSync('templates/index.html', 'utf8');
     const html = ejs.render(template, {
-        content: sections.join('\n')
+        content: sections.join('\n'),
+        year: year
     });
 
     fs.writeFileSync(`dist/${year}.html`, html);

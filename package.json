@@ -5,10 +5,9 @@
     "build": "node build.js",
     "watch": "node build.js --watch"
   },
-   "dependencies": {
-    "marked": "^5.0.0",
+  "dependencies": {
+    "marked": "^13.0.0",
     "front-matter": "^4.0.2",
     "ejs": "^3.1.9"
   }
 }
-
