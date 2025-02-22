@@ -29,7 +29,6 @@ async function buildYear(year) {
     fs.writeFileSync(`${year}.html`, html);
     
     // Copy static assets
-    fs.copyFileSync('templates/style.css', 'style.css');
     fs.copyFileSync('templates/scripts.js', 'scripts.js');
 }
 
