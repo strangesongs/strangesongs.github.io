@@ -5,8 +5,6 @@ date: 2025
 
 date finished TITLE (year) author (notes)
 
-current book count: <span id="book-count">0</span>
-
 - 1.3 WHEN THE TREES SAY NOTHING: WRITINGS ON NATURE (2003) thomas merton
 - 1.15 THE PLACES THAT SCARE YOU (2001) pema chödrön
 - 1.21 BUDDHA (2001) karen armstrong

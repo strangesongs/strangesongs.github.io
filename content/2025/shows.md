@@ -5,8 +5,6 @@ date: 2025
 
 date PERFORMER / venue / notes
 
-current show count: <span id="show-count">0</span>
-
 - 1.7 LA PHILHARMONIC / walt disney concert hall / chamber music performance of schumann, beach, brahms
 - 1.17 BROOKLYN RIDER / the wallis / philip glass string quartets
 - 1.23 MARY LATTIMORE, WALT MCCLEMENS / zebulon

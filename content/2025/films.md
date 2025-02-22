@@ -7,8 +7,6 @@ date TITLE (year) d. director / format / location / notes
 
 * denotes repeat viewing
 
-current film count: <span id="film-count">0</span>
-
 - 1.3 VIDEODROME (DIRECTOR'S CUT) (1983) d. david cronenberg / 4k restoration / academy museum
 - 1.4 MESHES OF THE AFTERNOON (1943) d. maya deren / digital / PRS
 - 1.4 AT LAND (1944) d. maya deren / digital / PRS
