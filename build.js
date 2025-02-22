@@ -4,7 +4,6 @@ const path = require('path');
 const frontMatter = require('front-matter');
 const ejs = require('ejs');
 
-// Configure marked options
 marked.setOptions({
     mangle: false,
     headerIds: false
@@ -27,8 +26,11 @@ async function buildYear(year) {
         year: year
     });
 
-    // Write to root directory instead of dist/
     fs.writeFileSync(`${year}.html`, html);
+    
+    // Copy static assets
+    fs.copyFileSync('templates/style.css', 'style.css');
+    fs.copyFileSync('templates/scripts.js', 'scripts.js');
 }
 
 async function build() {
