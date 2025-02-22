@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build output
+*.html
+!index.html
+!templates/*.html
+
+# System files
+.DS_Store
+.env
+*.log
+
+# IDE specific files
+.vscode/
+.idea/

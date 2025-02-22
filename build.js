@@ -15,13 +15,12 @@ async function buildYear(year) {
         </section>`;
     });
 
-    const template = fs.readFileSync('templates/year.html', 'utf8');
+    const template = fs.readFileSync('index.html', 'utf8');
     const html = ejs.render(template, {
-        year,
-        sections
+        content: sections.join('\n')
     });
 
-    fs.writeFileSync(`${year}list.html`, html);
+    fs.writeFileSync(`${year}.html`, html);
 }
 
 async function build() {
