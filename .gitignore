@@ -2,10 +2,6 @@
 node_modules/
 package-lock.json
 
-# Generated files
-20*.html
-!index.html
-
 # System files
 .DS_Store
 .env
