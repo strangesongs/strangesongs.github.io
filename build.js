@@ -11,11 +11,6 @@ marked.setOptions({
 });
 
 async function buildYear(year) {
-    // Create dist directory if it doesn't exist
-    if (!fs.existsSync('dist')) {
-        fs.mkdirSync('dist');
-    }
-
     const sections = ['films', 'books', 'shows'].map(section => {
         const filePath = `content/${year}/${section}.md`;
         const md = fs.readFileSync(filePath, 'utf8');
@@ -32,7 +27,8 @@ async function buildYear(year) {
         year: year
     });
 
-    fs.writeFileSync(`dist/${year}.html`, html);
+    // Write to root directory instead of dist/
+    fs.writeFileSync(`${year}.html`, html);
 }
 
 async function build() {
