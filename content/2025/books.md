@@ -1,0 +1,17 @@
+---
+title: read
+date: 2025
+---
+
+date finished TITLE (year) author (notes)
+
+current book count: <span id="book-count">0</span>
+
+- 1.3 WHEN THE TREES SAY NOTHING: WRITINGS ON NATURE (2003) thomas merton
+- 1.15 THE PLACES THAT SCARE YOU (2001) pema chödrön
+- 1.21 BUDDHA (2001) karen armstrong
+- 1.31 THE REST IS NOISE (2007) alex ross (started in 2024)
+- 2.3 QUEER (1985) william burroughs
+- 2.17 MR G (2012) alan lightman
+- 2.18 MOUNTAIN RECORD OF ZEN TALKS (1988) john daido loori
+- 2.21 ZEN DUST (1966) ruth fuller sasaki
