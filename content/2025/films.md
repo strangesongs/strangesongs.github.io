@@ -26,3 +26,4 @@ date TITLE (year) d. director / format / location / notes
 - 2.3 PREMONITIONS FOLLOWING AN EVIL DEED (1995) d. david lynch / dcp / egyptian theater
 - 2.3 ERASERHEAD (1977) d. david lynch / dcp / egyptian theater
 - 2.7 PERFECT DAYS (2023) d. wim wenders / digital / home screening
+- 2.23 SLIVER (1993) d. philip noyce / digital / criterion channel
