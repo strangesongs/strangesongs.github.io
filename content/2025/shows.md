@@ -11,3 +11,7 @@ date PERFORMER / venue / notes
 - 1.31 esperanza spalding / MILTON NASCIMENTO / 2220 archives
 - 2.1 MEMORYHOUSE: LA BALLET performance / the wallis
 - 2.20 LA PHILHARMONIC / walt disney concert hall / mahler grooves festival: blumine, symphony no. 10: adagio, des knaben wunderhorn
+- 2.24 FRAIL / URSULA / zebulon
+
+
+

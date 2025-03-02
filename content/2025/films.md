@@ -27,3 +27,6 @@ date TITLE (year) d. director / format / location / notes
 - 2.3 ERASERHEAD (1977) d. david lynch / dcp / egyptian theater
 - 2.7 PERFECT DAYS (2023) d. wim wenders / digital / home screening
 - 2.23 SLIVER (1993) d. philip noyce / digital / criterion channel
+- 2.28 RA: PATH OF THE SUN GOD (1990) d. lesley keen / digital / philosophical research society
+- 2.28 ORPHEUS AND EURYDICE (1984) d. lesley keen / digital / philosophical research society
+- 2.28 INVOCATION: AN ANCIENT GREEK CREATION MYTH (1984) d. lesley keen / digital / philsohopical research society
