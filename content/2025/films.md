@@ -30,3 +30,4 @@ date TITLE (year) d. director / format / location / notes
 - 2.28 RA: PATH OF THE SUN GOD (1990) d. lesley keen / digital / philosophical research society
 - 2.28 ORPHEUS AND EURYDICE (1984) d. lesley keen / digital / philosophical research society
 - 2.28 INVOCATION: AN ANCIENT GREEK CREATION MYTH (1984) d. lesley keen / digital / philsohopical research society
+- 3.16 THE YOUNG AND PRODIGIOUS T. S. SPIVET (2013) d. jean-pierre jeunet / 3D / gardena cinema
