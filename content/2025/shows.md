@@ -12,6 +12,7 @@ date PERFORMER / venue / notes
 - 2.1 MEMORYHOUSE: LA BALLET performance / the wallis
 - 2.20 LA PHILHARMONIC / walt disney concert hall / mahler grooves festival: blumine, symphony no. 10: adagio, des knaben wunderhorn
 - 2.24 FRAIL / URSULA / zebulon
-
+- 3.17 AVISHAI COHEN QUARTET / pico union project
+- 3.18 SML / lodge room
 
 
