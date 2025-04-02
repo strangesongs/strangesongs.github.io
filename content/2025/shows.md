@@ -14,5 +14,7 @@ date PERFORMER / venue / notes
 - 2.24 FRAIL / URSULA / zebulon
 - 3.17 AVISHAI COHEN QUARTET / pico union project
 - 3.18 SML / lodge room
+- 3.25 ALABASTER DEPLUME / PATRICK SHIROISHI / the regent theater
+- 4.1 BRAD MEHLDAU / CHRISTIAN MCBRIDE / MARCUS GILMORE / orpheum theater
 
 
