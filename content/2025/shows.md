@@ -16,5 +16,6 @@ date PERFORMER / venue / notes
 - 3.18 SML / lodge room
 - 3.25 ALABASTER DEPLUME / PATRICK SHIROISHI / the regent theater
 - 4.1 BRAD MEHLDAU / CHRISTIAN MCBRIDE / MARCUS GILMORE / orpheum theater
+- 4.9 CARCASS / CANNIBAL CORPSE / MESHUGGAH / kia forum
 
 
