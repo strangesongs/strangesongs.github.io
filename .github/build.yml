@@ -1,20 +1,41 @@
 name: Build and Deploy
+
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:
+    paths:
+      - 'content/**/*.md'
+      - 'templates/**/*'
+      - 'build.js'
+      - 'package.json'
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - run: npm ci
-      - run: npm run build
-      - name: Deploy
-        uses: actions/deploy-pages@v4
-        with:
-          path: '.'
+    - uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Build site
+      run: npm run build
+    
+    - name: Configure Git
+      run: |
+        git config user.name "GitHub Actions Bot"
+        git config user.email "<>"
+    
+    - name: Commit and push if changed
+      run: |
+        git add .
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-build: Update site content" && git push)
