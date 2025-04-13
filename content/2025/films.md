@@ -32,3 +32,4 @@ date TITLE (year) d. director / format / location / notes
 - 2.28 INVOCATION: AN ANCIENT GREEK CREATION MYTH (1984) d. lesley keen / digital / philsohopical research society
 - 3.16 THE YOUNG AND PRODIGIOUS T. S. SPIVET (2013) d. jean-pierre jeunet / 3D / gardena cinema
 - 3.22 COLLATERAL (2014) d. michael mann / streaming / criterion channel
+- 4.13 THE EMPEROR'S NAKED ARMY MARCHES ON (1987) d. kazuo hara / 35mm screening with q+a featuring kazuo hara + errol morris in person
