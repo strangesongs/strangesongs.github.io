@@ -17,5 +17,8 @@ date PERFORMER / venue / notes
 - 3.25 ALABASTER DEPLUME / PATRICK SHIROISHI / the regent theater
 - 4.1 BRAD MEHLDAU / CHRISTIAN MCBRIDE / MARCUS GILMORE / orpheum theater
 - 4.9 CARCASS / CANNIBAL CORPSE / MESHUGGAH / kia forum
-
+- 4.14 EARTH / STEBMO / lodge room / earth playing "hex: or printing in the infernal method" album
+- 4.16 GREGORY UHLMANN, JOSH JOHNSON, SAM WILKES / barnsdall gallery theater
+- 4.18 NICO GEORIS / DIVA AND THE PEARLY GATES / 2220 archives
+- 4.19 ISAIAH MITCHELL / chöd meditation led by psychedelic sangha, visuals by arik moonhawk roper
 
