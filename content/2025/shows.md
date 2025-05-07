@@ -21,4 +21,8 @@ date PERFORMER / venue / notes
 - 4.16 GREGORY UHLMANN, JOSH JOHNSON, SAM WILKES / barnsdall gallery theater
 - 4.18 NICO GEORIS / DIVA AND THE PEARLY GATES / 2220 archives
 - 4.19 ISAIAH MITCHELL / chöd meditation led by psychedelic sangha, visuals by arik moonhawk roper
+- 4.22 LA PHILHARMONIC / walt disney concert hall / mendelssohn "string octet, op. 20", neilsen "string quartet no. 1, op. 13", arutiunian, "suite (for clarinet, violin, piano)
+- 4.23 YHWH NAILGUN / MORGAN GARRETT / the echo
+- 4.26 PHISH / hollywood bowl
+- 4.30 GODSPEED YOU! BLACK EMPEROR / the bellweather
 
