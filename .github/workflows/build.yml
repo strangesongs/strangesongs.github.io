@@ -9,14 +9,16 @@ on:
       - 'build.js'
       - 'package.json'
 
+# Allow the workflow to write to the repository
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v3
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Setup Node.js
       uses: actions/setup-node@v3
@@ -33,7 +35,7 @@ jobs:
     - name: Configure Git
       run: |
         git config user.name "GitHub Actions Bot"
-        git config user.email "<>"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
     
     - name: Commit and push if changed
       run: |
