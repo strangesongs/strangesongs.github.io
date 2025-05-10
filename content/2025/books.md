@@ -19,3 +19,4 @@ date finished TITLE (year) author (notes)
 - 4.11 KOREATOWN DREAMING: STORIES AND PORTRAITS OF KOREAN IMMIGRANT LIFE (2023) emanuel hahn
 - 4.19 IN TRANSIT (1988) mavis gallant
 - 5.5 THE FOUR AGREEMENTS (1997) don miguel ruiz
+- 5.9 FORMATION: BUILDING A PERSONAL CANON PART ONE (2023) brad melhdau
