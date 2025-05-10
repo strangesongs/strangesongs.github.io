@@ -25,4 +25,5 @@ date PERFORMER / venue / notes
 - 4.23 YHWH NAILGUN / MORGAN GARRETT / the echo
 - 4.26 PHISH / hollywood bowl
 - 4.30 GODSPEED YOU! BLACK EMPEROR / the bellweather
+- 5.8 PAUL CORNISH w/JEFF PARKER, ERIC REVIS and JONATHAN PINSON / townhouse venice
 
