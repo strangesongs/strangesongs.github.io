@@ -21,3 +21,4 @@ date finished TITLE (year) author (notes)
 - 5.5 THE FOUR AGREEMENTS (1997) don miguel ruiz
 - 5.9 FORMATION: BUILDING A PERSONAL CANON PART ONE (2023) brad melhdau
 - 5.10 HOW TO FUCK LIKE A GIRL (2024) vera blossom
+- 5.12 ESCAPE FROM FREEDOM (1941) erich fromm
