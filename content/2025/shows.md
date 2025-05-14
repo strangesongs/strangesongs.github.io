@@ -26,4 +26,5 @@ date PERFORMER / venue / notes
 - 4.26 PHISH / hollywood bowl
 - 4.30 GODSPEED YOU! BLACK EMPEROR / the bellweather
 - 5.8 PAUL CORNISH w/JEFF PARKER, ERIC REVIS and JONATHAN PINSON / townhouse venice
+- 5.13 GOOD DOG: BILL FRISELL, GREG LEISZ, TONY SCHERR and KENNY WOLLESEN / zebulon
 
