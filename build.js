@@ -6,7 +6,7 @@ function processMarkdown(content) {
     // Remove frontmatter
     content = content.replace(/^---[\s\S]*?---\n/, '');
     
-    // Convert markdown-style lists to HTML first (before paragraph processing)
+    // Convert markdown-style lists to HTML first
     content = content.replace(/^- (.+)$/gm, '<li>$1</li>');
     
     // Wrap consecutive list items in ul tags
@@ -17,8 +17,22 @@ function processMarkdown(content) {
     content = content.replace(/^## (.+)$/gm, '<h2>$1</h2>');
     content = content.replace(/^# (.+)$/gm, '<h1>$1</h1>');
     
-    // Clean up extra whitespace and empty lines
-    content = content.replace(/\n\s*\n/g, '\n');
+    // Wrap non-HTML lines in paragraphs (for the "date PERFORMER" lines)
+    const lines = content.split('\n');
+    const processedLines = lines.map(line => {
+        line = line.trim();
+        if (line === '' || line.startsWith('<') || line.startsWith('date finished') || line.startsWith('date TITLE') || line.startsWith('date PERFORMER')) {
+            // If it's a header line, wrap it in a paragraph
+            if (line.startsWith('date ')) {
+                return `<p>${line}</p>`;
+            }
+            return line;
+        }
+        return line;
+    });
+    
+    // Clean up extra whitespace
+    content = processedLines.join('\n').replace(/\n\s*\n/g, '\n');
     
     return content;
 }
