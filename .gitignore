@@ -14,3 +14,5 @@ node_modules/
 *.html
 !templates/*.html
 scripts.js
+*.html
+scripts.js
