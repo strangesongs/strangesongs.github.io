@@ -32,31 +32,8 @@ jobs:
     - name: Install dependencies
       run: npm ci
     
-    - name: Debug - Check files exist
-      run: |
-        echo "=== Current directory ==="
-        pwd
-        echo "=== Files in root ==="
-        ls -la
-        echo "=== Templates directory ==="
-        ls -la templates/
-        echo "=== Content directory ==="
-        find content/ -name "*.md" | head -10
-    
     - name: Build site
-      run: |
-        echo "=== Running build ==="
-        npm run build
-        echo "=== Build completed ==="
-      
-    - name: Debug - Check build output
-      run: |
-        echo "=== Files after build ==="
-        ls -la
-        echo "=== HTML files ==="
-        ls -la *.html || echo "No HTML files found"
-        echo "=== Build script content ==="
-        head -20 build.js
+      run: npm run build
       
     - name: Setup Pages
       uses: actions/configure-pages@v4
