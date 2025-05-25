@@ -86,17 +86,16 @@ async function buildYear(year) {
     const html = ejs.render(template, {
         content: sections.join('\n'),
         year: year,
-        previousYears: otherYearsHtml
+        previousYears: otherYearsHtml,
+        lastUpdated: new Date().toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        })
     });
 
     fs.writeFileSync(`${year}.html`, html);
     console.log(`Generated ${year}.html`);
-    
-    // Copy static assets
-    if (fs.existsSync('templates/scripts.js')) {
-        fs.copyFileSync('templates/scripts.js', 'scripts.js');
-        console.log('Copied scripts.js');
-    }
 }
 
 async function build() {
