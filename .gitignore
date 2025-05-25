@@ -10,3 +10,5 @@ node_modules/
 .vscode/
 .idea/
 
+*.html
+node_modules/

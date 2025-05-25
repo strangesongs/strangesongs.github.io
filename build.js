@@ -6,31 +6,21 @@ function processMarkdown(content) {
     // Remove frontmatter
     content = content.replace(/^---[\s\S]*?---\n/, '');
     
-    // Convert markdown-style lists to HTML
+    // Convert markdown-style lists to HTML first (before paragraph processing)
     content = content.replace(/^- (.+)$/gm, '<li>$1</li>');
     
     // Wrap consecutive list items in ul tags
     content = content.replace(/(<li>.*<\/li>\s*)+/gs, '<ul>$&</ul>');
     
-    // Convert headers (## becomes h2, ### becomes h3, etc.)
+    // Convert headers
     content = content.replace(/^### (.+)$/gm, '<h3>$1</h3>');
     content = content.replace(/^## (.+)$/gm, '<h2>$1</h2>');
     content = content.replace(/^# (.+)$/gm, '<h1>$1</h1>');
     
-    // Convert paragraphs (non-empty lines that aren't already HTML)
-    const lines = content.split('\n');
-    const processedLines = lines.map(line => {
-        line = line.trim();
-        if (line === '' || line.startsWith('<') || line.startsWith('date finished')) {
-            return line;
-        }
-        if (!line.startsWith('<li>') && !line.startsWith('<h')) {
-            return `<p>${line}</p>`;
-        }
-        return line;
-    });
+    // Clean up extra whitespace and empty lines
+    content = content.replace(/\n\s*\n/g, '\n');
     
-    return processedLines.join('\n');
+    return content;
 }
 
 async function buildYear(year) {
@@ -47,9 +37,8 @@ async function buildYear(year) {
     let content = '<div class="container">\n';
     const sections = [
         { name: 'books', title: 'read' },
-        { name: 'movies', title: 'watch' },
-        { name: 'tv', title: 'tv' },
-        { name: 'music', title: 'listen' }
+        { name: 'films', title: 'watch' },
+        { name: 'shows', title: 'listen' }
     ];
     
     sections.forEach(section => {
@@ -71,7 +60,7 @@ async function buildYear(year) {
     
     content += '</div>\n';
     
-    // Generate previous years nav (horizontal bar style)
+    // Generate previous years nav
     const allYears = ['2022', '2023', '2024', '2025'];
     const otherYears = allYears.filter(y => y !== year);
     const previousYears = otherYears.map(y => `<li><a href="${y}.html">${y}</a></li>`).join('\n                ');
