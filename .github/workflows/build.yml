@@ -9,14 +9,14 @@ on:
       - 'build.js'
       - 'package.json'
 
-# Allow the workflow to write to the repository
-permissions:
-  contents: write
-
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
     steps:
     - uses: actions/checkout@v3
     
@@ -30,13 +30,15 @@ jobs:
     
     - name: Build site
       run: npm run build
-    
-    - name: Configure Git
-      run: |
-        git config user.name "GitHub Actions Bot"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-    
-    - name: Commit and push if changed
-      run: |
-        git add .
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-build: Update site content" && git push)
+      
+    - name: Setup Pages
+      uses: actions/configure-pages@v3
+      
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v2
+      with:
+        path: '.'
+        
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2

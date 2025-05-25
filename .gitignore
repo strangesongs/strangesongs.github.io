@@ -9,3 +9,8 @@ node_modules/
 # IDE specific files
 .vscode/
 .idea/
+
+# Generated files
+*.html
+!templates/*.html
+scripts.js
