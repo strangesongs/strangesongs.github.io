@@ -1,13 +1,12 @@
 {
-  "name": "lists",
+  "name": "list2024",
   "version": "1.0.0",
+  "description": "Watch read listen lists",
+  "main": "build.js",
   "scripts": {
-    "build": "node build.js",
-    "watch": "node build.js --watch"
+    "build": "node build.js"
   },
   "dependencies": {
-    "marked": "^13.0.0",
-    "front-matter": "^4.0.2",
     "ejs": "^3.1.9"
   }
 }
