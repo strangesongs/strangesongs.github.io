@@ -11,7 +11,6 @@ marked.setOptions({
 
 // Function to add spacing between months
 function addMonthSpacing(htmlContent) {
-    // Split by lines and add spacing between different month numbers
     const lines = htmlContent.split('\n');
     let result = [];
     let currentMonth = null;
@@ -21,7 +20,7 @@ function addMonthSpacing(htmlContent) {
         result.push(line);
         
         // Check if this line contains a date pattern like "- 1.xx" or "- 2.xx"
-        const match = line.match(/<li>-?\s*(\d+)\./);
+        const match = line.match(/<li>(\d+)\./);
         if (match) {
             const month = match[1];
             if (currentMonth && currentMonth !== month) {
@@ -59,6 +58,9 @@ async function buildYear(year) {
             const title = content.attributes && content.attributes.title ? content.attributes.title : section;
             let parsedContent = marked.parse(content.body);
             
+            // Remove wrapping <p> tags from list items
+            parsedContent = parsedContent.replace(/<li><p>(.*?)<\/p><\/li>/g, '<li>$1</li>');
+            
             // Add month spacing for years that have dates
             if (year !== '2022' && year !== '2023') {
                 parsedContent = addMonthSpacing(parsedContent);
@@ -78,7 +80,7 @@ async function buildYear(year) {
     
     // Generate other years list (excluding current year) - sort in reverse order
     const allYears = ['2022', '2023', '2024', '2025'];
-    const otherYears = allYears.filter(y => y !== year).sort().reverse(); // Reverse to show newest first
+    const otherYears = allYears.filter(y => y !== year).sort().reverse();
     const otherYearsHtml = otherYears.map(y => `<li><a href="${y}.html">${y}</a></li>`).join('\n                ');
     
     const html = ejs.render(template, {

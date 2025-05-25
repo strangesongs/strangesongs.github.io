@@ -1,104 +1,167 @@
-body {
-    font-family: Georgia, serif;
-    margin: 0;
-    padding: 20px;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    font-size: 14px;
+/*
+* Based on Skeleton V2.0.4 with custom modifications
+* Copyright 2014, Dave Gamache
+* www.getskeleton.com
+*/
+
+/* Base Styles from Skeleton
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+html {
+  font-size: 62.5%; 
 }
 
+body {
+  font-size: 1.5em; 
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222;
+  margin: 0;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Typography from Skeleton with modifications
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 300; 
+}
+
+h1 { 
+  font-size: 3.2rem; 
+  line-height: 1.2;  
+  letter-spacing: -.1rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+h3 { 
+  font-size: 2.4rem; 
+  line-height: 1.3;  
+  letter-spacing: -.1rem; 
+  color: #333;
+  margin-bottom: 15px;
+}
+
+p {
+  margin-top: 0; 
+}
+
+/* Links from Skeleton
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+a {
+  color: #1EAEDB; 
+}
+
+a:hover {
+  color: #0FA0CE; 
+}
+
+/* Custom Layout Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 header {
-    text-align: center;
-    margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 nav#other-years {
-    text-align: center;
-    margin: 20px 0 40px 0;
-    padding: 15px 0;
+  text-align: center;
+  margin: 20px 0 40px 0;
+  padding: 15px 0;
 }
 
 nav#other-years h3 {
-    margin: 0 0 10px 0;
-    font-size: 16px;
-    color: #666;
+  margin: 0 0 10px 0;
+  font-size: 1.6rem;
+  color: #666;
+  font-weight: 400;
 }
 
 nav#other-years ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: baseline; /* This ensures all items align to the same baseline */
-    gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 20px;
 }
 
 nav#other-years li {
-    display: inline-block; /* Changed from inline to inline-block for better control */
-    margin: 0; /* Remove any default margins */
-    padding: 0; /* Remove any default padding */
-    vertical-align: baseline; /* Ensure consistent vertical alignment */
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
 }
 
 nav#other-years a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    display: inline-block; /* Consistent display type */
-    line-height: 1; /* Consistent line height */
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  display: inline-block;
+  line-height: 1;
 }
 
 nav#other-years a:hover {
-    text-decoration: underline;
+  color: #1EAEDB;
+  text-decoration: underline;
 }
 
 section {
-    margin: 40px 0;
+  margin: 40px 0;
 }
 
-h1 {
-    color: #333;
-    font-size: 1.8em;
-    margin-bottom: 10px;
-}
-
-h3 {
-    color: #333;
-    font-size: 1.2em;
-    margin-bottom: 15px;
-}
-
+/* Lists - Modified from Skeleton
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 ul {
-    list-style-type: none;
-    padding: 0;
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+ol {
+  list-style: decimal inside;
+  padding-left: 0;
+  margin-top: 0;
 }
 
 li {
-    margin-bottom: 8px;
-    padding-left: 10px;
+  margin-bottom: 0.8rem;
+  padding-left: 10px;
 }
 
 /* Add spacing between months */
 li + li {
-    margin-top: 8px;
+  margin-top: 0.8rem;
 }
 
+/* Footer
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 footer {
-    margin-top: 60px;
-    padding-top: 20px;
-    text-align: center;
-    color: #666;
-    font-size: 0.9em;
+  margin-top: 60px;
+  padding-top: 20px;
+  text-align: center;
+  color: #666;
+  font-size: 1.3rem;
 }
 
 footer a {
-    color: #333;
-    text-decoration: none;
+  color: #333;
+  text-decoration: none;
 }
 
 footer a:hover {
-    text-decoration: underline;
+  color: #1EAEDB;
+  text-decoration: underline;
+}
+
+/* Media Queries from Skeleton
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media (min-width: 550px) {
+  h1 { font-size: 4.0rem; }
+  h3 { font-size: 3.0rem; }
 }
