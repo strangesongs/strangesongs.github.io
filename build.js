@@ -76,9 +76,9 @@ async function buildYear(year) {
 
     const template = fs.readFileSync('templates/index.html', 'utf8');
     
-    // Generate other years list (excluding current year)
+    // Generate other years list (excluding current year) - sort in reverse order
     const allYears = ['2022', '2023', '2024', '2025'];
-    const otherYears = allYears.filter(y => y !== year).sort();
+    const otherYears = allYears.filter(y => y !== year).sort().reverse(); // Reverse to show newest first
     const otherYearsHtml = otherYears.map(y => `<li><a href="${y}.html">${y}</a></li>`).join('\n                ');
     
     const html = ejs.render(template, {
@@ -94,10 +94,6 @@ async function buildYear(year) {
     if (fs.existsSync('templates/scripts.js')) {
         fs.copyFileSync('templates/scripts.js', 'scripts.js');
         console.log('Copied scripts.js');
-    }
-    if (fs.existsSync('style.css')) {
-        // Style.css is already in the root, no need to copy
-        console.log('Using existing style.css');
     }
 }
 

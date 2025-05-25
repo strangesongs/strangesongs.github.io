@@ -6,6 +6,7 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    font-size: 14px;
 }
 
 header {
@@ -17,8 +18,6 @@ nav#other-years {
     text-align: center;
     margin: 20px 0 40px 0;
     padding: 15px 0;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
 }
 
 nav#other-years h3 {
@@ -33,17 +32,23 @@ nav#other-years ul {
     margin: 0;
     display: flex;
     justify-content: center;
+    align-items: baseline; /* This ensures all items align to the same baseline */
     gap: 20px;
 }
 
 nav#other-years li {
-    display: inline;
+    display: inline-block; /* Changed from inline to inline-block for better control */
+    margin: 0; /* Remove any default margins */
+    padding: 0; /* Remove any default padding */
+    vertical-align: baseline; /* Ensure consistent vertical alignment */
 }
 
 nav#other-years a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
+    display: inline-block; /* Consistent display type */
+    line-height: 1; /* Consistent line height */
 }
 
 nav#other-years a:hover {
@@ -56,16 +61,14 @@ section {
 
 h1 {
     color: #333;
-    font-size: 2em;
+    font-size: 1.8em;
     margin-bottom: 10px;
 }
 
 h3 {
     color: #333;
-    font-size: 1.3em;
+    font-size: 1.2em;
     margin-bottom: 15px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
 }
 
 ul {
@@ -86,7 +89,6 @@ li + li {
 footer {
     margin-top: 60px;
     padding-top: 20px;
-    border-top: 1px solid #ddd;
     text-align: center;
     color: #666;
     font-size: 0.9em;
