@@ -4,12 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>watch read listen <%= year %></title>
-        <style>
-            ul {
-                list-style-type: none;
-                padding: 0;
-            }
-        </style>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <header>
@@ -17,14 +12,14 @@
             <p>Last updated: <span id="last-updated"></span></p>
         </header>
 
-        <%- content %>
-
-        <section id="previous-years">
-            <h3>previous years</h3>
+        <nav id="other-years">
+            <h3>other years</h3>
             <ul>
                 <%- previousYears %>
             </ul>
-        </section>
+        </nav>
+
+        <%- content %>
 
         <footer>
             <p>contact me at <a href="mailto:jcrtll@protonmail.com">jcrtll@protonmail.com</a></p>
