@@ -1,0 +1,101 @@
+---
+title: read
+date: 2022
+---
+
+finished TITLE (year) author (notes)
+
+- THE GOLDEN GATE vikram seth
+- THE PLEASURE OF THE TEXT sami alwani
+- HARD TRAVEL TO SACRED PLACES rudolph wurlitzer
+- THE UNDERGROUND RAILROAD colson whitehead
+- A PEOPLE'S GREEN NEW DEAL max aji
+- NOTHING PERSONAL james baldwin and richard avedon
+- VOICES FROM THE VALLEY edited by ben tarnoff and moira weigel
+- SUPER PUMPED: THE BATTLE FOR UBER mike issac
+- THE WISDOM OF INSECURITY alan watts
+- LASERWRITER II tamara shopsin
+- ABOLISH SILICON VALLEY wendy liu
+- I AM THE WOLF mark lanegan
+- SLOW FADE rudolph wurlitzer
+- LURKING: HOW A PERSON BECAME A USER joanna mcneil
+- ARBITRARY STUPID GOAL tamara shopsin
+- FLATS rudolph wurlitzer
+- OCCULT AMERICA mitch horowitz
+- SING BACKWARDS AND WEEP mark lanegan
+- THE FEMALE MAN joanna russ
+- QUAKE rudolph wurlitzer
+- WHAT TECH CALLS THINKING adrian daub
+- HOW BUILDINGS LEARN stewart brand
+- ENGLAND'S HIDDEN REVERSE david keenan
+- BICYCLE DAY brian blomerth
+- THE SWEETER SIDE OF R. CRUMB r. crumb
+- R. CRUMB'S AMERICA r. crumb
+- PARALLEL LIVES o. scharuwen
+- JIM CROW AND ITS AFTERLIVES adolph reed
+- THE MAN WITHOUT QUALITIES yoshiharu tsuge
+- LOVE THAT BUNCH aline kominsky-crumb
+- THE COMPLETE RECORD COVER COLLECTION r. crumb
+- YOUR VIGOR FOR LIFE APPALLS ME r. crumb
+- THE R. CRUMB HANDBOOK r. crumb and peter poplaski
+- PHOTOGRAPHY AT MOMA: 1960 TO NOW edited by quentin bajac
+- NINA SIMONE'S GUM warren ellis
+- THE MAN WHO GREW HIS BEARD olivier scharuwen
+- ARSENE SCHARUWEN olivier scharuwen
+- DRAWN TOGETHER aline kominsky-crumb and r. crumb
+- WHITE CUBE brecht vanderbroucke
+- BINKY BROWN MEETS THE HOLY VIRGIN MARY justin green
+- HOW ARCHITECTURE WORKS: A HUMANIST'S TOOLKIT witold rybczynski
+- THE DEMOCRATIC FOREST william eggleston (photography)
+- THE MAN IN THE CROWD: THE UNEASY STREETS OF GARRY WINOGRAND (photography)
+- LINDBERGH / WINOGRAND: WOMEN garry winogrand and peter lindbergh
+- MY NEW YORK DIARY julie doucet
+- ROBERT FRANK: GOOD DAYS QUIET robert frank
+- ROBERT FRANK: LONDON/WALES robert frank
+- ROBERT FRANK: IN AMERICA robert frank + peter galassi
+- SIGMAR POLKE: PHOTOWORKS, WHEN PICTURES VANISH sigmar polke
+- SIGMAR POLKE: THE THREE LIES OF PAINTING sigmar polke
+- THE BOOK OF WEIRDO: A RETROSPECTIVE jon b. cooke
+- THE BOULEVARD OF BROKEN DREAMS kim deitch
+- REINCARNATION STORIES kim deitch
+- THE MYTHOLOGY OF S. CLAY WILSON, VOLUME 1 s. clay wilson
+- THE STREET PHILOSOPHY OF GARRY WINOGRAND geoff dyer/garry winogrand
+- VIVIAN MAIER: OUT OF THE SHADOWS vivian maier
+- CRUISING WITH THE HOUND spain rodriguez
+- WIM WENDERS: INSTANT STORIES wim wenders
+- WRITTEN ON THE WIND wim wenders
+- THE BEST OF AMERICAN SPLENDOR harvey pekar
+- THE END anders nilsen
+- RAGE OF POSEIDON anders nilsen
+- OUR CANCER YEAR harvey pekar and joyce brabner
+- BETA TESTING THE ONGOING APOCALYPSE tom kaczynski
+- TOPS: THE COMPLETE COLLECTION charles biro
+- HALCYON ron regé
+- THE HAND OF BLACK AND OTHER STORIES martin cendreda
+- KEITH HARING: JOURNALS keith haring
+- OUTLAW CULTURE: RESISTING REPRESENTATIONS bell hooks
+- SELF PORTRAIT WITH GHOSTS: SHORT STORIES meng jin
+- THE STREET PHOTOGRAPHER'S MANUAL david gibson
+- THIS PRECIOUS LIFE: TIBETAN BUDDHIST TEACHINGS ON THE PATH TO ENLIGHTENMENT khandro rinpoche
+- VON SPATZ anna haifisch
+- DISORIENTATION elaine hsieh chou
+- CAMERA LUCIDA roland barthes
+- SLEEPING WITH THE DICTIONARY harryette mullen
+- ALL THIS COULD BE DIFFERENT sarah thankam mathews
+- JAZZ FAN LOOKS BACK jayne cortez
+- THE LANGUAGE OF SAXOPHONES kamau daaood
+- THE WISDOM OF NO ESCAPE pema chodron
+- RECYCLOPEDIA: TRIMMINGS, S*PERM**K*T, AND MUSE & DRUDGE harryette mullen
+- THE LIES THAT BIND: RETHINKING IDENTITY kwame anthony appiah
+- FELICITY mary oliver
+- DEVOTIONS mary oliver
+- EMERGENT STRATEGY adrienne maree brown
+- THE SHALLOWS: WHAT THE INTERNET IS DOING TO OUR BRAIN nicholas carr
+- FAITH, HOPE AND CARNAGE nick cave, seán o'hagan
+- STAY TRUE hua hsu
+- THE LOG FROM THE SEA OF CORTEZ john steinbeck
+- OCTAVE THE ARTIST adam j. elkhadem
+- LIVING IN THE FACE OF DEATH: THE TIBETAN TRADITION glenn h mullin
+- TAKING THE LEAP pema chodron
+- BERSERK: VOL. 1 kentaro miura
+- BERSERK: VOL. 2 kentaro miura
