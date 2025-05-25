@@ -2,10 +2,34 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>watch read listen</title>
-        <meta http-equiv="refresh" content="0;url=2025.html">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>watch read listen <%= year %></title>
+        
+        <!-- Skeleton CSS via CDN -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+        <link rel="stylesheet" href="style.css">
+        
+        <!-- Google Fonts for Raleway -->
+        <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <p>Redirecting to <a href="2025.html">current year</a>...</p>
+        <header>
+            <h1>watch read listen <%= year %></h1>
+        </header>
+
+        <nav id="other-years">
+            <h3>other years</h3>
+            <ul>
+                <%- previousYears %>
+            </ul>
+        </nav>
+
+        <%- content %>
+
+        <footer>
+            <p>contact me at <a href="mailto:jcrtll@protonmail.com">jcrtll@protonmail.com</a></p>
+            <p>Last updated: <%= lastUpdated %></p>
+        </footer>
     </body>
 </html>
