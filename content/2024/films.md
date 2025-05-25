@@ -4,7 +4,6 @@ date: 2024
 ---
 
 date TITLE (year) d. director / format / location / notes
-
 * denotes repeat viewing
 
 - 1.14 THE DEVILS (1971) d. ken russell / streaming criterion channel

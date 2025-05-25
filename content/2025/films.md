@@ -4,7 +4,6 @@ date: 2025
 ---
 
 date TITLE (year) d. director / format / location / notes
-
 * denotes repeat viewing
 
 - 1.3 VIDEODROME (DIRECTOR'S CUT) (1983) d. david cronenberg / 4k restoration / academy museum
