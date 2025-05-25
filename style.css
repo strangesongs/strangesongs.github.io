@@ -177,7 +177,7 @@ header {
 /* Tighten up the other years navigation */
 nav#other-years {
   text-align: center;
-  margin: 10px 0 30px 0; /* Reduced top and bottom margins */
+  margin: 10px 0 15px 0; /* Reduced top and bottom margins */
   padding: 10px 0; /* Reduced from 15px */
 }
 
