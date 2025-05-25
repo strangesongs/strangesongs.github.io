@@ -35,6 +35,9 @@ jobs:
     - name: Build site
       run: npm run build
       
+    - name: List built files (debug)
+      run: ls -la *.html
+      
     - name: Setup Pages
       uses: actions/configure-pages@v4
       
