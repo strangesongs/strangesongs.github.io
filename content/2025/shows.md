@@ -28,4 +28,5 @@ date PERFORMER / venue / notes
 - 5.8 PAUL CORNISH w/JEFF PARKER, ERIC REVIS and JONATHAN PINSON / townhouse venice
 - 5.13 GOOD DOG: BILL FRISELL, GREG LEISZ, TONY SCHERR and KENNY WOLLESEN / zebulon
 - 5.20 TIGRAN HAMASYAN / schoenberg hall @ ucla
+- 5.30 BILL ORCUTT "THE FOUR LOUIES" / zebulon
 
