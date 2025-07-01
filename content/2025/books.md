@@ -22,3 +22,8 @@ date finished TITLE (year) author (notes)
 - 5.9 FORMATION: BUILDING A PERSONAL CANON PART ONE (2023) brad melhdau
 - 5.10 HOW TO FUCK LIKE A GIRL (2024) vera blossom
 - 5.12 ESCAPE FROM FREEDOM (1941) erich fromm
+- 6.5 THE WAY OF EVERYDAY LIFE (1978) taizan maezumi roshi
+- 6.18 CUTTING THROUGH SPIRTUAL MATERIALISM (1973) chogyam trungpa
+- 6.29 STARSHIP TROOPERS (1959) robert a. heinlein
+- 6.30 MARTIN DRESSLER: THE LIFE OF AN AMERICAN DREAMER (1996) steven millhauser
+

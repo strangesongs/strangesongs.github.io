@@ -33,6 +33,6 @@ date TITLE (year) d. director / format / location / notes
 - 3.22 COLLATERAL (2014) d. michael mann / streaming / criterion channel
 - 4.13 THE EMPEROR'S NAKED ARMY MARCHES ON (1987) d. kazuo hara / 35mm screening with q+a featuring kazuo hara + errol morris in person
 - 4.15 EXTREME PRIVATE EROS: LOVE SONG 1974 (1974) d. kazuo hara / 35mm screening with q+a feat. kazuo hara
- - 6.1 CURE (1997) kiyoshi kurosawa / streaming / criterion channel
- - 6.7 BEAU TRAVAIL (1999) d. claire denis / dcp / egyptian theater
+- 6.1 CURE (1997) kiyoshi kurosawa / streaming / criterion channel
+- 6.7 BEAU TRAVAIL (1999) d. claire denis / dcp / egyptian theater
 
