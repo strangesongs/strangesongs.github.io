@@ -35,6 +35,7 @@ date TITLE (year) d. director / format / location / notes
 - 4.15 EXTREME PRIVATE EROS: LOVE SONG 1974 (1974) d. kazuo hara / 35mm screening with q+a feat. kazuo hara
 - 6.1 CURE (1997) kiyoshi kurosawa / streaming / criterion channel
 - 6.7 BEAU TRAVAIL (1999) d. claire denis / dcp / egyptian theater
-- 7.3 CROCUS (1971) d. suzan pitt / streaming / criterion channel
+- 7.3 CROCUS (1971) d. suzan pitt / streaming / criterion channelE 
 - 7.5 FLIPSIDE (2023) d. christopher wilca / streaming / criterion channel
+- 7.6 MILLENNIUM MAMBO (2001) d. hou hsiao-hsien / dcp / los feliz 3
 
