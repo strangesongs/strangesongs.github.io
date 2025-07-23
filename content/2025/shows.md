@@ -31,6 +31,7 @@ date PERFORMER / venue / notes
 - 5.30 BILL ORCUTT "THE FOUR LOUIES" / zebulon
 - 6.23 THE JUST ALAP RAGA ENSEMBLE (LA MONTE YOUNG, JUNG HEE CHOI, JON CATLER, HANDSFORD ROWE, AREN BUDHKAR) / dream house / marian zazeela + pandit pran nath memorial tribute
 - 6.28 LINDA MAY HAN ON / AMBROSE AKINMUSIRE / TYSHAWN SOREY / village vanguard 
+- 7.18 WALT MCCLEMENRS / ISAIAH SHERMAN / JULIUS SMACK / 2220 archives
 
 
 
