@@ -26,4 +26,5 @@ date finished TITLE (year) author (notes)
 - 6.18 CUTTING THROUGH SPIRTUAL MATERIALISM (1973) chogyam trungpa
 - 6.29 STARSHIP TROOPERS (1959) robert a. heinlein
 - 6.30 MARTIN DRESSLER: THE LIFE OF AN AMERICAN DREAMER (1996) steven millhauser
+- 7.26 ZEN BUDDHISM AND PSYCHOANALYSIS (1960) d.t. suzuki, erich fromm and richard de martino
 
