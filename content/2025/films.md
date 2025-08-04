@@ -38,4 +38,6 @@ date TITLE (year) d. director / format / location / notes
 - 7.3 CROCUS (1971) d. suzan pitt / streaming / criterion channelE 
 - 7.5 FLIPSIDE (2023) d. christopher wilca / streaming / criterion channel
 - 7.6 MILLENNIUM MAMBO (2001) d. hou hsiao-hsien / dcp / los feliz 3
+- 7.9 MADE IN HONG KONG (1997) d. fruit chan / dcp / los feliz 3
+- 7.15 THE KEEP (1983) d. michael mann / streaming / criterion channel
 
