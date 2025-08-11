@@ -40,4 +40,6 @@ date TITLE (year) d. director / format / location / notes
 - 7.6 MILLENNIUM MAMBO (2001) d. hou hsiao-hsien / dcp / los feliz 3
 - 7.9 MADE IN HONG KONG (1997) d. fruit chan / dcp / los feliz 3
 - 7.15 THE KEEP (1983) d. michael mann / streaming / criterion channel
+- 8.8 LORD OF THE RINGS: THE FELLOWSHIP OF THE RING (EXTENDED EDITION) (2001) d. peter jackson / torrent
+- 8.10 BY THE STREAM (2024) d. hong sang-soo / dcp / los feliz 3
 
