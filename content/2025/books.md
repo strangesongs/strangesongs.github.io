@@ -30,3 +30,4 @@ date finished TITLE (year) author (notes)
 - 7.30 I REGRET ALMOST EVERYTHING (2025) keith mcnally
 - 8.3 THE LIMINAL ZONE VOLUME 1 (2021) junji ito
 
+

@@ -42,4 +42,5 @@ date TITLE (year) d. director / format / location / notes
 - 7.15 THE KEEP (1983) d. michael mann / streaming / criterion channel
 - 8.8 LORD OF THE RINGS: THE FELLOWSHIP OF THE RING (EXTENDED EDITION) (2001) d. peter jackson / torrent
 - 8.10 BY THE STREAM (2024) d. hong sang-soo / dcp / los feliz 3
+- 8.11 IN WATER (2023) d. hong sang-soo / streaming / kanopy
 
