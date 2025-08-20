@@ -29,5 +29,7 @@ date finished TITLE (year) author (notes)
 - 7.26 ZEN BUDDHISM AND PSYCHOANALYSIS (1960) d.t. suzuki, erich fromm and richard de martino
 - 7.30 I REGRET ALMOST EVERYTHING (2025) keith mcnally
 - 8.3 THE LIMINAL ZONE VOLUME 1 (2021) junji ito
-
+- 8.16 ON ZEN PRACTICE (2002) taizan maezumi and bernie glassman
+- 8.18 SPIRITUAL ECOLOGY: THE CRY OF THE EARTH (2013) edited by lewellyn vaughan-lee
+- 8.19 THE BALLAD OF BETA-2 (1965) samuel r. delaney
 
