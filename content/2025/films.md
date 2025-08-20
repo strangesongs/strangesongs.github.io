@@ -43,4 +43,4 @@ date TITLE (year) d. director / format / location / notes
 - 8.8 LORD OF THE RINGS: THE FELLOWSHIP OF THE RING (EXTENDED EDITION) (2001) d. peter jackson / torrent
 - 8.10 BY THE STREAM (2024) d. hong sang-soo / dcp / los feliz 3
 - 8.11 IN WATER (2023) d. hong sang-soo / streaming / kanopy
-
+- 8.20 WAYS OF SEEING (1972) f. john berger / bbc / youtube
