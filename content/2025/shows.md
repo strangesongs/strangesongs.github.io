@@ -34,6 +34,8 @@ date PERFORMER / venue / notes
 - 7.18 WALT MCCLEMENTS / ISAIAH SHERMAN / JULIUS SMACK / 2220 archives
 - 8.2 BLACK NASA / HEXPRESSIONIST / HEN OF THE WOODS / SUNK COST / TREMBLE / MIASMA / spearmaiden
 - 8.6 TY SEGALL / PRIMUS / the greek theater
+- 8.20 JEFF PARKER ETA IVTET / zebulon
+
 
 
 

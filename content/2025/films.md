@@ -45,3 +45,4 @@ date TITLE (year) d. director / format / location / notes
 - 8.11 IN WATER (2023) d. hong sang-soo / streaming / kanopy
 - 8.20 WAYS OF SEEING (1972) f. john berger / bbc / youtube
 - 8.24 THE NOVELIST'S FILM (2022) d. hong sang-soo / streaming / kanopy
+- 8.26 THE FRIENDS (1994) shinji sōmai / 4k restoration / 2220 archives
