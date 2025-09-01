@@ -46,3 +46,5 @@ date TITLE (year) d. director / format / location / notes
 - 8.20 WAYS OF SEEING (1972) f. john berger / bbc / youtube
 - 8.24 THE NOVELIST'S FILM (2022) d. hong sang-soo / streaming / kanopy
 - 8.26 THE FRIENDS (1994) shinji sōmai / 4k restoration / 2220 archives
+- 8.30 MENUS-PLAISIRS, LES TROISGROS (2023) d. frederick wiseman / digital / los feliz 3
+- 8.31 DEEP COVER (1992) d. bill duke / streaming / criterion channel
