@@ -35,6 +35,7 @@ date PERFORMER / venue / notes
 - 8.2 BLACK NASA / HEXPRESSIONIST / HEN OF THE WOODS / SUNK COST / TREMBLE / MIASMA / spearmaiden
 - 8.6 TY SEGALL / PRIMUS / the greek theater
 - 8.20 JEFF PARKER ETA IVTET / zebulon
+- 9.4 ORCUTT / SHELLEY / MILLER / barnsdall theater
 
 
 
