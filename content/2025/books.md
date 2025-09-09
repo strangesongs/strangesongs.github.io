@@ -33,4 +33,5 @@ date finished TITLE (year) author (notes)
 - 8.16 ON ZEN PRACTICE (2002) taizan maezumi and bernie glassman
 - 8.18 SPIRITUAL ECOLOGY: THE CRY OF THE EARTH (2013) edited by lewellyn vaughan-lee
 - 8.19 THE BALLAD OF BETA-2 (1965) samuel r. delaney
+- 9.1 APPLE IN CHINA (2025) patrick mcgee
 
