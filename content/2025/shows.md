@@ -35,7 +35,9 @@ date PERFORMER / venue / notes
 - 8.2 BLACK NASA / HEXPRESSIONIST / HEN OF THE WOODS / SUNK COST / TREMBLE / MIASMA / spearmaiden
 - 8.6 TY SEGALL / PRIMUS / the greek theater
 - 8.20 JEFF PARKER ETA IVTET / zebulon
-- 9.4 ORCUTT / SHELLEY / MILLER / barnsdall theatefo
+- 9.4 ORCUTT / SHELLEY / MILLER / barnsdall theater
+- 9.7 TERRY RILEY 90TH BIRTHDAY CELEBRATION w/ BANG ON A CAN ALL-STARS, GYAN RILEY, and special guests / the ford / keyboard study no. 2, a rainbow in curved air, in c
+
 
 
 

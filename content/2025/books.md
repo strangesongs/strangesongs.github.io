@@ -23,7 +23,7 @@ date finished TITLE (year) author (notes)
 - 5.10 HOW TO FUCK LIKE A GIRL (2024) vera blossom
 - 5.12 ESCAPE FROM FREEDOM (1941) erich fromm
 - 6.5 THE WAY OF EVERYDAY LIFE (1978) taizan maezumi roshi
-- 6.18 CUTTING THROUGH SPIRTUAL MATERIALISM (1973) chogyam trungpa
+- 6.18 CUTTING THROUGH SPIRITUAL MATERIALISM (1973) chogyam trungpa
 - 6.29 STARSHIP TROOPERS (1959) robert a. heinlein
 - 6.30 MARTIN DRESSLER: THE LIFE OF AN AMERICAN DREAMER (1996) steven millhauser
 - 7.26 ZEN BUDDHISM AND PSYCHOANALYSIS (1960) d.t. suzuki, erich fromm and richard de martino
@@ -34,4 +34,7 @@ date finished TITLE (year) author (notes)
 - 8.18 SPIRITUAL ECOLOGY: THE CRY OF THE EARTH (2013) edited by lewellyn vaughan-lee
 - 8.19 THE BALLAD OF BETA-2 (1965) samuel r. delaney
 - 9.1 APPLE IN CHINA (2025) patrick mcgee
+- 9.17 THREE LIVES (1909) gertrude stein
+- 9.20 LACK AND TRANSCENDENCE (2000) david r. loy
+- 9.21 SOFTWARE FOR PEOPLE (1984) pauline oliveros
 

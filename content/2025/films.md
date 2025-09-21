@@ -28,14 +28,14 @@ date TITLE (year) d. director / format / location / notes
 - 2.23 SLIVER (1993) d. philip noyce / digital / criterion channel
 - 2.28 RA: PATH OF THE SUN GOD (1990) d. lesley keen / digital / philosophical research society
 - 2.28 ORPHEUS AND EURYDICE (1984) d. lesley keen / digital / philosophical research society
-- 2.28 INVOCATION: AN ANCIENT GREEK CREATION MYTH (1984) d. lesley keen / digital / philsohopical research society
+- 2.28 INVOCATION: AN ANCIENT GREEK CREATION MYTH (1984) d. lesley keen / digital / philosophical research society
 - 3.16 THE YOUNG AND PRODIGIOUS T. S. SPIVET (2013) d. jean-pierre jeunet / 3D / gardena cinema
 - 3.22 COLLATERAL (2014) d. michael mann / streaming / criterion channel
 - 4.13 THE EMPEROR'S NAKED ARMY MARCHES ON (1987) d. kazuo hara / 35mm screening with q+a featuring kazuo hara + errol morris in person
 - 4.15 EXTREME PRIVATE EROS: LOVE SONG 1974 (1974) d. kazuo hara / 35mm screening with q+a feat. kazuo hara
 - 6.1 CURE (1997) kiyoshi kurosawa / streaming / criterion channel
 - 6.7 BEAU TRAVAIL (1999) d. claire denis / dcp / egyptian theater
-- 7.3 CROCUS (1971) d. suzan pitt / streaming / criterion channelE 
+- 7.3 CROCUS (1971) d. suzan pitt / streaming / criterion channel
 - 7.5 FLIPSIDE (2023) d. christopher wilca / streaming / criterion channel
 - 7.6 MILLENNIUM MAMBO (2001) d. hou hsiao-hsien / dcp / los feliz 3
 - 7.9 MADE IN HONG KONG (1997) d. fruit chan / dcp / los feliz 3
@@ -49,3 +49,6 @@ date TITLE (year) d. director / format / location / notes
 - 8.30 MENUS-PLAISIRS, LES TROISGROS (2023) d. frederick wiseman / digital / los feliz 3
 - 8.31 DEEP COVER (1992) d. bill duke / streaming / criterion channel
 - 8.31 DAYBREAK EXPRESS (1953) d. d.a. pennebaker / streaming / criterion channel
+- 9.19 CLAIRE'S CAMERA (2017) d. hong sang-soo / streaming / kanopy
+- 9.20 WAKING LIFE (2001) d. richard linklater / 35mm / new beverly cinema
+- 9.20 PAPRIKA (2006) d. satoshi kon / 35mm / new beverly cinema
