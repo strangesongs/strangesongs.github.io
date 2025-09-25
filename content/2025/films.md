@@ -52,3 +52,5 @@ date TITLE (year) d. director / format / location / notes
 - 9.19 CLAIRE'S CAMERA (2017) d. hong sang-soo / streaming / kanopy
 - 9.20 WAKING LIFE (2001) d. richard linklater / 35mm / new beverly cinema
 - 9.20 PAPRIKA (2006) d. satoshi kon / 35mm / new beverly cinema
+- 9.24 WALK UP (2022) d. hong sang-soo / streaming / kanopy
+- 9.24 TRIBULATION 99: ALIEN ANOMALIES UNDER AMERICA (1991) d. craig baldwin / streaming / night flight plus
