@@ -55,3 +55,4 @@ date TITLE (year) d. director / format / location / notes
 - 9.24 WALK UP (2022) d. hong sang-soo / streaming / kanopy
 - 9.24 TRIBULATION 99: ALIEN ANOMALIES UNDER AMERICA (1991) d. craig baldwin / streaming / night flight plus
 - 10.1 PORT OF SHADOWS (1938) d. marcel carne / streaming / kanopy
+- 10.1 THE WOMAN WHO RAN (2020) d. hong sang-soo / streaming / kanopy
