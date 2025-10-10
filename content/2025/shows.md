@@ -37,6 +37,7 @@ date PERFORMER / venue / notes
 - 8.20 JEFF PARKER ETA IVTET / zebulon
 - 9.4 ORCUTT / SHELLEY / MILLER / barnsdall theater
 - 9.7 TERRY RILEY 90TH BIRTHDAY CELEBRATION w/ BANG ON A CAN ALL-STARS, GYAN RILEY, and special guests / the ford / keyboard study no. 2, a rainbow in curved air, in c
+- 10.5 THE SEAGULL: MALIBU / will geer theatricum botanicum / adapted + directed by ellen geer
 
 
 

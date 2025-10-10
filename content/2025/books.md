@@ -37,4 +37,6 @@ date finished TITLE (year) author (notes)
 - 9.17 THREE LIVES (1909) gertrude stein
 - 9.20 LACK AND TRANSCENDENCE (2000) david r. loy
 - 9.21 SOFTWARE FOR PEOPLE (1984) pauline oliveros
+- 10.1 DOGEN'S PURE STANDARDS FOR THE ZEN COMMUNITY (1996) dogen zenji, translated by taigen daniel leighton and shohaku okumura
+- 10.8 LOS ANGELES'S CENTRAL AVENUE JAZZ (2014) sean j. o'connell
 
