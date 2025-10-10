@@ -57,3 +57,4 @@ date TITLE (year) d. director / format / location / notes
 - 10.1 PORT OF SHADOWS (1938) d. marcel carne / streaming / kanopy
 - 10.1 THE WOMAN WHO RAN (2020) d. hong sang-soo / streaming / kanopy
 - 10.3 ONE BATTLE AFTER ANOTHER (2025) d. paul thomas anderson / vista theater / in vista vision
+- 10.4 PURPLE NOON (1960) d. rene clement / streaming / criterion
