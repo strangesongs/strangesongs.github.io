@@ -38,6 +38,10 @@ date PERFORMER / venue / notes
 - 9.4 ORCUTT / SHELLEY / MILLER / barnsdall theater
 - 9.7 TERRY RILEY 90TH BIRTHDAY CELEBRATION w/ BANG ON A CAN ALL-STARS, GYAN RILEY, and special guests / the ford / keyboard study no. 2, a rainbow in curved air, in c
 - 10.5 THE SEAGULL: MALIBU / will geer theatricum botanicum / adapted + directed by ellen geer
+- 10.15 BRAD MEHLDAU / CHRISTIAN MCBRIDE / the wallis
+- 10.16 JEFF PARKER TRIO + HANGING HEARTS / 2220 archives / angel city jazz fest
+- 10.17 CHES SMITH’S CLONE ROW + MARY HALVORSON & TOMAS FUJIWARA DUO / 2220 archives / angel city jazz fest
+- 10.18 TORTOISE / the broad
 
 
 

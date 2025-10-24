@@ -58,3 +58,4 @@ date TITLE (year) d. director / format / location / notes
 - 10.1 THE WOMAN WHO RAN (2020) d. hong sang-soo / streaming / kanopy
 - 10.3 ONE BATTLE AFTER ANOTHER (2025) d. paul thomas anderson / vista theater / in vista vision
 - 10.4 PURPLE NOON (1960) d. rene clement / streaming / criterion
+- 10.23 BLACK SUNDAY (1960) d. mario bava / streaming / kanopy
