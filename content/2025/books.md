@@ -39,4 +39,5 @@ date finished TITLE (year) author (notes)
 - 9.21 SOFTWARE FOR PEOPLE (1984) pauline oliveros
 - 10.1 DOGEN'S PURE STANDARDS FOR THE ZEN COMMUNITY (1996) dogen zenji, translated by taigen daniel leighton and shohaku okumura
 - 10.8 LOS ANGELES'S CENTRAL AVENUE JAZZ (2014) sean j. o'connell
+- 10.26 SUBTRACTION (1991) mary robison
 
