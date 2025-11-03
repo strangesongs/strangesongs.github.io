@@ -59,3 +59,4 @@ date TITLE (year) d. director / format / location / notes
 - 10.3 ONE BATTLE AFTER ANOTHER (2025) d. paul thomas anderson / vista theater / in vista vision
 - 10.4 PURPLE NOON (1960) d. rene clement / streaming / criterion
 - 10.23 BLACK SUNDAY (1960) d. mario bava / streaming / kanopy
+- 11.3 THE ANDERSON TAPES (1970) d. sidney lumet / streaming / criterion channel
