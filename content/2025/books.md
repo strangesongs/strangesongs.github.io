@@ -40,4 +40,5 @@ date finished TITLE (year) author (notes)
 - 10.1 DOGEN'S PURE STANDARDS FOR THE ZEN COMMUNITY (1996) dogen zenji, translated by taigen daniel leighton and shohaku okumura
 - 10.8 LOS ANGELES'S CENTRAL AVENUE JAZZ (2014) sean j. o'connell
 - 10.26 SUBTRACTION (1991) mary robison
-
+- 10.26 SUBTRACTION (1991) mary robison
+- 11.8 THE LONE RANGER AND TONTO FISTFIGHT IN HEAVEN (1993) sherman alexie

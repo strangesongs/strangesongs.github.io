@@ -43,6 +43,7 @@ date PERFORMER / venue / notes
 - 10.17 CHES SMITH’S CLONE ROW + MARY HALVORSON & TOMAS FUJIWARA DUO / 2220 archives / angel city jazz fest
 - 10.18 TORTOISE / the broad
 - 10.24 RACHIKA NAYAR + NINA KEITH PRESENT 'DISINIBLUD' / TYLER HOLMES / 2220 archives
+- 11.10 NEKO CASE / the bellweather 
 
 
 
