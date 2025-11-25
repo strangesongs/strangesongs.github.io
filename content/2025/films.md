@@ -60,3 +60,5 @@ date TITLE (year) d. director / format / location / notes
 - 10.4 PURPLE NOON (1960) d. rene clement / streaming / criterion
 - 10.23 BLACK SUNDAY (1960) d. mario bava / streaming / kanopy
 - 11.3 THE ANDERSON TAPES (1970) d. sidney lumet / streaming / criterion channel
+- 11.9 MCCABE AND MRS. MILLER (1971) d. robert altman / criterion channel
+- 11.23 BORN IN FLAMES (1983) d. lizzie borden / ucla film archives / lizzie borden and adele bertei in person

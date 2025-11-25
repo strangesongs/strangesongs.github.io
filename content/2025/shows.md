@@ -44,6 +44,7 @@ date PERFORMER / venue / notes
 - 10.18 TORTOISE / the broad
 - 10.24 RACHIKA NAYAR + NINA KEITH PRESENT 'DISINIBLUD' / TYLER HOLMES / 2220 archives
 - 11.10 NEKO CASE / the bellweather 
+- 11.22 THE MUSIC OF PAULINE OLIVEROS WITH SHELLEY BURGON / 2220 arts and archives
 
 
 
