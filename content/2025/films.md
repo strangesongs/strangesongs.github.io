@@ -62,3 +62,7 @@ date TITLE (year) d. director / format / location / notes
 - 11.3 THE ANDERSON TAPES (1970) d. sidney lumet / streaming / criterion channel
 - 11.9 MCCABE AND MRS. MILLER (1971) d. robert altman / criterion channel
 - 11.23 BORN IN FLAMES (1983) d. lizzie borden / ucla film archives / lizzie borden and adele bertei in person
+- 11.26 OLDBOY (2003) d. park chan-wook / los feliz 3
+- 11.27 JAY KELLY (2025) d. noah baumbach / 4k / directors guild of america theater one
+- 11.28 ANGEL'S EGG (1985) d. mamoru oshii / egyptian theater / 4k restoration
+- 11.29 MAURICE (1987) d. james ivory / streaming / kanopy
