@@ -41,3 +41,5 @@ date finished TITLE (year) author (notes)
 - 10.8 LOS ANGELES'S CENTRAL AVENUE JAZZ (2014) sean j. o'connell
 - 10.26 SUBTRACTION (1991) mary robison
 - 11.8 THE LONE RANGER AND TONTO FISTFIGHT IN HEAVEN (1993) sherman alexie
+- 11.10 FRANCISCO (1974) allison mills newman
+- 12.5 TECHGNOSIS: MYTH, MAGIC AND MYSTICISM IN THE AGE OF INFORMATION (1998) erik davis

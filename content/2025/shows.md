@@ -34,7 +34,7 @@ date PERFORMER / venue / notes
 - 7.18 WALT MCCLEMENTS / ISAIAH SHERMAN / JULIUS SMACK / 2220 archives
 - 8.2 BLACK NASA / HEXPRESSIONIST / HEN OF THE WOODS / SUNK COST / TREMBLE / MIASMA / spearmaiden
 - 8.6 TY SEGALL / PRIMUS / the greek theater
-- 8.20 JEFF PARKER ETA IVTET / zebulon
+- 8.20 JEFF PARKER ETA IVTET / lodge room
 - 9.4 ORCUTT / SHELLEY / MILLER / barnsdall theater
 - 9.7 TERRY RILEY 90TH BIRTHDAY CELEBRATION w/ BANG ON A CAN ALL-STARS, GYAN RILEY, and special guests / the ford / keyboard study no. 2, a rainbow in curved air, in c
 - 10.5 THE SEAGULL: MALIBU / will geer theatricum botanicum / adapted + directed by ellen geer
@@ -45,6 +45,8 @@ date PERFORMER / venue / notes
 - 10.24 RACHIKA NAYAR + NINA KEITH PRESENT 'DISINIBLUD' / TYLER HOLMES / 2220 archives
 - 11.10 NEKO CASE / the bellweather 
 - 11.22 THE MUSIC OF PAULINE OLIVEROS WITH SHELLEY BURGON / 2220 arts and archives
+- 12.1 SML / 2220 arts and archives / two sets
+- 12.2 SML / 2220 arts and archives / two sets
 
 
 
