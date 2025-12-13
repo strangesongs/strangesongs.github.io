@@ -67,3 +67,4 @@ date TITLE (year) d. director / format / location / notes
 - 11.28 ANGEL'S EGG (1985) d. mamoru oshii / egyptian theater / 4k restoration
 - 11.29 MAURICE (1987) d. james ivory / streaming / kanopy
 - 12.5 CHAN IS MISSING (1982) d. wayne wang / streaming / kanopy
+- 12.10 SPRING, SUMMER, FALL, WINTER... AND SPRING (2003) d. kim ki-duk / los feliz 3 / 35mm
