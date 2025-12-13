@@ -43,3 +43,4 @@ date finished TITLE (year) author (notes)
 - 11.8 THE LONE RANGER AND TONTO FISTFIGHT IN HEAVEN (1993) sherman alexie
 - 11.10 FRANCISCO (1974) allison mills newman
 - 12.5 TECHGNOSIS: MYTH, MAGIC AND MYSTICISM IN THE AGE OF INFORMATION (1998) erik davis
+- 12.13 GREAT DRAGON KINGS (2021) john giorno

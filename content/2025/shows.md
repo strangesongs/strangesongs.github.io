@@ -47,6 +47,7 @@ date PERFORMER / venue / notes
 - 11.22 THE MUSIC OF PAULINE OLIVEROS WITH SHELLEY BURGON / 2220 arts and archives
 - 12.1 SML / 2220 arts and archives / two sets
 - 12.2 SML / 2220 arts and archives / two sets
+- 12.12 THE MOUNTAIN GOATS / teragram ballroom
 
 
 
