@@ -70,7 +70,7 @@ async function buildYear(year) {
             content += `        <div class="twelve columns">\n`;
             content += `            <section class="${section.name}">\n`;
             content += `                <h2>${section.title}</h2>\n`;
-            content += `                <p><strong>${count} total</strong></p>\n`;
+            content += `                <p>${count} total</p>\n`;
             content += `                ${processedContent}\n`;
             content += `            </section>\n`;
             content += `        </div>\n`;
