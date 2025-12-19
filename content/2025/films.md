@@ -67,4 +67,9 @@ date TITLE (year) d. director / format / location / notes
 - 11.28 ANGEL'S EGG (1985) d. mamoru oshii / egyptian theater / 4k restoration
 - 11.29 MAURICE (1987) d. james ivory / streaming / kanopy
 - 12.5 CHAN IS MISSING (1982) d. wayne wang / streaming / kanopy
-- 12.10 SPRING, SUMMER, FALL, WINTER... AND SPRING (2003) d. kim ki-duk / los feliz 3 / 35mm
+- 12.10 SPRING, SUMMER, FALL, WINTER... AND SPRING (2003) d. kim ki-duk / 35mm / los feliz 3
+- 12.14 A TASTE OF CHERRY (1997) d. abbas kiarostami / 35 mm / egyptian theater *
+- 12.14 BY THE STREAM (2024) d. hong sang-soo / digital file
+- 12.15 SUNDAY IN PEKING (1956) d. chris marker / streaming / criterion channel
+- 12.16 THE MASTERMIND (2025) d. kelly reichardt / streaming / mubi
+- 12.17 EEPHUS (2024) d. carson lund / streaming / mubi

@@ -59,12 +59,18 @@ async function buildYear(year) {
         const filePath = path.join(contentDir, `${section.name}.md`);
         if (fs.existsSync(filePath)) {
             const rawContent = fs.readFileSync(filePath, 'utf8');
+            
+            // Count list items (lines starting with -)
+            const listItems = rawContent.match(/^- /gm);
+            const count = listItems ? listItems.length : 0;
+            
             const processedContent = processMarkdown(rawContent);
             
             content += `    <div class="row">\n`;
             content += `        <div class="twelve columns">\n`;
             content += `            <section class="${section.name}">\n`;
             content += `                <h2>${section.title}</h2>\n`;
+            content += `                <p><strong>${count} total</strong></p>\n`;
             content += `                ${processedContent}\n`;
             content += `            </section>\n`;
             content += `        </div>\n`;
