@@ -81,7 +81,7 @@ async function buildYear(year) {
     content += '</div>\n';
     
     // Generate previous years nav
-    const allYears = ['2022', '2023', '2024', '2025'];
+    const allYears = ['2022', '2023', '2024', '2025', '2026'];
     const otherYears = allYears.filter(y => y !== year);
     const previousYears = otherYears.map(y => `<li><a href="${y}.html">${y}</a></li>`).join('\n                ');
     
@@ -106,6 +106,7 @@ async function build() {
     await buildYear('2023');
     await buildYear('2024');
     await buildYear('2025');
+    await buildYear('2026');
     
     // Create index.html that redirects to current year (2025)
     const redirectHtml = `<!DOCTYPE html>
@@ -116,12 +117,12 @@ async function build() {
     <title>watch read listen</title>
 </head>
 <body>
-    <p>Redirecting to <a href="2025.html">2025</a>...</p>
+    <p>Redirecting to <a href="2026.html">2026</a>...</p>
 </body>
 </html>`;
     
     fs.writeFileSync('index.html', redirectHtml);
-    console.log('Generated index.html (redirect to 2025)');
+    console.log('Generated index.html (redirect to 2026)');
     console.log('Build complete!');
 }
 
