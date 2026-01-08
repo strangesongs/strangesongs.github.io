@@ -44,3 +44,4 @@ date finished TITLE (year) author (notes)
 - 11.10 FRANCISCO (1974) allison mills newman
 - 12.5 TECHGNOSIS: MYTH, MAGIC AND MYSTICISM IN THE AGE OF INFORMATION (1998) erik davis
 - 12.13 GREAT DRAGON KINGS (2021) john giorno
+- 12.24 WORLD AS LOVER, WORLD AS SELF (1991) joanna macy

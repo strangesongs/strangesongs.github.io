@@ -51,7 +51,7 @@ date TITLE (year) d. director / format / location / notes
 - 8.31 DAYBREAK EXPRESS (1953) d. d.a. pennebaker / streaming / criterion channel
 - 9.19 CLAIRE'S CAMERA (2017) d. hong sang-soo / streaming / kanopy
 - 9.20 WAKING LIFE (2001) d. richard linklater / 35mm / new beverly cinema
-- 9.20 PAPRIKA (2006) d. satoshi kon / 35mm / new beverly cinema
+- 9.20 PAPRIKA (2006) d. satoshi kon / 35mm / new beverly cinema *
 - 9.24 WALK UP (2022) d. hong sang-soo / streaming / kanopy
 - 9.24 TRIBULATION 99: ALIEN ANOMALIES UNDER AMERICA (1991) d. craig baldwin / streaming / night flight plus
 - 10.1 PORT OF SHADOWS (1938) d. marcel carne / streaming / kanopy
@@ -73,3 +73,5 @@ date TITLE (year) d. director / format / location / notes
 - 12.15 SUNDAY IN PEKING (1956) d. chris marker / streaming / criterion channel
 - 12.16 THE MASTERMIND (2025) d. kelly reichardt / streaming / mubi
 - 12.17 EEPHUS (2024) d. carson lund / streaming / mubi
+- 12.30 DESIRE: THE CARL CRAIG STORY (2024) d. jean-cosme delaloye / streaming on united flight
+- 12.30 BECOMING LED ZEPPELIN (2025) d. bernard macmahon / streaming on united flight
