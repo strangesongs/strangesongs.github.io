@@ -113,7 +113,7 @@ async function build() {
 <html>
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="refresh" content="0; url=2025.html">
+    <meta http-equiv="refresh" content="0; url=2026.html">
     <title>watch read listen</title>
 </head>
 <body>
