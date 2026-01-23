@@ -103,7 +103,7 @@ async function build() {
     <meta charset="utf-8">
     <meta http-equiv="refresh" content="0; url=2026.html">
     <script>window.location.href="2026.html";</script>
-    <title>strangesongs</title>
+    <title>read watch listen</title>
 </head>
 <body>
 </body>
