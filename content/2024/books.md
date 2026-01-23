@@ -3,13 +3,13 @@ title: read
 date: 2024
 ---
 
-date finished TITLE (year) author (notes)
+date finished TITLE (year) | author | notes
 
 - 1.1 THE SECRET TO SUPERHUMAN STRENGTH (2021) alison bechdel
 - 1.8 THE HISTORY OF LAST NIGHT'S DREAM (2007) rodger kamenetz (started 2023)
 - 1.13 ENLIGHTENED TRANSEXUAL COMICS (2023) sam szabo
 - 1.14 A SHORT HISTORY OF NEARLY EVERYTHING (2003) bill bryson (started 2023)
-- 1.15 BICYCLE / RACE: TRANSPORTATION, CULTURE AND RACE (2015) adonia e lugo
+- 1.15 BICYCLE | RACE: TRANSPORTATION, CULTURE AND RACE (2015) adonia e lugo
 - 1.15 THE BROTHERS K (1992) david james duncan (abandoned)
 - 1.21 OCCULT FEATURES OF ANARCHISM (2019) erica lagalisse
 
@@ -48,7 +48,7 @@ date finished TITLE (year) author (notes)
 - 8.5 LOSING OURSELVES (2022) jay l. garfield
 
 - 9.15 DISTANT NEIGHBORS: THE SELECTED LETTERS OF WENDELL BERRY AND GARY SNYDER (2014) gary snyder and wendell berry
-- 9.30 THE NARROW ROAD TO THE DEEP NORTH (1967) matsuo bashō / translated by yuasa noboyuki
+- 9.30 THE NARROW ROAD TO THE DEEP NORTH (1967) matsuo bashō | translated by yuasa noboyuki
 
 - 10.10 A RANDOM WALK DOWN WALL STREET (2023) burton g. malkiel
 - 10.15 LOBA (1998) diane di prima

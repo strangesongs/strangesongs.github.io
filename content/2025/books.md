@@ -3,7 +3,7 @@ title: read
 date: 2025
 ---
 
-date finished TITLE (year) author (notes)
+date finished TITLE (year) | author | notes
 
 - 1.3 WHEN THE TREES SAY NOTHING: WRITINGS ON NATURE (2003) thomas merton
 - 1.15 THE PLACES THAT SCARE YOU (2001) pema chödrön

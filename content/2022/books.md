@@ -3,7 +3,7 @@ title: read
 date: 2022
 ---
 
-finished TITLE (year) author (notes)
+date finished TITLE (year) | author | notes
 
 - THE GOLDEN GATE vikram seth
 - THE PLEASURE OF THE TEXT sami alwani
@@ -48,7 +48,7 @@ finished TITLE (year) author (notes)
 - HOW ARCHITECTURE WORKS: A HUMANIST'S TOOLKIT witold rybczynski
 - THE DEMOCRATIC FOREST william eggleston (photography)
 - THE MAN IN THE CROWD: THE UNEASY STREETS OF GARRY WINOGRAND (photography)
-- LINDBERGH / WINOGRAND: WOMEN garry winogrand and peter lindbergh
+- LINDBERGH | WINOGRAND: WOMEN garry winogrand and peter lindbergh
 - MY NEW YORK DIARY julie doucet
 - ROBERT FRANK: GOOD DAYS QUIET robert frank
 - ROBERT FRANK: LONDON/WALES robert frank

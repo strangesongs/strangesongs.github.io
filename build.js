@@ -6,9 +6,6 @@ function processMarkdown(content) {
     // Remove frontmatter
     content = content.replace(/^---[\s\S]*?---\n/, '');
     
-    // Convert markdown bold **text** to HTML
-    content = content.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-    
     // Convert markdown-style lists to HTML first
     content = content.replace(/^- (.+)$/gm, '<li>$1</li>');
     
@@ -20,12 +17,12 @@ function processMarkdown(content) {
     content = content.replace(/^## (.+)$/gm, '<h2>$1</h2>');
     content = content.replace(/^# (.+)$/gm, '<h1>$1</h1>');
     
-    // Wrap non-HTML lines in paragraphs (for the "date PERFORMER" lines)
+    // Wrap non-HTML lines in paragraphs (for the format description lines)
     const lines = content.split('\n');
     const processedLines = lines.map(line => {
         line = line.trim();
         if (line === '' || line.startsWith('<') || line.startsWith('date finished') || line.startsWith('date TITLE') || line.startsWith('date PERFORMER')) {
-            // If it's a header line, wrap it in a paragraph
+            // If it's a format description line, wrap it in a paragraph
             if (line.startsWith('date ')) {
                 return `<p>${line}</p>`;
             }
@@ -51,7 +48,7 @@ async function buildYear(year) {
         return;
     }
     
-    let content = '<div class="container">\n';
+    let content = '';
     const sections = [
         { name: 'books', title: 'read' },
         { name: 'films', title: 'watch' },
@@ -69,29 +66,17 @@ async function buildYear(year) {
             
             const processedContent = processMarkdown(rawContent);
             
-            content += `    <div class="row">\n`;
-            content += `        <div class="twelve columns">\n`;
-            content += `            <section class="${section.name}" data-section-title="${section.title}">\n`;
-            content += `                <h2>${section.title}</h2>\n`;
-            content += `                ${processedContent}\n`;
-            content += `                <p class="count">${count} total</p>\n`;
-            content += `            </section>\n`;
-            content += `        </div>\n`;
-            content += `    </div>\n`;
+            content += `<section class="${section.name}" data-section-title="${section.title}">\n`;
+            content += `    <h2>${section.title}</h2>\n`;
+            content += `    ${processedContent}\n`;
+            content += `    <p class="count">${count} total</p>\n`;
+            content += `</section>\n`;
         }
     });
-    
-    content += '</div>\n';
-    
-    // Generate previous years nav
-    const allYears = ['2022', '2023', '2024', '2025', '2026'];
-    const otherYears = allYears.filter(y => y !== year);
-    const previousYears = otherYears.map(y => `<li><a href="${y}.html">${y}</a></li>`).join('\n                ');
     
     const html = ejs.render(template, {
         content: content,
         year: year,
-        previousYears: previousYears,
         lastUpdated: new Date().toLocaleDateString('en-US', { 
             year: 'numeric', 
             month: 'long', 
@@ -111,16 +96,16 @@ async function build() {
     await buildYear('2025');
     await buildYear('2026');
     
-    // Create index.html that redirects to current year (2025)
+    // Create index.html that redirects to current year (2026)
     const redirectHtml = `<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="refresh" content="0; url=2026.html">
-    <title>watch read listen</title>
+    <script>window.location.href="2026.html";</script>
+    <title>strangesongs</title>
 </head>
 <body>
-    <p>Redirecting to <a href="2026.html">2026</a>...</p>
 </body>
 </html>`;
     
