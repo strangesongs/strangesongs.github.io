@@ -1,78 +1,278 @@
-/* Brutalist minimal style */
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  font-family: "Courier New", monospace;
-  font-size: 14px;
-  line-height: 1.4;
-  color: #000;
-  background: #fff;
-  margin: 20px;
-  max-width: 800px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background: #f5f5dc;
+    color: #333;
 }
 
-h1, h2, h3 {
-  font-weight: normal;
-  margin: 0 0 10px 0;
-  font-size: 16px; /* Just a tiny bit bigger than body text */
+/* Layout */
+.layout {
+    display: flex;
+    min-height: 100vh;
 }
 
-h1 {
-  text-transform: uppercase;
-  margin-top: 20px; /* Add spacing between nav and main header */
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    background: #f5f5dc;
+    border-right: 2px solid #333;
+    padding: 40px 25px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
 }
 
-h2 {
-  margin-top: 15px; /* Add spacing before section headers */
+.sidebar h1 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 35px;
+    letter-spacing: 1px;
 }
 
-a {
-  color: #000;
-  text-decoration: underline;
+.sidebar nav ul {
+    list-style: none;
 }
 
-a:hover {
-  background: #000;
-  color: #fff;
+.sidebar nav li {
+    margin-bottom: 12px;
+    font-size: 18px;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.sidebar nav a {
+    color: #333;
+    text-decoration: none;
 }
 
-li {
-  margin: 5px 0;
+.sidebar nav a:hover {
+    text-decoration: underline;
 }
 
-nav#other-years {
-  margin: 0; /* Remove any margins */
+/* Year item styling */
+.year-item {
+    margin-bottom: 8px;
 }
 
-nav#other-years ul {
-  display: inline;
-  margin: 0; /* Remove margins */
-  padding: 0; /* Remove padding */
+/* Subsections - hidden by default */
+.subsections {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin-left: 15px;
+    margin-top: 0;
 }
 
-nav#other-years li {
-  display: inline;
-  margin-right: 20px;
+.subsections li {
+    margin-bottom: 6px;
+    font-size: 15px;
+    font-style: italic;
 }
 
-/* Remove margins from sections to align with nav */
+.subsections a {
+    color: #555;
+}
+
+.subsections a:hover {
+    color: #333;
+}
+
+.subsections a.active {
+    text-decoration: underline;
+}
+
+/* Expanded state */
+.year-item.expanded .subsections {
+    max-height: 200px;
+    margin-top: 8px;
+}
+
+.sidebar .contact {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+}
+
+.sidebar .contact a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.sidebar .contact a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile contact at bottom */
+.contact-mobile {
+    display: none;
+}
+
+/* Content */
+.content {
+    flex: 1;
+    margin-left: 220px;
+    padding: 40px 60px;
+    overflow-y: auto;
+}
+
+.content header .year-label {
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+/* Sections */
 section {
-  margin: 0;
-  padding: 0;
+    margin-bottom: 40px;
 }
 
-/* Remove container indentation */
-.container {
-  margin: 0;
-  padding: 0;
+section h2 {
+    font-size: 18px;
+    font-weight: normal;
+    font-style: italic;
+    margin-bottom: 15px;
 }
 
+section > p:first-of-type {
+    font-size: 17px;
+    margin-bottom: 15px;
+    font-style: normal;
+}
+
+section p.count {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-style: italic;
+}
+
+section ul {
+    list-style: none;
+}
+
+section li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Footer */
 footer {
-  margin-top: 40px;
-  border-top: 1px solid #000;
-  padding-top: 10px;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 14px;
 }
+
+footer a {
+    color: #333;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Remove container/row styling from Skeleton */
+.container, .row {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.twelve.columns {
+    margin: 0;
+    width: 100%;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .layout {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 2px solid #333;
+        padding: 20px;
+    }
+    
+    .sidebar h1 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .sidebar nav ul {
+        display: block;
+    }
+    
+    .sidebar nav li {
+        margin-bottom: 8px;
+        font-size: 16px;
+    }
+    
+    .year-item {
+        margin-bottom: 10px;
+    }
+    
+    .subsections {
+        margin-left: 10px;
+    }
+    
+    .subsections li {
+        font-size: 14px;
+    }
+    
+    .content {
+        margin-left: 0;
+        padding: 30px 20px;
+    }
+    
+    .content header .year-label {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    
+    section h2 {
+        font-size: 16px;
+    }
+    
+    section li {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        padding: 15px;
+    }
+    
+    .sidebar h1 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    
+    .sidebar nav li {
+        font-size: 14px;
+    }
+    
+    .content {
+        padding: 20px 15px;
+    }
+    
+    section li {
+        font-size: 14px;
+    }
+}
+

@@ -6,6 +6,9 @@ function processMarkdown(content) {
     // Remove frontmatter
     content = content.replace(/^---[\s\S]*?---\n/, '');
     
+    // Convert markdown bold **text** to HTML
+    content = content.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    
     // Convert markdown-style lists to HTML first
     content = content.replace(/^- (.+)$/gm, '<li>$1</li>');
     
@@ -68,10 +71,10 @@ async function buildYear(year) {
             
             content += `    <div class="row">\n`;
             content += `        <div class="twelve columns">\n`;
-            content += `            <section class="${section.name}">\n`;
+            content += `            <section class="${section.name}" data-section-title="${section.title}">\n`;
             content += `                <h2>${section.title}</h2>\n`;
-            content += `                <p>${count} total</p>\n`;
             content += `                ${processedContent}\n`;
+            content += `                <p class="count">${count} total</p>\n`;
             content += `            </section>\n`;
             content += `        </div>\n`;
             content += `    </div>\n`;

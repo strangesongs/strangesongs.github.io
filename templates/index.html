@@ -3,33 +3,65 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>watch read listen <%= year %></title>
-        
-        <!-- Skeleton CSS -->
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/skeleton.css">
+        <title>strangesongs <%= year %></title>
         <link rel="stylesheet" href="style.css">
-        
-        <!-- Google Fonts for Raleway -->
-        <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <header>
-            <h1>watch read listen <%= year %></h1>
-        </header>
-
-        <nav id="other-years">
-            <h3>other years</h3>
-            <ul>
-                <%- previousYears %>
-            </ul>
-        </nav>
-
-        <%- content %>
-
-        <footer>
-            <p>contact me via email <a href="mailto:jcrtll@protonmail.com">jcrtll@protonmail.com</a></p>
-            <p>Last updated: <%= lastUpdated %></p>
-        </footer>
+        <div class="layout">
+            <aside class="sidebar">
+                <h1>read watch listen</h1>
+                <nav>
+                    <ul>
+                        <li class="year-item">
+                            <a href="#" class="year-link" data-year="2026">2026</a>
+                            <ul class="subsections">
+                                <li><a href="#" data-section="films">films</a></li>
+                                <li><a href="#" data-section="books">books</a></li>
+                                <li><a href="#" data-section="shows">shows</a></li>
+                            </ul>
+                        </li>
+                        <li class="year-item">
+                            <a href="#" class="year-link" data-year="2025">2025</a>
+                            <ul class="subsections">
+                                <li><a href="#" data-section="films">films</a></li>
+                                <li><a href="#" data-section="books">books</a></li>
+                                <li><a href="#" data-section="shows">shows</a></li>
+                            </ul>
+                        </li>
+                        <li class="year-item">
+                            <a href="#" class="year-link" data-year="2024">2024</a>
+                            <ul class="subsections">
+                                <li><a href="#" data-section="films">films</a></li>
+                                <li><a href="#" data-section="books">books</a></li>
+                                <li><a href="#" data-section="shows">shows</a></li>
+                            </ul>
+                        </li>
+                        <li class="year-item">
+                            <a href="#" class="year-link" data-year="2023">2023</a>
+                            <ul class="subsections">
+                                <li><a href="#" data-section="books">books</a></li>
+                            </ul>
+                        </li>
+                        <li class="year-item">
+                            <a href="#" class="year-link" data-year="2022">2022</a>
+                            <ul class="subsections">
+                                <li><a href="#" data-section="books">books</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+            
+            <main class="content">
+                <header>
+                    <p class="year-label"><%= year %></p>
+                </header>
+                <%- content %>
+                <footer>
+                    <p>Last updated: <%= lastUpdated %></p>
+                </footer>
+            </main>
+        </div>
+        <script src="script.js"></script>
     </body>
 </html>
