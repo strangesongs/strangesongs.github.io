@@ -6,6 +6,23 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const currentYear = yearLabel.textContent.trim();
     
+    // Hide all sections initially
+    sections.forEach(section => section.style.display = 'none');
+    
+    // Show only the first section on page load
+    if (sections.length > 0) {
+        sections[0].style.display = 'block';
+        const sectionTitle = sections[0].dataset.sectionTitle || sections[0].className;
+        yearLabel.textContent = `${currentYear} (${sectionTitle})`;
+        
+        // Mark first section link as active
+        const firstSectionName = sections[0].className.split(' ')[0];
+        const firstLink = document.querySelector(`[data-section="${firstSectionName}"]`);
+        if (firstLink) {
+            firstLink.classList.add('active');
+        }
+    }
+    
     // Expand current year by default
     const currentYearLink = document.querySelector(`.year-link[data-year="${currentYear}"]`);
     if (currentYearLink) {

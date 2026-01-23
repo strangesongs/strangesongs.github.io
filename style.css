@@ -9,8 +9,8 @@ body {
     font-family: 'Times New Roman', Times, serif;
     font-size: 16px;
     line-height: 1.6;
-    background: #f5f5dc;
-    color: #333;
+    background: #f5f3ff;
+    color: #4a148c;
 }
 
 /* Layout */
@@ -22,8 +22,8 @@ body {
 /* Sidebar */
 .sidebar {
     width: 220px;
-    background: #f5f5dc;
-    border-right: 2px solid #333;
+    background: #f5f3ff;
+    border-right: 2px solid #4a148c;
     padding: 40px 25px;
     position: fixed;
     height: 100vh;
@@ -47,7 +47,7 @@ body {
 }
 
 .sidebar nav a {
-    color: #333;
+    color: #6a1b9a;
     text-decoration: none;
 }
 
@@ -134,10 +134,7 @@ section {
 }
 
 section h2 {
-    font-size: 18px;
-    font-weight: normal;
-    font-style: italic;
-    margin-bottom: 15px;
+    display: none;
 }
 
 section > p:first-of-type {
