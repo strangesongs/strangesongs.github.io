@@ -3,7 +3,7 @@ title: read
 date: 2023
 ---
 
-date finished TITLE (year) | author | notes
+TITLE (year) | author | notes
 
 - WHEN YOU GREET ME I BOW: NOTES AND REFLECTIONS FROM A LIFE IN ZEN (2009) norman fischer
 - DOCTOR OF HORROR AND OTHER STORIES (1971) graham ingels

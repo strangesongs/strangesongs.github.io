@@ -21,12 +21,12 @@ function processMarkdown(content) {
     const lines = content.split('\n');
     const processedLines = lines.map(line => {
         line = line.trim();
-        if (line === '' || line.startsWith('<') || line.startsWith('date finished') || line.startsWith('date TITLE') || line.startsWith('date PERFORMER')) {
-            // If it's a format description line, wrap it in a paragraph
-            if (line.startsWith('date ')) {
-                return `<p>${line}</p>`;
-            }
+        if (line === '' || line.startsWith('<')) {
             return line;
+        }
+        // Wrap format description lines and note lines in paragraphs
+        if (line.startsWith('date ') || line.startsWith('* denotes') || line.startsWith('TITLE')) {
+            return `<p>${line}</p>`;
         }
         return line;
     });
