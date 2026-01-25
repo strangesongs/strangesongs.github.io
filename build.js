@@ -6,11 +6,12 @@ function processMarkdown(content) {
     // Remove frontmatter
     content = content.replace(/^---[\s\S]*?---\n/, '');
     
-    // Convert markdown-style lists to HTML first
+    // Convert markdown-style lists to HTML
     content = content.replace(/^- (.+)$/gm, '<li>$1</li>');
+    content = content.replace(/^\d+\.\s+(.+)$/gm, '<li>$1</li>');
     
-    // Wrap consecutive list items in ul tags
-    content = content.replace(/(<li>.*<\/li>\s*)+/gs, '<ul>$&</ul>');
+    // Wrap consecutive list items in ol/ul tags
+    content = content.replace(/(<li>.*<\/li>\s*)+/gs, '<ol>$&</ol>');
     
     // Convert headers
     content = content.replace(/^### (.+)$/gm, '<h3>$1</h3>');
@@ -25,7 +26,7 @@ function processMarkdown(content) {
             return line;
         }
         // Wrap format description lines and note lines in paragraphs
-        if (line.startsWith('date ') || line.startsWith('* denotes') || line.startsWith('TITLE')) {
+        if (line.startsWith('date ') || line.startsWith('* denotes') || line.startsWith('TITLE') || line.startsWith('total:')) {
             return `<p>${line}</p>`;
         }
         return line;

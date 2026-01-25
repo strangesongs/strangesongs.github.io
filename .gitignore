@@ -10,5 +10,5 @@ node_modules/
 .vscode/
 .idea/
 
+# Generated files
 *.html
-node_modules/

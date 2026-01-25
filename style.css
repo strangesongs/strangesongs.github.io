@@ -177,18 +177,6 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Remove container/row styling from Skeleton */
-.container, .row {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-.twelve.columns {
-    margin: 0;
-    width: 100%;
-}
-
 /* Mobile responsive */
 @media (max-width: 768px) {
     .layout {

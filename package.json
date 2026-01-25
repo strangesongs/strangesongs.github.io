@@ -1,10 +1,11 @@
 {
-  "name": "list2024",
+  "name": "strangesongs-site",
   "version": "1.0.0",
-  "description": "Watch read listen lists",
+  "description": "Personal tracking site for films, books, and live performances",
   "main": "build.js",
   "scripts": {
-    "build": "node build.js"
+    "build": "node build.js",
+    "serve": "python3 -m http.server 8080"
   },
   "dependencies": {
     "ejs": "^3.1.9"
