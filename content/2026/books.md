@@ -3,8 +3,11 @@ title: read
 date: 2026
 ---
 
-date finished TITLE (year) | author | notes
+TITLE (year) | author | notes
 
-- 1.9 CEREMONY (1977) leslie marmon silko (started 2025)
-- 1.11 GIRLFRIENDS (2023) emily zhou
-- 1.13 THE FAGGOTS & THEIR FRIENDS BETWEEN REVOLUTIONS (1977) larry mitchell
+total: 4 books
+
+1. CEREMONY (1977) | leslie marmon silko | started 2025
+2. GIRLFRIENDS (2023) | emily zhou
+3. THE FAGGOTS & THEIR FRIENDS BETWEEN REVOLUTIONS (1977) | larry mitchell
+4. THE HARDER I FIGHT THE MORE I LOVE YOU (2025) neko case
