@@ -5,7 +5,8 @@
   "main": "build.js",
   "scripts": {
     "build": "node build.js",
-    "serve": "python3 -m http.server 8080"
+    "serve": "python3 -m http.server 8080",
+    "deploy": "npm run build && git add -A && git commit -m \"Update content\" && git push"
   },
   "dependencies": {
     "ejs": "^3.1.9"
