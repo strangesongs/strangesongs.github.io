@@ -89,6 +89,25 @@ async function buildYear(year) {
     console.log(`Generated ${year}.html`);
 }
 
+async function buildAbout() {
+    console.log('Building about...');
+    const template = fs.readFileSync('templates/index.html', 'utf8');
+    const aboutContent = '<section class="about">\n    <div class="photo-placeholder" style="width: 200px; height: 200px; border: 2px solid #4a148c; margin-bottom: 30px; display: flex; align-items: center; justify-content: center; color: #6a1b9a;">\n        [photo goes here]\n    </div>\n    \n    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>\n    \n    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n    \n    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>\n    \n    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>\n</section>';
+    
+    const html = ejs.render(template, {
+        year: 'about',
+        content: aboutContent,
+        lastUpdated: new Date().toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        })
+    });
+    
+    fs.writeFileSync('about.html', html);
+    console.log('Generated about.html');
+}
+
 async function build() {
     console.log('Starting build...');
     await buildYear('2022');
@@ -96,6 +115,7 @@ async function build() {
     await buildYear('2024');
     await buildYear('2025');
     await buildYear('2026');
+    await buildAbout();
     
     // Create index.html that redirects to current year (2026)
     const redirectHtml = `<!DOCTYPE html>
