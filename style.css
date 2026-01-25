@@ -137,6 +137,31 @@ section h2 {
     display: none;
 }
 
+section.recent h2 {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #6a1b9a;
+}
+
+section.recent h3 {
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #6a1b9a;
+}
+
+section.recent ol {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+section.recent li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
 section > p:first-of-type {
     font-size: 17px;
     margin-bottom: 15px;

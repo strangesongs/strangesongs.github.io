@@ -50,6 +50,9 @@ async function buildYear(year) {
     }
     
     let content = '';
+    let recentContent = '<section class="recent">\n    <h2>recent additions</h2>\n';
+    let hasRecent = false;
+    
     const sections = [
         { name: 'books', title: 'read' },
         { name: 'films', title: 'watch' },
@@ -61,19 +64,42 @@ async function buildYear(year) {
         if (fs.existsSync(filePath)) {
             const rawContent = fs.readFileSync(filePath, 'utf8');
             
-            // Count list items (lines starting with -)
-            const listItems = rawContent.match(/^- /gm);
-            const count = listItems ? listItems.length : 0;
+            // Extract list items (both - and numbered lists)
+            const listMatches = rawContent.match(/^[\d.]*\s*[-]?\s*(.+)$/gm) || [];
+            
+            // Filter out empty lines and headers
+            const cleanMatches = listMatches.filter(line => {
+                return line.match(/^[\d.]+\s+\S/) || line.match(/^-\s+\S/);
+            });
+            
+            // Get the last 3 items (most recent)
+            const recent = cleanMatches.slice(-3).reverse();
+            
+            if (recent.length > 0) {
+                hasRecent = true;
+                recentContent += `    <h3>${section.title}</h3>\n`;
+                recentContent += `    <ol>\n`;
+                recent.forEach(item => {
+                    // Remove the number/dash prefix
+                    const cleanItem = item.replace(/^[\d.]+\s+/, '').replace(/^-\s+/, '');
+                    recentContent += `        <li>${cleanItem}</li>\n`;
+                });
+                recentContent += `    </ol>\n`;
+            }
             
             const processedContent = processMarkdown(rawContent);
             
             content += `<section class="${section.name}" data-section-title="${section.title}">\n`;
             content += `    <h2>${section.title}</h2>\n`;
             content += `    ${processedContent}\n`;
-            content += `    <p class="count">${count} total</p>\n`;
             content += `</section>\n`;
         }
     });
+    
+    if (hasRecent) {
+        recentContent += '</section>\n';
+        content = recentContent + content;
+    }
     
     const html = ejs.render(template, {
         content: content,
