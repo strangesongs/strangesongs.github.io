@@ -5,21 +5,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const yearLabel = document.querySelector('.year-label');
     
     const currentYear = yearLabel.textContent.trim();
+    const isMobile = window.innerWidth <= 768;
     
-    // Hide all sections initially
-    sections.forEach(section => section.style.display = 'none');
-    
-    // Show only the first section on page load
-    if (sections.length > 0) {
-        sections[0].style.display = 'block';
-        const sectionTitle = sections[0].dataset.sectionTitle || sections[0].className;
-        yearLabel.textContent = `${currentYear} (${sectionTitle})`;
+    if (isMobile) {
+        // Mobile: show all sections for continuous scroll
+        sections.forEach(section => section.style.display = 'block');
+    } else {
+        // Desktop: hide all sections initially
+        sections.forEach(section => section.style.display = 'none');
         
-        // Mark first section link as active
-        const firstSectionName = sections[0].className.split(' ')[0];
-        const firstLink = document.querySelector(`[data-section="${firstSectionName}"]`);
-        if (firstLink) {
-            firstLink.classList.add('active');
+        // Show only the first section on page load
+        if (sections.length > 0) {
+            sections[0].style.display = 'block';
+            const sectionTitle = sections[0].dataset.sectionTitle || sections[0].className;
+            yearLabel.textContent = `${currentYear} (${sectionTitle})`;
+            
+            // Mark first section link as active
+            const firstSectionName = sections[0].className.split(' ')[0];
+            const firstLink = document.querySelector(`[data-section="${firstSectionName}"]`);
+            if (firstLink) {
+                firstLink.classList.add('active');
+            }
         }
     }
     
@@ -63,10 +69,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Handle section link clicks
+    // Handle section link clicks (desktop only)
     sectionLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
+            
+            // On mobile, don't filter - continuous scroll shows all sections
+            if (window.innerWidth <= 768) {
+                return;
+            }
+            
             const sectionName = this.dataset.section;
             
             // Hide all sections

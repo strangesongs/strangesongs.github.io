@@ -4,6 +4,7 @@ date: 2025
 ---
 
 date PERFORMER | VENUE | NOTES
+total: 43 shows
 
 - 1.7 LA PHILHARMONIC | walt disney concert hall | chamber music performance of schumann, beach, brahms
 - 1.17 BROOKLYN RIDER | the wallis | philip glass string quartets

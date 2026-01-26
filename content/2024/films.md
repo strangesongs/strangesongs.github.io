@@ -5,6 +5,7 @@ date: 2024
 
 date TITLE (year) | director | format | location | notes
 * denotes repeat viewing
+total: 66 films
 
 - 1.14 THE DEVILS (1971) ken russell | streaming criterion channel
 - 1.18 TAIPEI STORY (1985) edward yang | DCP | Los Feliz 3 | edward yang retrospective at AC

@@ -8,7 +8,8 @@
 body {
     font-family: 'Times New Roman', Times, serif;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
     background: #f5f3ff;
     color: #4a148c;
 }
@@ -42,7 +43,7 @@ body {
 }
 
 .sidebar nav li {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     font-size: 18px;
 }
 
@@ -168,29 +169,46 @@ section > p:first-of-type {
     font-style: normal;
 }
 
-section p.count {
-    margin-top: 20px;
-    margin-bottom: 10px;
+section p.addendum {
     font-size: 14px;
     font-style: italic;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+section p.count {
+    font-size: 14px;
+    font-style: italic;
+    color: #666;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 section ul {
     list-style: none;
+    padding-left: 0;
+}
+
+section ol {
+    padding-left: 25px;
 }
 
 section li {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 /* Footer */
 footer {
     margin-top: 60px;
-    padding-top: 20px;
-    border-top: 1px solid #333;
+    padding-top: 0;
+    border-top: none;
     font-size: 14px;
+}
+
+footer p {
+    margin: 0;
 }
 
 footer a {
@@ -200,6 +218,28 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+/* Mobile contact footer */
+.mobile-contact {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-contact {
+        display: block;
+        margin-top: 25px;
+        margin-bottom: 10px;
+    }
+    
+    .mobile-contact p {
+        margin-bottom: 6px;
+    }
+    
+    .mobile-contact a {
+        color: #6a1b9a;
+        text-decoration: none;
+    }
 }
 
 /* Mobile responsive */
@@ -213,34 +253,37 @@ footer a:hover {
         width: 100%;
         height: auto;
         border-right: none;
-        border-bottom: 2px solid #333;
+        border-bottom: 2px solid #4a148c;
         padding: 20px;
     }
     
     .sidebar h1 {
-        font-size: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
     
     .sidebar nav ul {
-        display: block;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px 15px;
     }
     
     .sidebar nav li {
-        margin-bottom: 8px;
-        font-size: 16px;
+        margin-bottom: 0;
+        font-size: 15px;
     }
     
     .year-item {
-        margin-bottom: 10px;
+        margin-bottom: 0;
     }
     
+    /* Hide subsections on mobile - show all content in continuous scroll */
     .subsections {
-        margin-left: 10px;
-    }
+        display: none !important;
+    } 
     
-    .subsections li {
-        font-size: 14px;
+    /* Hide contact in sidebar on mobile */
+    .sidebar .contact {
+        display: none;
     }
     
     .content {
@@ -249,17 +292,43 @@ footer a:hover {
     }
     
     .content header .year-label {
-        font-size: 16px;
-        margin-bottom: 20px;
-    }
-    
-    section h2 {
-        font-size: 16px;
+        margin-bottom: 15px;
     }
     
     section li {
-        font-size: 15px;
-        line-height: 1.5;
+        line-height: 1.4;
+    }
+    
+    section ol {
+        margin-left: 0;
+        padding-left: 18px;
+    }
+    
+    footer {
+        margin-top: 25px;
+        padding-top: 15px;
+        border-top: none;
+    }
+    
+    section.recent h2 {
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+    }
+    
+    section.recent h3 {
+        margin-top: 10px;
+        margin-bottom: 6px;
+    }
+    
+    section.recent ol {
+        margin-left: 0;
+        padding-left: 18px;
+        margin-bottom: 12px;
+    }
+    
+    section.recent li {
+        margin-bottom: 5px;
+        line-height: 1.3;
     }
 }
 
@@ -268,21 +337,8 @@ footer a:hover {
         padding: 15px;
     }
     
-    .sidebar h1 {
-        font-size: 18px;
-        margin-bottom: 15px;
-    }
-    
-    .sidebar nav li {
-        font-size: 14px;
-    }
-    
     .content {
         padding: 20px 15px;
-    }
-    
-    section li {
-        font-size: 14px;
     }
 }
 

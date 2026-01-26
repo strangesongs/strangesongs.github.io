@@ -6,12 +6,19 @@ function processMarkdown(content) {
     // Remove frontmatter
     content = content.replace(/^---[\s\S]*?---\n/, '');
     
-    // Convert markdown-style lists to HTML
-    content = content.replace(/^- (.+)$/gm, '<li>$1</li>');
-    content = content.replace(/^\d+\.\s+(.+)$/gm, '<li>$1</li>');
+    // Convert markdown-style lists to HTML, marking them differently
+    content = content.replace(/^- (.+)$/gm, '<li class="bullet">$1</li>');
+    content = content.replace(/^\d+\.\s+(.+)$/gm, '<li class="numbered">$1</li>');
     
-    // Wrap consecutive list items in ol/ul tags
-    content = content.replace(/(<li>.*<\/li>\s*)+/gs, '<ol>$&</ol>');
+    // Wrap consecutive bullet list items in ul tags
+    content = content.replace(/(<li class="bullet">.*?<\/li>\s*)+/gs, match => {
+        return '<ul>' + match.replace(/ class="bullet"/g, '') + '</ul>';
+    });
+    
+    // Wrap consecutive numbered list items in ol tags
+    content = content.replace(/(<li class="numbered">.*?<\/li>\s*)+/gs, match => {
+        return '<ol>' + match.replace(/ class="numbered"/g, '') + '</ol>';
+    });
     
     // Convert headers
     content = content.replace(/^### (.+)$/gm, '<h3>$1</h3>');
@@ -26,7 +33,13 @@ function processMarkdown(content) {
             return line;
         }
         // Wrap format description lines and note lines in paragraphs
-        if (line.startsWith('date ') || line.startsWith('* denotes') || line.startsWith('TITLE') || line.startsWith('total:')) {
+        if (line.startsWith('* denotes')) {
+            return `<p class="addendum">${line}</p>`;
+        }
+        if (line.startsWith('total:')) {
+            return `<p class="count">${line}</p>`;
+        }
+        if (line.startsWith('date ') || line.startsWith('TITLE')) {
             return `<p>${line}</p>`;
         }
         return line;
@@ -50,8 +63,54 @@ async function buildYear(year) {
     }
     
     let content = '';
-    let recentContent = '<section class="recent">\n    <h2>recent additions</h2>\n';
-    let hasRecent = false;
+    let recentContent = '';
+    
+    // Only show recent additions for 2026
+    if (year === '2026') {
+        recentContent = '<section class="recent">\n    <h2>recent additions</h2>\n';
+        let hasRecent = false;
+    
+        const sections = [
+            { name: 'books', title: 'read' },
+            { name: 'films', title: 'watch' },
+            { name: 'shows', title: 'listen' }
+        ];
+        
+        sections.forEach(section => {
+            const filePath = path.join(contentDir, `${section.name}.md`);
+            if (fs.existsSync(filePath)) {
+                const rawContent = fs.readFileSync(filePath, 'utf8');
+                
+                // Extract list items (both - and numbered lists)
+                const listMatches = rawContent.match(/^[\d.]*\s*[-]?\s*(.+)$/gm) || [];
+                
+                // Filter out empty lines and headers
+                const cleanMatches = listMatches.filter(line => {
+                    return line.match(/^[\d.]+\s+\S/) || line.match(/^-\s+\S/);
+                });
+                
+                // Get the last 3 items (most recent)
+                const recent = cleanMatches.slice(-3).reverse();
+                
+                if (recent.length > 0) {
+                    hasRecent = true;
+                    recentContent += `    <h3>${section.title}</h3>\n`;
+                    recentContent += `    <ol>\n`;
+                    recent.forEach(item => {
+                        // Remove the number/dash prefix
+                        const cleanItem = item.replace(/^[\d.]+\s+/, '').replace(/^-\s+/, '');
+                        recentContent += `        <li>${cleanItem}</li>\n`;
+                    });
+                    recentContent += `    </ol>\n`;
+                }
+            }
+        });
+        
+        if (hasRecent) {
+            recentContent += '</section>\n';
+            content = recentContent;
+        }
+    }
     
     const sections = [
         { name: 'books', title: 'read' },
@@ -59,35 +118,19 @@ async function buildYear(year) {
         { name: 'shows', title: 'listen' }
     ];
     
+    let latestDate = new Date(0); // Start with epoch
+    
     sections.forEach(section => {
         const filePath = path.join(contentDir, `${section.name}.md`);
         if (fs.existsSync(filePath)) {
             const rawContent = fs.readFileSync(filePath, 'utf8');
-            
-            // Extract list items (both - and numbered lists)
-            const listMatches = rawContent.match(/^[\d.]*\s*[-]?\s*(.+)$/gm) || [];
-            
-            // Filter out empty lines and headers
-            const cleanMatches = listMatches.filter(line => {
-                return line.match(/^[\d.]+\s+\S/) || line.match(/^-\s+\S/);
-            });
-            
-            // Get the last 3 items (most recent)
-            const recent = cleanMatches.slice(-3).reverse();
-            
-            if (recent.length > 0) {
-                hasRecent = true;
-                recentContent += `    <h3>${section.title}</h3>\n`;
-                recentContent += `    <ol>\n`;
-                recent.forEach(item => {
-                    // Remove the number/dash prefix
-                    const cleanItem = item.replace(/^[\d.]+\s+/, '').replace(/^-\s+/, '');
-                    recentContent += `        <li>${cleanItem}</li>\n`;
-                });
-                recentContent += `    </ol>\n`;
-            }
-            
             const processedContent = processMarkdown(rawContent);
+            
+            // Track the latest modification date
+            const fileStats = fs.statSync(filePath);
+            if (fileStats.mtime > latestDate) {
+                latestDate = fileStats.mtime;
+            }
             
             content += `<section class="${section.name}" data-section-title="${section.title}">\n`;
             content += `    <h2>${section.title}</h2>\n`;
@@ -96,15 +139,10 @@ async function buildYear(year) {
         }
     });
     
-    if (hasRecent) {
-        recentContent += '</section>\n';
-        content = recentContent + content;
-    }
-    
     const html = ejs.render(template, {
         content: content,
         year: year,
-        lastUpdated: new Date().toLocaleDateString('en-US', { 
+        lastUpdated: latestDate.toLocaleDateString('en-US', { 
             year: 'numeric', 
             month: 'long', 
             day: 'numeric' 

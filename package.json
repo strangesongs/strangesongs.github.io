@@ -6,9 +6,13 @@
   "scripts": {
     "build": "node build.js",
     "serve": "python3 -m http.server 8080",
+    "watch": "nodemon --watch content --watch templates --watch build.js --watch style.css --exec 'node build.js'",
     "deploy": "npm run build && git add -A && git commit -m \"Update content\" && git push"
   },
   "dependencies": {
     "ejs": "^3.1.9"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
   }
 }
