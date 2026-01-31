@@ -16,4 +16,6 @@ total: 9 films
 - 1.22 LOVE LIES BLEEDING (2024) rose glass | streaming | kanopy
 - 1.23 THE CONVERSATION (1974) francis ford coppola | dcp | egyptian theater | in-person q+a with walter murch
 - 1.25 APOCALYPSE NOW (1979) francis ford coppola | dcp | egyptian theater | in-person masterclass with walter murch
+- 1.28 OPENING NIGHT (1977) john cassavettes | dcp | alamo drafthouse
+- 1.30 ARREBATO (1979) iván zulueta | streaming | kanopy
  
