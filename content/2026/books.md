@@ -12,3 +12,4 @@ total: 4 books
 3. THE FAGGOTS & THEIR FRIENDS BETWEEN REVOLUTIONS (1977) | larry mitchell
 4. THE HARDER I FIGHT THE MORE I LOVE YOU (2025) neko case
 5. THE CALL-OUT (2022) cat fitzpatrick
+6. LITTLE BLUE ENCYCLOPEDIA (FOR VIVIAN) (2019) hazel jane plante
