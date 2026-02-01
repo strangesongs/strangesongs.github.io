@@ -38,6 +38,16 @@ body {
     letter-spacing: 1px;
 }
 
+.sidebar h1 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.sidebar h1 a:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
 .sidebar nav ul {
     list-style: none;
 }

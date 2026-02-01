@@ -56,7 +56,7 @@ total: 69 films
 - 9.24 WALK UP (2022) hong sang-soo | streaming | kanopy
 - 9.24 TRIBULATION 99: ALIEN ANOMALIES UNDER AMERICA (1991) craig baldwin | streaming | night flight plus
 - 10.1 PORT OF SHADOWS (1938) marcel carne | streaming | kanopy
-- 10.1 THE WOMAN WHO RAN (2020) hong sang-soo | streaming | kanopy
+- 10.1 THE DAY AFTER (2017) hong sang-soo | streaming | kanopy
 - 10.3 ONE BATTLE AFTER ANOTHER (2025) paul thomas anderson | vista theater | in vista vision
 - 10.4 PURPLE NOON (1960) rene clement | streaming | criterion
 - 10.23 BLACK SUNDAY (1960) mario bava | streaming | kanopy
