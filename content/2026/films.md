@@ -18,4 +18,5 @@ total: 9 films
 - 1.25 APOCALYPSE NOW (1979) francis ford coppola | dcp | egyptian theater | in-person masterclass with walter murch
 - 1.28 OPENING NIGHT (1977) john cassavettes | dcp | alamo drafthouse
 - 1.30 ARREBATO (1979) iván zulueta | streaming | kanopy
+- 2.1 AN ELEPHANT SITTING STILL (2018) hu bo | dcp | egyptian theater
  
