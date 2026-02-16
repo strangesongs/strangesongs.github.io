@@ -21,3 +21,5 @@ total: 9 films
 - 2.1 AN ELEPHANT SITTING STILL (2018) hu bo | dcp | egyptian theater
 - 2.6 KAILI BLUES (2015) bi gan | streaming | criterion channel
 - 2.11 FACE/OFF (1997) john woo | streaming | criterion channel
+- 2.14 HENRY GAMBLE'S BIRTHDAY PARTY (2015) stephen cone | streaming | mubi
+- 2.15 LOVE STREAMS (1984) | john cassavettes | streaming

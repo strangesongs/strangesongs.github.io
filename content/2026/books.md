@@ -13,3 +13,4 @@ total: 4 books
 4. THE HARDER I FIGHT THE MORE I LOVE YOU (2025) neko case
 5. THE CALL-OUT (2022) cat fitzpatrick
 6. LITTLE BLUE ENCYCLOPEDIA (FOR VIVIAN) (2019) hazel jane plante
+7. WILL THERE EVER BE ANOTHER YOU (2025) patricia lockwood
