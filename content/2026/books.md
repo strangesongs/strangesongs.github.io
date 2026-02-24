@@ -15,3 +15,4 @@ total: 4 books
 6. LITTLE BLUE ENCYCLOPEDIA (FOR VIVIAN) (2019) hazel jane plante
 7. WILL THERE EVER BE ANOTHER YOU (2025) patricia lockwood
 8. THIS IS IT (1961) alan watts
+9. FATHER OF LIES (1998) brian evenson
