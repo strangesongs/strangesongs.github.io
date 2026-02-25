@@ -11,3 +11,4 @@ total: 2 shows
 - 2.3 GREEN UMBRELLA NEW MUSIC SERIES | walt disney concert hall | pieces by samuel adams, francisco coll, silvia lanao, nico muhly, anthony cheung
 - 2.7 FRED FRITH, SHELLEY BURGON, MODERN CURRENT | 2220 arts and archives
 - 2.10 HOUSE ON FIRE: CARBON COPY | 2220 arts and archives 
+- 2.24 PATRICK SHIROISHI | redcat | part of the matana roberts 'spiral resonance: a study in the abstract' exhibit
