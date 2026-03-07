@@ -22,7 +22,8 @@ total: 9 films
 - 2.6 KAILI BLUES (2015) bi gan | streaming | criterion channel
 - 2.11 FACE/OFF (1997) john woo | streaming | criterion channel
 - 2.14 HENRY GAMBLE'S BIRTHDAY PARTY (2015) stephen cone | streaming | mubi
-- 2.15 LOVE STREAMS (1984) | john cassavettes | streaming
-- 2.27 EVERY-NIGHT DREAMS (1933) | mikio naruse | 35mm | egyptian theater | live performance w/benshi performer ichiro kataoka + pianist makia matsumura @ egyptian theater
-- 2.27 APART FROM YOU (1933) | mikio naruse | 35mm | egyptian theater | live performance w/benshi performer ichiro kataoka + pianist makia matsumura @ egyptian theater
+- 2.15 LOVE STREAMS (1984) john cassavettes | streaming
+- 2.27 EVERY-NIGHT DREAMS (1933) mikio naruse | 35mm | egyptian theater | live performance w/benshi performer ichiro kataoka + pianist makia matsumura @ egyptian theater
+- 2.27 APART FROM YOU (1933) mikio naruse | 35mm | egyptian theater | live performance w/benshi performer ichiro kataoka + pianist makia matsumura @ egyptian theater
+- 3.4 WHAT DOES THAT NATURE SAY TO YOU (2025) hong sang-soo | DCP | los feliz 3
 - 3.6 LATE SPRING (1949) | yasujirō ozu | streaming | criterion channel
