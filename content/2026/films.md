@@ -25,3 +25,4 @@ total: 9 films
 - 2.15 LOVE STREAMS (1984) | john cassavettes | streaming
 - 2.27 EVERY-NIGHT DREAMS (1933) | mikio naruse | 35mm | egyptian theater | live performance w/benshi performer ichiro kataoka + pianist makia matsumura @ egyptian theater
 - 2.27 APART FROM YOU (1933) | mikio naruse | 35mm | egyptian theater | live performance w/benshi performer ichiro kataoka + pianist makia matsumura @ egyptian theater
+- 3.6 LATE SPRING (1949) | yasujirō ozu | streaming | criterion channel
