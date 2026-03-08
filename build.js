@@ -123,7 +123,12 @@ async function buildYear(year) {
     sections.forEach(section => {
         const filePath = path.join(contentDir, `${section.name}.md`);
         if (fs.existsSync(filePath)) {
-            const rawContent = fs.readFileSync(filePath, 'utf8');
+            let rawContent = fs.readFileSync(filePath, 'utf8');
+
+            // Dynamically recount list items and update the total line
+            const itemCount = (rawContent.match(/^(?:- |\d+\. ).+$/gm) || []).length;
+            rawContent = rawContent.replace(/^total:.*$/m, `total: ${itemCount} ${section.name}`);
+
             const processedContent = processMarkdown(rawContent);
             
             // Track the latest modification date
