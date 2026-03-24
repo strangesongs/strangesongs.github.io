@@ -16,4 +16,8 @@ total: 4 books
 7. WILL THERE EVER BE ANOTHER YOU (2025) patricia lockwood
 8. THIS IS IT (1961) alan watts
 9. FATHER OF LIES (1998) brian evenson
-10. MIDLIFE: A PHILOSOPHICAL GUIDE (2017) kieran setiya 
+10. MIDLIFE: A PHILOSOPHICAL GUIDE (2017) kieran setiya
+11. 
+THINKING IN SYSTEMS: A PRIMER (2008) donella h. meadows
+12. SOME TRICK (2018) helen dewitt
+

@@ -16,3 +16,4 @@ total: 2 shows
 - 3.7 WILD UP: THE ODES | redcat | w/JULIA HOLTER, pieces by jean-féry rebel, henry purcell, alfred schnittke
 - 3.10 VICKY RAY: THE RILKE PROJECT | 2220 arts + archives
 - 3.13 MMOONN / DANIELA HUERTA | 2220 arts + archives
+- 3.22 YEFIM BRONFMAN | walt disney concert hall | colburn celebrity recital
