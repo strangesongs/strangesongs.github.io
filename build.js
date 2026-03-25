@@ -119,8 +119,8 @@ async function buildYear(year) {
             if (fileStats.mtime > latestDate) {
                 latestDate = fileStats.mtime;
             }
-            
-            content += `<section class="${section.name}" data-section-title="${section.title}">\n`;
+            // Add id attribute for hash navigation
+            content += `<section id="${section.name}" class="${section.name}" data-section-title="${section.title}">\n`;
             content += `    <h2>${section.title}</h2>\n`;
             content += `    ${processedContent}\n`;
             content += `</section>\n`;
