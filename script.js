@@ -1,3 +1,31 @@
+// Ensure correct section is shown on hash change (for sidebar navigation)
+window.addEventListener('hashchange', function() {
+    const sections = document.querySelectorAll('section');
+    const yearLabel = document.querySelector('.year-label');
+    // Get the base year from the URL or yearLabel
+    let currentYear = '';
+    if (yearLabel) {
+        // Try to extract just the year (first 4 digits)
+        const match = yearLabel.textContent.match(/\d{4}/);
+        if (match) currentYear = match[0];
+    }
+    // Hide all sections
+    sections.forEach(section => section.style.display = 'none');
+    // Show the section matching the hash
+    if (window.location.hash) {
+        const hash = window.location.hash.replace('#', '');
+        const shownSection = document.getElementById(hash);
+        if (shownSection) {
+            shownSection.style.display = 'block';
+            const sectionTitle = shownSection.dataset.sectionTitle || shownSection.className;
+            if (yearLabel) {
+                yearLabel.textContent = currentYear;
+                if (sectionTitle) yearLabel.textContent += ` (${sectionTitle})`;
+            }
+            window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+    }
+});
 document.addEventListener('DOMContentLoaded', function() {
             // Sidebar: Expand/collapse 'read watch listen' years and subpages
             const rwlYearLinks = document.querySelectorAll('.rwl-year-link');
@@ -91,14 +119,16 @@ document.addEventListener('DOMContentLoaded', function() {
         if (shownSection) {
             shownSection.style.display = 'block';
             const sectionTitle = shownSection.dataset.sectionTitle || shownSection.className;
-            yearLabel.textContent = `${currentYear} (${sectionTitle})`;
-            // Optionally scroll to it
-            shownSection.scrollIntoView();
+            yearLabel.textContent = currentYear;
+            if (sectionTitle) yearLabel.textContent += ` (${sectionTitle})`;
+            window.scrollTo({ top: 0, behavior: 'instant' });
         } else if (sections.length > 0) {
             // Show only the first section if no hash
             sections[0].style.display = 'block';
             const sectionTitle = sections[0].dataset.sectionTitle || sections[0].className;
-            yearLabel.textContent = `${currentYear} (${sectionTitle})`;
+            yearLabel.textContent = currentYear;
+            if (sectionTitle) yearLabel.textContent += ` (${sectionTitle})`;
+            window.scrollTo({ top: 0, behavior: 'instant' });
         }
     }
     
