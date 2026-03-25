@@ -81,19 +81,24 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         // Desktop: hide all sections initially
         sections.forEach(section => section.style.display = 'none');
-        
-        // Show only the first section on page load
-        if (sections.length > 0) {
+
+        // If there's a hash, show only that section
+        let shownSection = null;
+        if (window.location.hash) {
+            const hash = window.location.hash.replace('#', '');
+            shownSection = document.getElementById(hash);
+        }
+        if (shownSection) {
+            shownSection.style.display = 'block';
+            const sectionTitle = shownSection.dataset.sectionTitle || shownSection.className;
+            yearLabel.textContent = `${currentYear} (${sectionTitle})`;
+            // Optionally scroll to it
+            shownSection.scrollIntoView();
+        } else if (sections.length > 0) {
+            // Show only the first section if no hash
             sections[0].style.display = 'block';
             const sectionTitle = sections[0].dataset.sectionTitle || sections[0].className;
             yearLabel.textContent = `${currentYear} (${sectionTitle})`;
-            
-            // Mark first section link as active
-            const firstSectionName = sections[0].className.split(' ')[0];
-            const firstLink = document.querySelector(`[data-section="${firstSectionName}"]`);
-            if (firstLink) {
-                firstLink.classList.add('active');
-            }
         }
     }
     
