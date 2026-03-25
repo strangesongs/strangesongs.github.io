@@ -1,4 +1,72 @@
 document.addEventListener('DOMContentLoaded', function() {
+            // Sidebar: Expand/collapse 'read watch listen' years and subpages
+            const rwlYearLinks = document.querySelectorAll('.rwl-year-link');
+            rwlYearLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const parent = this.closest('.rwl-year-item');
+                    const subpages = parent.querySelector('.rwl-subpages');
+                    const isOpen = subpages.style.display === 'block';
+                    // Close all subpages
+                    document.querySelectorAll('.rwl-subpages').forEach(ul => ul.style.display = 'none');
+                    if (!isOpen) {
+                        subpages.style.display = 'block';
+                    }
+                });
+            });
+
+            // Prevent sidebar collapse when clicking subpage links
+            const rwlSubLinks = document.querySelectorAll('.rwl-subpages a');
+            rwlSubLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    // Keep the year list expanded in localStorage
+                    localStorage.setItem('rwlExpanded', '1');
+                });
+            });
+        // Sidebar: Expand/collapse 'read watch listen' years, keep expanded across pages
+        const rwlLink = document.querySelector('.rwl-link');
+        const rwlYears = document.querySelector('.rwl-years');
+        // Use localStorage to remember expanded/collapsed state
+        function setRwlExpanded(expanded) {
+            if (expanded) {
+                rwlYears.style.display = 'block';
+                localStorage.setItem('rwlExpanded', '1');
+            } else {
+                rwlYears.style.display = 'none';
+                localStorage.setItem('rwlExpanded', '0');
+            }
+        }
+        if (rwlLink && rwlYears) {
+            // On load, restore state
+            const expanded = localStorage.getItem('rwlExpanded') !== '0';
+            setRwlExpanded(expanded);
+            // If expanded, also expand the submenu for the current year/hash
+            if (expanded) {
+                // Get current year from .year-label or from URL
+                let currentYear = '';
+                const yearLabel = document.querySelector('.year-label');
+                if (yearLabel) {
+                    currentYear = yearLabel.textContent.trim();
+                }
+                // If on a hash (e.g., #books), still expand the year
+                if (!currentYear) {
+                    const match = window.location.pathname.match(/(\d{4})\.html/);
+                    if (match) currentYear = match[1];
+                }
+                if (currentYear) {
+                    const yearItem = document.querySelector(`.rwl-year-link[data-year="${currentYear}"]`);
+                    if (yearItem) {
+                        const subpages = yearItem.closest('.rwl-year-item').querySelector('.rwl-subpages');
+                        if (subpages) subpages.style.display = 'block';
+                    }
+                }
+            }
+            rwlLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isOpen = rwlYears.style.display === 'block';
+                setRwlExpanded(!isOpen);
+            });
+        }
     const yearLinks = document.querySelectorAll('.year-link');
     const sectionLinks = document.querySelectorAll('[data-section]');
     const sections = document.querySelectorAll('section');
