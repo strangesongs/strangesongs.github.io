@@ -17,3 +17,5 @@ total: 2 shows
 - 3.10 VICKY RAY: THE RILKE PROJECT | 2220 arts + archives
 - 3.13 MMOONN / DANIELA HUERTA | 2220 arts + archives
 - 3.22 YEFIM BRONFMAN | walt disney concert hall | colburn celebrity recital
+- 3.24 DIRTY THREE | el rey theater
+- 3.25 AVA MENDOZA, AMIRTHA KIDAMBI + ANGEL DERADOORIAN / MATANA ROBERTS | 2220 arts and archives

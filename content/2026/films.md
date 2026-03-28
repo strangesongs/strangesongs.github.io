@@ -28,3 +28,4 @@ total: 9 films
 - 3.4 WHAT DOES THAT NATURE SAY TO YOU (2025) hong sang-soo | DCP | los feliz 3
 - 3.6 LATE SPRING (1949) | yasujirō ozu | streaming | criterion channel
 - 3.10 ATMAN (1975) | toshio matsumoto | streaming | youtube
+- 3.27 INDECENT PROPOSAL (1993) | adrian lyne | streaming | criterion channel
