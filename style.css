@@ -1,39 +1,4 @@
-.rwl-years {
-    margin-left: 18px;
-    margin-top: 4px;
-}
-
-.rwl-year-link {
-    cursor: pointer;
-    color: #6a1b9a;
-    text-decoration: none;
-    font-size: 17px;
-    display: inline-block;
-    margin-bottom: 2px;
-}
-.rwl-year-link:hover {
-    text-decoration: underline;
-}
-
-.rwl-subpages {
-    margin-left: 18px;
-    margin-top: 2px;
-    margin-bottom: 6px;
-    list-style: none;
-    padding-left: 0;
-}
-.rwl-subpages li {
-    font-size: 15px;
-    margin-bottom: 2px;
-}
-.rwl-subpages a {
-    color: #555;
-    text-decoration: none;
-}
-.rwl-subpages a:hover {
-    text-decoration: underline;
-    color: #333;
-}
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@700&display=swap');
 /* Reset and base styles */
 * {
     margin: 0;
@@ -68,10 +33,11 @@ body {
 }
 
 .sidebar h1 {
+    font-family: 'Fraunces', Georgia, serif;
     font-size: 22px;
-    font-weight: bold;
+    font-weight: 700;
     margin-bottom: 35px;
-    letter-spacing: 1px;
+    letter-spacing: -0.02em;
 }
 
 .sidebar h1 a {
@@ -103,54 +69,102 @@ body {
     text-decoration: underline;
 }
 
-/* read watch listen expand/collapse */
-.rwl-link {
+/* read watch listen — native details/summary collapse */
+.sidebar details {
+    display: block;
+}
+
+.sidebar summary {
     cursor: pointer;
-    position: relative;
-    font-weight: normal;
-}
-.rwl-years {
-    margin-left: 18px;
-    margin-top: 4px;
-    transition: display 0.2s;
+    list-style: none;
+    color: #6a1b9a;
+    font-size: 18px;
+    margin-bottom: 0;
+    user-select: none;
 }
 
-/* Year item styling */
-.year-item {
-    margin-bottom: 8px;
+.sidebar summary::-webkit-details-marker,
+.sidebar summary::marker {
+    display: none;
 }
 
-/* Subsections - hidden by default */
-.subsections {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    margin-left: 15px;
-    margin-top: 0;
+.sidebar summary::after {
+    content: '+';
+    font-size: 10px;
+    margin-left: 0.22rem;
+    opacity: 0.3;
 }
 
-.subsections li {
-    margin-bottom: 6px;
+.sidebar details[open] summary::after {
+    content: '-';
+}
+
+.sidebar .rwl-years {
+    list-style: none;
+    margin: 4px 0 0 10px;
+    padding: 0;
+}
+
+.sidebar .rwl-years li {
+    margin-bottom: 3px;
     font-size: 15px;
-    font-style: italic;
 }
 
-.subsections a {
-    color: #555;
+.sidebar .rwl-years a {
+    color: #6a1b9a;
+    text-decoration: none;
 }
 
-.subsections a:hover {
-    color: #333;
-}
-
-.subsections a.active {
+.sidebar .rwl-years a:hover {
     text-decoration: underline;
 }
 
-/* Expanded state */
-.year-item.expanded .subsections {
-    max-height: 200px;
-    margin-top: 8px;
+.sidebar .rwl-year-item {
+    margin-bottom: 0.15rem;
+}
+
+.sidebar .rwl-year-item details {
+    margin: 0;
+}
+
+.sidebar .rwl-year-summary {
+    font-size: 15px;
+    color: #6a1b9a;
+    margin-bottom: 0;
+}
+
+.sidebar .rwl-year-summary::after {
+    content: '+';
+    font-size: 9px;
+    margin-left: 0.2rem;
+    opacity: 0.28;
+}
+
+.sidebar .rwl-year-item details[open] .rwl-year-summary::after {
+    content: '-';
+}
+
+.sidebar .rwl-sections {
+    list-style: none;
+    margin: 0.15rem 0 0.32rem 0.75rem;
+    padding: 0;
+}
+
+.sidebar .rwl-sections li {
+    margin-bottom: 0.08rem;
+    font-size: 14px;
+}
+
+.sidebar .rwl-sections a {
+    color: #555;
+    text-decoration: none;
+    font-style: italic;
+}
+
+.sidebar .rwl-sections a:hover,
+.sidebar .rwl-sections a.is-active {
+    color: #333;
+    text-decoration: underline;
 }
 
 .sidebar .contact {
@@ -182,10 +196,16 @@ body {
     overflow-y: auto;
 }
 
+.content header {
+    border-bottom: 2px solid #4a148c;
+    margin-bottom: 24px;
+    padding-bottom: 10px;
+}
+
 .content header .year-label {
     font-size: 18px;
     font-style: italic;
-    margin-bottom: 25px;
+    margin-bottom: 0;
 }
 
 /* Sections */
