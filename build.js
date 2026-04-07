@@ -17,21 +17,22 @@ function processMarkdown(content) {
     // Convert markdown-style lists to HTML, marking them differently
     content = content.replace(/^- (.+)$/gm, '<li class="bullet">$1</li>');
     content = content.replace(/^\d+\.\s+(.+)$/gm, '<li class="numbered">$1</li>');
-    content = content.replace(/^(\d{2}\.\d{2}\s+.+)$/gm, '<li class="dated">$1</li>');
+    content = content.replace(/^(\d{2}\.\d{2})\s+(.+)$/gm, '<li class="dated"><span class="entry-date">$1</span><span class="entry-body">$2</span></li>');
     
-    // Wrap consecutive bullet list items in ul tags
-    content = content.replace(/(<li class="bullet">.*?<\/li>\s*)+/gs, match => {
-        return '<ul>' + match.replace(/ class="bullet"/g, '') + '</ul>';
+    // Wrap consecutive bullet list items in ul tags.
+    // Use a single-line separator so blank lines split lists into separate groups.
+    content = content.replace(/(<li class="bullet">.*?<\/li>\n?)+/g, match => {
+        return '<ul class="markdown-list bullet-list">' + match + '</ul>';
     });
     
     // Wrap consecutive numbered list items in ol tags
-    content = content.replace(/(<li class="numbered">.*?<\/li>\s*)+/gs, match => {
-        return '<ol>' + match.replace(/ class="numbered"/g, '') + '</ol>';
+    content = content.replace(/(<li class="numbered">.*?<\/li>\n?)+/g, match => {
+        return '<ol class="markdown-list numbered-list">' + match + '</ol>';
     });
 
     // Wrap consecutive dated entries in ul tags
-    content = content.replace(/(<li class="dated">.*?<\/li>\s*)+/gs, match => {
-        return '<ul>' + match.replace(/ class="dated"/g, '') + '</ul>';
+    content = content.replace(/(<li class="dated">.*?<\/li>\n?)+/g, match => {
+        return '<ul class="markdown-list dated-list">' + match + '</ul>';
     });
     
     // Convert headers
@@ -59,8 +60,8 @@ function processMarkdown(content) {
         return `<p>${line}</p>`;
     });
     
-    // Clean up extra whitespace
-    content = processedLines.join('\n').replace(/\n\s*\n/g, '\n');
+    // Keep intentional blank-line spacing while collapsing excessive gaps.
+    content = processedLines.join('\n').replace(/\n{3,}/g, '\n\n');
     
     return content;
 }
@@ -75,10 +76,9 @@ function buildSidebar(currentYear = '', currentSection = '') {
     const defaultOpenYear = allYears.findLast(year => fs.existsSync(path.join('content', year))) || '';
     const activeYear = currentYear || defaultOpenYear;
 
-    let sidebar = `<h1>cleve</h1>\n<nav>\n<ul>\n`;
+    let sidebar = `<h1><a href="index.html">cleve</a></h1>\n<nav>\n<ul>\n`;
     sidebar += `<li><a href="about.html">about</a></li>\n`;
-    sidebar += `<li><a href="mailto:jcrtll@protonmail.com">email</a></li>\n`;
-    sidebar += `<li class="rwl-item">\n<details open>\n<summary class="rwl-link">cleve</summary>\n<ul class="rwl-years">`;
+    sidebar += `<li class="rwl-item">\n<details open>\n<summary class="rwl-link">read watch listen</summary>\n<ul class="rwl-years">`;
 
     [...allYears].reverse().forEach(year => {
         const yearDir = path.join('content', year);
@@ -107,7 +107,30 @@ function buildSidebar(currentYear = '', currentSection = '') {
     sidebar += `\n</ul>\n</details>\n</li>`;
     sidebar += `<li><a href="https://whatwesee.netlify.app/" target="_blank" rel="noopener">photography</a></li>\n`;
     sidebar += `<li><a href="https://consono.bandcamp.com/" target="_blank" rel="noopener">music</a></li>\n`;
+    sidebar += `<li><a href="mailto:jcrtll@protonmail.com">email</a></li>\n`;
     sidebar += `</ul>\n</nav>`;
+
+    // Flat mobile-only nav — completely separate from the details tree
+    const existingYears = [...allYears].reverse().filter(y => fs.existsSync(path.join('content', y)));
+    sidebar += `\n<nav class="mobile-nav">`;
+    sidebar += `\n  <div class="mnav-row mnav-main">`;
+    sidebar += `\n    <a href="about.html">about</a>`;
+    sidebar += `\n    <a href="rwl.html" class="mnav-rwl-link">read watch listen</a>`;
+    sidebar += `\n    <a href="https://whatwesee.netlify.app/" target="_blank" rel="noopener">photography</a>`;
+    sidebar += `\n    <a href="https://consono.bandcamp.com/" target="_blank" rel="noopener">music</a>`;
+    sidebar += `\n    <a href="mailto:jcrtll@protonmail.com">email</a>`;
+    sidebar += `\n  </div>`;
+    sidebar += `\n  <div class="mnav-row mnav-years" hidden>`;
+    existingYears.forEach(year => {
+        const yearDir = path.join('content', year);
+        const availableSections = ['books', 'films', 'shows'].filter(s =>
+            fs.existsSync(path.join(yearDir, `${s}.md`))
+        );
+        sidebar += `\n    <a href="${year}.html" data-year="${year}" data-sections="${availableSections.join(',')}">${year}</a>`;
+    });
+    sidebar += `\n  </div>`;
+    sidebar += `\n  <div class="mnav-row mnav-sections" hidden></div>`;
+    sidebar += `\n</nav>`;
 
     return sidebar;
 }
@@ -167,6 +190,7 @@ async function buildYear(year) {
         sidebar: buildSidebar(year, currentSectionMatch ? currentSectionMatch[1] : ''),
         content: content,
         year: year,
+        showFooter: false,
         lastUpdated: latestDate.toLocaleDateString('en-US', { 
             year: 'numeric', 
             month: 'long', 
@@ -190,6 +214,7 @@ async function buildAbout() {
         sidebar: buildSidebar(),
         year: 'about',
         content: aboutContent,
+        showFooter: false,
         lastUpdated: new Date().toLocaleDateString('en-US', { 
             year: 'numeric', 
             month: 'long', 
@@ -201,6 +226,23 @@ async function buildAbout() {
     console.log('Generated about.html');
 }
 
+async function buildRwl() {
+    console.log('Building rwl...');
+    const template = fs.readFileSync('templates/index.html', 'utf8');
+    const rwlContent = '';
+
+    const html = ejs.render(template, {
+        sidebar: buildSidebar(),
+        year: '',
+        content: rwlContent,
+        showFooter: false,
+        lastUpdated: ''
+    });
+
+    fs.writeFileSync('rwl.html', html);
+    console.log('Generated rwl.html');
+}
+
 async function build() {
     // ...existing build logic for years, sections, etc...
     console.log('Starting build...');
@@ -210,6 +252,19 @@ async function build() {
     await buildYear('2025');
     await buildYear('2026');
     await buildAbout();
+    await buildRwl();
+
+    const execSync = require('child_process').execSync;
+
+    function getLastCommitTime(file) {
+        try {
+            const ts = execSync(`git log -1 --format=%ct -- ${file}`, { encoding: 'utf8' }).trim();
+            if (!ts) return 0;
+            return Number(ts) || 0;
+        } catch (e) {
+            return 0;
+        }
+    }
 
     // Gather all content files and their last modified dates
     const years = ['2022', '2023', '2024', '2025', '2026'];
@@ -220,21 +275,30 @@ async function build() {
             const filePath = path.join('content', year, `${section}.md`);
             if (fs.existsSync(filePath)) {
                 const stats = fs.statSync(filePath);
+                const commitTime = getLastCommitTime(filePath);
                 fileInfos.push({
                     file: `${year}/${section}.md`,
-                    mtime: stats.mtime
+                    mtime: stats.mtime,
+                    commitTime
                 });
             }
         });
     });
-    // Sort by most recent
-    fileInfos.sort((a, b) => b.mtime - a.mtime);
+    // Sort by latest git commit, then mtime, then filename.
+    fileInfos.sort((a, b) => {
+        const commitDelta = b.commitTime - a.commitTime;
+        if (commitDelta !== 0) return commitDelta;
 
-    // Only show the last 3 updated files
-    const topFiles = fileInfos.slice(0, 3);
+        const mtimeDelta = b.mtime - a.mtime;
+        if (mtimeDelta !== 0) return mtimeDelta;
+
+        return a.file.localeCompare(b.file);
+    });
+
+    // Show a broader set so same-day updates are represented better
+    const topFiles = fileInfos.slice(0, 6);
 
     // For each file, get a one-line summary of what was added using git
-    const execSync = require('child_process').execSync;
     function getLastSummary(file) {
         try {
             // Get last two commit hashes for the file
@@ -246,8 +310,8 @@ async function build() {
             // Extract only added lines
             const added = diff.match(/^\+[^+][^\n]*/gm) || [];
             if (added.length === 0) return 'Updated';
-            // Try to count new items (lines that look like list items)
-            const newItems = added.filter(l => l.match(/^\+\d+\.|^- /)).length;
+            // Count list-style additions in all supported markdown formats.
+            const newItems = added.filter(l => /^\+(?:\d+\.\s+|- |\d{2}\.\d{2}\s+)/.test(l)).length;
             let type = 'item';
             if (file.includes('books')) type = 'book';
             if (file.includes('films')) type = 'film';
@@ -267,10 +331,13 @@ async function build() {
     // Render the list as HTML (minimal, one-line summary)
     let updatesList = '<section class="recent-updates">\n  <h2 class="recent-updates-title">recent updates</h2>';
     topFiles.forEach(info => {
-        const dateStr = info.mtime.toISOString().slice(0, 10);
+        const sourceDate = info.commitTime ? new Date(info.commitTime * 1000) : info.mtime;
+        const dateStr = sourceDate.toISOString().slice(0, 10);
         const summary = getLastSummary('content/' + info.file);
+        const section = path.basename(info.file, '.md');
         updatesList += `\n  <div class=\"recent-file-block\">`;
-        updatesList += `<span class=\"file-name\">${info.file}</span> <span class=\"file-date\">${dateStr}</span> — <span class=\"file-summary\">${summary}</span>`;
+        updatesList += `<div class=\"recent-file-meta\"><span class=\"file-name\">${info.file}</span><span class=\"file-section\">${section}</span><span class=\"file-date\">${dateStr}</span></div>`;
+        updatesList += `<div class=\"file-summary\">${summary}</div>`;
         updatesList += '</div>';
     });
     updatesList += '\n</section>';
@@ -281,10 +348,11 @@ async function build() {
         sidebar: buildSidebar(),
         year: '',
         content: updatesList,
+        showFooter: true,
         lastUpdated: topFiles.length > 0 ? topFiles[0].mtime.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : ''
     });
     fs.writeFileSync('index.html', html);
-    console.log('Generated index.html (last 3 file updates with diffs)');
+    console.log('Generated index.html (recent file updates with diffs)');
 
     // --- Changelog logic moved here ---
     // Changelog: gather all relevant files (content, about.html, style.css, etc.)
@@ -377,6 +445,7 @@ async function build() {
         sidebar: buildSidebar(),
         year: '',
         content: changelogList,
+        showFooter: false,
         lastUpdated: topChangelog.length > 0 ? topChangelog[0].mtime.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : ''
     });
     fs.writeFileSync('changelog.html', changelogHtml);

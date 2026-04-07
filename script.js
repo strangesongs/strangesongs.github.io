@@ -57,8 +57,77 @@ function setupYearAccordion() {
     });
 }
 
+function setupMobileNav() {
+    const rwlLink = document.querySelector('.mnav-rwl-link');
+    const yearsRow = document.querySelector('.mnav-years');
+    const sectionsRow = document.querySelector('.mnav-sections');
+    if (!rwlLink || !yearsRow || !sectionsRow) return;
+
+    const pageName = window.location.pathname.split('/').pop() || '';
+    const isRwlPage = pageName === 'rwl.html';
+    const yearMatch = pageName.match(/^(20\d{2})\.html$/);
+    const currentYear = yearMatch ? yearMatch[1] : '';
+    const isYearPage = Boolean(currentYear);
+
+    const setActiveYear = year => {
+        yearsRow.querySelectorAll('a').forEach(a => {
+            a.classList.toggle('is-active', a.dataset.year === year);
+        });
+    };
+
+    const renderSectionsForYear = year => {
+        const yearLink = yearsRow.querySelector(`a[data-year="${year}"]`);
+        if (!yearLink) {
+            sectionsRow.innerHTML = '';
+            sectionsRow.hidden = true;
+            return;
+        }
+
+        const sections = (yearLink.dataset.sections || '').split(',').filter(Boolean);
+        sectionsRow.innerHTML = sections.map(section => `<a href="${year}.html">${section}</a>`).join('');
+        sectionsRow.hidden = sections.length === 0;
+    };
+
+    yearsRow.hidden = !(isRwlPage || isYearPage);
+    rwlLink.classList.toggle('is-open', !yearsRow.hidden);
+
+    if (isYearPage) {
+        setActiveYear(currentYear);
+        renderSectionsForYear(currentYear);
+    } else {
+        sectionsRow.hidden = true;
+    }
+
+    rwlLink.addEventListener('click', e => {
+        // From about/index pages this remains a normal navigation link.
+        if (!isRwlPage && !isYearPage) return;
+
+        // On rwl/year pages, clicking toggles years visibility.
+        e.preventDefault();
+        const opening = yearsRow.hidden;
+        yearsRow.hidden = !opening;
+
+        if (!opening) {
+            sectionsRow.hidden = true;
+            yearsRow.querySelectorAll('a').forEach(a => a.classList.remove('is-active'));
+        }
+
+        rwlLink.classList.toggle('is-open', opening);
+    });
+
+    yearsRow.querySelectorAll('a[data-year]').forEach(yearLink => {
+        yearLink.addEventListener('click', e => {
+            e.preventDefault();
+            const year = yearLink.dataset.year;
+            setActiveYear(year);
+            renderSectionsForYear(year);
+        });
+    });
+}
+
 window.addEventListener('hashchange', updateYearPageView);
 window.addEventListener('DOMContentLoaded', () => {
     setupYearAccordion();
     updateYearPageView();
+    setupMobileNav();
 });

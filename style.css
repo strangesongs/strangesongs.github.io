@@ -69,6 +69,14 @@ body {
     text-decoration: underline;
 }
 
+/* Ensure hidden attribute is never overridden by any display rule */
+[hidden] { display: none !important; }
+
+/* Mobile nav — hidden on desktop */
+.sidebar .mobile-nav {
+    display: none;
+}
+
 /* read watch listen — native details/summary collapse */
 .sidebar details {
     display: block;
@@ -268,14 +276,62 @@ section ul {
     padding-left: 0;
 }
 
+section ul + ul {
+    margin-top: 18px;
+}
+
 section ol {
-    padding-left: 25px;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: entry-counter;
 }
 
 section li {
     margin-bottom: 8px;
     font-size: 16px;
     line-height: 1.5;
+}
+
+section .markdown-list {
+    margin: 0;
+}
+
+section .dated-list li {
+    display: grid;
+    grid-template-columns: 4.2rem 1fr;
+    column-gap: 0.7rem;
+    align-items: start;
+    margin-bottom: 7px;
+}
+
+section .dated-list .entry-date {
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    color: #6a1b9a;
+    letter-spacing: 0.04em;
+    line-height: 1.7;
+}
+
+section .dated-list .entry-body {
+    min-width: 0;
+}
+
+section .numbered-list li {
+    display: grid;
+    grid-template-columns: 4.2rem 1fr;
+    column-gap: 0.7rem;
+    align-items: start;
+    margin-bottom: 7px;
+    counter-increment: entry-counter;
+}
+
+section .numbered-list li::before {
+    content: counter(entry-counter, decimal-leading-zero);
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    color: #6a1b9a;
+    letter-spacing: 0.04em;
+    line-height: 1.7;
 }
 
 /* Footer */
@@ -299,28 +355,6 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Mobile contact footer */
-.mobile-contact {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    .mobile-contact {
-        display: block;
-        margin-top: 25px;
-        margin-bottom: 10px;
-    }
-    
-    .mobile-contact p {
-        margin-bottom: 6px;
-    }
-    
-    .mobile-contact a {
-        color: #6a1b9a;
-        text-decoration: none;
-    }
-}
-
 /* Mobile responsive */
 @media (max-width: 768px) {
     .layout {
@@ -340,26 +374,48 @@ footer a:hover {
         margin-bottom: 15px;
     }
     
-    .sidebar nav ul {
+    /* Hide the details tree; show the flat mobile nav instead */
+    .sidebar > nav:not(.mobile-nav) {
+        display: none;
+    }
+
+    .sidebar .mobile-nav {
+        display: block;
+    }
+
+    .mnav-row {
         display: flex;
         flex-wrap: wrap;
-        gap: 5px 15px;
+        gap: 5px 14px;
+        align-items: baseline;
     }
-    
-    .sidebar nav li {
-        margin-bottom: 0;
+
+    .mnav-years {
+        margin-top: 10px;
+    }
+
+    .mnav-sections {
+        margin-top: 6px;
+    }
+
+    .mnav-main a,
+    .mnav-years a,
+    .mnav-sections a,
+    .mnav-rwl-link {
         font-size: 15px;
+        color: #6a1b9a;
+        text-decoration: none;
     }
-    
-    .year-item {
-        margin-bottom: 0;
+
+    .mnav-main a:hover,
+    .mnav-years a:hover,
+    .mnav-sections a:hover,
+    .mnav-rwl-link:hover,
+    .mnav-rwl-link.is-open,
+    .mnav-years a.is-active {
+        text-decoration: underline;
     }
-    
-    /* Hide subsections on mobile - show all content in continuous scroll */
-    .subsections {
-        display: none !important;
-    } 
-    
+
     /* Hide contact in sidebar on mobile */
     .sidebar .contact {
         display: none;
@@ -369,6 +425,12 @@ footer a:hover {
         margin-left: 0;
         padding: 30px 20px;
     }
+
+    /* Sidebar bottom border already separates nav from content — no second bar needed */
+    .content header {
+        border-bottom: none;
+        margin-bottom: 12px;
+    }
     
     .content header .year-label {
         margin-bottom: 15px;
@@ -376,6 +438,17 @@ footer a:hover {
     
     section li {
         line-height: 1.4;
+    }
+
+    section .dated-list li,
+    section .numbered-list li {
+        grid-template-columns: 3.6rem 1fr;
+        column-gap: 0.55rem;
+    }
+
+    section .dated-list .entry-date,
+    section .numbered-list li::before {
+        font-size: 12px;
     }
     
     section ol {
@@ -423,41 +496,56 @@ footer a:hover {
 
 /* --- Recent Updates (homepage) --- */
 .recent-updates {
-  margin: 40px 0 0 0;
-  font-family: inherit;
+    margin: 0;
 }
+
 .recent-updates-title {
-  font-size: 1.3em;
-  font-style: italic;
-  color: #4a148c;
-  margin-bottom: 30px;
-  margin-top: 0;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    text-transform: lowercase;
+    color: #4a148c;
+    margin-bottom: 18px;
+    margin-top: 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #c9b8e8;
 }
 
-/* --- Monospaced font for all recent updates --- */
-.recent-updates, .recent-updates * {
-  font-family: 'Times New Roman', Times, serif !important;
-}
-
-/* --- Mockup 4: Monospaced Meta, Serif Content --- */
 .recent-file-block {
-  border-bottom: 1px solid #e0d7f7;
-  margin-bottom: 24px;
-  padding-bottom: 10px;
-  background: none;
+    border-bottom: 1px solid #e8e0f4;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
 }
-.recent-file-header {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1em;
-  color: #6a1b9a;
-  margin-bottom: 2px;
+
+.recent-file-meta {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    font-size: 13px;
+    color: #5f4b7a;
+    margin-bottom: 4px;
 }
-.diff-summary {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 1.05em;
-  margin-top: 6px;
+
+.file-name {
+    font-size: 13px;
+    color: #4a148c;
 }
-.diff-label, .diff-added, .diff-summary {
-  font-style: normal !important;
+
+.file-section {
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: #6a1b9a;
+}
+
+.file-date {
+    font-variant-numeric: tabular-nums;
+    color: #6c6c6c;
+    font-size: 13px;
+}
+
+.file-summary {
+    font-size: 16px;
+    line-height: 1.35;
+    color: #222;
 }
 
