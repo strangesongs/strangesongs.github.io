@@ -1,4 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Space+Grotesk:wght@400;500&display=swap');
+
+:root {
+    --font-display: 'Fraunces', serif;
+    --font-ui: 'Space Grotesk', sans-serif;
+}
+
 /* Reset and base styles */
 * {
     margin: 0;
@@ -7,7 +13,7 @@
 }
 
 body {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: var(--font-display);
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.01em;
@@ -33,7 +39,7 @@ body {
 }
 
 .sidebar h1 {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 22px;
     font-weight: 700;
     margin-bottom: 35px;
@@ -57,6 +63,7 @@ body {
 .sidebar nav li {
     margin-bottom: 8px;
     font-size: 18px;
+    font-family: var(--font-ui);
 }
 
 .sidebar nav a {
@@ -87,6 +94,7 @@ body {
     list-style: none;
     color: #6a1b9a;
     font-size: 18px;
+    font-family: var(--font-ui);
     margin-bottom: 0;
     user-select: none;
 }
@@ -116,6 +124,7 @@ body {
 .sidebar .rwl-years li {
     margin-bottom: 3px;
     font-size: 15px;
+    font-family: var(--font-ui);
 }
 
 .sidebar .rwl-years a {
@@ -161,6 +170,7 @@ body {
 .sidebar .rwl-sections li {
     margin-bottom: 0.08rem;
     font-size: 14px;
+    font-family: var(--font-ui);
 }
 
 .sidebar .rwl-sections a {
@@ -185,6 +195,7 @@ body {
     color: #333;
     text-decoration: none;
     font-size: 14px;
+    font-family: var(--font-ui);
 }
 
 .sidebar .contact a:hover {
@@ -213,6 +224,7 @@ body {
 .content header .year-label {
     font-size: 18px;
     font-style: italic;
+    font-family: var(--font-display);
     margin-bottom: 0;
 }
 
@@ -252,6 +264,7 @@ section.recent li {
 
 section > p:first-of-type {
     font-size: 17px;
+    font-family: var(--font-ui);
     margin-bottom: 15px;
     font-style: normal;
 }
@@ -265,10 +278,12 @@ section p.addendum {
 
 section p.count {
     font-size: 14px;
-    font-style: italic;
-    color: #666;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    font-family: var(--font-ui);
+    font-style: normal;
+    font-weight: 500;
+    color: #5f4b7a;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 section ul {
@@ -307,6 +322,7 @@ section .dated-list li {
 section .dated-list .entry-date {
     font-variant-numeric: tabular-nums;
     font-size: 13px;
+    font-family: var(--font-ui);
     color: #6a1b9a;
     letter-spacing: 0.04em;
     line-height: 1.7;
@@ -329,6 +345,7 @@ section .numbered-list li::before {
     content: counter(entry-counter, decimal-leading-zero);
     font-variant-numeric: tabular-nums;
     font-size: 13px;
+    font-family: var(--font-ui);
     color: #6a1b9a;
     letter-spacing: 0.04em;
     line-height: 1.7;
@@ -340,6 +357,7 @@ footer {
     padding-top: 0;
     border-top: none;
     font-size: 14px;
+    font-family: var(--font-ui);
 }
 
 footer p {
@@ -390,6 +408,12 @@ footer a:hover {
         align-items: baseline;
     }
 
+    .mnav-main {
+        flex-wrap: nowrap;
+        overflow: visible;
+        gap: 4px 8px;
+    }
+
     .mnav-years {
         margin-top: 10px;
     }
@@ -402,9 +426,11 @@ footer a:hover {
     .mnav-years a,
     .mnav-sections a,
     .mnav-rwl-link {
-        font-size: 15px;
+        font-size: 13px;
+        font-family: var(--font-ui);
         color: #6a1b9a;
         text-decoration: none;
+        white-space: nowrap;
     }
 
     .mnav-main a:hover,
@@ -429,11 +455,12 @@ footer a:hover {
     /* Sidebar bottom border already separates nav from content — no second bar needed */
     .content header {
         border-bottom: none;
-        margin-bottom: 12px;
+        margin-bottom: 8px;
+        padding-bottom: 0;
     }
     
     .content header .year-label {
-        margin-bottom: 15px;
+        margin-bottom: 6px;
     }
     
     section li {
@@ -501,6 +528,7 @@ footer a:hover {
 
 .recent-updates-title {
     font-size: 1rem;
+    font-family: var(--font-ui);
     letter-spacing: 0.02em;
     text-transform: lowercase;
     color: #4a148c;
@@ -521,6 +549,7 @@ footer a:hover {
     gap: 10px;
     align-items: baseline;
     font-size: 13px;
+    font-family: var(--font-ui);
     color: #5f4b7a;
     margin-bottom: 4px;
 }
@@ -533,6 +562,7 @@ footer a:hover {
 .file-section {
     text-transform: uppercase;
     font-size: 11px;
+    font-family: var(--font-ui);
     letter-spacing: 0.06em;
     color: #6a1b9a;
 }
@@ -545,6 +575,7 @@ footer a:hover {
 
 .file-summary {
     font-size: 16px;
+    font-family: var(--font-ui);
     line-height: 1.35;
     color: #222;
 }

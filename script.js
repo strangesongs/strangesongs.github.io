@@ -9,17 +9,16 @@ function updateYearPageView() {
     }
 
     const currentYear = (yearLabel.textContent.match(/\d{4}/) || [''])[0];
-    const isMobile = window.innerWidth <= 768;
     const requestedId = window.location.hash.replace('#', '');
     const shownSection = sections.find(section => section.id === requestedId) || sections[0];
 
     sections.forEach(section => {
-        section.style.display = isMobile || section === shownSection ? 'block' : 'none';
+        section.style.display = section === shownSection ? 'block' : 'none';
     });
 
     if (currentYear) {
         const sectionTitle = shownSection.dataset.sectionTitle || shownSection.id;
-        yearLabel.textContent = isMobile ? currentYear : `${currentYear} (${sectionTitle})`;
+        yearLabel.textContent = `${currentYear} (${sectionTitle})`;
         document.title = `${sectionTitle} ${currentYear}`;
     }
 
@@ -84,7 +83,7 @@ function setupMobileNav() {
         }
 
         const sections = (yearLink.dataset.sections || '').split(',').filter(Boolean);
-        sectionsRow.innerHTML = sections.map(section => `<a href="${year}.html">${section}</a>`).join('');
+        sectionsRow.innerHTML = sections.map(section => `<a href="${year}.html#${section}">${section}</a>`).join('');
         sectionsRow.hidden = sections.length === 0;
     };
 
