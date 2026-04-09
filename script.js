@@ -19,7 +19,7 @@ function updateYearPageView() {
     if (currentYear) {
         const sectionTitle = shownSection.dataset.sectionTitle || shownSection.id;
         yearLabel.textContent = `${currentYear} (${sectionTitle})`;
-        document.title = `${sectionTitle} ${currentYear}`;
+        document.title = `cleve - ${sectionTitle} ${currentYear}`;
     }
 
     document.querySelectorAll('.rwl-sections a').forEach(link => {
