@@ -187,6 +187,7 @@ body {
 .sidebar .rwl-sections a {
     color: var(--color-links-muted);
     text-decoration: none;
+    font-style: italic;
 }
 
 .sidebar .rwl-sections a:hover,
