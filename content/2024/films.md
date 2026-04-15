@@ -89,7 +89,7 @@ total: 66 films
 
 10.30 CROCK OF GOLD: A FEW ROUNDS WITH SHANE MACGOWAN (2020) julien temple | streaming
 
-11.1 LOSING GROUND (1982) kathleen collins | streaming | criterion channel
-11.9 MY FIRST FILM (2024) zia anger | streaming | mubi
+11.01 LOSING GROUND (1982) kathleen collins | streaming | criterion channel
+11.09 MY FIRST FILM (2024) zia anger | streaming | mubi
 11.23 CALIFORNIA SPLIT (1974) robert altman | streaming | criterion channel *
-12.1 THE END (2024) joshua oppenheimer | nuart theater
+12.01 THE END (2024) joshua oppenheimer | nuart theater

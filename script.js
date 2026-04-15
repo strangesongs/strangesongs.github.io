@@ -1,4 +1,5 @@
-function updateYearPageView() {
+function updateYearPageView(options = {}) {
+    const { scrollToTop = false } = options;
     const yearLabel = document.querySelector('.year-label');
     const sections = Array.from(document.querySelectorAll('main .content section, main > section, .content > section')).filter(
         section => section.id
@@ -24,6 +25,39 @@ function updateYearPageView() {
 
     document.querySelectorAll('.rwl-sections a').forEach(link => {
         link.classList.toggle('is-active', link.hash === `#${shownSection.id}` && link.pathname.endsWith(`${currentYear}.html`));
+    });
+
+    if (scrollToTop) {
+        window.scrollTo(0, 0);
+    }
+}
+
+function setupSectionNavNoJump() {
+    const sectionLinks = Array.from(document.querySelectorAll('.rwl-sections a, .mnav-sections a')).filter(
+        link => link.hash
+    );
+
+    if (sectionLinks.length === 0) {
+        return;
+    }
+
+    sectionLinks.forEach(link => {
+        link.addEventListener('click', event => {
+            const targetUrl = new URL(link.href, window.location.href);
+            const samePage = targetUrl.pathname === window.location.pathname;
+
+            if (!samePage) {
+                return;
+            }
+
+            event.preventDefault();
+
+            if (window.location.hash !== targetUrl.hash) {
+                history.pushState(null, '', targetUrl.hash);
+            }
+
+            updateYearPageView({ scrollToTop: true });
+        });
     });
 }
 
@@ -124,9 +158,12 @@ function setupMobileNav() {
     });
 }
 
-window.addEventListener('hashchange', updateYearPageView);
+window.addEventListener('hashchange', () => {
+    updateYearPageView({ scrollToTop: true });
+});
 window.addEventListener('DOMContentLoaded', () => {
     setupYearAccordion();
-    updateYearPageView();
+    setupSectionNavNoJump();
+    updateYearPageView({ scrollToTop: true });
     setupMobileNav();
 });
