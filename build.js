@@ -66,12 +66,15 @@ function processMarkdown(content) {
     return content;
 }
 
-function buildSidebar(currentYear = '', currentSection = '') {
+function buildSidebar(currentYear = '', currentSection = '', currentPage = '') {
     const allYears = ['2022', '2023', '2024', '2025', '2026'];
     const sectionDefs = [
         { name: 'books', title: 'books' },
         { name: 'films', title: 'films' },
         { name: 'shows', title: 'shows' }
+    ];
+    const rwlExtras = [
+        { name: 'abandoned', title: 'abandoned', href: 'abandoned.html' }
     ];
     const defaultOpenYear = allYears.findLast(year => fs.existsSync(path.join('content', year))) || '';
     const activeYear = currentYear || defaultOpenYear;
@@ -104,6 +107,11 @@ function buildSidebar(currentYear = '', currentSection = '') {
         sidebar += `\n  </li>`;
     });
 
+    rwlExtras.forEach(entry => {
+        const isActive = currentPage === entry.name ? ' class="is-active"' : '';
+        sidebar += `\n  <li class="rwl-extra-item"><a href="${entry.href}"${isActive}>${entry.title}</a></li>`;
+    });
+
     sidebar += `\n</ul>\n</details>\n</li>`;
     sidebar += `<li><a href="https://whatwesee.netlify.app/" target="_blank" rel="noopener">photography</a></li>\n`;
     sidebar += `<li><a href="https://consono.bandcamp.com/" target="_blank" rel="noopener">music</a></li>\n`;
@@ -127,6 +135,10 @@ function buildSidebar(currentYear = '', currentSection = '') {
             fs.existsSync(path.join(yearDir, `${s}.md`))
         );
         sidebar += `\n    <a href="${year}.html" data-year="${year}" data-sections="${availableSections.join(',')}">${year}</a>`;
+    });
+    rwlExtras.forEach(entry => {
+        const isActive = currentPage === entry.name ? ' class="is-active"' : '';
+        sidebar += `\n    <a href="${entry.href}"${isActive}>${entry.title}</a>`;
     });
     sidebar += `\n  </div>`;
     sidebar += `\n  <div class="mnav-row mnav-sections" hidden></div>`;
@@ -243,6 +255,30 @@ async function buildRwl() {
     console.log('Generated rwl.html');
 }
 
+async function buildAbandoned() {
+    console.log('Building abandoned...');
+    const template = fs.readFileSync('templates/index.html', 'utf8');
+    const filePath = path.join('content', 'abandoned.md');
+    let abandonedContent = '<section class="abandoned"><p>coming soon</p></section>';
+
+    if (fs.existsSync(filePath)) {
+        const rawContent = fs.readFileSync(filePath, 'utf8');
+        const processedContent = processMarkdown(rawContent);
+        abandonedContent = `<section id="abandoned" class="abandoned" data-section-title="abandoned">\n    <h2>abandoned</h2>\n    ${processedContent}\n</section>`;
+    }
+
+    const html = ejs.render(template, {
+        sidebar: buildSidebar('', '', 'abandoned'),
+        year: 'abandoned',
+        content: abandonedContent,
+        showFooter: false,
+        lastUpdated: ''
+    });
+
+    fs.writeFileSync('abandoned.html', html);
+    console.log('Generated abandoned.html');
+}
+
 async function build() {
     // ...existing build logic for years, sections, etc...
     console.log('Starting build...');
@@ -253,6 +289,7 @@ async function build() {
     await buildYear('2026');
     await buildAbout();
     await buildRwl();
+    await buildAbandoned();
 
     const execSync = require('child_process').execSync;
 
@@ -371,6 +408,15 @@ async function build() {
             }
         });
     });
+    const abandonedFile = path.join('content', 'abandoned.md');
+    if (fs.existsSync(abandonedFile)) {
+        changelogFiles.push({
+            file: 'abandoned.md',
+            rel: 'content/abandoned.md',
+            link: 'abandoned.html',
+            mtime: fs.statSync(abandonedFile).mtime
+        });
+    }
     // Add main pages
     ['about.html', 'index.html', 'style.css', 'script.js'].forEach(f => {
         if (fs.existsSync(f)) {
