@@ -199,6 +199,20 @@ a:focus-visible {
     color: var(--accent-muted);
 }
 
+.sidebar .rwl-extra-item {
+    margin-top: 0.14rem;
+}
+
+.sidebar .rwl-extra-link {
+    font-size: 12px;
+    color: var(--accent-muted);
+}
+
+.sidebar .rwl-extra-link::before {
+    content: '- ';
+    color: var(--accent-secondary);
+}
+
 .content {
     padding: 14px 22px 34px;
     max-width: none;
@@ -498,6 +512,15 @@ footer a:visited {
         text-decoration: underline;
         text-decoration-color: var(--accent-primary);
         color: var(--ink);
+    }
+
+    .mnav-years a[data-leaf="true"] {
+        color: var(--accent-muted);
+    }
+
+    .mnav-years a[data-leaf="true"]::before {
+        content: '- ';
+        color: var(--accent-secondary);
     }
 
     .content {

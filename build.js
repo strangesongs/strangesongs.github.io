@@ -109,7 +109,8 @@ function buildSidebar(currentYear = '', currentSection = '', currentPage = '') {
 
     rwlExtras.forEach(entry => {
         const isActive = currentPage === entry.name ? ' class="is-active"' : '';
-        sidebar += `\n  <li class="rwl-extra-item"><a href="${entry.href}"${isActive}>${entry.title}</a></li>`;
+        const activeClass = isActive ? ' is-active' : '';
+        sidebar += `\n  <li class="rwl-extra-item"><a href="${entry.href}" class="rwl-extra-link${activeClass}">${entry.title}</a></li>`;
     });
 
     sidebar += `\n</ul>\n</details>\n</li>`;
@@ -138,7 +139,7 @@ function buildSidebar(currentYear = '', currentSection = '', currentPage = '') {
     });
     rwlExtras.forEach(entry => {
         const isActive = currentPage === entry.name ? ' class="is-active"' : '';
-        sidebar += `\n    <a href="${entry.href}"${isActive}>${entry.title}</a>`;
+        sidebar += `\n    <a href="${entry.href}" data-leaf="true"${isActive}>${entry.title}</a>`;
     });
     sidebar += `\n  </div>`;
     sidebar += `\n  <div class="mnav-row mnav-sections" hidden></div>`;
