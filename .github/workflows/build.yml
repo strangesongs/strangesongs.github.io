@@ -3,12 +3,6 @@ name: Build and Deploy
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'content/**/*.md'
-      - 'templates/**/*'
-      - 'build.js'
-      - 'package.json'
-      - 'style.css'
 
 jobs:
   build-and-deploy:
