@@ -36,3 +36,4 @@ total: 9 films
 03.02 FLOATING CLOUDS (1955) mikio naruse | streaming | criterion channel
 
 04.14 SHIFT (1982) toshio matsumoto | streaming | youtube
+04.26 WHEN A WOMAN ASCENDS THE STAIRS (1960) mikio naruse | egyptian theater | 35mm | mikio naruse restrospective
