@@ -37,3 +37,5 @@ total: 9 films
 
 04.14 SHIFT (1982) toshio matsumoto | streaming | youtube
 04.26 WHEN A WOMAN ASCENDS THE STAIRS (1960) mikio naruse | egyptian theater | 35mm | mikio naruse restrospective
+
+05.03 THE MOTHER OF US ALL (1947) | co-production of juilliard school and the new york philharmonic | streaming | filmed adaptation of the virgil thomson / gertrude stein 
