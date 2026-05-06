@@ -25,3 +25,4 @@ total: 2 shows
 04.04 WILD UP: PERFECT OFFERING | nimoy theater
 04.15 RO (B)//ERT LUNDBERG's ADDENDUM, MINGJIA CHEN, GREGG KOWALSKY | 2220 arts and archives
 04.17 LUCK OF THE DRAW | oracle egg
+05.05 GREEN UMBRELLA NEW MUSIC SERIES | walt disney concert hall | piece information coming soon
