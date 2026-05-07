@@ -24,3 +24,4 @@ total: 12 books
 15. REFLECTIONS ON CINEMATOGRAPHY (2025) roger deakins
 16. MAINTENANCE: OF EVERYTHING (2025) stewart brand
 17. NO ONE IS TALKING ABOUT THIS (2021) patricia lockwood
+18. ON STRIKE AGAINST GOD (1980) joanna russ
