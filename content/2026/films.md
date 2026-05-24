@@ -5,7 +5,7 @@ date: 2026
 
 date TITLE (year) director | format | location | notes
 * denotes repeat viewing
-total: 9 films
+total: 12 films
 
 01.09 BURNING (2018) lee chang-dong | streaming | apple tv
 01.10 BREAD AND ALLEY (1970) abbas kiarostami | streaming | criterion
@@ -38,4 +38,7 @@ total: 9 films
 04.14 SHIFT (1982) toshio matsumoto | streaming | youtube
 04.26 WHEN A WOMAN ASCENDS THE STAIRS (1960) mikio naruse | egyptian theater | 35mm | mikio naruse restrospective
 
-05.03 THE MOTHER OF US ALL (1947) | co-production of juilliard school and the new york philharmonic | streaming | filmed adaptation of the virgil thomson / gertrude stein 
+05.17 THREE COLORS: BLUE (1993) krzysztof kieślowski | dcp | egyptian theater
+05.17 THREE COLORS: WHITE (1994) krzysztof kieślowski | dcp | egyptian theater
+05.17 THREE COLORS: RED (1994) krzysztof kieślowski | dcp | egyptian theater
+
