@@ -359,6 +359,59 @@ section :target {
     outline-offset: 2px;
 }
 
+section.about {
+    border-top: none;
+    padding-top: 0;
+    margin-bottom: 0;
+    max-width: 42ch;
+}
+
+section.about p {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 1.45;
+    text-transform: none;
+    margin-bottom: 1em;
+}
+
+section.about > p:first-of-type {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 1.45;
+    text-transform: none;
+    margin-bottom: 1em;
+    padding: 0;
+}
+
+section.about h2 {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: lowercase;
+    letter-spacing: 0;
+    color: var(--ink);
+    margin-top: 0.5em;
+    margin-bottom: 0.75em;
+}
+
+section.about li {
+    font-size: 18px;
+    line-height: 1.45;
+    letter-spacing: normal;
+    margin-bottom: 0.4em;
+    max-width: none;
+    padding: 0;
+}
+
+section.about .markdown-list {
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
 footer {
     margin-top: 24px;
     padding-top: 8px;

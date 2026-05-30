@@ -85,7 +85,7 @@ function buildSidebar(currentYear = '', currentSection = '', currentPage = '') {
 
     let sidebar = `<h1><a href="index.html">cleve</a></h1>\n<nav>\n<ul>\n`;
     sidebar += `<li><a href="about.html"${currentPage === 'about' ? ' class="is-active"' : ''}>about</a></li>\n`;
-    sidebar += `<li class="rwl-item">\n<details open>\n<summary class="rwl-link">read watch listen</summary>\n<ul class="rwl-years">`;
+    sidebar += `<li class="rwl-item">\n<details>\n<summary class="rwl-link">read watch listen</summary>\n<ul class="rwl-years">`;
 
     [...allYears].reverse().forEach(year => {
         const yearDir = path.join('content', year);
@@ -94,7 +94,7 @@ function buildSidebar(currentYear = '', currentSection = '', currentPage = '') {
         const availableSections = sectionDefs.filter(section =>
             fs.existsSync(path.join(yearDir, `${section.name}.md`))
         );
-        const isOpen = year === activeYear ? ' open' : '';
+        const isOpen = '';
 
         sidebar += `\n  <li class="rwl-year-item">`;
         sidebar += `\n    <details${isOpen}>`;
@@ -118,12 +118,12 @@ function buildSidebar(currentYear = '', currentSection = '', currentPage = '') {
     });
 
     sidebar += `\n</ul>\n</details>\n</li>`;
-    sidebar += `<li><a href="https://whatwesee.netlify.app/" target="_blank" rel="noopener">photography</a></li>\n`;
     sidebar += `<li class="rwl-item">\n<details>\n<summary class="rwl-link">music</summary>\n<ul class="rwl-years">`;
     musicLinks.forEach(link => {
         sidebar += `\n  <li class="rwl-extra-item"><a href="${link.href}" class="rwl-extra-link" target="_blank" rel="noopener">${link.title}</a></li>`;
     });
     sidebar += `\n</ul>\n</details>\n</li>\n`;
+    sidebar += `<li><a href="https://whatwesee.netlify.app/" target="_blank" rel="noopener">photography</a></li>\n`;
     sidebar += `<li><a href="mailto:jcrtll@protonmail.com">email</a></li>\n`;
     sidebar += `</ul>\n</nav>`;
 
@@ -133,8 +133,8 @@ function buildSidebar(currentYear = '', currentSection = '', currentPage = '') {
     sidebar += `\n  <div class="mnav-row mnav-main">`;
     sidebar += `\n    <a href="about.html">about</a>`;
     sidebar += `\n    <a href="rwl.html" class="mnav-rwl-link">read watch listen</a>`;
-    sidebar += `\n    <a href="https://whatwesee.netlify.app/" target="_blank" rel="noopener">photography</a>`;
     sidebar += `\n    <a href="#" class="mnav-music-link">music</a>`;
+    sidebar += `\n    <a href="https://whatwesee.netlify.app/" target="_blank" rel="noopener">photography</a>`;
     sidebar += `\n    <a href="mailto:jcrtll@protonmail.com">email</a>`;
     sidebar += `\n  </div>`;
     sidebar += `\n  <div class="mnav-row mnav-music" hidden>`;
