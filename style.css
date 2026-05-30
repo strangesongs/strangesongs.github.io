@@ -479,7 +479,8 @@ footer a:visited {
         gap: 6px 7px;
     }
 
-    .mnav-years {
+    .mnav-years,
+    .mnav-music {
         margin-top: 8px;
     }
 
@@ -489,8 +490,10 @@ footer a:visited {
 
     .mnav-main a,
     .mnav-years a,
+    .mnav-music a,
     .mnav-sections a,
-    .mnav-rwl-link {
+    .mnav-rwl-link,
+    .mnav-music-link {
         font-family: var(--font-mono);
         font-size: 13px;
         font-weight: 700;
@@ -505,8 +508,11 @@ footer a:visited {
     .mnav-main a:hover,
     .mnav-years a:hover,
     .mnav-sections a:hover,
+    .mnav-music a:hover,
     .mnav-rwl-link:hover,
+    .mnav-music-link:hover,
     .mnav-rwl-link.is-open,
+    .mnav-music-link.is-open,
     .mnav-years a.is-active {
         background: var(--hover-highlight);
         text-decoration: underline;
@@ -514,11 +520,13 @@ footer a:visited {
         color: var(--ink);
     }
 
-    .mnav-years a[data-leaf="true"] {
+    .mnav-years a[data-leaf="true"],
+    .mnav-music a[data-leaf="true"] {
         color: var(--accent-muted);
     }
 
-    .mnav-years a[data-leaf="true"]::before {
+    .mnav-years a[data-leaf="true"]::before,
+    .mnav-music a[data-leaf="true"]::before {
         content: '- ';
         color: var(--accent-secondary);
     }

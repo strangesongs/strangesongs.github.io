@@ -9,6 +9,4 @@ the lists under read watch listen are the main thing here. some older years were
 ## other projects
 
 - <a href="https://fruitforall.app" target="_blank" rel="noopener">fruitforall.app</a>
-- <a href="https://consono.bandcamp.com/" target="_blank" rel="noopener">consono.bandcamp.com</a>
-- <a href="https://adlucem.bandcamp.com/" target="_blank" rel="noopener">adlucem.bandcamp.com</a>
 - <a href="https://savetophotos.com" target="_blank" rel="noopener">savetophotos.com</a>

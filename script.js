@@ -158,6 +158,19 @@ function setupMobileNav() {
     });
 }
 
+function setupMusicNav() {
+    const musicLink = document.querySelector('.mnav-music-link');
+    const musicRow = document.querySelector('.mnav-music');
+    if (!musicLink || !musicRow) return;
+
+    musicLink.addEventListener('click', e => {
+        e.preventDefault();
+        const opening = musicRow.hidden;
+        musicRow.hidden = !opening;
+        musicLink.classList.toggle('is-open', opening);
+    });
+}
+
 window.addEventListener('hashchange', () => {
     updateYearPageView({ scrollToTop: true });
 });
@@ -166,4 +179,5 @@ window.addEventListener('DOMContentLoaded', () => {
     setupSectionNavNoJump();
     updateYearPageView({ scrollToTop: true });
     setupMobileNav();
+    setupMusicNav();
 });

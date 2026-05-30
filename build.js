@@ -76,6 +76,10 @@ function buildSidebar(currentYear = '', currentSection = '', currentPage = '') {
     const rwlExtras = [
         { name: 'abandoned', title: 'abandoned', href: 'abandoned.html' }
     ];
+    const musicLinks = [
+        { title: 'consono', href: 'https://consono.bandcamp.com/' },
+        { title: 'ad lucem', href: 'https://adlucem.bandcamp.com/' }
+    ];
     const defaultOpenYear = allYears.findLast(year => fs.existsSync(path.join('content', year))) || '';
     const activeYear = currentYear || defaultOpenYear;
 
@@ -115,7 +119,11 @@ function buildSidebar(currentYear = '', currentSection = '', currentPage = '') {
 
     sidebar += `\n</ul>\n</details>\n</li>`;
     sidebar += `<li><a href="https://whatwesee.netlify.app/" target="_blank" rel="noopener">photography</a></li>\n`;
-    sidebar += `<li><a href="https://consono.bandcamp.com/" target="_blank" rel="noopener">music</a></li>\n`;
+    sidebar += `<li class="rwl-item">\n<details>\n<summary class="rwl-link">music</summary>\n<ul class="rwl-years">`;
+    musicLinks.forEach(link => {
+        sidebar += `\n  <li class="rwl-extra-item"><a href="${link.href}" class="rwl-extra-link" target="_blank" rel="noopener">${link.title}</a></li>`;
+    });
+    sidebar += `\n</ul>\n</details>\n</li>\n`;
     sidebar += `<li><a href="mailto:jcrtll@protonmail.com">email</a></li>\n`;
     sidebar += `</ul>\n</nav>`;
 
@@ -126,8 +134,13 @@ function buildSidebar(currentYear = '', currentSection = '', currentPage = '') {
     sidebar += `\n    <a href="about.html">about</a>`;
     sidebar += `\n    <a href="rwl.html" class="mnav-rwl-link">read watch listen</a>`;
     sidebar += `\n    <a href="https://whatwesee.netlify.app/" target="_blank" rel="noopener">photography</a>`;
-    sidebar += `\n    <a href="https://consono.bandcamp.com/" target="_blank" rel="noopener">music</a>`;
+    sidebar += `\n    <a href="#" class="mnav-music-link">music</a>`;
     sidebar += `\n    <a href="mailto:jcrtll@protonmail.com">email</a>`;
+    sidebar += `\n  </div>`;
+    sidebar += `\n  <div class="mnav-row mnav-music" hidden>`;
+    musicLinks.forEach(link => {
+        sidebar += `\n    <a href="${link.href}" target="_blank" rel="noopener" data-leaf="true">${link.title}</a>`;
+    });
     sidebar += `\n  </div>`;
     sidebar += `\n  <div class="mnav-row mnav-years" hidden>`;
     existingYears.forEach(year => {
