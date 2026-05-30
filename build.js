@@ -67,7 +67,7 @@ function processMarkdown(content) {
 }
 
 function buildSidebar(currentYear = '', currentSection = '', currentPage = '') {
-    const allYears = ['2022', '2023', '2024', '2025', '2026'];
+    const allYears = ['2010', '2013', '2014', '2019', '2022', '2023', '2024', '2025', '2026'];
     const sectionDefs = [
         { name: 'books', title: 'books' },
         { name: 'films', title: 'films' },
@@ -80,7 +80,7 @@ function buildSidebar(currentYear = '', currentSection = '', currentPage = '') {
     const activeYear = currentYear || defaultOpenYear;
 
     let sidebar = `<h1><a href="index.html">cleve</a></h1>\n<nav>\n<ul>\n`;
-    sidebar += `<li><a href="about.html">about</a></li>\n`;
+    sidebar += `<li><a href="about.html"${currentPage === 'about' ? ' class="is-active"' : ''}>about</a></li>\n`;
     sidebar += `<li class="rwl-item">\n<details open>\n<summary class="rwl-link">read watch listen</summary>\n<ul class="rwl-years">`;
 
     [...allYears].reverse().forEach(year => {
@@ -218,21 +218,31 @@ async function buildYear(year) {
 async function buildAbout() {
     console.log('Building about...');
     const template = fs.readFileSync('templates/index.html', 'utf8');
-    const aboutContent = `
-<section class="about">
-    <p>coming soon</p>
-</section>`;
+    const filePath = path.join('content', 'about.md');
+    let aboutContent = '<section class="about"><p>coming soon</p></section>';
+
+    if (fs.existsSync(filePath)) {
+        const rawContent = fs.readFileSync(filePath, 'utf8');
+        const processedContent = processMarkdown(rawContent);
+        aboutContent = `<section class="about">\n    ${processedContent}\n</section>`;
+    }
 
     const html = ejs.render(template, {
-        sidebar: buildSidebar(),
+        sidebar: buildSidebar('', '', 'about'),
         year: 'about',
         content: aboutContent,
         showFooter: false,
-        lastUpdated: new Date().toLocaleDateString('en-US', { 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric' 
-        })
+        lastUpdated: fs.existsSync(filePath)
+            ? fs.statSync(filePath).mtime.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            })
+            : new Date().toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            })
     });
     
     fs.writeFileSync('about.html', html);
@@ -283,6 +293,10 @@ async function buildAbandoned() {
 async function build() {
     // ...existing build logic for years, sections, etc...
     console.log('Starting build...');
+    await buildYear('2010');
+    await buildYear('2013');
+    await buildYear('2014');
+    await buildYear('2019');
     await buildYear('2022');
     await buildYear('2023');
     await buildYear('2024');
@@ -305,7 +319,7 @@ async function build() {
     }
 
     // Gather all content files and their last modified dates
-    const years = ['2022', '2023', '2024', '2025', '2026'];
+    const years = ['2010', '2013', '2014', '2019', '2022', '2023', '2024', '2025', '2026'];
     const sections = ['books', 'films', 'shows'];
     let fileInfos = [];
     years.forEach(year => {
@@ -416,6 +430,15 @@ async function build() {
             rel: 'content/abandoned.md',
             link: 'abandoned.html',
             mtime: fs.statSync(abandonedFile).mtime
+        });
+    }
+    const aboutFile = path.join('content', 'about.md');
+    if (fs.existsSync(aboutFile)) {
+        changelogFiles.push({
+            file: 'about.md',
+            rel: 'content/about.md',
+            link: 'about.html',
+            mtime: fs.statSync(aboutFile).mtime
         });
     }
     // Add main pages
