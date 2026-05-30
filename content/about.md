@@ -8,5 +8,5 @@ the lists under read watch listen are the main thing here. some older years were
 
 ## other projects
 
-- <a href="https://fruitforall.app" target="_blank" rel="noopener">fruitforall.app</a>
-- <a href="https://savetophotos.com" target="_blank" rel="noopener">savetophotos.com</a>
+- <a href="https://fruitforall.app" target="_blank" rel="noopener">fruitforall.app</a> — open-source map of free street fruit. browse, add a pin.
+- <a href="https://savetophotos.com" target="_blank" rel="noopener">savetophotos.com</a> — one random image at a time. refresh for another.
