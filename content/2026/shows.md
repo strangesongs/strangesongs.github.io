@@ -31,3 +31,5 @@ total: 2 shows
 05.19 DIE WALKÜRE ACT 1 | walt disney hall | la phil
 05.20 DIE WALKÜRE ACT 2 | walt disney hall | la phil
 05.21 DIE WALKÜRE ACT 3 | walt disney hall | la phil
+05.23 JOAN LA BARBARA / SHELLEY BURGON / MODERN CURRENTS ENSEMBLE | 2220 arts and archives
+5.30 WEEKEND AT JOHNNY'S DAY 3 | coaxial arts

@@ -35,10 +35,18 @@ total: 12 films
 03.01 CHILDREN OF HEAVEN (1997) majid majidi | DCP | aero theater
 03.02 FLOATING CLOUDS (1955) mikio naruse | streaming | criterion channel
 
+04.01 VIVE L'AMOUR (1994) tsai ming-liang | streaming | criterion channel
 04.14 SHIFT (1982) toshio matsumoto | streaming | youtube
 04.26 WHEN A WOMAN ASCENDS THE STAIRS (1960) mikio naruse | egyptian theater | 35mm | mikio naruse restrospective
 
 05.17 THREE COLORS: BLUE (1993) krzysztof kieślowski | dcp | egyptian theater
 05.17 THREE COLORS: WHITE (1994) krzysztof kieślowski | dcp | egyptian theater
 05.17 THREE COLORS: RED (1994) krzysztof kieślowski | dcp | egyptian theater
+5.22 SPEAKING PARTS (1989) atom egoyan | streaming | criterion
+5.24 TAIGA (1992) ulrike ottinger | dcp | 2220 arts and archives | presented by lightstruck
+5.30 SPEED RACER (2008) the wachowskis | dcp | egyptian theater
 
+6.4 MYSTERIOUS SKIN (2004) gregg araki | 4k restoration dcp | egyptian theater | gregg araki in-person + q+a *
+6.5 WITHNAIL & I (1987) bruce robinson | streaming | criterion channel
+6.5 LA CHAMBRE (1972) chantal akerman | streaming | criterion channel
+6.5 LE CHANT DU STYRENE (1958) alain resnais | streaming | criterion channel
