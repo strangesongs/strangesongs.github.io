@@ -50,3 +50,4 @@ total: 12 films
 6.5 WITHNAIL & I (1987) bruce robinson | streaming | criterion channel
 6.5 LA CHAMBRE (1972) chantal akerman | streaming | criterion channel
 6.5 LE CHANT DU STYRENE (1958) alain resnais | streaming | criterion channel
+6.15 GENDER TROUBLEMAKERS (1993) mirha-Soleil ross and xanthra phillippa mackay
