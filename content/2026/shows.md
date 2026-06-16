@@ -33,3 +33,5 @@ total: 2 shows
 05.21 DIE WALKÜRE ACT 3 | walt disney hall | la phil
 05.23 JOAN LA BARBARA / SHELLEY BURGON / MODERN CURRENTS ENSEMBLE | 2220 arts and archives
 5.30 WEEKEND AT JOHNNY'S DAY 3 | coaxial arts
+
+6.10 rafiq bhatia, eternal+raays | 2220 arts and archives
