@@ -4,7 +4,7 @@ date: 2026
 ---
 
 date PERFORMER | VENUE | NOTES
-total: 2 shows
+total: 26 shows
 
 01.11 WIL BLADES + JEFF PARKER + ROY McCURDY JR | united theater
 01.12 MORTON FELDMAN CENTENNIAL MARATHON (VICKY RAY, ANDREW McINTOSH, NIC GERPE, CONOR HANICK, TODD MOELLENBERG & ERIKA DUKE) | the brick
@@ -32,6 +32,7 @@ total: 2 shows
 05.20 DIE WALKÜRE ACT 2 | walt disney hall | la phil
 05.21 DIE WALKÜRE ACT 3 | walt disney hall | la phil
 05.23 JOAN LA BARBARA / SHELLEY BURGON / MODERN CURRENTS ENSEMBLE | 2220 arts and archives
-5.30 WEEKEND AT JOHNNY'S DAY 3 | coaxial arts
+05.30 WEEKEND AT JOHNNY'S DAY 3 | coaxial arts
 
-6.10 rafiq bhatia, eternal+raays | 2220 arts and archives
+06.10 RAFIQ BHATIA | 2220 arts + archives | environments (w/ ian chang + riley mulherkar)
+06.27 HONEY DIJON | the great northern | pink block pride 2026

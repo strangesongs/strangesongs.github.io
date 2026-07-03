@@ -5,7 +5,7 @@ date: 2026
 
 TITLE (year) author | notes
 
-total: 12 books
+total: 29 books
 
 1. CEREMONY (1977) leslie marmon silko | started 2025
 2. GIRLFRIENDS (2023) emily zhou
@@ -27,4 +27,12 @@ total: 12 books
 18. ON STRIKE AGAINST GOD (1980) joanna russ
 19. ARMED RESPONSE (1995) ann rower
 20. ERIK SATIE THREE PIECE SUITE (2025) ian penman
-21. ALICE WATERS AND CHEZ PANISSE (2008) thomas mcnamee
+21. ALICE WATERS AND CHEZ PANISSE (2007) thomas mcnamee
+22. BEING UPRIGHT (2001) reb anderson
+23. CRUMB: A CARTOONIST'S LIFE (2025) dan nadel
+24. TO SMITHEREENS (1972) rosalyn drexler
+25. A PERSONAL MATTER (1964) kenzaburo oe
+26. TROUT FISHING IN AMERICA (1967) richard brautigan
+27. THE PILL VERSUS THE SPRINGHILL MINE DISASTER (1968) richard brautigan
+28. IN WATERMELON SUGAR (1968) richard brautigan
+29. DHALGREN (1975) samuel r. delany | started 2018
