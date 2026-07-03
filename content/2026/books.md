@@ -30,9 +30,9 @@ total: 29 books
 21. ALICE WATERS AND CHEZ PANISSE (2007) thomas mcnamee
 22. BEING UPRIGHT (2001) reb anderson
 23. CRUMB: A CARTOONIST'S LIFE (2025) dan nadel
-24. TO SMITHEREENS (1972) rosalyn drexler
-25. A PERSONAL MATTER (1964) kenzaburo oe
-26. TROUT FISHING IN AMERICA (1967) richard brautigan
-27. THE PILL VERSUS THE SPRINGHILL MINE DISASTER (1968) richard brautigan
-28. IN WATERMELON SUGAR (1968) richard brautigan
-29. DHALGREN (1975) samuel r. delany | started 2018
+24. TROUT FISHING IN AMERICA (1967) richard brautigan
+25. THE PILL VERSUS THE SPRINGHILL MINE DISASTER (1968) richard brautigan
+26. IN WATERMELON SUGAR (1968) richard brautigan
+27. DHALGREN (1975) samuel r. delany | started 2018
+28. A PERSONAL MATTER (1964) kenzaburo oe
+29. TO SMITHEREENS (1972) rosalyn drexler
