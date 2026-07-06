@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mockup 05 — Stats</title>
+    <link rel="stylesheet" href="mockups.css">
+</head>
+<body><p class="mockup-notice">Mockup preview only — not on the live site yet. Open via <code>npm run serve</code> → <a href="http://localhost:8090/mockups/">localhost:8090/mockups/</a>. Cleve links here are inert. Switch mockups via <a href="index.html">index</a>.</p>
+    <div class="layout">
+        <aside class="sidebar">
+            <h1><a href="index.html">cleve</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="03-home-emily-style.html">home</a></li>
+                    <li class="rwl-item">
+                        <details>
+                            <summary class="rwl-link">read watch listen</summary>
+                            <ul class="rwl-years">
+                                <li class="rwl-year-item">
+                                    <details>
+                                        <summary class="rwl-year-summary">2026</summary>
+                                        <ul class="rwl-sections">
+                                            <li><a href="#year-context">books</a></li>
+                                            <li><a href="#year-context">films</a></li>
+                                            <li><a href="#year-context">shows</a></li>
+                                        </ul>
+                                    </details>
+                                </li>
+                                <li class="rwl-extra-item"><a href="#" class="rwl-extra-link mockup-inert">abandoned</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li><a href="04-projects.html">projects</a></li>
+                    <li><a href="05-stats.html" class="is-active">stats</a></li>
+                    <li><a href="#" class="mockup-inert">about</a></li>
+                    <li><a href="mailto:jcrtll@protonmail.com">email</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <p class="mockup-label">Mockup 05 — Stats · sample data (not live)</p>
+            <p class="mockup-nav-links"><a href="index.html">all mockups</a></p>
+            <header>
+                <p class="year-label">stats</p>
+            </header>
+            <section class="portfolio-stats">
+
+                <h2>totals by year</h2>
+                <table class="stats-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="num">books</th>
+                            <th class="num">films</th>
+                            <th class="num">shows</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2026</td>
+                            <td class="num">29</td>
+                            <td class="num">44</td>
+                            <td class="num">26</td>
+                        </tr>
+                        <tr>
+                            <td>2025</td>
+                            <td class="num">38</td>
+                            <td class="num">112</td>
+                            <td class="num">31</td>
+                        </tr>
+                        <tr>
+                            <td>2024</td>
+                            <td class="num">41</td>
+                            <td class="num">98</td>
+                            <td class="num">28</td>
+                        </tr>
+                        <tr>
+                            <td>2023</td>
+                            <td class="num">22</td>
+                            <td class="num">—</td>
+                            <td class="num">—</td>
+                        </tr>
+                        <tr class="total">
+                            <td>all time</td>
+                            <td class="num">312</td>
+                            <td class="num">891</td>
+                            <td class="num">204</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>films by format</h2>
+                <div class="bar-row">
+                    <span class="bar-label">streaming</span>
+                    <div class="bar-track"><div class="bar-fill" style="width: 100%;"></div></div>
+                    <span class="bar-value">412</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">dcp</span>
+                    <div class="bar-track"><div class="bar-fill" style="width: 60%;"></div></div>
+                    <span class="bar-value">248</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">35mm</span>
+                    <div class="bar-track"><div class="bar-fill" style="width: 22%;"></div></div>
+                    <span class="bar-value">89</span>
+                </div>
+                <div class="bar-row">
+                    <span class="bar-label">bluray</span>
+                    <div class="bar-track"><div class="bar-fill" style="width: 8%;"></div></div>
+                    <span class="bar-value">34</span>
+                </div>
+
+                <h2>top venues — films</h2>
+                <ol class="stats-list">
+                    <li><span><span class="rank">1.</span> egyptian theater</span><span>47</span></li>
+                    <li><span><span class="rank">2.</span> criterion channel</span><span>38</span></li>
+                    <li><span><span class="rank">3.</span> alamo drafthouse</span><span>12</span></li>
+                    <li><span><span class="rank">4.</span> aero theater</span><span>9</span></li>
+                    <li><span><span class="rank">5.</span> kanopy</span><span>8</span></li>
+                </ol>
+                <p class="stats-note">criterion channel parsed from "streaming | criterion channel"</p>
+
+                <h2>top venues — shows</h2>
+                <ol class="stats-list">
+                    <li><span><span class="rank">1.</span> 2220 arts + archives</span><span>31</span></li>
+                    <li><span><span class="rank">2.</span> walt disney concert hall</span><span>18</span></li>
+                    <li><span><span class="rank">3.</span> redcat</span><span>14</span></li>
+                    <li><span><span class="rank">4.</span> united theater</span><span>6</span></li>
+                </ol>
+
+                <h2>repeat viewings</h2>
+                <p class="stats-inline">23 films marked * across all years</p>
+
+                <h2>busiest months (2026 films)</h2>
+                <p class="stats-inline">feb 8 · jan 7 · mar 6</p>
+
+            </section>
+        </main>
+    </div>
+</body>
+</html>

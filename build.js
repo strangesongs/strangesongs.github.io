@@ -73,87 +73,72 @@ function buildSidebar(currentYear = '', currentSection = '', currentPage = '') {
         { name: 'films', title: 'films' },
         { name: 'shows', title: 'shows' }
     ];
-    const rwlExtras = [
-        { name: 'abandoned', title: 'abandoned', href: 'abandoned.html' }
-    ];
-    const musicLinks = [
+    const projectLinks = [
         { title: 'consono', href: 'https://consono.bandcamp.com/' },
-        { title: 'ad lucem', href: 'https://adlucem.bandcamp.com/' }
+        { title: 'ad lucem', href: 'https://adlucem.bandcamp.com/' },
+        { title: 'photography', href: 'https://whatwesee.netlify.app/' },
+        { title: 'fruit for all', href: 'https://fruitforall.app/' },
+        { title: 'save to photos', href: 'https://savetophotos.com/' }
     ];
-    const defaultOpenYear = allYears.findLast(year => fs.existsSync(path.join('content', year))) || '';
-    const activeYear = currentYear || defaultOpenYear;
+    const existingYears = [...allYears].reverse().filter(year => fs.existsSync(path.join('content', year)));
+    const rwlExpanded = Boolean(currentYear) || currentPage === 'abandoned';
+    const rwlOpenClass = rwlExpanded ? ' is-rwl-open' : '';
 
-    let sidebar = `<h1><a href="index.html">cleve</a></h1>\n<nav>\n<ul>\n`;
-    sidebar += `<li><a href="about.html"${currentPage === 'about' ? ' class="is-active"' : ''}>about</a></li>\n`;
-    sidebar += `<li class="rwl-item">\n<details>\n<summary class="rwl-link">read watch listen</summary>\n<ul class="rwl-years">`;
+    let sidebar = `<p class="emily-masthead primary"><a href="index.html">cleve</a></p>\n<ul class="emily-progressive${rwlOpenClass}">\n`;
+    sidebar += `<li class="depth-1"><button type="button" class="nav-toggle rwl-root-toggle" aria-expanded="${rwlExpanded ? 'true' : 'false'}">read watch listen</button></li>\n`;
 
-    [...allYears].reverse().forEach(year => {
+    if (currentPage === 'abandoned') {
+        sidebar += `<li class="depth-2 rwl-branch"><a href="abandoned.html" class="is-active">abandoned</a></li>\n`;
+    }
+
+    existingYears.forEach(year => {
         const yearDir = path.join('content', year);
-        if (!fs.existsSync(yearDir)) return;
-
         const availableSections = sectionDefs.filter(section =>
             fs.existsSync(path.join(yearDir, `${section.name}.md`))
         );
-        const isOpen = '';
+        if (availableSections.length === 0) return;
 
-        sidebar += `\n  <li class="rwl-year-item">`;
-        sidebar += `\n    <details${isOpen}>`;
-        sidebar += `\n      <summary class="rwl-year-summary">${year}</summary>`;
-        sidebar += `\n      <ul class="rwl-sections">`;
+        const isCurrentYear = year === currentYear;
+        sidebar += `<li class="depth-2 rwl-branch rwl-year${isCurrentYear ? ' is-open' : ''}"><button type="button" class="nav-toggle rwl-year-toggle" data-year="${year}" aria-expanded="${isCurrentYear ? 'true' : 'false'}">${year}</button></li>\n`;
 
         availableSections.forEach(section => {
-            const isActive = year === currentYear && section.name === currentSection ? ' class="is-active"' : '';
-            sidebar += `\n        <li><a href="${year}.html#${section.name}"${isActive}>${section.title}</a></li>`;
+            const isActive = isCurrentYear && section.name === currentSection ? ' class="is-active"' : '';
+            const visibleClass = isCurrentYear ? ' is-visible' : '';
+            sidebar += `<li class="depth-3 rwl-branch rwl-section${visibleClass}" data-year="${year}"><a href="${year}.html#${section.name}"${isActive}>${section.title}</a></li>\n`;
         });
-
-        sidebar += `\n      </ul>`;
-        sidebar += `\n    </details>`;
-        sidebar += `\n  </li>`;
     });
 
-    rwlExtras.forEach(entry => {
-        const isActive = currentPage === entry.name ? ' class="is-active"' : '';
-        const activeClass = isActive ? ' is-active' : '';
-        sidebar += `\n  <li class="rwl-extra-item"><a href="${entry.href}" class="rwl-extra-link${activeClass}">${entry.title}</a></li>`;
+    if (currentPage !== 'abandoned') {
+        sidebar += `<li class="depth-2 rwl-branch"><a href="abandoned.html">abandoned</a></li>\n`;
+    }
+
+    projectLinks.forEach(link => {
+        sidebar += `<li class="depth-1"><a href="${link.href}" target="_blank" rel="noopener">${link.title}</a></li>\n`;
     });
 
-    sidebar += `\n</ul>\n</details>\n</li>`;
-    sidebar += `<li class="rwl-item">\n<details>\n<summary class="rwl-link">music</summary>\n<ul class="rwl-years">`;
-    musicLinks.forEach(link => {
-        sidebar += `\n  <li class="rwl-extra-item"><a href="${link.href}" class="rwl-extra-link" target="_blank" rel="noopener">${link.title}</a></li>`;
-    });
-    sidebar += `\n</ul>\n</details>\n</li>\n`;
-    sidebar += `<li><a href="https://whatwesee.netlify.app/" target="_blank" rel="noopener">photography</a></li>\n`;
-    sidebar += `<li><a href="mailto:jcrtll@protonmail.com">email</a></li>\n`;
-    sidebar += `</ul>\n</nav>`;
+    const aboutActive = currentPage === 'about' ? ' class="is-active"' : '';
+    sidebar += `<li class="depth-1 nav-footer"><a href="about.html"${aboutActive}>about</a></li>\n`;
+    sidebar += `<li class="depth-1 nav-footer"><a href="mailto:jcrtll@protonmail.com">email</a></li>\n`;
+    sidebar += `</ul>\n`;
 
-    // Flat mobile-only nav — completely separate from the details tree
-    const existingYears = [...allYears].reverse().filter(y => fs.existsSync(path.join('content', y)));
     sidebar += `\n<nav class="mobile-nav">`;
     sidebar += `\n  <div class="mnav-row mnav-main">`;
     sidebar += `\n    <a href="about.html">about</a>`;
-    sidebar += `\n    <a href="rwl.html" class="mnav-rwl-link">read watch listen</a>`;
-    sidebar += `\n    <a href="#" class="mnav-music-link">music</a>`;
-    sidebar += `\n    <a href="https://whatwesee.netlify.app/" target="_blank" rel="noopener">photography</a>`;
-    sidebar += `\n    <a href="mailto:jcrtll@protonmail.com">email</a>`;
-    sidebar += `\n  </div>`;
-    sidebar += `\n  <div class="mnav-row mnav-music" hidden>`;
-    musicLinks.forEach(link => {
-        sidebar += `\n    <a href="${link.href}" target="_blank" rel="noopener" data-leaf="true">${link.title}</a>`;
+    sidebar += `\n    <a href="#" class="mnav-rwl-link">read watch listen</a>`;
+    projectLinks.forEach(link => {
+        sidebar += `\n    <a href="${link.href}" target="_blank" rel="noopener">${link.title}</a>`;
     });
+    sidebar += `\n    <a href="mailto:jcrtll@protonmail.com">email</a>`;
     sidebar += `\n  </div>`;
     sidebar += `\n  <div class="mnav-row mnav-years" hidden>`;
     existingYears.forEach(year => {
         const yearDir = path.join('content', year);
-        const availableSections = ['books', 'films', 'shows'].filter(s =>
-            fs.existsSync(path.join(yearDir, `${s}.md`))
+        const availableSections = ['books', 'films', 'shows'].filter(section =>
+            fs.existsSync(path.join(yearDir, `${section}.md`))
         );
         sidebar += `\n    <a href="${year}.html" data-year="${year}" data-sections="${availableSections.join(',')}">${year}</a>`;
     });
-    rwlExtras.forEach(entry => {
-        const isActive = currentPage === entry.name ? ' class="is-active"' : '';
-        sidebar += `\n    <a href="${entry.href}" data-leaf="true"${isActive}>${entry.title}</a>`;
-    });
+    sidebar += `\n    <a href="abandoned.html" data-leaf="true">abandoned</a>`;
     sidebar += `\n  </div>`;
     sidebar += `\n  <div class="mnav-row mnav-sections" hidden></div>`;
     sidebar += `\n</nav>`;
@@ -264,19 +249,18 @@ async function buildAbout() {
 
 async function buildRwl() {
     console.log('Building rwl...');
-    const template = fs.readFileSync('templates/index.html', 'utf8');
-    const rwlContent = '';
-
-    const html = ejs.render(template, {
-        sidebar: buildSidebar(),
-        year: '',
-        content: rwlContent,
-        showFooter: false,
-        lastUpdated: ''
-    });
-
+    const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="0; url=index.html">
+    <title>cleve</title>
+    <script>window.location.replace('index.html');</script>
+</head>
+<body></body>
+</html>`;
     fs.writeFileSync('rwl.html', html);
-    console.log('Generated rwl.html');
+    console.log('Generated rwl.html (redirect to index)');
 }
 
 async function buildAbandoned() {
@@ -362,6 +346,7 @@ async function build() {
 
     // Show a broader set so same-day updates are represented better
     const topFiles = fileInfos.slice(0, 6);
+    const stripFiles = fileInfos.slice(0, 2);
 
     // For each file, get a one-line summary of what was added using git
     function getLastSummary(file) {
@@ -393,31 +378,26 @@ async function build() {
         }
     }
 
-    // Render the list as HTML (minimal, one-line summary)
-    let updatesList = '<section class="recent-updates">\n  <h2 class="recent-updates-title">recent updates</h2>';
-    topFiles.forEach(info => {
-        const sourceDate = info.commitTime ? new Date(info.commitTime * 1000) : info.mtime;
-        const dateStr = sourceDate.toISOString().slice(0, 10);
-        const summary = getLastSummary('content/' + info.file);
+    // Home: minimal recent strip (no footer)
+    const stripLinks = stripFiles.map(info => {
         const section = path.basename(info.file, '.md');
-        updatesList += `\n  <div class=\"recent-file-block\">`;
-        updatesList += `<div class=\"recent-file-meta\"><span class=\"file-name\">${info.file}</span><span class=\"file-section\">${section}</span><span class=\"file-date\">${dateStr}</span></div>`;
-        updatesList += `<div class=\"file-summary\">${summary}</div>`;
-        updatesList += '</div>';
+        const year = info.file.split('/')[0];
+        return `<a href="${year}.html#${section}">${info.file}</a>`;
     });
-    updatesList += '\n</section>';
+    const homeContent = stripLinks.length
+        ? `<p class="recent-strip">recent: ${stripLinks.join(' · ')}</p>`
+        : '';
 
-    // Use the main template, but with no year and just the updates list as content
     const template = fs.readFileSync('templates/index.html', 'utf8');
     const html = ejs.render(template, {
         sidebar: buildSidebar(),
         year: '',
-        content: updatesList,
-        showFooter: true,
-        lastUpdated: topFiles.length > 0 ? topFiles[0].mtime.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : ''
+        content: homeContent,
+        showFooter: false,
+        lastUpdated: ''
     });
     fs.writeFileSync('index.html', html);
-    console.log('Generated index.html (recent file updates with diffs)');
+    console.log('Generated index.html');
 
     // --- Changelog logic moved here ---
     // Changelog: gather all relevant files (content, about.html, style.css, etc.)

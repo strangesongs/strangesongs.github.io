@@ -2,11 +2,6 @@
 title: about
 ---
 
-a personal log of what i read, watch, and listen to — books, films, and live performances, organized by year.
+this is a portfolio site — music, photography, small web projects, and a running log of what i read, watch, and listen to.
 
-the lists under read watch listen are the main thing here. some older years were imported from earlier documents; newer entries are kept as markdown and built to static html. abandoned holds things i started and didn't finish.
-
-## other projects
-
-- <a href="https://fruitforall.app" target="_blank" rel="noopener">fruitforall.app</a> — open-source map of free street fruit. browse, add a pin.
-- <a href="https://savetophotos.com" target="_blank" rel="noopener">savetophotos.com</a> — one random image at a time. refresh for another.
+read watch listen in the sidebar opens the log: books, films, and shows by year, built from markdown. abandoned is for things started and not finished. everything else links out.

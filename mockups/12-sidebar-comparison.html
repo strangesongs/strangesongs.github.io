@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sidebar comparison — all variants</title>
+    <link rel="stylesheet" href="mockups.css">
+</head>
+<body><p class="mockup-notice">Mockup preview only — not on the live site yet. Open via <code>npm run serve</code> → <a href="http://localhost:8090/mockups/">localhost:8090/mockups/</a>. Cleve links here are inert. Switch mockups via <a href="index.html">index</a>.</p>
+    <div class="layout">
+        <aside class="sidebar">
+            <h1><a href="index.html">cleve</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="12-sidebar-comparison.html" class="is-active">sidebar</a></li>
+                    <li><a href="index.html">mockups</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <p class="mockup-label">Sidebar variants · Emily home + year context</p>
+            <p class="mockup-nav-links"><a href="index.html">all mockups</a> · <a href="03-home-emily-style.html">emily home</a></p>
+            <header>
+                <p class="year-label">nav</p>
+            </header>
+            <section class="portfolio-home">
+                <p class="intro sidebar-comparison-intro">Five sidebar options paired with the Emily-style homepage. Each column shows the sidebar on <strong>home</strong> and on a <strong>2026 films</strong> page. Open full mockups for interactive <code>details</code> toggles.</p>
+
+                <div class="sidebar-comparison-grid">
+
+                    <div class="variant-col">
+                        <h3><a href="07-sidebar-a-minimal.html">A — minimal</a></h3>
+                        <p class="preview-context">home</p>
+                        <div class="sidebar-preview">
+                            <p class="sidebar-preview-title">cleve</p>
+                            <nav><ul>
+                                <li class="active">home</li>
+                                <li>about</li>
+                                <li>email</li>
+                            </ul></nav>
+                        </div>
+                        <p class="preview-note">Homepage is the map. No year links in sidebar.</p>
+                        <p class="preview-context">2026 films</p>
+                        <div class="sidebar-preview">
+                            <p class="sidebar-preview-title">cleve</p>
+                            <nav><ul>
+                                <li>home</li>
+                                <li>about</li>
+                                <li>email</li>
+                            </ul></nav>
+                        </div>
+                        <p class="preview-note">Same three items — jump years via home or scroll.</p>
+                    </div>
+
+                    <div class="variant-col">
+                        <h3><a href="08-sidebar-b-rwl-keeper.html">B — rwl keeper</a></h3>
+                        <p class="preview-context">home</p>
+                        <div class="sidebar-preview">
+                            <p class="sidebar-preview-title">cleve</p>
+                            <nav><ul>
+                                <li class="active">home</li>
+                                <li>- read watch listen ▾</li>
+                                <li class="nested">2026 ▾ books · films · shows</li>
+                                <li class="nested">2025 ▾ …</li>
+                                <li class="nested">abandoned</li>
+                                <li>stats</li>
+                                <li>about</li>
+                                <li>email</li>
+                            </ul></nav>
+                        </div>
+                        <p class="preview-note">Evolution: drop music/photo; keep nested RWL.</p>
+                        <p class="preview-context">2026 films</p>
+                        <div class="sidebar-preview">
+                            <p class="sidebar-preview-title">cleve</p>
+                            <nav><ul>
+                                <li>home</li>
+                                <li>- read watch listen ▾</li>
+                                <li class="nested active">2026 ▾ books · <strong>films</strong> · shows</li>
+                                <li class="nested">2025 ▾ …</li>
+                                <li>stats</li>
+                                <li>about</li>
+                                <li>email</li>
+                            </ul></nav>
+                        </div>
+                        <p class="preview-note">Full year/section jumps while reading lists.</p>
+                    </div>
+
+                    <div class="variant-col">
+                        <h3><a href="09-sidebar-c-flat-rwl.html">C — flat rwl</a></h3>
+                        <p class="preview-context">home</p>
+                        <div class="sidebar-preview">
+                            <p class="sidebar-preview-title">cleve</p>
+                            <nav><ul>
+                                <li class="active">home</li>
+                                <li>read watch listen</li>
+                                <li>stats</li>
+                                <li>about</li>
+                                <li>email</li>
+                            </ul></nav>
+                        </div>
+                        <p class="preview-note">Flat sidebar; RWL depth on rwl.html + year pages.</p>
+                        <p class="preview-context">2026 films</p>
+                        <div class="sidebar-preview">
+                            <p class="sidebar-preview-title">cleve</p>
+                            <nav><ul>
+                                <li>home</li>
+                                <li>read watch listen</li>
+                                <li>stats</li>
+                                <li>about</li>
+                                <li>email</li>
+                            </ul></nav>
+                        </div>
+                        <p class="preview-note">One extra click to reach years from here.</p>
+                    </div>
+
+                    <div class="variant-col">
+                        <h3><a href="10-sidebar-d-recent-years.html">D — recent years</a></h3>
+                        <p class="preview-context">home</p>
+                        <div class="sidebar-preview">
+                            <p class="sidebar-preview-title">cleve</p>
+                            <nav><ul>
+                                <li class="active">home</li>
+                                <li>2026</li>
+                                <li>2025</li>
+                                <li>2024</li>
+                                <li>…</li>
+                                <li>- abandoned</li>
+                                <li>stats</li>
+                                <li>about</li>
+                                <li>email</li>
+                            </ul></nav>
+                        </div>
+                        <p class="preview-note">Quick year hops; no books/films/shows nest.</p>
+                        <p class="preview-context">2026 films</p>
+                        <div class="sidebar-preview">
+                            <p class="sidebar-preview-title">cleve</p>
+                            <nav><ul>
+                                <li>home</li>
+                                <li class="active">2026</li>
+                                <li>2025</li>
+                                <li>2024</li>
+                                <li>…</li>
+                                <li>stats</li>
+                                <li>about</li>
+                                <li>email</li>
+                            </ul></nav>
+                        </div>
+                        <p class="preview-note">2026 highlighted; section jumps via page scroll.</p>
+                    </div>
+
+                    <div class="variant-col">
+                        <h3><a href="11-sidebar-e-full-proposed.html">E — full proposed</a></h3>
+                        <p class="preview-context">home</p>
+                        <div class="sidebar-preview">
+                            <p class="sidebar-preview-title">cleve</p>
+                            <nav><ul>
+                                <li class="active">home</li>
+                                <li>- read watch listen ▾</li>
+                                <li class="nested">2026 ▾ …</li>
+                                <li>projects</li>
+                                <li>stats</li>
+                                <li>about</li>
+                                <li>email</li>
+                            </ul></nav>
+                        </div>
+                        <p class="preview-note">RWL nest + projects/stats; overlaps Emily home.</p>
+                        <p class="preview-context">2026 films</p>
+                        <div class="sidebar-preview">
+                            <p class="sidebar-preview-title">cleve</p>
+                            <nav><ul>
+                                <li>home</li>
+                                <li>- read watch listen ▾</li>
+                                <li class="nested active">2026 ▾ … films</li>
+                                <li>projects</li>
+                                <li>stats</li>
+                                <li>about</li>
+                                <li>email</li>
+                            </ul></nav>
+                        </div>
+                        <p class="preview-note">Most complete nav; busiest sidebar.</p>
+                    </div>
+
+                </div>
+
+                <div class="decision-prompts">
+                    <h2>decision prompts</h2>
+                    <ul>
+                        <li>How often do you jump years or sections while reading a list?</li>
+                        <li>Is <code>projects</code> redundant in the sidebar if Emily home already lists everything?</li>
+                        <li>Is nested books / films / shows worth the vertical space?</li>
+                        <li>Does variant A feel too bare on year pages, or pleasantly quiet?</li>
+                    </ul>
+                </div>
+
+                <div class="portfolio-block" style="margin-top: 2em;">
+                    <h2>full mockups</h2>
+                    <ul class="work-list">
+                        <li><a href="07-sidebar-a-minimal.html">07 — A minimal</a></li>
+                        <li><a href="08-sidebar-b-rwl-keeper.html">08 — B rwl keeper</a></li>
+                        <li><a href="09-sidebar-c-flat-rwl.html">09 — C flat rwl</a></li>
+                        <li><a href="10-sidebar-d-recent-years.html">10 — D recent years</a></li>
+                        <li><a href="11-sidebar-e-full-proposed.html">11 — E full proposed</a></li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

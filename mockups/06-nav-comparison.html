@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mockup 06 — Nav comparison</title>
+    <link rel="stylesheet" href="mockups.css">
+</head>
+<body><p class="mockup-notice">Mockup preview only — not on the live site yet. Open via <code>npm run serve</code> → <a href="http://localhost:8090/mockups/">localhost:8090/mockups/</a>. Cleve links here are inert. Switch mockups via <a href="index.html">index</a>.</p>
+    <div class="layout">
+        <aside class="sidebar">
+            <h1><a href="index.html">cleve</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="06-nav-comparison.html" class="is-active">mockups</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <p class="mockup-label">Mockup 06 — Sidebar before / after</p>
+            <p class="mockup-nav-links"><a href="index.html">all mockups</a></p>
+            <header>
+                <p class="year-label">nav</p>
+            </header>
+            <section class="portfolio-home">
+                <p class="intro">Proposed nav consolidates external links under home and projects. Music submenu and standalone photography link removed from top level.</p>
+
+                <div class="nav-compare">
+                    <div class="nav-compare-col">
+                        <h2>today</h2>
+                        <ul>
+                            <li>about</li>
+                            <li>read watch listen ▾
+                                <ul class="nested">
+                                    <li>2026 ▾ books · films · shows</li>
+                                    <li>2025 ▾ …</li>
+                                    <li>abandoned</li>
+                                </ul>
+                            </li>
+                            <li>music ▾
+                                <ul class="nested">
+                                    <li>consono → bandcamp</li>
+                                    <li>ad lucem → bandcamp</li>
+                                </ul>
+                            </li>
+                            <li>photography → whatwesee</li>
+                            <li>email</li>
+                        </ul>
+                        <p class="stats-note" style="margin-top: 1em;">fruitforall + savetophotos only on about page</p>
+                    </div>
+                    <div class="nav-compare-col">
+                        <h2>proposed</h2>
+                        <ul>
+                            <li class="new">home</li>
+                            <li>read watch listen ▾
+                                <ul class="nested">
+                                    <li>2026 ▾ books · films · shows</li>
+                                    <li>2025 ▾ …</li>
+                                    <li>abandoned</li>
+                                </ul>
+                            </li>
+                            <li class="new">projects</li>
+                            <li class="new">stats</li>
+                            <li>about</li>
+                            <li>email</li>
+                        </ul>
+                        <p class="stats-note" style="margin-top: 1em;">music, photo, tools live on home + projects</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-block" style="margin-top: 2.5em; border-top: 1px solid var(--accent-soft); padding-top: 1em;">
+                    <h2>emily variant</h2>
+                    <p>Mockup 03 shrinks sidebar further:</p>
+                    <ul class="stats-list" style="max-width: 14rem;">
+                        <li><span>home</span></li>
+                        <li><span>about</span></li>
+                        <li><span>email</span></li>
+                    </ul>
+                    <p class="stats-note">all works listed on homepage; RWL deep links via read watch listen item only</p>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

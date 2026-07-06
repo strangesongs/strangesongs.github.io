@@ -4,18 +4,20 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>cleve<%= year ? ' - ' + year : '' %></title>
-        <link rel="stylesheet" href="style.css?v=20260414-final">
+        <link rel="stylesheet" href="style.css?v=20260705-emily2">
     </head>
     <body>
-        <div class="layout">
-            <aside class="sidebar">
+        <div class="layout layout-emily">
+            <aside class="sidebar sidebar-emily">
                 <%- sidebar %>
             </aside>
             
-            <main class="content">
+            <main class="content content-emily">
+                <% if (year && /^\d{4}$/.test(year)) { %>
                 <header>
                     <p class="year-label"><%= year %></p>
                 </header>
+                <% } %>
                 <%- content %>
                 <% if (showFooter && lastUpdated) { %>
                 <footer>

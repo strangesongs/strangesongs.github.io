@@ -58,8 +58,12 @@ a:focus-visible {
 
 .layout {
     display: grid;
-    grid-template-columns: 196px minmax(0, 1fr);
+    grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
     min-height: 100vh;
+}
+
+.layout-emily {
+    grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
 }
 
 .sidebar {
@@ -70,6 +74,134 @@ a:focus-visible {
     border-right: 1px solid var(--ink);
     padding: 10px 6px 10px 14px;
     background: var(--paper);
+}
+
+.sidebar-emily {
+    padding: 20px 16px 48px 22px;
+    font-family: var(--font-serif);
+}
+
+.sidebar-emily .emily-masthead {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25em;
+    color: var(--accent-primary);
+}
+
+.sidebar-emily .emily-masthead a {
+    color: inherit;
+    text-decoration: none;
+    background: none;
+}
+
+.sidebar-emily .emily-masthead a:hover {
+    background: var(--hover-highlight);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-primary);
+}
+
+.emily-progressive {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.emily-progressive li {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.35em;
+    max-width: none;
+    padding: 0;
+}
+
+.emily-progressive a {
+    text-decoration: none;
+    color: var(--ink);
+    background: none;
+}
+
+.emily-progressive a:hover,
+.emily-progressive a.is-active {
+    background: var(--hover-highlight);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-primary);
+    color: var(--ink);
+}
+
+.emily-progressive .depth-1 {
+    margin-left: 0;
+}
+
+.emily-progressive .depth-2 {
+    margin-left: 1.25rem;
+    font-size: 18px;
+}
+
+.emily-progressive .depth-3 {
+    margin-left: 2.5rem;
+    font-size: 15px;
+}
+
+.emily-progressive .depth-3 a {
+    color: var(--accent-muted);
+}
+
+.emily-progressive .depth-3 a.is-active {
+    color: var(--ink);
+}
+
+.emily-progressive .nav-footer {
+    margin-top: 2.5em;
+}
+
+.emily-progressive .nav-footer + .nav-footer {
+    margin-top: 0;
+}
+
+.emily-progressive:not(.is-rwl-open) .rwl-branch {
+    display: none;
+}
+
+.emily-progressive.is-rwl-open .depth-3.rwl-section {
+    display: none;
+}
+
+.emily-progressive.is-rwl-open .depth-3.rwl-section.is-visible {
+    display: list-item;
+}
+
+.nav-toggle {
+    font: inherit;
+    font-family: var(--font-serif);
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    color: var(--ink);
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    text-align: left;
+    text-transform: lowercase;
+}
+
+.nav-toggle:hover,
+.nav-toggle.is-active {
+    background: var(--hover-highlight);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-primary);
+}
+
+.rwl-year.is-open .rwl-year-toggle {
+    background: var(--hover-highlight);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-primary);
 }
 
 .sidebar li {
@@ -218,6 +350,10 @@ a:focus-visible {
     max-width: none;
 }
 
+.content.content-emily {
+    padding: 20px 22px 48px;
+}
+
 .content header {
     margin-bottom: 10px;
 }
@@ -238,24 +374,32 @@ section {
     margin-bottom: 32px;
 }
 
+.content-emily section.books,
+.content-emily section.films,
+.content-emily section.shows,
+.content-emily section.abandoned {
+    border-top: none;
+    padding-top: 0;
+}
+
 section h2 {
     display: none;
 }
 
 section > p:first-of-type {
-    font-family: var(--font-mono);
-    font-size: 26px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    line-height: 1.06;
-    margin-bottom: 10px;
-    padding-top: 0.05em;
-    padding-bottom: 0.03em;
+    font-family: var(--font-serif);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    padding: 0;
     text-transform: uppercase;
+    color: var(--muted);
 }
 
 section p.addendum {
-    font-family: var(--font-mono);
+    font-family: var(--font-serif);
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -264,14 +408,14 @@ section p.addendum {
 }
 
 section p.count {
-    font-family: var(--font-mono);
-    font-size: 13px;
+    font-family: var(--font-serif);
+    font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: var(--accent-secondary);
-    margin-top: 6px;
-    margin-bottom: 10px;
+    color: var(--accent-primary);
+    margin-top: 0;
+    margin-bottom: 12px;
 }
 
 section ul,
@@ -290,12 +434,12 @@ section ol {
 
 section li {
     margin-bottom: 8px;
-    font-size: 35px;
-    line-height: 0.97;
-    letter-spacing: -0.02em;
-    max-width: 40ch;
-    padding-top: 0.03em;
-    padding-bottom: 0.02em;
+    font-size: 26px;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    max-width: 48ch;
+    padding-top: 0;
+    padding-bottom: 0;
     transition: none;
 }
 
@@ -315,11 +459,11 @@ section .numbered-list li {
 
 section .dated-list .entry-date,
 section .numbered-list li::before {
-    font-family: var(--font-mono);
+    font-family: var(--font-serif);
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.03em;
-    color: var(--accent-muted);
+    color: var(--muted);
     line-height: 1.6;
 }
 
@@ -342,21 +486,20 @@ section.shows .dated-list li {
 
 section.films li,
 section.shows li {
-    font-size: 31px;
-    line-height: 0.99;
+    font-size: 26px;
+    line-height: 1.35;
 }
 
 section.films .dated-list .entry-body,
 section.shows .dated-list .entry-body {
-    line-height: 1.02;
-    padding-top: 0.06em;
-    padding-bottom: 0.05em;
+    line-height: 1.35;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 section :target {
-    background: #f5f3ff;
-    outline: 1px dashed var(--accent-soft);
-    outline-offset: 2px;
+    background: var(--hover-highlight);
+    outline: none;
 }
 
 section.about {
@@ -387,15 +530,7 @@ section.about > p:first-of-type {
 }
 
 section.about h2 {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: lowercase;
-    letter-spacing: 0;
-    color: var(--ink);
-    margin-top: 0.5em;
-    margin-bottom: 0.75em;
+    display: none;
 }
 
 section.about li {
@@ -438,8 +573,28 @@ footer a:visited {
     margin: 0;
 }
 
+.recent-strip {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: 18px;
+    line-height: 1.45;
+    color: var(--muted);
+    text-transform: lowercase;
+}
+
+.recent-strip a {
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.recent-strip a:hover {
+    background: var(--hover-highlight);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-primary);
+}
+
 .recent-updates-title {
-    font-family: var(--font-mono);
+    font-family: var(--font-serif);
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
@@ -447,6 +602,7 @@ footer a:visited {
     margin: 0 0 8px;
     padding: 0 0 6px;
     border-bottom: 1px solid var(--accent-soft);
+    color: var(--muted);
 }
 
 .recent-file-block {
@@ -461,7 +617,7 @@ footer a:visited {
     gap: 8px;
     align-items: baseline;
     margin-bottom: 2px;
-    font-family: var(--font-mono);
+    font-family: var(--font-serif);
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
@@ -474,7 +630,7 @@ footer a:visited {
 }
 
 .file-section {
-    color: var(--accent-secondary);
+    color: var(--accent-primary);
 }
 
 .file-date {
@@ -511,7 +667,8 @@ footer a:visited {
         margin-bottom: 6px;
     }
 
-    .sidebar > nav:not(.mobile-nav) {
+    .sidebar-emily .emily-masthead,
+    .sidebar-emily .emily-progressive {
         display: none;
     }
 
@@ -598,17 +755,16 @@ footer a:visited {
     }
 
     section > p:first-of-type {
-        font-size: 19px;
-        line-height: 1.05;
-        padding-top: 0.04em;
-        padding-bottom: 0.02em;
+        font-size: 11px;
     }
 
     section li {
-        font-size: 27px;
-        line-height: 1;
-        padding-top: 0.02em;
-        padding-bottom: 0.01em;
+        font-size: 22px;
+    }
+
+    section.films li,
+    section.shows li {
+        font-size: 22px;
     }
 
     section .dated-list li,

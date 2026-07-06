@@ -16,7 +16,7 @@ Personal site (cleve) tracking books read, films watched, and live performances 
 npm install          # install dependencies (ejs, nodemon)
 npm run build        # generate all HTML from content
 npm run watch        # rebuild on content/template/build/style changes
-npm run serve        # local preview at http://localhost:8080
+npm run serve        # local preview at http://localhost:8090 (mockups at /mockups/)
 ```
 
 After editing content, run `npm run build` to regenerate HTML. Do not hand-edit generated `.html` files.

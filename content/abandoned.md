@@ -7,3 +7,4 @@ books or films i gave up on before finishing
 
 1. SUMMER FUN (2021) jeanne thorton
 2. NOTICE (2004) heather lewis
+3. DRAG KING DREAMS (2006) leslie feinberg
