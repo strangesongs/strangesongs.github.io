@@ -627,6 +627,13 @@ footer a:visited {
 
 .file-name {
     color: var(--ink);
+    text-decoration: none;
+}
+
+.recent-file-meta a.file-name:hover {
+    background: var(--hover-highlight);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-primary);
 }
 
 .file-section {

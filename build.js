@@ -346,7 +346,6 @@ async function build() {
 
     // Show a broader set so same-day updates are represented better
     const topFiles = fileInfos.slice(0, 6);
-    const stripFiles = fileInfos.slice(0, 2);
 
     // For each file, get a one-line summary of what was added using git
     function getLastSummary(file) {
@@ -378,15 +377,21 @@ async function build() {
         }
     }
 
-    // Home: minimal recent strip (no footer)
-    const stripLinks = stripFiles.map(info => {
+    // Home: recent updates with links to each log section
+    let homeContent = '<section class="recent-updates">\n  <h2 class="recent-updates-title">recent updates</h2>';
+    topFiles.forEach(info => {
+        const sourceDate = info.commitTime ? new Date(info.commitTime * 1000) : info.mtime;
+        const dateStr = sourceDate.toISOString().slice(0, 10);
+        const summary = getLastSummary('content/' + info.file);
         const section = path.basename(info.file, '.md');
         const year = info.file.split('/')[0];
-        return `<a href="${year}.html#${section}">${info.file}</a>`;
+        const href = `${year}.html#${section}`;
+        homeContent += `\n  <div class="recent-file-block">`;
+        homeContent += `<div class="recent-file-meta"><a href="${href}" class="file-name">${info.file}</a><span class="file-section">${section}</span><span class="file-date">${dateStr}</span></div>`;
+        homeContent += `<div class="file-summary">${summary}</div>`;
+        homeContent += '</div>';
     });
-    const homeContent = stripLinks.length
-        ? `<p class="recent-strip">recent: ${stripLinks.join(' · ')}</p>`
-        : '';
+    homeContent += '\n</section>';
 
     const template = fs.readFileSync('templates/index.html', 'utf8');
     const html = ejs.render(template, {
