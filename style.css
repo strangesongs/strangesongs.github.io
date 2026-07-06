@@ -208,141 +208,8 @@ a:focus-visible {
     list-style: none;
 }
 
-.sidebar h1 {
-    font-family: var(--font-serif);
-    font-size: 42px;
-    font-weight: 600;
-    line-height: 0.82;
-    letter-spacing: -0.04em;
-    margin-bottom: 8px;
-}
-
-.sidebar h1 a,
-.sidebar h1 a:visited {
-    color: var(--ink);
-    text-decoration: none;
-    background: none;
-}
-
-.sidebar nav ul {
-    list-style: none;
-}
-
-.sidebar nav li {
-    margin-bottom: 3px;
-    font-family: var(--font-mono);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0;
-    text-transform: lowercase;
-}
-
-.sidebar nav a,
-.sidebar .rwl-years a,
-.sidebar .rwl-sections a,
-.sidebar summary {
-    color: var(--ink);
-    background: none;
-    text-decoration: none;
-}
-
-.sidebar nav a:hover,
-.sidebar .rwl-years a:hover,
-.sidebar .rwl-sections a:hover,
-.sidebar .rwl-sections a.is-active {
-    background: var(--hover-highlight);
-    text-decoration: underline;
-    text-decoration-color: var(--accent-primary);
-    color: var(--ink);
-}
-
 .sidebar .mobile-nav {
     display: none;
-}
-
-.sidebar details {
-    display: block;
-}
-
-.sidebar summary {
-    cursor: pointer;
-    list-style: none;
-    user-select: none;
-}
-
-.sidebar summary::-webkit-details-marker,
-.sidebar summary::marker {
-    display: none;
-}
-
-.sidebar summary::before {
-    content: '+ ';
-    color: var(--accent-secondary);
-}
-
-.sidebar details[open] summary::before {
-    content: '- ';
-}
-
-.sidebar .rwl-years {
-    list-style: none;
-    margin: 3px 0 0 9px;
-    padding: 0;
-}
-
-.sidebar .rwl-years li {
-    margin-bottom: 0;
-    font-size: 12px;
-}
-
-.sidebar .rwl-year-item {
-    margin-bottom: 0.1rem;
-}
-
-.sidebar .rwl-year-item details {
-    margin: 0;
-}
-
-.sidebar .rwl-year-summary {
-    font-size: 12px;
-}
-
-.sidebar .rwl-year-summary::after {
-    content: ' +';
-    color: var(--accent-secondary);
-}
-
-.sidebar .rwl-year-item details[open] .rwl-year-summary::after {
-    content: ' -';
-}
-
-.sidebar .rwl-sections {
-    list-style: none;
-    margin: 0.16rem 0 0.24rem 0.75rem;
-    padding: 0;
-}
-
-.sidebar .rwl-sections li {
-    margin-bottom: 0.06rem;
-    font-size: 11px;
-}
-
-.sidebar .rwl-sections a {
-    color: var(--accent-muted);
-}
-
-.sidebar .rwl-extra-item {
-    margin-top: 0.14rem;
-}
-
-.sidebar .rwl-extra-link {
-    font-size: 12px;
-    color: var(--accent-muted);
-}
-
-.sidebar .rwl-extra-link::before {
-    content: '- ';
-    color: var(--accent-secondary);
 }
 
 .content {
@@ -551,7 +418,7 @@ footer {
     margin-top: 24px;
     padding-top: 8px;
     border-top: 1px solid var(--accent-soft);
-    font-family: var(--font-mono);
+    font-family: var(--font-serif);
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
@@ -606,7 +473,7 @@ footer a:visited {
 }
 
 .recent-file-block {
-    border-bottom: 1px solid #e8e0f4;
+    border-bottom: 1px solid var(--accent-soft);
     margin-bottom: 7px;
     padding-bottom: 5px;
 }
@@ -648,7 +515,7 @@ footer a:visited {
 .file-summary {
     font-family: var(--font-serif);
     font-size: 26px;
-    line-height: 0.96;
+    line-height: 1.35;
     letter-spacing: -0.01em;
     color: var(--ink);
 }
@@ -667,11 +534,6 @@ footer a:visited {
         border-bottom: 1px solid var(--accent-soft);
         z-index: 30;
         padding: 10px 8px;
-    }
-
-    .sidebar h1 {
-        font-size: 38px;
-        margin-bottom: 6px;
     }
 
     .sidebar-emily .emily-masthead,
@@ -696,8 +558,7 @@ footer a:visited {
         gap: 6px 7px;
     }
 
-    .mnav-years,
-    .mnav-music {
+    .mnav-years {
         margin-top: 8px;
     }
 
@@ -707,11 +568,9 @@ footer a:visited {
 
     .mnav-main a,
     .mnav-years a,
-    .mnav-music a,
     .mnav-sections a,
-    .mnav-rwl-link,
-    .mnav-music-link {
-        font-family: var(--font-mono);
+    .mnav-rwl-link {
+        font-family: var(--font-serif);
         font-size: 13px;
         font-weight: 700;
         letter-spacing: 0;
@@ -725,11 +584,8 @@ footer a:visited {
     .mnav-main a:hover,
     .mnav-years a:hover,
     .mnav-sections a:hover,
-    .mnav-music a:hover,
     .mnav-rwl-link:hover,
-    .mnav-music-link:hover,
     .mnav-rwl-link.is-open,
-    .mnav-music-link.is-open,
     .mnav-years a.is-active {
         background: var(--hover-highlight);
         text-decoration: underline;
