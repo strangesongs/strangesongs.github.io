@@ -1,7 +1,7 @@
 const RWL_NAV_KEY = 'cleve-rwl-nav';
 
 function saveRwlNavState() {
-    const nav = document.querySelector('.emily-progressive');
+    const nav = document.querySelector('.cleanui-nav');
     if (!nav) {
         return;
     }
@@ -14,7 +14,7 @@ function saveRwlNavState() {
 }
 
 function restoreRwlNavState() {
-    const nav = document.querySelector('.emily-progressive');
+    const nav = document.querySelector('.cleanui-nav');
     if (!nav || document.querySelector('.year-label')) {
         return;
     }
@@ -71,7 +71,7 @@ function updateYearPageView(options = {}) {
         document.title = `cleve - ${sectionTitle} ${currentYear}`;
     }
 
-    document.querySelectorAll('.emily-progressive .depth-3.rwl-section a').forEach(link => {
+    document.querySelectorAll('.cleanui-nav .depth-3.rwl-section a').forEach(link => {
         link.classList.toggle('is-active', link.hash === `#${shownSection.id}` && link.pathname.endsWith(`${currentYear}.html`));
     });
 
@@ -84,7 +84,7 @@ function updateYearPageView(options = {}) {
 }
 
 function syncRwlNavForYear(year, sectionId) {
-    const nav = document.querySelector('.emily-progressive');
+    const nav = document.querySelector('.cleanui-nav');
     if (!nav || !year) {
         return;
     }
@@ -113,7 +113,7 @@ function syncRwlNavForYear(year, sectionId) {
 }
 
 function setupRwlNav() {
-    const nav = document.querySelector('.emily-progressive');
+    const nav = document.querySelector('.cleanui-nav');
     if (!nav) {
         return;
     }
@@ -170,7 +170,7 @@ function setupRwlNav() {
 }
 
 function setupSectionNavNoJump() {
-    const sectionLinks = Array.from(document.querySelectorAll('.emily-progressive .depth-3.rwl-section a, .mnav-sections a')).filter(
+    const sectionLinks = Array.from(document.querySelectorAll('.cleanui-nav .depth-3.rwl-section a, .mnav-sections a')).filter(
         link => link.hash
     );
 

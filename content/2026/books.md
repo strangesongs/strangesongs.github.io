@@ -36,3 +36,4 @@ total: 29 books
 27. DHALGREN (1975) samuel r. delany | started 2018
 28. A PERSONAL MATTER (1964) kenzaburo oe
 29. TO SMITHEREENS (1972) rosalyn drexler
+30. BLACK WINGS HAS MY ANGEL (1953) elliott chaze

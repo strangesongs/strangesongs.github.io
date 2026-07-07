@@ -27,11 +27,11 @@ Double-click `index.html` in this folder. Styles are self-contained in `mockups.
 | `index.html` | Links to all mockups |
 | `01-home-colin-style.html` | Medium-grouped homepage |
 | `02-home-margem-style.html` | Intro + peer sections |
-| `03-home-emily-style.html` | Emily home (same as 13) |
-| `18-emily-chosen-direction.html` | **Start here** — home + 2026 films |
-| `13-emily-home-single-column.html` | Emily home (single column, superseded) |
-| `16-emily-2026-progressive-log.html` | 2026 films · two-column progressive |
-| `17-emily-inner-comparison.html` | Compare 14 / 15 / 16 |
+| `03-home-cleanui.html` | cleanui home (same as 13) |
+| `18-cleanui-chosen-direction.html` | **Start here** — home + 2026 films |
+| `13-cleanui-home-single-column.html` | cleanui home (single column, superseded) |
+| `16-cleanui-2026-progressive-log.html` | 2026 films · two-column progressive |
+| `17-cleanui-inner-comparison.html` | Compare 14 / 15 / 16 |
 | `04-projects.html` | Full project blurbs |
 | `05-stats.html` | Sample stats (not live data) |
 | `06-nav-comparison.html` | Sidebar before/after (legacy) |
@@ -44,12 +44,12 @@ Double-click `index.html` in this folder. Styles are self-contained in `mockups.
 
 ## Chosen direction
 
-Open **`18-emily-chosen-direction.html`** — two columns like the live site:
+Open **`18-cleanui-chosen-direction.html`** — two columns like the live site:
 
-- **Left:** Emily work list (cleve + links). RWL expands in place on log pages.
+- **Left:** cleanui nav (cleve + links). RWL expands in place on log pages.
 - **Right:** page content only — recent strip on home, log entries on RWL. No duplicated nav.
 
-## Emily-faithful (earlier explorations)
+## cleanui explorations (earlier explorations)
 
 Single-column options 13–17 kept for reference.
 

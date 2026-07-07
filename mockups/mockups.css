@@ -780,7 +780,7 @@ section.portfolio-home > p.tagline {
     color: var(--ink);
 }
 
-/* Emily-style flat work list */
+/* cleanui flat work list */
 .work-list {
     list-style: none;
     padding: 0;
@@ -807,7 +807,7 @@ section.portfolio-home > p.tagline {
     background: var(--hover-highlight);
 }
 
-.emily-masthead {
+.cleanui-masthead {
     font-family: var(--font-serif);
     font-size: clamp(1.8rem, 5vw, 2.8rem);
     font-weight: 400;
@@ -817,7 +817,7 @@ section.portfolio-home > p.tagline {
     color: var(--ink);
 }
 
-.emily-masthead.primary {
+.cleanui-masthead.primary {
     color: var(--accent-primary);
 }
 
@@ -1318,29 +1318,29 @@ a.mockup-inert:hover {
     text-decoration-color: var(--muted);
 }
 
-/* Emily single-column layout (no split sidebar) */
-.emily-page {
+/* cleanui single-column layout (no split sidebar) */
+.cleanui-page {
     max-width: 38rem;
     padding: 20px 22px 48px;
     margin: 0 auto;
 }
 
-.emily-page .mockup-label,
-.emily-page .mockup-nav-links {
+.cleanui-page .mockup-label,
+.cleanui-page .mockup-nav-links {
     padding-left: 0;
     padding-right: 0;
 }
 
-.emily-page .emily-masthead {
+.cleanui-page .cleanui-masthead {
     margin-bottom: 1.5em;
 }
 
-.emily-page .emily-masthead a {
+.cleanui-page .cleanui-masthead a {
     color: inherit;
     text-decoration: none;
 }
 
-.emily-page .emily-masthead a:hover {
+.cleanui-page .cleanui-masthead a:hover {
     background: var(--hover-highlight);
     text-decoration: underline;
     text-decoration-color: var(--accent-primary);
@@ -1356,30 +1356,30 @@ a.mockup-inert:hover {
     color: var(--muted);
 }
 
-.emily-back {
+.cleanui-back {
     font-family: var(--font-mono);
     font-size: 13px;
     margin-bottom: 1.25em;
 }
 
-.emily-back a {
+.cleanui-back a {
     text-decoration: none;
     color: var(--ink);
 }
 
-.emily-back a:hover {
+.cleanui-back a:hover {
     background: var(--hover-highlight);
     text-decoration: underline;
     text-decoration-color: var(--accent-primary);
 }
 
-.emily-log-section {
+.cleanui-log-section {
     margin-top: 2.5em;
     padding-top: 1em;
     border-top: 1px solid var(--accent-soft);
 }
 
-.emily-log-section .year-label {
+.cleanui-log-section .year-label {
     font-family: var(--font-serif);
     font-size: clamp(1.6rem, 5.2vw, 3.5rem);
     font-weight: 600;
@@ -1391,13 +1391,13 @@ a.mockup-inert:hover {
 }
 
 /* Progressive log nav — single column, indented */
-.emily-progressive {
+.cleanui-nav {
     list-style: none;
     padding: 0;
     margin: 0 0 2em;
 }
 
-.emily-progressive li {
+.cleanui-nav li {
     font-size: 22px;
     line-height: 1.35;
     letter-spacing: -0.01em;
@@ -1406,64 +1406,64 @@ a.mockup-inert:hover {
     padding: 0;
 }
 
-.emily-progressive a {
+.cleanui-nav a {
     text-decoration: none;
     color: var(--ink);
 }
 
-.emily-progressive a:hover {
+.cleanui-nav a:hover {
     background: var(--hover-highlight);
     text-decoration: underline;
     text-decoration-color: var(--accent-primary);
 }
 
-.emily-progressive .depth-1 {
+.cleanui-nav .depth-1 {
     margin-left: 0;
 }
 
-.emily-progressive .depth-2 {
+.cleanui-nav .depth-2 {
     margin-left: 1.25rem;
     font-size: 18px;
 }
 
-.emily-progressive .depth-3 {
+.cleanui-nav .depth-3 {
     margin-left: 2.5rem;
     font-size: 15px;
     color: var(--muted);
 }
 
-.emily-progressive .depth-3 a {
+.cleanui-nav .depth-3 a {
     color: var(--accent-muted);
 }
 
-.emily-progressive li.is-active a {
+.cleanui-nav li.is-active a {
     background: var(--hover-highlight);
     text-decoration: underline;
     text-decoration-color: var(--accent-primary);
     color: var(--ink);
 }
 
-.emily-progressive .nav-footer {
+.cleanui-nav .nav-footer {
     margin-top: 2.5em;
 }
 
-.emily-progressive .nav-footer + .nav-footer {
+.cleanui-nav .nav-footer + .nav-footer {
     margin-top: 0;
 }
 
-.emily-inner-compare {
+.cleanui-inner-compare {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
     margin: 1.5em 0 2em;
 }
 
-.emily-inner-compare .compare-card {
+.cleanui-inner-compare .compare-card {
     border: 1px solid var(--ink);
     padding: 12px;
 }
 
-.emily-inner-compare h3 {
+.cleanui-inner-compare h3 {
     font-family: var(--font-mono);
     font-size: 11px;
     font-weight: 700;
@@ -1472,12 +1472,12 @@ a.mockup-inert:hover {
     margin: 0 0 8px;
 }
 
-.emily-inner-compare h3 a {
+.cleanui-inner-compare h3 a {
     color: inherit;
     text-decoration: none;
 }
 
-.emily-inner-compare p {
+.cleanui-inner-compare p {
     font-family: var(--font-serif);
     font-size: 14px;
     line-height: 1.45;
@@ -1485,64 +1485,64 @@ a.mockup-inert:hover {
 }
 
 @media (max-width: 768px) {
-    .emily-inner-compare {
+    .cleanui-inner-compare {
         grid-template-columns: 1fr;
     }
 
-    .emily-page {
+    .cleanui-page {
         padding-left: 14px;
         padding-right: 14px;
     }
 }
 
-/* Chosen direction — Emily nav in sidebar, content on the right */
-.layout-emily {
+/* Chosen direction — cleanui nav in sidebar, content on the right */
+.layout-cleanui {
     grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
 }
 
-.sidebar-emily {
+.sidebar-cleanui {
     padding: 20px 16px 48px 22px;
     font-family: var(--font-serif);
 }
 
-.sidebar-emily .emily-masthead {
+.sidebar-cleanui .cleanui-masthead {
     margin-bottom: 1.25em;
 }
 
-.sidebar-emily .emily-masthead a {
+.sidebar-cleanui .cleanui-masthead a {
     color: inherit;
     text-decoration: none;
 }
 
-.sidebar-emily .emily-masthead a:hover {
+.sidebar-cleanui .cleanui-masthead a:hover {
     background: var(--hover-highlight);
     text-decoration: underline;
     text-decoration-color: var(--accent-primary);
 }
 
-.sidebar-emily .emily-progressive {
+.sidebar-cleanui .cleanui-nav {
     margin: 0;
 }
 
-.sidebar-emily .emily-progressive li {
+.sidebar-cleanui .cleanui-nav li {
     font-family: var(--font-serif);
 }
 
-.content-emily {
+.content-cleanui {
     padding: 20px 22px 48px;
 }
 
-.content-emily .recent-strip {
+.content-cleanui .recent-strip {
     margin-top: 0;
 }
 
 .sidebar a.nav-tbd,
-.emily-progressive a.nav-tbd {
+.cleanui-nav a.nav-tbd {
     color: var(--muted);
 }
 
 .sidebar a.nav-tbd:hover,
-.emily-progressive a.nav-tbd:hover {
+.cleanui-nav a.nav-tbd:hover {
     color: var(--muted);
     text-decoration-color: var(--muted);
 }

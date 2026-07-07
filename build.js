@@ -84,7 +84,7 @@ function buildSidebar(currentYear = '', currentSection = '', currentPage = '') {
     const rwlExpanded = Boolean(currentYear) || currentPage === 'abandoned';
     const rwlOpenClass = rwlExpanded ? ' is-rwl-open' : '';
 
-    let sidebar = `<p class="emily-masthead primary"><a href="index.html">cleve</a></p>\n<ul class="emily-progressive${rwlOpenClass}">\n`;
+    let sidebar = `<p class="cleanui-masthead primary"><a href="index.html">cleve</a></p>\n<ul class="cleanui-nav${rwlOpenClass}">\n`;
     sidebar += `<li class="depth-1"><button type="button" class="nav-toggle rwl-root-toggle" aria-expanded="${rwlExpanded ? 'true' : 'false'}">read watch listen</button></li>\n`;
 
     if (currentPage === 'abandoned') {

@@ -62,7 +62,7 @@ a:focus-visible {
     min-height: 100vh;
 }
 
-.layout-emily {
+.layout-cleanui {
     grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
 }
 
@@ -76,12 +76,12 @@ a:focus-visible {
     background: var(--paper);
 }
 
-.sidebar-emily {
+.sidebar-cleanui {
     padding: 20px 16px 48px 22px;
     font-family: var(--font-serif);
 }
 
-.sidebar-emily .emily-masthead {
+.sidebar-cleanui .cleanui-masthead {
     font-family: var(--font-serif);
     font-size: clamp(1.8rem, 5vw, 2.8rem);
     font-weight: 400;
@@ -91,25 +91,25 @@ a:focus-visible {
     color: var(--accent-primary);
 }
 
-.sidebar-emily .emily-masthead a {
+.sidebar-cleanui .cleanui-masthead a {
     color: inherit;
     text-decoration: none;
     background: none;
 }
 
-.sidebar-emily .emily-masthead a:hover {
+.sidebar-cleanui .cleanui-masthead a:hover {
     background: var(--hover-highlight);
     text-decoration: underline;
     text-decoration-color: var(--accent-primary);
 }
 
-.emily-progressive {
+.cleanui-nav {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.emily-progressive li {
+.cleanui-nav li {
     font-family: var(--font-serif);
     font-size: 22px;
     font-weight: 400;
@@ -121,7 +121,7 @@ a:focus-visible {
     padding: 0;
 }
 
-.emily-progressive a {
+.cleanui-nav a {
     font-family: inherit;
     font-weight: inherit;
     font-style: inherit;
@@ -130,53 +130,53 @@ a:focus-visible {
     background: none;
 }
 
-.emily-progressive a:hover,
-.emily-progressive a.is-active {
+.cleanui-nav a:hover,
+.cleanui-nav a.is-active {
     background: var(--hover-highlight);
     text-decoration: underline;
     text-decoration-color: var(--accent-primary);
     color: var(--ink);
 }
 
-.emily-progressive .depth-1 {
+.cleanui-nav .depth-1 {
     margin-left: 0;
 }
 
-.emily-progressive .depth-2 {
+.cleanui-nav .depth-2 {
     margin-left: 1.25rem;
     font-size: 18px;
 }
 
-.emily-progressive .depth-3 {
+.cleanui-nav .depth-3 {
     margin-left: 2.5rem;
     font-size: 15px;
 }
 
-.emily-progressive .depth-3 a {
+.cleanui-nav .depth-3 a {
     color: var(--accent-muted);
 }
 
-.emily-progressive .depth-3 a.is-active {
+.cleanui-nav .depth-3 a.is-active {
     color: var(--ink);
 }
 
-.emily-progressive .nav-footer {
+.cleanui-nav .nav-footer {
     margin-top: 2.5em;
 }
 
-.emily-progressive .nav-footer + .nav-footer {
+.cleanui-nav .nav-footer + .nav-footer {
     margin-top: 0;
 }
 
-.emily-progressive:not(.is-rwl-open) .rwl-branch {
+.cleanui-nav:not(.is-rwl-open) .rwl-branch {
     display: none;
 }
 
-.emily-progressive.is-rwl-open .depth-3.rwl-section {
+.cleanui-nav.is-rwl-open .depth-3.rwl-section {
     display: none;
 }
 
-.emily-progressive.is-rwl-open .depth-3.rwl-section.is-visible {
+.cleanui-nav.is-rwl-open .depth-3.rwl-section.is-visible {
     display: list-item;
 }
 
@@ -225,7 +225,7 @@ a:focus-visible {
     max-width: none;
 }
 
-.content.content-emily {
+.content.content-cleanui {
     padding: 20px 22px 48px;
     font-family: var(--font-serif);
     font-weight: 400;
@@ -251,10 +251,10 @@ section {
     margin-bottom: 32px;
 }
 
-.content-emily section.books,
-.content-emily section.films,
-.content-emily section.shows,
-.content-emily section.abandoned {
+.content-cleanui section.books,
+.content-cleanui section.films,
+.content-cleanui section.shows,
+.content-cleanui section.abandoned {
     border-top: none;
     padding-top: 0;
 }
@@ -551,8 +551,8 @@ footer a:visited {
         padding: 10px 8px;
     }
 
-    .sidebar-emily .emily-masthead,
-    .sidebar-emily .emily-progressive {
+    .sidebar-cleanui .cleanui-masthead,
+    .sidebar-cleanui .cleanui-nav {
         display: none;
     }
 
