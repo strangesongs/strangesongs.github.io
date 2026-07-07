@@ -112,6 +112,8 @@ a:focus-visible {
 .emily-progressive li {
     font-family: var(--font-serif);
     font-size: 22px;
+    font-weight: 400;
+    font-style: normal;
     line-height: 1.35;
     letter-spacing: -0.01em;
     margin-bottom: 0.35em;
@@ -120,6 +122,9 @@ a:focus-visible {
 }
 
 .emily-progressive a {
+    font-family: inherit;
+    font-weight: inherit;
+    font-style: inherit;
     text-decoration: none;
     color: var(--ink);
     background: none;
@@ -176,9 +181,10 @@ a:focus-visible {
 }
 
 .nav-toggle {
-    font: inherit;
     font-family: var(--font-serif);
     font-size: inherit;
+    font-weight: 400;
+    font-style: normal;
     line-height: inherit;
     letter-spacing: inherit;
     color: var(--ink);
@@ -189,6 +195,8 @@ a:focus-visible {
     cursor: pointer;
     text-align: left;
     text-transform: lowercase;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .nav-toggle:hover,
@@ -219,6 +227,8 @@ a:focus-visible {
 
 .content.content-emily {
     padding: 20px 22px 48px;
+    font-family: var(--font-serif);
+    font-weight: 400;
 }
 
 .content header {
@@ -301,7 +311,10 @@ section ol {
 
 section li {
     margin-bottom: 8px;
+    font-family: var(--font-serif);
     font-size: 26px;
+    font-weight: 400;
+    font-style: normal;
     line-height: 1.35;
     letter-spacing: -0.01em;
     max-width: 48ch;
@@ -515,6 +528,8 @@ footer a:visited {
 .file-summary {
     font-family: var(--font-serif);
     font-size: 26px;
+    font-weight: 400;
+    font-style: normal;
     line-height: 1.35;
     letter-spacing: -0.01em;
     color: var(--ink);
