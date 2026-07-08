@@ -5,7 +5,7 @@ date: 2026
 
 date TITLE (year) director | format | location | notes
 * denotes repeat viewing
-total: 44 films
+total: 49 films
 
 01.09 BURNING (2018) lee chang-dong | streaming | apple tv
 01.10 BREAD AND ALLEY (1970) abbas kiarostami | streaming | criterion channel
@@ -57,3 +57,8 @@ total: 44 films
 06.19 I WANT YOUR SEX (2026) gregg araki | dcp | castro theater | gregg araki in-person
 
 07.02 TOKYO DRIFTER (1966) seijun suzuki | dcp | academy museum
+07.05 SHINING BREEZE (1977) touch me | streaming | vimeo
+07.05 AMBITION (1992) hal hartley | streaming | criterion channel
+07.05 EVERYTHING VISIBLE IS EMPTY (1975) toshio matsumoto | streaming | youtube
+07.05 MAD GOD (2021) phil tippett | streaming | youtube tv
+07.07 THE BLOODY LADY (1981) viktor kubal | streaming | kanopy
