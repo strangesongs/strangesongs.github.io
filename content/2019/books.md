@@ -16,3 +16,5 @@ total: 9 books
 7. THE SCUM MANIFESTO (1968) valerie solanas
 8. SAFE SPACES (2013) christina hanhardt
 9. THE WARMTH OF OTHER SUNS (2010) isabel wilkerson
+
+LIST INCOMPLETE

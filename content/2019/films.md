@@ -14,3 +14,5 @@ total: 7 films
 5. PENDULUM (1968) george schaefer
 6. STRANGE DAYS (1995) kathryn bigelow
 7. BORN IN FLAMES (1983) lizzie borden
+
+LIST INCOMPLETE
