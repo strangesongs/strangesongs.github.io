@@ -5,7 +5,7 @@ date: 2026
 
 date TITLE (year) director | format | location | notes
 * denotes repeat viewing
-total: 49 films
+total: 58 films
 
 01.09 BURNING (2018) lee chang-dong | streaming | apple tv
 01.10 BREAD AND ALLEY (1970) abbas kiarostami | streaming | criterion channel
@@ -62,3 +62,12 @@ total: 49 films
 07.05 EVERYTHING VISIBLE IS EMPTY (1975) toshio matsumoto | streaming | youtube
 07.05 MAD GOD (2021) phil tippett | streaming | youtube tv
 07.07 THE BLOODY LADY (1981) viktor kubal | streaming | kanopy
+07.09 BOP SCOTCH (1952) jordan belson | digital | 2220 arts and archives | presented by lightstruck
+07.09 MANDALA (1953) jordan belson | 16mm | 2220 arts and archives | presented by lightstruck
+07.09 SEANCE (1959) jordan belson | digital | 2220 arts and archives | presented by lightstruck
+07.09 RE-ENTRY (1964) jordan belson | 16mm | 2220 arts and archives | presented by lightstruck
+07.09 MOMENTUM (1968) jordan belson | 16mm | 2220 arts and archives | presented by lightstruck
+07.09 COSMOS (1969) jordan belson | 16mm | 2220 arts and archives | presented by lightstruck
+07.09 LIGHT (1973) jordan belson | 16mm | 2220 arts and archives | presented by lightstruck
+07.09 CYCLES (1974) jordan belson, stephen beck | 16mm | 2220 arts and archives | presented by lightstruck
+07.09 UNION (1975) stephen beck | digital | 2220 arts and archives | presented by lightstruck

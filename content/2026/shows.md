@@ -4,7 +4,7 @@ date: 2026
 ---
 
 date PERFORMER | VENUE | NOTES
-total: 26 shows
+total: 27 shows
 
 01.11 WIL BLADES + JEFF PARKER + ROY McCURDY JR | united theater
 01.12 MORTON FELDMAN CENTENNIAL MARATHON (VICKY RAY, ANDREW McINTOSH, NIC GERPE, CONOR HANICK, TODD MOELLENBERG & ERIKA DUKE) | the brick
@@ -35,4 +35,5 @@ total: 26 shows
 05.30 WEEKEND AT JOHNNY'S DAY 3 | coaxial arts
 
 06.10 RAFIQ BHATIA | 2220 arts + archives | environments (w/ ian chang + riley mulherkar)
+06.26 BORED LORD | bar part time | pride friday
 06.27 HONEY DIJON | the great northern | pink block pride 2026
