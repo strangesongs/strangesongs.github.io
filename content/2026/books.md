@@ -5,7 +5,7 @@ date: 2026
 
 TITLE (year) author | notes
 
-total: 29 books
+total: 30 books
 
 1. CEREMONY (1977) leslie marmon silko | started 2025
 2. GIRLFRIENDS (2023) emily zhou

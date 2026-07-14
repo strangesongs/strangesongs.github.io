@@ -5,7 +5,7 @@ date: 2026
 
 date TITLE (year) director | format | location | notes
 * denotes repeat viewing
-total: 58 films
+total: 71 films
 
 01.09 BURNING (2018) lee chang-dong | streaming | apple tv
 01.10 BREAD AND ALLEY (1970) abbas kiarostami | streaming | criterion channel
@@ -33,6 +33,7 @@ total: 58 films
 03.04 WHAT DOES THAT NATURE SAY TO YOU (2025) hong sang-soo | dcp | los feliz 3
 03.06 LATE SPRING (1949) yasujirō ozu | streaming | criterion channel
 03.10 ATMAN (1975) toshio matsumoto | streaming | youtube
+03.12 PHANTOM (1975) toshio matsumoto | streaming | youtube
 03.27 INDECENT PROPOSAL (1993) adrian lyne | streaming | criterion channel
 
 04.01 VIVE L'AMOUR (1994) tsai ming-liang | streaming | criterion channel
@@ -51,6 +52,8 @@ total: 58 films
 06.05 LA CHAMBRE (1972) chantal akerman | streaming | criterion channel
 06.05 LE CHANT DU STYRENE (1958) alain resnais | streaming | criterion channel
 06.06 THE FIRM (1993) sydney pollack | streaming | criterion channel
+06.09 DOG MOVIE (2023) henry hanson | dcp | brain dead studios
+06.09 PUPPYGIRL (2025) henry hanson | dcp | brain dead studios
 06.12 PINK NARCISSUS (1971) james bidgood | streaming | criterion channel
 06.17 GENDER TROUBLEMAKERS (1993) mirha-soleil ross and xanthra phillippa mackay | streaming | criterion channel
 06.18 FRESH KILL (1994) shu lea cheang | streaming | criterion channel
@@ -71,3 +74,13 @@ total: 58 films
 07.09 LIGHT (1973) jordan belson | 16mm | 2220 arts and archives | presented by lightstruck
 07.09 CYCLES (1974) jordan belson, stephen beck | 16mm | 2220 arts and archives | presented by lightstruck
 07.09 UNION (1975) stephen beck | digital | 2220 arts and archives | presented by lightstruck
+07.11 A MOVIE (1958) bruce conner | 16mm | marciano art foundation | recording angel
+07.11 LOOKING FOR MUSHROOMS (1967) bruce conner | 16mm | marciano art foundation | recording angel
+07.11 BREAKAWAY (1967) bruce conner | 16mm | marciano art foundation | recording angel
+07.11 CROSSROADS (1976) bruce conner | 16mm | marciano art foundation | recording angel
+07.11 MONGOLOID (1978) bruce conner | 16mm | marciano art foundation | recording angel
+07.11 AMERICA IS WAITING (1981) bruce conner | 16mm | marciano art foundation | recording angel
+07.11 LOOKING FOR MUSHROOMS (1996) bruce conner | 16mm | marciano art foundation | recording angel
+07.11 THREE SCREEN RAY (2006) bruce conner | 16mm | marciano art foundation | recording angel
+07.12 RAW! UNCUT! VIDEO! (2021) ryan a. white, alex clausen | streaming | criterion channel
+07.12 MY WINNIPEG (2007) guy maddin | 35mm | academy museum | guy maddin in-person *
