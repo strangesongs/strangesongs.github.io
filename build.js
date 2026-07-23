@@ -14,6 +14,10 @@ function insertMonthHeaders(content) {
     for (const line of content.split('\n')) {
         const manualHeading = line.match(/^### ([a-z]+)$/);
         if (manualHeading) {
+            const monthIndex = MONTH_NAMES.indexOf(manualHeading[1]);
+            if (monthIndex >= 0) {
+                lastMonth = String(monthIndex + 1).padStart(2, '0');
+            }
             result.push(line);
             continue;
         }
@@ -60,6 +64,11 @@ function processMarkdown(content) {
     // Remove frontmatter
     content = content.replace(/^---[\s\S]*?---\n/, '');
     content = insertMonthHeaders(content);
+
+    // Convert headers before list wrapping so month headings stay on their own lines.
+    content = content.replace(/^### (.+)$/gm, '<h3 class="month-heading">$1</h3>');
+    content = content.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+    content = content.replace(/^# (.+)$/gm, '<h1>$1</h1>');
     
     // Convert markdown-style lists to HTML, marking them differently
     content = content.replace(/^- (.+)$/gm, '<li class="bullet">$1</li>');
@@ -81,11 +90,6 @@ function processMarkdown(content) {
     content = content.replace(/(<li class="dated">.*?<\/li>\n?)+/g, match => {
         return '<ul class="markdown-list dated-list">' + match + '</ul>';
     });
-    
-    // Convert headers
-    content = content.replace(/^### (.+)$/gm, '<h3 class="month-heading">$1</h3>');
-    content = content.replace(/^## (.+)$/gm, '<h2>$1</h2>');
-    content = content.replace(/^# (.+)$/gm, '<h1>$1</h1>');
     
     // Wrap non-HTML lines in paragraphs (for the format description lines)
     const lines = content.split('\n');
