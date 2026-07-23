@@ -2,6 +2,52 @@ const fs = require('fs');
 const path = require('path');
 const ejs = require('ejs');
 
+const MONTH_NAMES = [
+    'january', 'february', 'march', 'april', 'may', 'june',
+    'july', 'august', 'september', 'october', 'november', 'december'
+];
+
+function insertMonthHeaders(content) {
+    let lastMonth = null;
+    const result = [];
+
+    for (const line of content.split('\n')) {
+        const manualHeading = line.match(/^### ([a-z]+)$/);
+        if (manualHeading) {
+            result.push(line);
+            continue;
+        }
+
+        const match = line.match(/^(\d{2})\.\d{2}\s+/);
+        if (!match) {
+            result.push(line);
+            continue;
+        }
+
+        const month = match[1];
+        if (month === lastMonth) {
+            result.push(line);
+            continue;
+        }
+
+        lastMonth = month;
+        const monthIndex = parseInt(month, 10) - 1;
+        if (monthIndex < 0 || monthIndex > 11) {
+            result.push(line);
+            continue;
+        }
+
+        const heading = `### ${MONTH_NAMES[monthIndex]}`;
+        const previousLine = result[result.length - 1];
+        if (previousLine !== heading) {
+            result.push(heading);
+        }
+        result.push(line);
+    }
+
+    return result.join('\n');
+}
+
 function countSectionItems(rawContent) {
     const itemPattern = /^(?:- |\d+\.\s+|\d{2}\.\d{2}\s+).+/;
     return rawContent
@@ -13,6 +59,7 @@ function countSectionItems(rawContent) {
 function processMarkdown(content) {
     // Remove frontmatter
     content = content.replace(/^---[\s\S]*?---\n/, '');
+    content = insertMonthHeaders(content);
     
     // Convert markdown-style lists to HTML, marking them differently
     content = content.replace(/^- (.+)$/gm, '<li class="bullet">$1</li>');
@@ -36,7 +83,7 @@ function processMarkdown(content) {
     });
     
     // Convert headers
-    content = content.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+    content = content.replace(/^### (.+)$/gm, '<h3 class="month-heading">$1</h3>');
     content = content.replace(/^## (.+)$/gm, '<h2>$1</h2>');
     content = content.replace(/^# (.+)$/gm, '<h1>$1</h1>');
     

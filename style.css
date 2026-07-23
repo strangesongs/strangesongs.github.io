@@ -263,6 +263,24 @@ section h2 {
     display: none;
 }
 
+section.films h3.month-heading,
+section.shows h3.month-heading {
+    font-family: var(--font-serif);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    line-height: 1.4;
+    text-transform: lowercase;
+    color: var(--accent-primary);
+    margin-top: 24px;
+    margin-bottom: 10px;
+}
+
+section.films h3.month-heading:first-of-type,
+section.shows h3.month-heading:first-of-type {
+    margin-top: 4px;
+}
+
 section > p:first-of-type {
     font-family: var(--font-serif);
     font-size: 12px;
@@ -302,7 +320,7 @@ section ol {
 }
 
 section ul + ul {
-    margin-top: 10px;
+    margin-top: 16px;
 }
 
 section ol {
@@ -312,7 +330,7 @@ section ol {
 section li {
     margin-bottom: 8px;
     font-family: var(--font-serif);
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 400;
     font-style: normal;
     line-height: 1.35;
@@ -366,13 +384,13 @@ section.shows .dated-list li {
 
 section.films li,
 section.shows li {
-    font-size: 26px;
-    line-height: 1.35;
+    font-size: 22px;
+    line-height: 1.4;
 }
 
 section.films .dated-list .entry-body,
 section.shows .dated-list .entry-body {
-    line-height: 1.35;
+    line-height: 1.4;
     padding-top: 0;
     padding-bottom: 0;
 }
@@ -637,12 +655,13 @@ footer a:visited {
     }
 
     section li {
-        font-size: 22px;
+        font-size: 19px;
     }
 
     section.films li,
     section.shows li {
-        font-size: 22px;
+        font-size: 19px;
+        line-height: 1.35;
     }
 
     section .dated-list li,
@@ -653,15 +672,9 @@ footer a:visited {
 
     section.films .dated-list .entry-body,
     section.shows .dated-list .entry-body {
-        line-height: 1.04;
+        line-height: 1.35;
         padding-top: 0.04em;
         padding-bottom: 0.04em;
-    }
-
-    section.films li,
-    section.shows li {
-        font-size: 24px;
-        line-height: 1.01;
     }
 
     section .dated-list .entry-date,
