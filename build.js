@@ -62,6 +62,9 @@ function processMarkdown(content) {
     
     // Keep intentional blank-line spacing while collapsing excessive gaps.
     content = processedLines.join('\n').replace(/\n{3,}/g, '\n\n');
+
+    // Convert markdown links after list/paragraph structure is in place.
+    content = content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
     
     return content;
 }

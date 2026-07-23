@@ -15,7 +15,7 @@ total: 66 films
 01.28 YI-YI (2000) edward yang | DCP | Egyptian Theater | EY retro at AC *
 
 02.01 SUNDAY IN PEKING (1956) chris marker | streaming criterion channel
-02.23 THE PRACTICE OF THE WILD (2010) john j. healy | streaming vimeo
+02.23 THE PRACTICE OF THE WILD (2010) john j. healy | streaming | vimeo
 02.24 SEXY BEAST (2000) jonathan glazer | streaming criterion channel
 02.25 ORLANDO, MY POLITICAL BIOGRAPHY (2023) paul preciado | streaming criterion channel
 

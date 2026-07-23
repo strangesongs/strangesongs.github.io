@@ -5,7 +5,7 @@ date: 2026
 
 date TITLE (year) director | format | location | notes
 * denotes repeat viewing
-total: 71 films
+total: 80 films
 
 01.09 BURNING (2018) lee chang-dong | streaming | apple tv
 01.10 BREAD AND ALLEY (1970) abbas kiarostami | streaming | criterion channel
@@ -32,12 +32,12 @@ total: 71 films
 03.02 FLOATING CLOUDS (1955) mikio naruse | streaming | criterion channel
 03.04 WHAT DOES THAT NATURE SAY TO YOU (2025) hong sang-soo | dcp | los feliz 3
 03.06 LATE SPRING (1949) yasujirō ozu | streaming | criterion channel
-03.10 ATMAN (1975) toshio matsumoto | streaming | youtube
-03.12 PHANTOM (1975) toshio matsumoto | streaming | youtube
+03.10 ATMAN (1975) toshio matsumoto | [streaming](https://www.youtube.com/watch?v=MdcN8wDxT0Q) | youtube
+03.12 PHANTOM (1975) toshio matsumoto | [streaming](https://www.youtube.com/watch?v=I0j-8eFu42Q) | youtube
 03.27 INDECENT PROPOSAL (1993) adrian lyne | streaming | criterion channel
 
 04.01 VIVE L'AMOUR (1994) tsai ming-liang | streaming | criterion channel
-04.14 SHIFT (1982) toshio matsumoto | streaming | youtube
+04.14 SHIFT (1982) toshio matsumoto | [streaming](https://www.youtube.com/watch?v=aiUdjksGzAE) | youtube
 04.26 WHEN A WOMAN ASCENDS THE STAIRS (1960) mikio naruse | 35mm | egyptian theater | mikio naruse retrospective
 
 05.17 THREE COLORS: BLUE (1993) krzysztof kieślowski | dcp | egyptian theater
@@ -60,9 +60,9 @@ total: 71 films
 06.19 I WANT YOUR SEX (2026) gregg araki | dcp | castro theater | gregg araki in-person
 
 07.02 TOKYO DRIFTER (1966) seijun suzuki | dcp | academy museum
-07.05 SHINING BREEZE (1977) touch me | streaming | vimeo
+07.05 SHINING BREEZE (1977) touch me | [streaming](https://www.youtube.com/watch?v=Hnh4lZM9l6U) | youtube
 07.05 AMBITION (1992) hal hartley | streaming | criterion channel
-07.05 EVERYTHING VISIBLE IS EMPTY (1975) toshio matsumoto | streaming | youtube
+07.05 EVERYTHING VISIBLE IS EMPTY (1975) toshio matsumoto | [streaming](https://www.youtube.com/watch?v=LY7c2IIzVxw) | youtube
 07.05 MAD GOD (2021) phil tippett | streaming | youtube tv
 07.07 THE BLOODY LADY (1981) viktor kubal | streaming | kanopy
 07.09 BOP SCOTCH (1952) jordan belson | digital | 2220 arts and archives | presented by lightstruck
@@ -82,5 +82,14 @@ total: 71 films
 07.11 AMERICA IS WAITING (1981) bruce conner | 16mm | marciano art foundation | recording angel
 07.11 LOOKING FOR MUSHROOMS (1996) bruce conner | 16mm | marciano art foundation | recording angel
 07.11 THREE SCREEN RAY (2006) bruce conner | 16mm | marciano art foundation | recording angel
-07.12 RAW! UNCUT! VIDEO! (2021) ryan a. white, alex clausen | streaming | criterion channel
+07.11 RAW! UNCUT! VIDEO! (2021) ryan a. white, alex clausen | streaming | criterion channel
 07.12 MY WINNIPEG (2007) guy maddin | 35mm | academy museum | guy maddin in-person *
+07.13 VISIONS IN MEDITATION #1 (1989) stan brakhage | [streaming](https://www.youtube.com/watch?v=FHr8-Jleq4Y) | youtube
+07.13 VISIONS IN MEDITATION #2: MESA VERDE (1989) stan brakhage | [streaming](https://www.youtube.com/watch?v=FHr8-Jleq4Y&t=979s) | youtube
+07.13 VISIONS IN MEDITATION #3: PLATO'S CAVE (1990) stan brakhage | [streaming](https://www.youtube.com/watch?v=PQdztPEOoA0) | youtube
+07.17 THE RETURN OF GODZILLA (1984) koji hashimoto | streaming | criterion
+07.18 THE STRINGS (2020) ryan glover | streaming | yesmovies.ag
+07.19 THE HITCH-HIKER (1953) ida lupino | streaming | kanopy
+07.20 LE CERCLE ROUGE (1970) jean-pierre melville | 4k | ted mann theater @ academy museum*
+07.22 MAGIC FERRY (2001) masha godovannaya | [streaming](https://lightcone.org/en/film-4353-magic-ferry) | light cone
+07.22 YOURSELF AND YOURS (2016) hong sang-soo | streaming | kanopy

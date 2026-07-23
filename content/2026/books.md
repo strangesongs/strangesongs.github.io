@@ -5,7 +5,7 @@ date: 2026
 
 TITLE (year) author | notes
 
-total: 30 books
+total: 32 books
 
 1. CEREMONY (1977) leslie marmon silko | started 2025
 2. GIRLFRIENDS (2023) emily zhou
@@ -37,3 +37,5 @@ total: 30 books
 28. A PERSONAL MATTER (1964) kenzaburo oe
 29. TO SMITHEREENS (1972) rosalyn drexler
 30. BLACK WINGS HAS MY ANGEL (1953) elliott chaze
+31. NEVADA (2013) imogen binnie
+32. BARD KINETIC (2023) anne waldman
