@@ -37,3 +37,5 @@ total: 27 shows
 06.10 RAFIQ BHATIA | 2220 arts + archives | environments (w/ ian chang + riley mulherkar)
 06.26 BORED LORD | bar part time | pride friday
 06.27 HONEY DIJON | the great northern | pink block pride 2026
+
+07.15 haana lee / TRELLIS | 2220 arts + archives 

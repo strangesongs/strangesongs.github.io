@@ -5,7 +5,7 @@ date: 2026
 
 date TITLE (year) director | format | location | notes
 * denotes repeat viewing
-total: 80 films
+total: 82 films
 
 01.09 BURNING (2018) lee chang-dong | streaming | apple tv
 01.10 BREAD AND ALLEY (1970) abbas kiarostami | streaming | criterion channel
@@ -93,3 +93,5 @@ total: 80 films
 07.20 LE CERCLE ROUGE (1970) jean-pierre melville | 4k | ted mann theater @ academy museum*
 07.22 MAGIC FERRY (2001) masha godovannaya | [streaming](https://lightcone.org/en/film-4353-magic-ferry) | light cone
 07.22 YOURSELF AND YOURS (2016) hong sang-soo | streaming | kanopy
+07.24 BATTLES WITHOUT HONOR AND HUMANITY (1973) kinji fukasaku | dvd | video archives cinema club @ los feliz theater
+07.25 SHEEP IN THE BOX (2026) hirokazu kore-eda (2025) hirokazu kore-eda | 4k | century city amc | in-person q+a w/kore-eda 
