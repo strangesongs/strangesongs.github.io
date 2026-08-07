@@ -38,4 +38,5 @@ total: 27 shows
 06.26 BORED LORD | bar part time | pride friday
 06.27 HONEY DIJON | the great northern | pink block pride 2026
 
-07.15 haana lee / TRELLIS | 2220 arts + archives 
+07.15 haana lee / TRELLIS | 2220 arts + archives
+07.31 JACKIE-O MOTHERFUCKER | zebulon
