@@ -40,3 +40,4 @@ total: 27 shows
 
 07.15 haana lee / TRELLIS | 2220 arts + archives
 07.31 JACKIE-O MOTHERFUCKER | zebulon
+08.15 SLOW ROSE 26-HOUR SHOW | 2220 arts + archives

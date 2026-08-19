@@ -5,7 +5,7 @@ date: 2026
 
 date TITLE (year) director | format | location | notes
 * denotes repeat viewing
-total: 82 films
+total: 88 films
 
 01.09 BURNING (2018) lee chang-dong | streaming | apple tv
 01.10 BREAD AND ALLEY (1970) abbas kiarostami | streaming | criterion channel
@@ -54,8 +54,8 @@ total: 82 films
 06.06 THE FIRM (1993) sydney pollack | streaming | criterion channel
 06.09 DOG MOVIE (2023) henry hanson | dcp | brain dead studios
 06.09 PUPPYGIRL (2025) henry hanson | dcp | brain dead studios
-06.12 PINK NARCISSUS (1971) james bidgood | streaming | criterion channel
-06.17 GENDER TROUBLEMAKERS (1993) mirha-soleil ross and xanthra phillippa mackay | streaming | criterion channel
+06.15 GENDER TROUBLEMAKERS (1993) mirha-soleil ross and xanthra phillippa mackay | streaming | criterion channel
+06.16 PINK NARCISSUS (1971) james bidgood | streaming | criterion channel
 06.18 FRESH KILL (1994) shu lea cheang | streaming | criterion channel
 06.19 I WANT YOUR SEX (2026) gregg araki | dcp | castro theater | gregg araki in-person
 
@@ -94,4 +94,11 @@ total: 82 films
 07.22 MAGIC FERRY (2001) masha godovannaya | [streaming](https://lightcone.org/en/film-4353-magic-ferry) | light cone
 07.22 YOURSELF AND YOURS (2016) hong sang-soo | streaming | kanopy
 07.24 BATTLES WITHOUT HONOR AND HUMANITY (1973) kinji fukasaku | dvd | video archives cinema club @ los feliz theater
-07.25 SHEEP IN THE BOX (2026) hirokazu kore-eda (2025) hirokazu kore-eda | 4k | century city amc | in-person q+a w/kore-eda 
+07.25 SHEEP IN THE BOX (2026) hirokazu kore-eda | 4k | century city amc | in-person q+a w/kore-eda
+
+08.03 THE IMMORTAL STORY (1968) orson welles
+08.07 ON THE SILVER GLOBE (1988) andrzej żuławski
+08.12 MAD MAX BEYOND THUNDERDOME (1985) george miller, george ogilvie | dcp | alamo drafthouse
+08.14 THE CLOCK (2010) christian marclay | dcp | lacma
+08.15 THE CLOCK (2010) christian marclay | dcp | lacma *
+08.17 A SNAKE OF JUNE (2002) shinya tsukamoto | dcp | academy museum ted mann theater
