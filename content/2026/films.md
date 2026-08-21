@@ -98,7 +98,7 @@ total: 88 films
 
 08.03 THE IMMORTAL STORY (1968) orson welles
 08.07 ON THE SILVER GLOBE (1988) andrzej żuławski
-08.12 MAD MAX BEYOND THUNDERDOME (1985) george miller, george ogilvie | dcp | alamo drafthouse
+08.12 MAD MAX: BEYOND THUNDERDOME (1985) george miller, george ogilvie | dcp | alamo drafthouse
 08.14 THE CLOCK (2010) christian marclay | dcp | lacma
 08.15 THE CLOCK (2010) christian marclay | dcp | lacma *
 08.17 A SNAKE OF JUNE (2002) shinya tsukamoto | dcp | academy museum ted mann theater
