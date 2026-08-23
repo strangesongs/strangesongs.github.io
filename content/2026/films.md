@@ -5,7 +5,7 @@ date: 2026
 
 date TITLE (year) director | format | location | notes
 * denotes repeat viewing
-total: 88 films
+total: 92 films
 
 01.09 BURNING (2018) lee chang-dong | streaming | apple tv
 01.10 BREAD AND ALLEY (1970) abbas kiarostami | streaming | criterion channel
@@ -99,6 +99,10 @@ total: 88 films
 08.03 THE IMMORTAL STORY (1968) orson welles
 08.07 ON THE SILVER GLOBE (1988) andrzej żuławski
 08.12 MAD MAX: BEYOND THUNDERDOME (1985) george miller, george ogilvie | dcp | alamo drafthouse
-08.14 THE CLOCK (2010) christian marclay | dcp | lacma
-08.15 THE CLOCK (2010) christian marclay | dcp | lacma *
+08.14 THE CLOCK (2010) christian marclay | dcp | lacma | 5:12–7:15 pm (123 min)
+08.15 THE CLOCK (2010) christian marclay | dcp | lacma | 1:47–5:12 pm (205 min) *
 08.17 A SNAKE OF JUNE (2002) shinya tsukamoto | dcp | academy museum ted mann theater
+08.20 THE RAVISHING OF FRANK N. STEIN (1982) georges schwizgebel | [streaming](https://www.youtube.com/watch?v=XmMyx2_4STg) | youtube
+08.20 LOOSE CORNER (1986) anita thacher | [streaming](https://www.youtube.com/watch?v=YjXxI4xUsTY) | youtube
+08.21 THE CLOCK (2010) christian marclay | dcp | lacma | 7:09 am–12:09 pm, 12:15–1:47 pm (392 min) *
+08.21 THE CLOCK (2010) christian marclay | dcp | lacma | 6:47–8:00 pm (73 min; 45 min new) *
