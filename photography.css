@@ -53,8 +53,16 @@ button:focus-visible {
     font-size: 0.9rem;
 }
 
+.top-bar .about-link {
+    margin-left: auto;
+}
+
 .hub-link {
     display: inline-block;
+}
+
+.hub-link[hidden] {
+    display: none !important;
 }
 
 .album-nav {

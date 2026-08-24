@@ -3,6 +3,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const ALBUMS_URL = 'content/photography/albums.json';
     const PHOTOS_URL = 'content/photography/photos.json';
 
+    const hubLink = document.querySelector('.hub-link');
+    if (hubLink) {
+        try {
+            const ref = document.referrer ? new URL(document.referrer) : null;
+            const fromCleve = Boolean(
+                ref
+                && ref.origin === window.location.origin
+                && !/photography\.html$/i.test(ref.pathname)
+            );
+            if (fromCleve) {
+                hubLink.hidden = false;
+            }
+        } catch (error) {
+            // keep hub link hidden
+        }
+    }
+
     const galleryEl = document.getElementById('photo-gallery');
     const statusEl = document.getElementById('status');
     const albumNav = document.getElementById('album-nav');
