@@ -70,6 +70,10 @@ button:focus-visible {
     line-height: 1.8;
 }
 
+.album-nav[hidden] {
+    display: none !important;
+}
+
 .album-link {
     background: none;
     border: none;
@@ -143,6 +147,10 @@ button:focus-visible {
 .empty-state {
     color: #666;
     margin: 0.5rem 0;
+}
+
+.gallery-meta[hidden] {
+    display: none !important;
 }
 
 .status-message.is-error {
@@ -219,6 +227,16 @@ button:focus-visible {
     color: #999;
     text-decoration: none;
     cursor: default;
+}
+
+.lightbox-counter {
+    display: inline-block;
+    padding: 0 0.5rem;
+    color: #666;
+    font: inherit;
+    text-decoration: none;
+    cursor: default;
+    user-select: none;
 }
 
 .lightbox-figure {

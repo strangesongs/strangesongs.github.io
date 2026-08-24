@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const PAGE_SIZE = 36;
     const ALBUMS_URL = 'content/photography/albums.json';
     const PHOTOS_URL = 'content/photography/photos.json';
+    const SWIPE_THRESHOLD = 40;
 
     const hubLink = document.querySelector('.hub-link');
     if (hubLink) {
@@ -30,6 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxClose = document.getElementById('lightbox-close');
     const lightboxPrev = document.getElementById('lightbox-prev');
     const lightboxNext = document.getElementById('lightbox-next');
+    const lightboxNav = lightboxEl && lightboxEl.querySelector('.lightbox-nav');
+
+    const lightboxCounter = document.createElement('span');
+    lightboxCounter.className = 'lightbox-counter';
+    lightboxCounter.setAttribute('aria-live', 'polite');
+    if (lightboxNav && lightboxNext) {
+        lightboxNav.insertBefore(lightboxCounter, lightboxNext);
+    }
 
     let albums = [];
     let photosById = {};
@@ -41,6 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let lightboxLoadToken = 0;
     let applyingHash = false;
     let ignoreHashChange = false;
+    let touchStartX = null;
+    let touchStartY = null;
 
     function setStatus(message, isError) {
         if (!statusEl) return;
@@ -51,6 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function clearStatus() {
         setStatus('', false);
     }
+
+    if (albumNav) albumNav.hidden = true;
+    if (galleryMetaEl) {
+        galleryMetaEl.hidden = true;
+        galleryMetaEl.textContent = '';
+    }
+    setStatus('loading…');
 
     function findAlbum(slug) {
         return albums.find((album) => album.slug === slug) || null;
@@ -184,18 +202,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateGalleryMeta() {
         if (!galleryMetaEl) return;
-        const total = visiblePhotos.length;
-        if (!total) {
-            galleryMetaEl.textContent = '';
-            return;
-        }
-        galleryMetaEl.textContent = `showing ${Math.min(renderedCount, total)} of ${total}`;
+        galleryMetaEl.hidden = true;
+        galleryMetaEl.textContent = '';
     }
 
     function updateLoadMoreButton() {
         if (!loadMoreBtn) return;
         const hasMore = renderedCount < visiblePhotos.length;
         loadMoreBtn.hidden = !hasMore;
+    }
+
+    function updateLightboxCounter() {
+        const photos = currentRenderedPhotos();
+        if (currentPhotoIndex < 0 || !photos.length) {
+            lightboxCounter.textContent = '';
+            return;
+        }
+        lightboxCounter.textContent = `${currentPhotoIndex + 1} / ${photos.length}`;
+    }
+
+    function lightboxFocusables() {
+        return [lightboxPrev, lightboxClose, lightboxNext].filter(
+            (el) => el && !el.disabled
+        );
     }
 
     function renderAlbumNav() {
@@ -230,6 +259,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             albumNav.appendChild(button);
         });
+
+        albumNav.hidden = false;
     }
 
     function renderGallery() {
@@ -347,6 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         lightboxPrev.disabled = currentPhotoIndex <= 0;
         lightboxNext.disabled = currentPhotoIndex >= photos.length - 1;
+        updateLightboxCounter();
 
         lightboxLastFocusedEl = document.activeElement;
         lightboxEl.classList.add('is-open');
@@ -363,6 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lightboxLoadToken += 1;
         lightboxImage.removeAttribute('src');
         currentPhotoIndex = -1;
+        lightboxCounter.textContent = '';
         updateAlbumHash();
 
         if (lightboxLastFocusedEl && typeof lightboxLastFocusedEl.focus === 'function') {
@@ -383,6 +416,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             if (photoId) {
+                if (!photosById[String(photoId)]) {
+                    selectAlbum(activeAlbumSlug || 'all', { updateHash: false });
+                    setStatus('That photo is not in this gallery.');
+                    return;
+                }
+
                 const targetAlbum = albumSlugForPhoto(photoId);
                 if (targetAlbum !== activeAlbumSlug) {
                     selectAlbum(targetAlbum, { updateHash: false });
@@ -391,7 +430,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (renderedIndex !== -1) {
                     openLightbox(renderedIndex);
                 } else {
-                    setStatus('Photo not found in the local gallery.', true);
+                    setStatus('That photo is not in this gallery.');
                 }
                 return;
             }
@@ -400,6 +439,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 lightboxEl.classList.remove('is-open');
                 lightboxEl.setAttribute('aria-hidden', 'true');
                 document.body.classList.remove('no-scroll');
+                lightboxCounter.textContent = '';
+                currentPhotoIndex = -1;
             }
 
             if (albumSlug && findAlbum(albumSlug)) {
@@ -408,6 +449,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 selectAlbum(activeAlbumSlug || 'all', { updateHash: false });
             } else {
                 selectAlbum('all', { updateHash: false });
+                setStatus('Unknown album; showing all.');
             }
         } finally {
             applyingHash = false;
@@ -440,6 +482,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            clearStatus();
+
             const { albumSlug, photoId } = parseLocationHash();
             if (photoId || albumSlug) {
                 applyHashRoute();
@@ -463,17 +507,70 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.target === lightboxEl) closeLightbox();
     });
 
+    lightboxEl.addEventListener('touchstart', (event) => {
+        if (!lightboxEl.classList.contains('is-open')) return;
+        if (event.changedTouches.length !== 1) return;
+        touchStartX = event.changedTouches[0].clientX;
+        touchStartY = event.changedTouches[0].clientY;
+    }, { passive: true });
+
+    lightboxEl.addEventListener('touchend', (event) => {
+        if (!lightboxEl.classList.contains('is-open')) return;
+        if (touchStartX == null || event.changedTouches.length !== 1) {
+            touchStartX = null;
+            touchStartY = null;
+            return;
+        }
+
+        const dx = event.changedTouches[0].clientX - touchStartX;
+        const dy = event.changedTouches[0].clientY - touchStartY;
+        touchStartX = null;
+        touchStartY = null;
+
+        if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dx) < Math.abs(dy)) return;
+        if (dx < 0) {
+            stepLightbox(1);
+        } else {
+            stepLightbox(-1);
+        }
+    }, { passive: true });
+
     document.addEventListener('keydown', (event) => {
         if (!lightboxEl.classList.contains('is-open')) return;
+
         if (event.key === 'Escape') {
             event.preventDefault();
             closeLightbox();
-        } else if (event.key === 'ArrowLeft') {
+            return;
+        }
+
+        if (event.key === 'ArrowLeft') {
             event.preventDefault();
             stepLightbox(-1);
-        } else if (event.key === 'ArrowRight') {
+            return;
+        }
+
+        if (event.key === 'ArrowRight') {
             event.preventDefault();
             stepLightbox(1);
+            return;
+        }
+
+        if (event.key === 'Tab') {
+            const focusables = lightboxFocusables();
+            if (!focusables.length) return;
+            event.preventDefault();
+
+            const current = focusables.indexOf(document.activeElement);
+            let nextIndex;
+            if (event.shiftKey) {
+                nextIndex = current <= 0 ? focusables.length - 1 : current - 1;
+            } else {
+                nextIndex = current >= focusables.length - 1 || current === -1
+                    ? 0
+                    : current + 1;
+            }
+            focusables[nextIndex].focus();
         }
     });
 

@@ -356,6 +356,8 @@ async function buildPhotography() {
     }
 
     // Standalone gallery page (no cleve sidebar) — hosted on GitHub Pages next to the hub.
+    const assetVersion = '20260823b';
+    const ogImage = 'https://live.staticflickr.com/65535/54241218541_f8130f44b1_z.jpg';
     const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -365,9 +367,15 @@ async function buildPhotography() {
     <meta property="og:title" content="what we see is what we are">
     <meta property="og:description" content="Photography by j cretella.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://live.staticflickr.com/65535/54241218541_f8130f44b1_z.jpg">
+    <meta property="og:url" content="https://strangesongs.github.io/photography.html">
+    <meta property="og:image" content="${ogImage}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="what we see is what we are">
+    <meta name="twitter:description" content="Photography by j cretella.">
+    <meta name="twitter:image" content="${ogImage}">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://live.staticflickr.com" crossorigin>
-    <link rel="stylesheet" href="photography.css">
+    <link rel="stylesheet" href="photography.css?v=${assetVersion}">
     <title>what we see is what we are</title>
 </head>
 <body>
@@ -386,11 +394,11 @@ async function buildPhotography() {
     <hr class="site-rule">
 
     <main>
-        <nav id="album-nav" class="album-nav" aria-label="Album list"></nav>
+        <nav id="album-nav" class="album-nav" aria-label="Album list" hidden></nav>
 
         <section id="gallery" aria-label="Photo gallery area">
-            <p id="gallery-meta" class="gallery-meta"></p>
-            <p id="status" class="status-message" aria-live="polite"></p>
+            <p id="gallery-meta" class="gallery-meta" hidden></p>
+            <p id="status" class="status-message" aria-live="polite">loading…</p>
             <div id="photo-gallery" class="photo-gallery" aria-label="Photo gallery"></div>
             <div class="gallery-footer">
                 <button id="load-more" class="load-more" type="button" hidden>load more</button>
@@ -415,7 +423,7 @@ async function buildPhotography() {
         </figure>
     </div>
 
-    <script src="photography.js"></script>
+    <script src="photography.js?v=${assetVersion}"></script>
 </body>
 </html>
 `;
