@@ -352,11 +352,11 @@ async function buildPhotography() {
     const photosPath = path.join('content', 'photography', 'photos.json');
 
     if (!fs.existsSync(albumsPath) || !fs.existsSync(photosPath)) {
-        console.warn('Missing content/photography/*.json — run: FLICKR_API_KEY=... node scripts/sync-flickr-photography.js');
+        console.warn('Missing content/photography/*.json — add manifests under content/photography/');
     }
 
     // Standalone gallery page (no cleve sidebar) — hosted on GitHub Pages next to the hub.
-    const assetVersion = '20260823b';
+    const assetVersion = '20260824b';
     const ogImage = 'https://live.staticflickr.com/65535/54241218541_f8130f44b1_z.jpg';
     const html = `<!DOCTYPE html>
 <html lang="en">

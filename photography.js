@@ -1,8 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const PAGE_SIZE = 36;
     const ALBUMS_URL = 'content/photography/albums.json';
-    const PHOTOS_URL = 'content/photography/photos.json';
+    const ALBUM_PHOTOS_URL = (slug) => `content/photography/album-photos/${slug}.json`;
     const SWIPE_THRESHOLD = 40;
+    const CACHE_ALBUMS_KEY = 'whatwesee.albums.v2';
+    const CACHE_SHARD_PREFIX = 'whatwesee.albumPhotos.v2.';
+    const CACHE_TTL_MS = 1000 * 60 * 60 * 24;
 
     const hubLink = document.querySelector('.hub-link');
     if (hubLink) {
@@ -26,6 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const albumNav = document.getElementById('album-nav');
     const galleryMetaEl = document.getElementById('gallery-meta');
     const loadMoreBtn = document.getElementById('load-more');
+    const retryLoadBtn = document.getElementById('retry-load');
+    const lastUpdatedEl = document.getElementById('last-updated');
     const lightboxEl = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightbox-image');
     const lightboxClose = document.getElementById('lightbox-close');
@@ -52,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let ignoreHashChange = false;
     let touchStartX = null;
     let touchStartY = null;
+    let pendingHashRoute = null;
 
     function setStatus(message, isError) {
         if (!statusEl) return;
@@ -63,6 +69,41 @@ document.addEventListener('DOMContentLoaded', () => {
         setStatus('', false);
     }
 
+    function updateRetryButton(show) {
+        if (!retryLoadBtn) return;
+        retryLoadBtn.hidden = !show;
+    }
+
+    function saveToCache(key, value) {
+        try {
+            localStorage.setItem(key, JSON.stringify({
+                savedAt: Date.now(),
+                data: value
+            }));
+        } catch (error) {
+            console.warn('Cache write failed', error);
+        }
+    }
+
+    function readFromCache(key) {
+        try {
+            const rawValue = localStorage.getItem(key);
+            if (!rawValue) return null;
+
+            const parsed = JSON.parse(rawValue);
+            if (!parsed || !Number.isFinite(parsed.savedAt)) return null;
+            if (Date.now() - parsed.savedAt > CACHE_TTL_MS) {
+                localStorage.removeItem(key);
+                return null;
+            }
+
+            return parsed.data;
+        } catch (error) {
+            console.warn('Cache read failed', error);
+            return null;
+        }
+    }
+
     if (albumNav) albumNav.hidden = true;
     if (galleryMetaEl) {
         galleryMetaEl.hidden = true;
@@ -70,15 +111,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     setStatus('loading…');
 
+    function formatPhotoDate(photo) {
+        if (!photo || !photo.date_taken) return '';
+
+        const parsed = new Date(photo.date_taken);
+        if (Number.isNaN(parsed.getTime())) {
+            return photo.date_taken.split(' ')[0] || '';
+        }
+
+        return parsed.toISOString().slice(0, 10);
+    }
+
+    function updateLastUpdated() {
+        if (!lastUpdatedEl) return;
+
+        let newest = null;
+        Object.values(photosById).forEach((photo) => {
+            const label = formatPhotoDate(photo);
+            if (!label || (newest && label <= newest)) return;
+            newest = label;
+        });
+
+        lastUpdatedEl.textContent = newest ? `last updated: ${newest}` : '';
+    }
+
     function findAlbum(slug) {
         return albums.find((album) => album.slug === slug) || null;
     }
 
     function photosForAlbum(slug) {
         const album = findAlbum(slug) || findAlbum('all');
-        if (!album || !Array.isArray(album.photoIds)) {
-            return [];
-        }
+        if (!album || !Array.isArray(album.photoIds)) return [];
+
         return album.photoIds
             .map((id) => photosById[String(id)])
             .filter(Boolean);
@@ -172,28 +236,78 @@ document.addEventListener('DOMContentLoaded', () => {
             || { url: flickrSizedUrl(photo, 'z'), width: null, height: null };
     }
 
+    function photoAspectRatio(photo) {
+        const source = thumbSource(photo);
+        const w = Number(source.width);
+        const h = Number(source.height);
+
+        if (w > 0 && h > 0) {
+            return `${w} / ${h}`;
+        }
+
+        return null;
+    }
+
+    function thumbSrcset(photo) {
+        const parts = [];
+        if (photo.url_z) parts.push(`${photo.url_z} 640w`);
+        if (photo.url_c) parts.push(`${photo.url_c} 800w`);
+        return parts.join(', ');
+    }
+
     function lightboxCandidates(photo) {
         const seen = new Set();
         const list = [];
 
-        function add(url, width, height) {
+        function add(url, width, height, verified) {
             if (!url || seen.has(url)) return;
             seen.add(url);
-            list.push({ url, width, height });
+            list.push({
+                url,
+                width: Number(width) || 0,
+                height: Number(height) || 0,
+                verified: Boolean(verified)
+            });
         }
 
         for (const [urlKey, widthKey, heightKey] of LARGE_KEYS) {
             if (photo[urlKey]) {
-                add(photo[urlKey], photo[widthKey], photo[heightKey]);
+                add(photo[urlKey], photo[widthKey], photo[heightKey], true);
             }
         }
 
-        add(flickrOriginalUrl(photo), photo.width_o, photo.height_o);
+        add(flickrOriginalUrl(photo), photo.width_o, photo.height_o, Boolean(photo.url_o || photo.originalsecret));
         ['k', 'h', 'b', 'l', 'c', 'z'].forEach((suffix) => {
-            add(flickrSizedUrl(photo, suffix), null, null);
+            add(flickrSizedUrl(photo, suffix), null, null, false);
         });
 
         return list;
+    }
+
+    function lightboxDisplayTarget() {
+        const dpr = window.devicePixelRatio || 1;
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+
+        return {
+            width: Math.ceil(window.innerWidth * 0.96 * dpr),
+            height: Math.ceil(Math.max(viewportHeight - 48, 0) * dpr)
+        };
+    }
+
+    function pickLightboxCandidate(photo, candidates) {
+        if (!candidates.length) {
+            return { url: flickrSizedUrl(photo, 'z'), width: 640, height: 0 };
+        }
+
+        const target = lightboxDisplayTarget();
+        const verified = candidates.filter((candidate) => candidate.verified);
+        const pool = verified.length ? verified : candidates;
+        const sorted = pool.slice().sort((a, b) => b.width - a.width);
+        const adequate = sorted.find((candidate) => (
+            candidate.width >= target.width || candidate.height >= target.height
+        ));
+
+        return adequate || sorted[0];
     }
 
     function currentRenderedPhotos() {
@@ -208,8 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateLoadMoreButton() {
         if (!loadMoreBtn) return;
-        const hasMore = renderedCount < visiblePhotos.length;
-        loadMoreBtn.hidden = !hasMore;
+        loadMoreBtn.hidden = renderedCount >= visiblePhotos.length;
     }
 
     function updateLightboxCounter() {
@@ -253,7 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             button.addEventListener('click', () => {
                 if (album.slug !== activeAlbumSlug) {
-                    selectAlbum(album.slug);
+                    loadAlbum(album.slug);
                 }
             });
 
@@ -284,17 +397,38 @@ document.addEventListener('DOMContentLoaded', () => {
             button.type = 'button';
             button.className = 'photo-card';
             button.setAttribute('data-photo-id', photo.id);
+            button.setAttribute('aria-label', photo.title || 'Open photo');
 
             const img = document.createElement('img');
             const source = thumbSource(photo);
+            const srcset = thumbSrcset(photo);
             img.src = source.url;
+            if (srcset) {
+                img.srcset = srcset;
+                img.sizes = '(max-width: 520px) 100vw, 360px';
+            }
             img.alt = '';
             img.loading = 'lazy';
+            img.decoding = 'async';
+
+            const ratio = photoAspectRatio(photo);
+            if (ratio) {
+                button.style.aspectRatio = ratio;
+            }
 
             button.appendChild(img);
             button.addEventListener('click', () => openLightbox(index));
 
             entry.appendChild(button);
+
+            const dateLabel = formatPhotoDate(photo);
+            if (dateLabel) {
+                const caption = document.createElement('p');
+                caption.className = 'photo-caption';
+                caption.textContent = dateLabel;
+                entry.appendChild(caption);
+            }
+
             galleryEl.appendChild(entry);
         });
     }
@@ -306,21 +440,86 @@ document.addEventListener('DOMContentLoaded', () => {
         updateGalleryMeta();
         updateLoadMoreButton();
         renderGallery();
+        updateLastUpdated();
 
         if (opts.updateHash !== false) {
             updateAlbumHash();
         }
     }
 
-    function selectAlbum(slug, options) {
+    function fetchAlbumShard(slug) {
+        const url = ALBUM_PHOTOS_URL(slug);
+        return fetch(url).then((response) => {
+            if (!response.ok) {
+                throw new Error(`album photos ${response.status}`);
+            }
+            return response.json();
+        }).then((data) => {
+            if (!data || typeof data !== 'object' || Array.isArray(data)) {
+                throw new Error('invalid album shard');
+            }
+            saveToCache(`${CACHE_SHARD_PREFIX}${slug}`, data);
+            return data;
+        });
+    }
+
+    function loadAlbumShard(slug) {
+        const cached = readFromCache(`${CACHE_SHARD_PREFIX}${slug}`);
+        if (cached && typeof cached === 'object') {
+            return Promise.resolve(cached);
+        }
+        return fetchAlbumShard(slug);
+    }
+
+    function loadAlbum(slug, options) {
         const opts = options || {};
         const album = findAlbum(slug) || findAlbum('all');
-        activeAlbumSlug = album ? album.slug : 'all';
-        renderAlbumNav();
-        setVisiblePhotos(photosForAlbum(activeAlbumSlug), {
-            updateHash: opts.updateHash !== false
-        });
-        clearStatus();
+        const targetSlug = album ? album.slug : 'all';
+
+        if (!opts.skipLoadingState) {
+            setStatus('loading…');
+            updateRetryButton(false);
+        }
+
+        activeAlbumSlug = targetSlug;
+
+        return loadAlbumShard(targetSlug)
+            .then((shard) => {
+                photosById = shard;
+                renderAlbumNav();
+                setVisiblePhotos(photosForAlbum(targetSlug), {
+                    updateHash: opts.updateHash !== false
+                });
+                clearStatus();
+                updateRetryButton(false);
+
+                if (pendingHashRoute) {
+                    const route = pendingHashRoute;
+                    pendingHashRoute = null;
+                    return applyHashRoute(route);
+                }
+
+                return null;
+            })
+            .catch((error) => {
+                console.error(error);
+
+                const cached = readFromCache(`${CACHE_SHARD_PREFIX}${targetSlug}`);
+                if (cached && typeof cached === 'object') {
+                    photosById = cached;
+                    renderAlbumNav();
+                    setVisiblePhotos(photosForAlbum(targetSlug), {
+                        updateHash: opts.updateHash !== false
+                    });
+                    setStatus('Live data is unavailable. Showing your last loaded gallery.', false);
+                    updateRetryButton(true);
+                    return null;
+                }
+
+                setStatus('Could not load the photography gallery.', true);
+                updateRetryButton(true);
+                throw error;
+            });
     }
 
     function ensurePhotoRendered(photoId) {
@@ -350,21 +549,53 @@ document.addEventListener('DOMContentLoaded', () => {
     function loadLightboxImage(photo) {
         const token = ++lightboxLoadToken;
         const candidates = lightboxCandidates(photo);
-        let index = 0;
+        const preferred = pickLightboxCandidate(photo, candidates);
+        const fallbackOrder = [preferred];
+        const sortedDesc = candidates.slice().sort((a, b) => b.width - a.width);
 
-        function tryNext() {
-            if (token !== lightboxLoadToken || index >= candidates.length) return;
-            const candidate = candidates[index++];
+        sortedDesc.forEach((candidate) => {
+            if (candidate.url !== preferred.url) {
+                fallbackOrder.push(candidate);
+            }
+        });
+
+        let fallbackIndex = 0;
+
+        function tryUpgrade(remaining) {
+            if (token !== lightboxLoadToken || !remaining.length) return;
+
+            const candidate = remaining[0];
+            const rest = remaining.slice(1);
             const probe = new Image();
+
             probe.onload = () => {
                 if (token !== lightboxLoadToken) return;
                 lightboxImage.src = candidate.url;
+                tryUpgrade(rest.filter((item) => item.width > candidate.width));
             };
-            probe.onerror = tryNext;
+
+            probe.onerror = () => {
+                if (token !== lightboxLoadToken) return;
+                tryUpgrade(rest);
+            };
+
             probe.src = candidate.url;
         }
 
-        tryNext();
+        function showNextCandidate() {
+            if (token !== lightboxLoadToken || fallbackIndex >= fallbackOrder.length) return;
+
+            const candidate = fallbackOrder[fallbackIndex++];
+            lightboxImage.onload = () => {
+                if (token !== lightboxLoadToken) return;
+                const upgrades = sortedDesc.filter((item) => item.width > candidate.width);
+                tryUpgrade(upgrades);
+            };
+            lightboxImage.onerror = showNextCandidate;
+            lightboxImage.src = candidate.url;
+        }
+
+        showNextCandidate();
     }
 
     function openLightbox(index) {
@@ -410,29 +641,35 @@ document.addEventListener('DOMContentLoaded', () => {
         openLightbox(nextIndex);
     }
 
-    function applyHashRoute() {
+    function applyHashRoute(route) {
         applyingHash = true;
-        const { albumSlug, photoId } = parseLocationHash();
+        const { albumSlug, photoId } = route || parseLocationHash();
 
         try {
             if (photoId) {
                 if (!photosById[String(photoId)]) {
-                    selectAlbum(activeAlbumSlug || 'all', { updateHash: false });
+                    const targetAlbum = albumSlugForPhoto(photoId);
+                    if (targetAlbum !== activeAlbumSlug) {
+                        pendingHashRoute = { albumSlug: null, photoId };
+                        return loadAlbum(targetAlbum, { updateHash: false, skipLoadingState: true });
+                    }
                     setStatus('That photo is not in this gallery.');
-                    return;
+                    return Promise.resolve();
                 }
 
                 const targetAlbum = albumSlugForPhoto(photoId);
                 if (targetAlbum !== activeAlbumSlug) {
-                    selectAlbum(targetAlbum, { updateHash: false });
+                    pendingHashRoute = { albumSlug: null, photoId };
+                    return loadAlbum(targetAlbum, { updateHash: false, skipLoadingState: true });
                 }
+
                 const renderedIndex = ensurePhotoRendered(photoId);
                 if (renderedIndex !== -1) {
                     openLightbox(renderedIndex);
                 } else {
                     setStatus('That photo is not in this gallery.');
                 }
-                return;
+                return Promise.resolve();
             }
 
             if (lightboxEl.classList.contains('is-open')) {
@@ -444,13 +681,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (albumSlug && findAlbum(albumSlug)) {
-                selectAlbum(albumSlug, { updateHash: false });
-            } else if (!albumSlug) {
-                selectAlbum(activeAlbumSlug || 'all', { updateHash: false });
-            } else {
-                selectAlbum('all', { updateHash: false });
-                setStatus('Unknown album; showing all.');
+                if (albumSlug !== activeAlbumSlug) {
+                    return loadAlbum(albumSlug, { updateHash: false, skipLoadingState: true });
+                }
+                return Promise.resolve();
             }
+
+            if (!albumSlug) {
+                if (activeAlbumSlug !== 'all') {
+                    return loadAlbum('all', { updateHash: false, skipLoadingState: true });
+                }
+                return Promise.resolve();
+            }
+
+            return loadAlbum('all', { updateHash: false, skipLoadingState: true })
+                .then(() => {
+                    setStatus('Unknown album; showing all.');
+                });
         } finally {
             applyingHash = false;
         }
@@ -463,41 +710,79 @@ document.addEventListener('DOMContentLoaded', () => {
         renderGallery();
     }
 
-    Promise.all([
-        fetch(ALBUMS_URL).then((r) => {
-            if (!r.ok) throw new Error(`albums ${r.status}`);
-            return r.json();
-        }),
-        fetch(PHOTOS_URL).then((r) => {
-            if (!r.ok) throw new Error(`photos ${r.status}`);
-            return r.json();
-        })
-    ])
-        .then(([albumData, photoData]) => {
-            albums = Array.isArray(albumData) ? albumData : [];
-            photosById = photoData && typeof photoData === 'object' ? photoData : {};
-
-            if (!albums.length) {
-                setStatus('No albums found.', true);
-                return;
-            }
-
-            clearStatus();
-
-            const { albumSlug, photoId } = parseLocationHash();
-            if (photoId || albumSlug) {
-                applyHashRoute();
-            } else {
-                selectAlbum('all');
-            }
-        })
-        .catch((error) => {
-            console.error(error);
-            setStatus('Could not load the photography gallery.', true);
+    function fetchAlbums() {
+        return fetch(ALBUMS_URL).then((response) => {
+            if (!response.ok) throw new Error(`albums ${response.status}`);
+            return response.json();
+        }).then((data) => {
+            albums = Array.isArray(data) ? data : [];
+            saveToCache(CACHE_ALBUMS_KEY, albums);
+            return albums;
         });
+    }
+
+    function bootstrapGallery() {
+        setStatus('loading…');
+        updateRetryButton(false);
+
+        return fetchAlbums()
+            .then((albumData) => {
+                if (!albumData.length) {
+                    setStatus('No albums found.', true);
+                    updateRetryButton(true);
+                    return null;
+                }
+
+                const { albumSlug, photoId } = parseLocationHash();
+                const initialSlug = (albumSlug && findAlbum(albumSlug))
+                    ? albumSlug
+                    : (photoId ? albumSlugForPhoto(photoId) : 'all');
+
+                if (photoId || albumSlug) {
+                    pendingHashRoute = { albumSlug, photoId };
+                }
+
+                return loadAlbum(initialSlug, { updateHash: !photoId && !albumSlug });
+            })
+            .catch((error) => {
+                console.error(error);
+
+                const cachedAlbums = readFromCache(CACHE_ALBUMS_KEY);
+                if (Array.isArray(cachedAlbums) && cachedAlbums.length) {
+                    albums = cachedAlbums;
+                    const { albumSlug, photoId } = parseLocationHash();
+                    const initialSlug = (albumSlug && findAlbum(albumSlug))
+                        ? albumSlug
+                        : (photoId ? albumSlugForPhoto(photoId) : 'all');
+
+                    if (photoId || albumSlug) {
+                        pendingHashRoute = { albumSlug, photoId };
+                    }
+
+                    return loadAlbum(initialSlug, { updateHash: !photoId && !albumSlug })
+                        .then(() => {
+                            setStatus('Live data is unavailable. Showing your last loaded gallery.', false);
+                            updateRetryButton(true);
+                        })
+                        .catch(() => {
+                            setStatus('Could not load the photography gallery.', true);
+                            updateRetryButton(true);
+                        });
+                }
+
+                setStatus('Could not load the photography gallery.', true);
+                updateRetryButton(true);
+            });
+    }
 
     if (loadMoreBtn) {
         loadMoreBtn.addEventListener('click', loadMore);
+    }
+
+    if (retryLoadBtn) {
+        retryLoadBtn.addEventListener('click', () => {
+            bootstrapGallery();
+        });
     }
 
     lightboxClose.addEventListener('click', closeLightbox);
@@ -534,6 +819,16 @@ document.addEventListener('DOMContentLoaded', () => {
             stepLightbox(-1);
         }
     }, { passive: true });
+
+    window.addEventListener('offline', () => {
+        setStatus('You appear to be offline. Some actions may fail until connection returns.', true);
+    });
+
+    window.addEventListener('online', () => {
+        if (statusEl && statusEl.classList.contains('is-error')) {
+            setStatus('Connection restored.', false);
+        }
+    });
 
     document.addEventListener('keydown', (event) => {
         if (!lightboxEl.classList.contains('is-open')) return;
@@ -576,6 +871,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('hashchange', () => {
         if (ignoreHashChange) return;
-        applyHashRoute();
+        applyHashRoute(parseLocationHash());
     });
+
+    bootstrapGallery();
 });

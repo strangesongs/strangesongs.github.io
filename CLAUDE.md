@@ -33,12 +33,14 @@ content/
   photography/
     albums.json → curated album order (slug, title, photoIds)
     photos.json → Flickr CDN metadata (id, server, secret, size URLs)
+    album-photos/ → per-album shards loaded by photography.js
 templates/index.html   # EJS layout (sidebar + main content)
 build.js               # markdown → HTML, sidebar, changelog, index, photography
 photography.js         # client gallery (albums, load-more, lightbox, hashes)
 style.css              # canonical stylesheet (see RAW_WEB_STYLE_PORTING_GUIDE.md)
 script.js              # mobile nav behavior
-scripts/sync-flickr-photography.js  # optional Flickr → JSON sync
+scripts/build-album-shards.js        # rebuild album-photos/*.json from manifests
+scripts/validate-photography-manifests.js
 ```
 
 ## Photography
@@ -46,12 +48,13 @@ scripts/sync-flickr-photography.js  # optional Flickr → JSON sync
 Local curated albums on a **standalone** page (`photography.html` + `photography.css` + `photography.js`) — no cleve sidebar. Hub nav still links here. Images load from Flickr’s CDN (no runtime Flickr API in the browser).
 
 ```bash
-FLICKR_API_KEY=... npm run sync-photography   # refresh photos.json + seed albums from Flickr sets
-# then edit content/photography/albums.json to reshape albums without matching Flickr
+# Edit content/photography/photos.json and albums.json by hand, then:
+npm run build-album-shards                    # rebuild album-photos/*.json from manifests
+npm run validate-photography                  # CI/local manifest checks
 npm run build
 ```
 
-Do not commit `FLICKR_API_KEY`. Deep links: `#album/slug`, `#photo/id`.
+Deep links: `#album/slug`, `#photo/id`.
 
 ## Content format
 
