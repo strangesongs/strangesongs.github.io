@@ -128,11 +128,11 @@ function buildSidebar(currentYear = '', currentSection = '', currentPage = '') {
         { name: 'shows', title: 'shows' }
     ];
     const projectLinks = [
-        { title: 'consono', href: 'https://consono.bandcamp.com/' },
-        { title: 'ad lucem', href: 'https://adlucem.bandcamp.com/' },
-        { title: 'photography', href: 'https://whatwesee.netlify.app/' },
-        { title: 'fruit for all', href: 'https://fruitforall.app/' },
-        { title: 'save to photos', href: 'https://savetophotos.com/' }
+        { title: 'consono', href: 'https://consono.bandcamp.com/', external: true },
+        { title: 'ad lucem', href: 'https://adlucem.bandcamp.com/', external: true },
+        { title: 'photography', href: 'photography.html', external: false },
+        { title: 'fruit for all', href: 'https://fruitforall.app/', external: true },
+        { title: 'save to photos', href: 'https://savetophotos.com/', external: true }
     ];
     const existingYears = [...allYears].reverse().filter(year => fs.existsSync(path.join('content', year)));
     const rwlExpanded = Boolean(currentYear) || currentPage === 'abandoned';
@@ -167,7 +167,10 @@ function buildSidebar(currentYear = '', currentSection = '', currentPage = '') {
     }
 
     projectLinks.forEach(link => {
-        sidebar += `<li class="depth-1"><a href="${link.href}" target="_blank" rel="noopener">${link.title}</a></li>\n`;
+        const isActive = !link.external && currentPage === 'photography' && link.href === 'photography.html';
+        const activeAttr = isActive ? ' class="is-active"' : '';
+        const externalAttr = link.external ? ' target="_blank" rel="noopener"' : '';
+        sidebar += `<li class="depth-1"><a href="${link.href}"${externalAttr}${activeAttr}>${link.title}</a></li>\n`;
     });
 
     const aboutActive = currentPage === 'about' ? ' class="is-active"' : '';
@@ -180,7 +183,8 @@ function buildSidebar(currentYear = '', currentSection = '', currentPage = '') {
     sidebar += `\n    <a href="about.html">about</a>`;
     sidebar += `\n    <a href="#" class="mnav-rwl-link">read watch listen</a>`;
     projectLinks.forEach(link => {
-        sidebar += `\n    <a href="${link.href}" target="_blank" rel="noopener">${link.title}</a>`;
+        const externalAttr = link.external ? ' target="_blank" rel="noopener"' : '';
+        sidebar += `\n    <a href="${link.href}"${externalAttr}>${link.title}</a>`;
     });
     sidebar += `\n    <a href="mailto:jcrtll@protonmail.com">email</a>`;
     sidebar += `\n  </div>`;
@@ -334,11 +338,90 @@ async function buildAbandoned() {
         year: 'abandoned',
         content: abandonedContent,
         showFooter: false,
-        lastUpdated: ''
+        lastUpdated: '',
+        pageScripts: []
     });
 
     fs.writeFileSync('abandoned.html', html);
     console.log('Generated abandoned.html');
+}
+
+async function buildPhotography() {
+    console.log('Building photography...');
+    const albumsPath = path.join('content', 'photography', 'albums.json');
+    const photosPath = path.join('content', 'photography', 'photos.json');
+
+    if (!fs.existsSync(albumsPath) || !fs.existsSync(photosPath)) {
+        console.warn('Missing content/photography/*.json — run: FLICKR_API_KEY=... node scripts/sync-flickr-photography.js');
+    }
+
+    // Standalone gallery page (no cleve sidebar) — hosted on GitHub Pages next to the hub.
+    const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Photography by j cretella. what we see is what we are.">
+    <meta property="og:title" content="what we see is what we are">
+    <meta property="og:description" content="Photography by j cretella.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://live.staticflickr.com/65535/54241218541_f8130f44b1_z.jpg">
+    <link rel="preconnect" href="https://live.staticflickr.com" crossorigin>
+    <link rel="stylesheet" href="photography.css">
+    <title>what we see is what we are</title>
+</head>
+<body>
+    <noscript>
+        <p class="status-message is-error">This gallery needs JavaScript enabled.</p>
+    </noscript>
+
+    <div class="top-bar">
+        <a class="hub-link" href="index.html">&larr; cleve</a>
+        <a class="about-link" href="#contact">about</a>
+    </div>
+
+    <header class="site-header">
+        <h1 class="wordmark">what we see is what we are</h1>
+    </header>
+    <hr class="site-rule">
+
+    <main>
+        <nav id="album-nav" class="album-nav" aria-label="Album list"></nav>
+
+        <section id="gallery" aria-label="Photo gallery area">
+            <p id="gallery-meta" class="gallery-meta"></p>
+            <p id="status" class="status-message" aria-live="polite"></p>
+            <div id="photo-gallery" class="photo-gallery" aria-label="Photo gallery"></div>
+            <div class="gallery-footer">
+                <button id="load-more" class="load-more" type="button" hidden>load more</button>
+            </div>
+        </section>
+
+        <footer id="contact" class="footer-contact" aria-label="Contact information">
+            <p class="about-blurb">photographs by j cretella. albums are curated on this site; images are served from flickr.</p>
+            <p>j cretella — <a href="mailto:jcrtll@protonmail.com">jcrtll@protonmail.com</a></p>
+            <p><a href="https://www.flickr.com/photos/196014147@N05/" target="_blank" rel="noopener noreferrer">flickr</a> · <a href="index.html">cleve</a></p>
+        </footer>
+    </main>
+
+    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" tabindex="-1" aria-label="Photo viewer">
+    <div class="lightbox-nav">
+        <button id="lightbox-prev" type="button">prev</button>
+        <button id="lightbox-close" type="button">close</button>
+        <button id="lightbox-next" type="button">next</button>
+    </div>
+        <figure class="lightbox-figure">
+            <img id="lightbox-image" src="" alt="">
+        </figure>
+    </div>
+
+    <script src="photography.js"></script>
+</body>
+</html>
+`;
+
+    fs.writeFileSync('photography.html', html);
+    console.log('Generated photography.html (standalone)');
 }
 
 async function build() {
@@ -356,6 +439,7 @@ async function build() {
     await buildAbout();
     await buildRwl();
     await buildAbandoned();
+    await buildPhotography();
 
     const execSync = require('child_process').execSync;
 

@@ -27,5 +27,10 @@
             </main>
         </div>
         <script src="script.js?v=20260707b-cleanui"></script>
+        <% if (typeof pageScripts !== 'undefined' && pageScripts && pageScripts.length) { %>
+        <% pageScripts.forEach(function (src) { %>
+        <script src="<%= src %>"></script>
+        <% }); %>
+        <% } %>
     </body>
 </html>
