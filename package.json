@@ -7,7 +7,8 @@
     "build": "node build.js",
     "serve": "python3 -m http.server 8090",
     "watch": "nodemon --watch content --watch templates --watch build.js --watch style.css --watch photography.js --exec 'node build.js'",
-    "build-album-shards": "node scripts/build-album-shards.js",
+    "build-photography": "node scripts/build-photography.js",
+    "build-album-shards": "node scripts/build-photography.js",
     "validate-photography": "node scripts/validate-photography-manifests.js",
     "deploy": "npm run build && git add -A && git commit -m \"Update content\" && git push"
   },

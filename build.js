@@ -352,7 +352,7 @@ async function buildPhotography() {
     const photosPath = path.join('content', 'photography', 'photos.json');
 
     if (!fs.existsSync(albumsPath) || !fs.existsSync(photosPath)) {
-        console.warn('Missing content/photography/*.json — add manifests under content/photography/');
+        console.warn('Missing content/photography/*.json — run: npm run build-photography');
     }
 
     // Standalone gallery page (no cleve sidebar) — hosted on GitHub Pages next to the hub.

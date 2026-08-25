@@ -31,28 +31,42 @@ content/
     shows.md    → "listen" section
   abandoned.md  → abandoned books/films
   photography/
-    albums.json → curated album order (slug, title, photoIds)
-    photos.json → Flickr CDN metadata (id, server, secret, size URLs)
-    album-photos/ → per-album shards loaded by photography.js
+    album-order.json → nav order (list of slugs)
+    albums/{slug}/album.json + photos.jsonl → source of truth
+    photos.json / albums.json / album-photos/ → GENERATED manifests
 templates/index.html   # EJS layout (sidebar + main content)
 build.js               # markdown → HTML, sidebar, changelog, index, photography
 photography.js         # client gallery (albums, load-more, lightbox, hashes)
 style.css              # canonical stylesheet (see RAW_WEB_STYLE_PORTING_GUIDE.md)
 script.js              # mobile nav behavior
-scripts/build-album-shards.js        # rebuild album-photos/*.json from manifests
+scripts/build-photography.js              # albums/* → manifests + shards
 scripts/validate-photography-manifests.js
+scripts/migrate-photography-to-folders.js # re-seed folders from manifests
 ```
 
 ## Photography
 
 Local curated albums on a **standalone** page (`photography.html` + `photography.css` + `photography.js`) — no cleve sidebar. Hub nav still links here. Images load from Flickr’s CDN (no runtime Flickr API in the browser).
 
+Author albums as folders (not by editing the big JSON manifests):
+
+```
+content/photography/
+  album-order.json
+  albums/chicago/album.json
+  albums/chicago/photos.jsonl
+```
+
 ```bash
-# Edit content/photography/photos.json and albums.json by hand, then:
-npm run build-album-shards                    # rebuild album-photos/*.json from manifests
-npm run validate-photography                  # CI/local manifest checks
+# Edit album folders, then:
+npm run build-photography                 # regenerate photos.json, albums.json, album-photos/
+npm run validate-photography              # CI/local manifest checks
 npm run build
 ```
+
+Each `photos.jsonl` line is one JSON object with at least `id`, `server`, and `secret` (CDN URLs are filled in when missing). Include `width_c` / `height_c` when known so the aspect-ratio grid stays accurate.
+
+Generated files (`photos.json`, `albums.json`, `album-photos/`) are committed for GitHub Pages but should not be hand-edited.
 
 Deep links: `#album/slug`, `#photo/id`.
 
