@@ -347,45 +347,28 @@ async function buildAbandoned() {
 }
 
 async function buildPhotography() {
-    console.log('Building photography...');
-    const albumsPath = path.join('content', 'photography', 'albums.json');
-    const photosPath = path.join('content', 'photography', 'photos.json');
-
-    if (!fs.existsSync(albumsPath) || !fs.existsSync(photosPath)) {
-        console.warn('Missing content/photography/*.json — run: npm run build-photography');
-    }
-
-    // Standalone gallery page (no cleve sidebar) — hosted on GitHub Pages next to the hub.
-    const assetVersion = '20260824b';
-    const ogImage = 'https://live.staticflickr.com/65535/54241218541_f8130f44b1_z.jpg';
+    console.log('Building photography (coming soon placeholder)...');
+    const assetVersion = '20260826a';
     const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Photography by j cretella. what we see is what we are.">
+    <meta name="description" content="Photography by j cretella. Portfolio coming soon.">
     <meta property="og:title" content="what we see is what we are">
-    <meta property="og:description" content="Photography by j cretella.">
+    <meta property="og:description" content="Photography portfolio coming soon.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://strangesongs.github.io/photography.html">
-    <meta property="og:image" content="${ogImage}">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="what we see is what we are">
-    <meta name="twitter:description" content="Photography by j cretella.">
-    <meta name="twitter:image" content="${ogImage}">
+    <meta name="twitter:description" content="Photography portfolio coming soon.">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="preconnect" href="https://live.staticflickr.com" crossorigin>
     <link rel="stylesheet" href="photography.css?v=${assetVersion}">
     <title>what we see is what we are</title>
 </head>
 <body>
-    <noscript>
-        <p class="status-message is-error">This gallery needs JavaScript enabled.</p>
-    </noscript>
-
     <div class="top-bar">
-        <a class="hub-link" href="index.html" hidden>&larr; cleve</a>
-        <a class="about-link" href="#contact">about</a>
+        <a class="hub-link" href="index.html">&larr; cleve</a>
     </div>
 
     <header class="site-header">
@@ -394,42 +377,20 @@ async function buildPhotography() {
     <hr class="site-rule">
 
     <main>
-        <nav id="album-nav" class="album-nav" aria-label="Album list" hidden></nav>
-
-        <section id="gallery" aria-label="Photo gallery area">
-            <p id="gallery-meta" class="gallery-meta" hidden></p>
-            <p id="status" class="status-message" aria-live="polite">loading…</p>
-            <div id="photo-gallery" class="photo-gallery" aria-label="Photo gallery"></div>
-            <div class="gallery-footer">
-                <button id="load-more" class="load-more" type="button" hidden>load more</button>
-            </div>
-        </section>
+        <p class="coming-soon">portfolio coming soon</p>
 
         <footer id="contact" class="footer-contact" aria-label="Contact information">
             <p>photos by j cretella</p>
             <p><a href="mailto:jcrtll@protonmail.com">jcrtll@protonmail.com</a></p>
-            <p><a href="https://www.flickr.com/photos/196014147@N05/" target="_blank" rel="noopener noreferrer">flickr</a> · <a href="index.html">cleve</a></p>
+            <p><a href="index.html">cleve</a></p>
         </footer>
     </main>
-
-    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" tabindex="-1" aria-label="Photo viewer">
-    <div class="lightbox-nav">
-        <button id="lightbox-prev" type="button">prev</button>
-        <button id="lightbox-close" type="button">close</button>
-        <button id="lightbox-next" type="button">next</button>
-    </div>
-        <figure class="lightbox-figure">
-            <img id="lightbox-image" src="" alt="">
-        </figure>
-    </div>
-
-    <script src="photography.js?v=${assetVersion}"></script>
 </body>
 </html>
 `;
 
     fs.writeFileSync('photography.html', html);
-    console.log('Generated photography.html (standalone)');
+    console.log('Generated photography.html (coming soon)');
 }
 
 async function build() {

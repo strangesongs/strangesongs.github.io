@@ -27,17 +27,6 @@ jobs:
     
     - name: Install dependencies
       run: npm ci
-
-    - name: Rebuild photography manifests from album folders
-      run: |
-        npm run build-photography
-        git diff --exit-code -- content/photography/photos.json content/photography/albums.json content/photography/album-photos || {
-          echo "Generated photography manifests are out of date. Run: npm run build-photography" >&2
-          exit 1
-        }
-
-    - name: Validate photography manifests
-      run: npm run validate-photography
     
     - name: Build site
       run: npm run build
