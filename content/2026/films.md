@@ -106,3 +106,4 @@ total: 92 films
 08.20 LOOSE CORNER (1986) anita thacher | [streaming](https://www.youtube.com/watch?v=YjXxI4xUsTY) | youtube
 08.21 THE CLOCK (2010) christian marclay | dcp | lacma | 7:09 am–12:09 pm, 12:15–1:47 pm (392 min) *
 08.21 THE CLOCK (2010) christian marclay | dcp | lacma | 6:47–8:00 pm (73 min; 45 min new) *
+08.28 BAD INFLUENCE (1990) curtis hanson | streaming | criterion channel
