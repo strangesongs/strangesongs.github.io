@@ -43,3 +43,4 @@ total: 32 books
 34. THE GHOST IN THE SHELL (1991) shurow masamune
 35. LEASH (2002) jane delynn
 36. BAD GUY (2019) rosalyn drexler
+37. PAUL TAKES THE FORM OF A MORTAL GIRL (2017) andrea lawson
