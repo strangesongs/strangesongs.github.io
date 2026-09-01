@@ -44,3 +44,5 @@ total: 32 books
 35. LEASH (2002) jane delynn
 36. BAD GUY (2019) rosalyn drexler
 37. PAUL TAKES THE FORM OF A MORTAL GIRL (2017) andrea lawson
+38. NOBODY PASSES: REJECTING THE RULES OF GENDER AND CONFORMITY (2006) edited by mattilda
+39. DIVING INTO THE WRECK: POEMS 1971–1972 (1974) adrienne rich 

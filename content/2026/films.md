@@ -108,3 +108,4 @@ total: 92 films
 08.21 THE CLOCK (2010) christian marclay | dcp | lacma | 6:47–8:00 pm (73 min; 45 min new) *
 08.28 BAD INFLUENCE (1990) curtis hanson | streaming | criterion channel
 08.30 CHRONOVISOR (2026) jack auen and kevin walker | dcp | los feliz 3
+08.31 SMITHEREENS (1982) susan seidelman | 35mm | los feliz 3
