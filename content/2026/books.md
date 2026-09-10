@@ -48,3 +48,4 @@ total: 32 books
 39. DIVING INTO THE WRECK: POEMS 1971–1972 (1974) adrienne rich 
 40. IN THE FREUD ARCHIVES (1983) janet malcolm
 41. NOTES OF A DESOLATE MAN (1994) chu t'ien-wen
+42. MARGARET & DUSTY (1985) alice notley
