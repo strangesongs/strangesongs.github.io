@@ -109,3 +109,4 @@ total: 92 films
 08.28 BAD INFLUENCE (1990) curtis hanson | streaming | criterion channel
 08.30 CHRONOVISOR (2026) jack auen and kevin walker | dcp | los feliz 3
 08.31 SMITHEREENS (1982) susan seidelman | 35mm | los feliz 3
+09.10 DESPERATELY SEEKING SUSAN (1985) susan seidelman | streaming | criterion channel
