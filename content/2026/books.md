@@ -49,3 +49,4 @@ total: 32 books
 40. IN THE FREUD ARCHIVES (1983) janet malcolm
 41. NOTES OF A DESOLATE MAN (1994) chu t'ien-wen
 42. MARGARET & DUSTY (1985) alice notley
+43. MAKEUP ON EMPTY SPACE (1984) anne waldman
