@@ -110,3 +110,6 @@ total: 92 films
 08.30 CHRONOVISOR (2026) jack auen and kevin walker | dcp | los feliz 3
 08.31 SMITHEREENS (1982) susan seidelman | 35mm | los feliz 3
 09.10 DESPERATELY SEEKING SUSAN (1985) susan seidelman | streaming | criterion channel
+09.20 KING LEAR (1987) jean-luc godard | 35mm | los feliz 3
+09.21 EFFECTS (1979) dusty nelson | DCP | los feliz 3
+09.24 BEGOTTEN (1989) e. elias merhige | DCP | egyptian theater | 4k restoration
