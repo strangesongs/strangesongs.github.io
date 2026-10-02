@@ -45,3 +45,4 @@ total: 27 shows
 08.25 HEN OF THE WOODS, SUNK COST, INSUFFICIENT DESPAIR, DAID ROY | 2220 arts + archives
 09.09 SARAH DAVACHI, DIAPASON | first congregational church
 09.13 HEART TRIO (WILLIAM PARKER, COOPER MOORE, HAMID DRAKE) | zebulon
+10.01 BLACK BOX ENSEMBLE | oracle egg | morton feldman at 100
