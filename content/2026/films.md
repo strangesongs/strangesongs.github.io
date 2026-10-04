@@ -114,4 +114,6 @@ total: 92 films
 09.21 EFFECTS (1979) dusty nelson | DCP | los feliz 3
 09.24 BEGOTTEN (1989) e. elias merhige | DCP | egyptian theater | 4k restoration
 09.28 RESIDENT EVIL (2026) zack cregger | DCP | regency theater
+10.02 THE SCOUT (2026) paula gonzález-nasser | DCP | alamd drafthouse | q+a with paula gonzález-nasser, mimi davila and nicola newton
+10.03 THE HITCHER (1986) robert harmon | streaming | criterion channel
 
