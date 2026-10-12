@@ -117,4 +117,4 @@ total: 92 films
 10.02 THE SCOUT (2026) paula gonzález-nasser | DCP | alamd drafthouse | q+a with paula gonzález-nasser, mimi davila and nicola newton
 10.03 THE HITCHER (1986) robert harmon | streaming | criterion channel
 10.06 HOPE (2026) na hong-jin | DCP | regency theater
-
+10.11 EDVARD MUNCH (1974) peter watkins | 35mm | braindead studios | academy archival print

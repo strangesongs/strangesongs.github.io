@@ -46,3 +46,7 @@ total: 27 shows
 09.09 SARAH DAVACHI, DIAPASON | first congregational church
 09.13 HEART TRIO (WILLIAM PARKER, COOPER MOORE, HAMID DRAKE) | zebulon
 10.01 BLACK BOX ENSEMBLE | oracle egg | morton feldman at 100
+10.05 KYLESA, HABAK, NEW SKELETAL FACES | teragram ballroom
+10.07 CHARLEMAGNE PALESTINE | the brick
+10.08 BODY/HEAD, MY GENERATION | zebulon
+10.09 HIDDEN IDENTITY | lacma jazz
