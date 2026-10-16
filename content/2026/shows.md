@@ -49,4 +49,5 @@ total: 27 shows
 10.05 KYLESA, HABAK, NEW SKELETAL FACES | teragram ballroom
 10.07 CHARLEMAGNE PALESTINE | the brick
 10.08 BODY/HEAD, MY GENERATION | zebulon
-10.09 HIDDEN IDENTITY | lacma jazz
+10.09 HIDDEN IDENTITY | lacma jazz | jazz refractions festival
+10.16 GEORGE, CHIQUITA MAGIC | 2220 arts and archives | jazz refractions festival
