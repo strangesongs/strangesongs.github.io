@@ -5,6 +5,7 @@ tracking what i read, watch, and see across each year, plus links to music and o
 - content lives in `content/` as markdown, one folder per year
 - `npm run build` generates the site into `dist/`; `npm run serve` previews it
 - pushing to `main` builds and deploys `dist/` to GitHub Pages
+- to add a book, film or show: double-click `cleve add.app` (or `npm run add`), fill in the form, submit. it commits + pushes for you
 
 see `CLAUDE.md` for the content format and how the build works.
 

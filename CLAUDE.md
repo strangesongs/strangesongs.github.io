@@ -10,6 +10,7 @@ npm run build          # generate the site into dist/
 npm run watch          # rebuild on content/template/build/style/script changes
 npm run serve          # preview dist/ at http://localhost:8090
 npm run deploy         # build, commit content/ only, push
+npm run add            # open the add-entry form (same as the "cleve add" app)
 ```
 
 ## How it builds and deploys
@@ -17,7 +18,6 @@ npm run deploy         # build, commit content/ only, push
 - `build.js` reads `content/` and `templates/index.html`, and writes **everything** the site serves into `dist/`: the HTML pages plus copies of `style.css`, `script.js`, and `favicon.svg`.
 - `dist/` is gitignored. Never commit generated HTML, and never hand-edit files in `dist/`.
 - `.github/workflows/build.yml` runs on every push to `main`: `npm ci`, `npm run build`, then uploads **only `dist/`** to Pages. Nothing else in the repo (mockups, raw files, node_modules, docs) is published. Keep it that way: never change the upload path back to `.`.
-- The workflow checks out full git history (`fetch-depth: 0`) because the homepage and changelog are built from git commit dates.
 - Asset URLs get a `?v=<hash>` of the static files' contents, so the CSS/JS cache-busts automatically. Don't hand-edit version strings.
 - The repo itself is public on GitHub. `raw files/` (original pre-markdown lists), `mockups/` (design explorations) and `scripts/` (one-off importer) are gitignored and exist only on the owner's machine; don't re-add them. They remain in old git history.
 
@@ -32,11 +32,12 @@ content/
   abandoned.md   → abandoned books/films
   about.md       → about page
 templates/index.html   # the one EJS page layout (meta tags, sidebar, main)
-build.js               # markdown → dist/ (pages, sidebar, home, changelog)
+build.js               # markdown → dist/ (pages, sidebar, home, stats, 404, sitemap)
 stats.js               # stats page: parsing + rendering, used by build.js
 style.css              # the one stylesheet
 script.js              # sidebar collapsing, year-page section switching, mobile nav
 favicon.svg
+tools/add-entry/       # "cleve add": local form for adding entries (see below)
 ```
 
 ## Adding a new year
@@ -47,14 +48,22 @@ Create `content/YYYY/` with any of `books.md`, `films.md`, `shows.md`, then run 
 
 - `YYYY.html` for each year folder. All sections are on one page; `script.js` shows one section at a time based on the URL hash (`#books`, `#films`, `#shows`). Without JavaScript, every section is shown.
 - `index.html`: three short lists, **recently read**, **recently watched** and **recently heard**, each with the newest five entries of that log (films with their cinema/location, shows with their venue), linking to the year page. If the newest year has fewer than five, earlier years fill in. No changelog-style updates on the homepage.
-- `changelog.html`: the 15 most recently committed content and site files, in the same format.
 - `stats.html` (see below).
 - `404.html`: served by GitHub Pages for any missing path. It uses `<base href="/">` so its relative links work at any depth, and is marked `noindex`.
 - `robots.txt` and `sitemap.xml` (every page), regenerated each build.
 - `about.html`, `abandoned.html`, plus `rwl.html`, a redirect kept for old links.
 - Each page gets a meta description, canonical URL, and Open Graph tags. Year pages describe their counts ("2026: 46 books read, 104 films watched, 40 shows seen.").
 
-Summaries come from the **last commit** touching each file. Entries added and removed in the same commit count as edits, so fixing a typo doesn't show up as "new". Uncommitted changes show as "not yet committed" in a local build.
+## Adding entries: "cleve add" (`tools/add-entry/`)
+
+The owner adds entries with a small local form instead of editing markdown by hand:
+
+- `cleve add.app` (double-click; built by `make-app.sh`, gitignored because it has this machine's repo path baked in) or `npm run add` starts `server.js`, which opens the form at `http://127.0.0.1:4719`.
+- Pick book / film / show and fill in the fields. The form shows a live preview of the exact line. Datalists suggest formats, recent cinemas/streaming services, and recent venues.
+- On submit, `server.js`: refuses if that content file has uncommitted changes, runs `git pull --ff-only`, inserts the line (dated entries in date order with a blank line between months; books numbered at the end; creates `content/YYYY/<kind>.md` for a new year), then commits **only that file** (`add film: paprika`) and pushes. CI rebuilds the site.
+- All formatting rules live in `entries.js` (`formatEntry`, `insertEntry`) and match the content conventions in this file. If the conventions change, change both.
+- It listens on 127.0.0.1 only and requires a per-session token on every POST, so other websites can't post to it. It exits after 30 minutes idle or from the form's "done" button.
+- No dependencies beyond Node. `--dry-run` writes the file without touching git, for testing.
 
 ## Stats page (`stats.js`)
 

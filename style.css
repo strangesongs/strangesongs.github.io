@@ -215,9 +215,8 @@ button:focus-visible {
 .meta,
 .addendum,
 .count,
-.recent-updates-title,
-.recent-more,
-.recent-file-meta {
+.section-title,
+.recent-more {
     font-size: 12px;
     line-height: 1.4;
     letter-spacing: 0.04em;
@@ -361,7 +360,7 @@ section :target {
     color: var(--muted);
 }
 
-/* --- home + changelog ---------------------------------------------------- */
+/* --- home --------------------------------------------------------------- */
 
 .intro {
     max-width: 32ch;
@@ -375,46 +374,12 @@ section :target {
 }
 
 
-.recent-updates-title {
+.section-title {
     font-weight: 700;
     letter-spacing: 0.06em;
     padding-bottom: 6px;
     margin-bottom: 8px;
     border-bottom: 1px solid var(--rule);
-}
-
-.recent-file-block {
-    border-bottom: 1px solid var(--rule);
-    margin-bottom: 7px;
-    padding-bottom: 5px;
-}
-
-.recent-file-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    align-items: baseline;
-    margin-bottom: 2px;
-    font-size: 11px;
-    font-weight: 700;
-}
-
-.recent-file-meta .file-name {
-    text-decoration: none;
-}
-
-.file-section {
-    color: var(--accent);
-}
-
-.file-date {
-    font-variant-numeric: tabular-nums;
-}
-
-.file-summary {
-    font-size: 26px;
-    line-height: 1.35;
-    letter-spacing: -0.01em;
 }
 
 .recent-more {
@@ -426,7 +391,7 @@ section :target {
     margin-bottom: 48px;
 }
 
-.home-log .recent-updates-title {
+.home-log .section-title {
     margin-bottom: 14px;
 }
 

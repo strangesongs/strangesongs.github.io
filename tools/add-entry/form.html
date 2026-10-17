@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cleve add</title>
+<style>
+    :root { --ink: #111; --muted: #5d5d5d; --accent: #ff3300; --rule: #e3e3e3; --highlight: #fff269; --paper: #fff; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 28px 32px 48px; font-family: Georgia, 'Times New Roman', serif; font-size: 18px; color: var(--ink); background: var(--paper); max-width: 640px; }
+    h1 { margin: 0 0 24px; font-weight: 400; font-style: italic; font-size: 40px; color: var(--accent); letter-spacing: -0.02em; }
+    label { display: block; margin: 0 0 14px; }
+    .label { display: block; margin-bottom: 4px; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+    input[type=text], input[type=date], select { width: 100%; padding: 8px 10px; font: inherit; color: var(--ink); background: var(--paper); border: 1px solid var(--ink); border-radius: 0; }
+    input:focus, select:focus { outline: 2px solid var(--accent); outline-offset: 0; }
+    .row { display: grid; grid-template-columns: 1fr 120px; gap: 0 12px; }
+    .check { display: flex; gap: 8px; align-items: center; font-size: 16px; }
+    .hint { font-size: 13px; color: var(--muted); margin-top: 4px; }
+    [hidden] { display: none !important; }
+    .preview { margin: 20px 0; padding: 12px 14px; min-height: 48px; border-left: 3px solid var(--accent); background: #fafafa; font-size: 16px; overflow-wrap: anywhere; }
+    .preview:empty::before { content: 'the line will appear here'; color: var(--muted); font-style: italic; }
+    .actions { display: flex; gap: 16px; align-items: baseline; }
+    button { font: inherit; padding: 8px 22px; color: var(--paper); background: var(--ink); border: 1px solid var(--ink); cursor: pointer; }
+    button:hover:not(:disabled) { background: var(--accent); border-color: var(--accent); }
+    button:disabled { opacity: 0.5; cursor: progress; }
+    button.quiet { color: var(--muted); background: none; border: none; padding: 0; text-decoration: underline; font-size: 15px; }
+    button.quiet:hover { background: var(--highlight); color: var(--ink); }
+    .status { margin-top: 18px; font-size: 16px; }
+    .status.ok { color: var(--ink); }
+    .status.ok::before { content: '✓ '; color: var(--accent); }
+    .status.error { color: var(--accent); }
+    .added { margin-top: 28px; padding-top: 12px; border-top: 1px solid var(--rule); font-size: 14px; color: var(--muted); }
+    .added li { margin-bottom: 4px; }
+</style>
+</head>
+<body>
+<h1>cleve add</h1>
+
+<form id="form" autocomplete="off">
+    <label><span class="label">adding a</span>
+        <select name="kind" id="kind">
+            <option value="film">film</option>
+            <option value="show">show</option>
+            <option value="book">book</option>
+        </select>
+    </label>
+
+    <div data-for="film show">
+        <label><span class="label">date</span><input type="date" name="date" id="date"></label>
+    </div>
+
+    <div data-for="film book">
+        <div class="row">
+            <label><span class="label">title</span><input type="text" name="title"></label>
+            <label><span class="label">year</span><input type="text" name="year" inputmode="numeric" maxlength="4" placeholder="1974"></label>
+        </div>
+    </div>
+
+    <div data-for="film">
+        <label><span class="label">director</span><input type="text" name="director"></label>
+        <div class="row">
+            <label><span class="label">where</span><input type="text" name="location" list="film-places" placeholder="egyptian theater, criterion channel…"></label>
+            <label><span class="label">format</span><input type="text" name="format" list="formats" placeholder="dcp"></label>
+        </div>
+        <label class="check"><input type="checkbox" name="repeat"> seen it before (repeat viewing)</label>
+    </div>
+
+    <div data-for="book">
+        <label><span class="label">author</span><input type="text" name="author"></label>
+        <label><span class="label">list year</span><input type="text" name="listYear" value="{{YEAR}}" inputmode="numeric" maxlength="4"></label>
+    </div>
+
+    <div data-for="show">
+        <label><span class="label">performers</span><input type="text" name="performers">
+            <span class="hint">commas between acts · + for people playing together · w/ for guests</span></label>
+        <label><span class="label">venue</span><input type="text" name="venue" list="venues"></label>
+    </div>
+
+    <label><span class="label">notes (optional)</span><input type="text" name="notes"></label>
+
+    <div class="preview" id="preview"></div>
+
+    <div class="actions">
+        <button type="submit" id="submit">add + publish</button>
+        <button type="button" class="quiet" id="done">done</button>
+    </div>
+    <div class="status" id="status" role="status"></div>
+</form>
+
+<div class="added" id="added" hidden><span class="label">added this session</span><ul id="added-list"></ul></div>
+
+<datalist id="formats">{{FORMATS}}</datalist>
+<datalist id="film-places">{{FILM_PLACES}}</datalist>
+<datalist id="venues">{{VENUES}}</datalist>
+
+<script>
+const TOKEN = '{{TOKEN}}';
+const form = document.getElementById('form');
+const kind = document.getElementById('kind');
+const preview = document.getElementById('preview');
+const status = document.getElementById('status');
+const submit = document.getElementById('submit');
+
+function today() {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+document.getElementById('date').value = today();
+
+function data() {
+    const out = { kind: kind.value };
+    new FormData(form).forEach((v, k) => { out[k] = v; });
+    out.repeat = form.repeat.checked;
+    return out;
+}
+
+function post(url, body) {
+    return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Cleve-Token': TOKEN }, body: JSON.stringify(body) })
+        .then(r => r.json().then(j => ({ ok: r.ok, ...j })));
+}
+
+function showFields() {
+    document.querySelectorAll('[data-for]').forEach(el => {
+        el.hidden = !el.dataset.for.split(' ').includes(kind.value);
+    });
+    updatePreview();
+}
+
+let timer;
+function updatePreview() {
+    clearTimeout(timer);
+    timer = setTimeout(() => post('/preview', data()).then(r => { preview.textContent = r.line || ''; }), 120);
+}
+
+kind.addEventListener('change', showFields);
+form.addEventListener('input', updatePreview);
+
+form.addEventListener('submit', async event => {
+    event.preventDefault();
+    submit.disabled = true;
+    status.className = 'status';
+    status.textContent = 'saving + publishing…';
+    try {
+        const r = await post('/add', data());
+        if (!r.ok) throw new Error(r.error || 'Something went wrong.');
+        status.className = r.pushed ? 'status ok' : 'status error';
+        status.textContent = r.pushed ? `added to ${r.file} and published. live in about a minute.` : r.note;
+        const li = document.createElement('li');
+        li.textContent = r.line;
+        document.getElementById('added-list').prepend(li);
+        document.getElementById('added').hidden = false;
+        const keep = { kind: kind.value, date: form.date.value, listYear: form.listYear.value };
+        form.reset();
+        kind.value = keep.kind; form.date.value = keep.date; form.listYear.value = keep.listYear;
+        showFields();
+        form.querySelector('[data-for]:not([hidden]) input[type=text]')?.focus();
+    } catch (error) {
+        status.className = 'status error';
+        status.textContent = error.message;
+    } finally {
+        submit.disabled = false;
+    }
+});
+
+document.getElementById('done').addEventListener('click', () => {
+    post('/quit', {}).finally(() => {
+        document.body.innerHTML = '<h1>cleve add</h1><p>closed. you can close this tab.</p>';
+    });
+});
+
+showFields();
+</script>
+</body>
+</html>

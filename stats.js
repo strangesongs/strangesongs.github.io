@@ -164,7 +164,7 @@ function renderStats(stats, { escapeHtml, plural }) {
         }).join('')}\n</div>`;
     };
     const block = (title, body, note = '') =>
-        `<section class="stats-block">\n<h2 class="recent-updates-title">${title}</h2>\n${body}${note ? `\n<p class="stats-note">${note}</p>` : ''}\n</section>\n`;
+        `<section class="stats-block">\n<h2 class="section-title">${title}</h2>\n${body}${note ? `\n<p class="stats-note">${note}</p>` : ''}\n</section>\n`;
 
     // Totals by year
     const cell = (has, list) => (has ? String(list.length) : '—');

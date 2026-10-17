@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
-const { execFileSync } = require('child_process');
 const ejs = require('ejs');
 const { collectStats, renderStats } = require('./stats');
 
@@ -182,79 +181,6 @@ function processMarkdown(content, { plainClass = '' } = {}) {
     return content;
 }
 
-// --- git history -----------------------------------------------------------
-
-function git(args) {
-    try {
-        return execFileSync('git', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
-    } catch (error) {
-        return '';
-    }
-}
-
-function lastCommit(file) {
-    const out = git(['log', '-1', '--format=%H %ct', '--', file]);
-    if (!out) return null;
-    const [hash, time] = out.split(' ');
-    return { hash, time: Number(time) };
-}
-
-// Describe what the given commit did to the file. Entries added and removed
-// in the same commit count as edits (e.g. a typo fix), not additions.
-function summarizeCommit(commit, file, noun) {
-    if (!commit) return 'not yet committed';
-
-    const diff = git(['show', '--format=', '--unified=0', commit.hash, '--', file]).split('\n');
-    const added = diff.filter(line => line.startsWith('+') && !line.startsWith('+++')).map(line => line.slice(1));
-    const removed = diff.filter(line => line.startsWith('-') && !line.startsWith('---')).map(line => line.slice(1));
-
-    if (noun) {
-        const addedEntries = added.filter(line => ENTRY_PATTERN.test(line.trim())).length;
-        const removedEntries = removed.filter(line => ENTRY_PATTERN.test(line.trim())).length;
-        const net = addedEntries - removedEntries;
-        if (net > 0) return `${net} new ${plural(noun, net)} added`;
-        if (net < 0) return `${-net} ${plural(noun, -net)} removed`;
-        if (addedEntries > 0) return `${addedEntries} ${plural(noun, addedEntries)} edited`;
-    }
-
-    const changed = added.length + removed.length;
-    if (changed > 0) return `${changed} ${changed === 1 ? 'line' : 'lines'} changed`;
-    return 'updated';
-}
-
-// Everything that can appear in the changelog.
-function collectSources(years) {
-    const sources = [];
-
-    years.forEach(year => {
-        sectionsForYear(year).forEach(section => {
-            sources.push({
-                file: path.join(CONTENT_DIR, year, `${section.name}.md`),
-                year,
-                label: section.title,
-                href: `${year}.html#${section.name}`,
-                noun: section.noun,
-                isLog: true
-            });
-        });
-    });
-
-    sources.push({ file: path.join(CONTENT_DIR, 'abandoned.md'), label: 'abandoned', href: 'abandoned.html', noun: 'entry' });
-    sources.push({ file: path.join(CONTENT_DIR, 'about.md'), label: 'about', href: 'about.html', noun: null });
-    ['style.css', 'script.js', TEMPLATE_PATH, 'build.js', 'stats.js'].forEach(file => {
-        sources.push({ file, label: file, href: null, noun: null });
-    });
-
-    return sources
-        .filter(source => fs.existsSync(source.file))
-        .map(source => {
-            const commit = lastCommit(source.file);
-            const time = commit ? commit.time * 1000 : fs.statSync(source.file).mtimeMs;
-            return { ...source, date: new Date(time), summary: summarizeCommit(commit, source.file, source.noun) };
-        })
-        .sort((a, b) => (b.date - a.date) || a.file.localeCompare(b.file));
-}
-
 // --- page rendering --------------------------------------------------------
 
 function assetVersion() {
@@ -316,7 +242,6 @@ function buildSidebar(years, { currentYear = '', currentSection = '', currentPag
     });
 
     html += `<li class="depth-1 nav-footer"><a href="about.html"${active(currentPage === 'about')}>about</a></li>\n`;
-    html += `<li class="depth-1 nav-footer"><a href="changelog.html"${active(currentPage === 'changelog')}>changelog</a></li>\n`;
     html += `<li class="depth-1 nav-footer">${emailLink()}</li>\n`;
     html += `</ul>\n`;
 
@@ -390,17 +315,6 @@ function buildSimplePage(name, years, { title, description, sectionAttrs, headin
     });
 }
 
-function updateBlock(source) {
-    const label = source.year || source.label;
-    const name = source.href
-        ? `<a href="${source.href}" class="file-name">${escapeHtml(label)}</a>`
-        : `<span class="file-name">${escapeHtml(label)}</span>`;
-    const section = source.year ? `<span class="file-section">${source.label}</span>` : '';
-    return `\n  <div class="recent-file-block"><div class="recent-file-meta">${name}${section}`
-        + `<span class="file-date">${formatDate(source.date)}</span></div>`
-        + `<div class="file-summary">${escapeHtml(source.summary)}</div></div>`;
-}
-
 // Split an entry line into its parts: date (MM.DD or ''), main text, fields.
 function parseEntry(line) {
     const dated = line.match(/^(\d{2})\.(\d{2})\s+(.+)$/);
@@ -444,7 +358,7 @@ function buildHome(years) {
         const entries = recentEntries(years, section, 5);
         if (!entries.length) return;
 
-        content += `<section class="home-log ${section.name}">\n  <h2 class="recent-updates-title">${title}</h2>\n`;
+        content += `<section class="home-log ${section.name}">\n  <h2 class="section-title">${title}</h2>\n`;
         content += '  <ul class="markdown-list dated-list">';
         entries.forEach(entry => {
             // Dated entries show MM.DD (plus the year when it isn't the current one);
@@ -465,21 +379,6 @@ function buildHome(years) {
     });
 
     writePage('index.html', { sidebar: buildSidebar(years), content });
-}
-
-function buildChangelog(years, sources) {
-    let content = '<section class="recent-updates site-changelog">\n  <h2 class="recent-updates-title">site changelog</h2>';
-    sources.slice(0, 15).forEach(source => {
-        content += updateBlock(source);
-    });
-    content += '\n</section>';
-
-    writePage('changelog.html', {
-        title: 'changelog',
-        description: `recent changes to ${SITE_NAME}.`,
-        sidebar: buildSidebar(years, { currentPage: 'changelog' }),
-        content
-    });
 }
 
 function buildStats(years) {
@@ -503,13 +402,13 @@ function buildNotFound(years) {
         sidebar: buildSidebar(years),
         content: `<section class="intro not-found">
     <p>nothing here.</p>
-    <p class="not-found-links"><a href="index.html">home</a> · <a href="${years[years.length - 1]}.html">${years[years.length - 1]}</a> · <a href="stats.html">stats</a> · <a href="changelog.html">changelog</a></p>
+    <p class="not-found-links"><a href="index.html">home</a> · <a href="${years[years.length - 1]}.html">${years[years.length - 1]}</a> · <a href="stats.html">stats</a> · <a href="about.html">about</a></p>
 </section>`
     });
 }
 
 function buildRobotsAndSitemap(years) {
-    const pages = ['', ...[...years].reverse().map(y => `${y}.html`), 'stats.html', 'abandoned.html', 'about.html', 'changelog.html'];
+    const pages = ['', ...[...years].reverse().map(y => `${y}.html`), 'stats.html', 'abandoned.html', 'about.html'];
     const today = formatDate(new Date());
     const urls = pages.map(page => `  <url><loc>${SITE_URL}${page}</loc><lastmod>${today}</lastmod></url>`).join('\n');
     fs.writeFileSync(path.join(OUT_DIR, 'sitemap.xml'),
@@ -559,9 +458,7 @@ function build() {
         plainClass: 'meta'
     });
 
-    const sources = collectSources(years);
     buildHome(years);
-    buildChangelog(years, sources);
     buildStats(years);
     buildNotFound(years);
     buildRobotsAndSitemap(years);
