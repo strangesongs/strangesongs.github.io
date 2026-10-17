@@ -40,7 +40,7 @@ total: 32 books
 31. NEVADA (2013) imogen binnie
 32. BARD KINETIC (2023) anne waldman
 33. ON THE CALCULATION OF VOLUME, I (2020) solvej balle
-34. THE GHOST IN THE SHELL (1991) shurow masamune
+34. THE GHOST IN THE SHELL (1991) shirow masamune
 35. LEASH (2002) jane delynn
 36. BAD GUY (2019) rosalyn drexler
 37. PAUL TAKES THE FORM OF A MORTAL GIRL (2017) andrea lawson

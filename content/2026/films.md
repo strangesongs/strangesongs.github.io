@@ -16,18 +16,18 @@ total: 92 films
 01.22 LOVE LIES BLEEDING (2024) rose glass | streaming | kanopy
 01.23 THE CONVERSATION (1974) francis ford coppola | dcp | egyptian theater | in-person q+a with walter murch
 01.25 APOCALYPSE NOW (1979) francis ford coppola | dcp | egyptian theater | in-person masterclass with walter murch
-01.28 OPENING NIGHT (1977) john cassavettes | dcp | alamo drafthouse
+01.28 OPENING NIGHT (1977) john cassavetes | dcp | alamo drafthouse
 01.30 ARREBATO (1979) iván zulueta | streaming | kanopy
 
 02.01 AN ELEPHANT SITTING STILL (2018) hu bo | dcp | egyptian theater
 02.06 KAILI BLUES (2015) bi gan | streaming | criterion channel
 02.11 FACE/OFF (1997) john woo | streaming | criterion channel
 02.14 HENRY GAMBLE'S BIRTHDAY PARTY (2015) stephen cone | streaming | mubi
-02.15 LOVE STREAMS (1984) john cassavettes | streaming | criterion channel
+02.15 LOVE STREAMS (1984) john cassavetes | streaming | criterion channel
 02.27 EVERY-NIGHT DREAMS (1933) mikio naruse | 35mm | egyptian theater | live performance w/benshi performer ichiro kataoka + pianist makia matsumura @ egyptian theater
 02.27 APART FROM YOU (1933) mikio naruse | 35mm | egyptian theater | live performance w/benshi performer ichiro kataoka + pianist makia matsumura @ egyptian theater
 
-03.01 WHERE IS THE FRIEND'S HOUSE (1987) abbas kirostami | dcp | aero theater
+03.01 WHERE IS THE FRIEND'S HOUSE (1987) abbas kiarostami | dcp | aero theater
 03.01 CHILDREN OF HEAVEN (1997) majid majidi | dcp | aero theater
 03.02 FLOATING CLOUDS (1955) mikio naruse | streaming | criterion channel
 03.04 WHAT DOES THAT NATURE SAY TO YOU (2025) hong sang-soo | dcp | los feliz 3
@@ -44,7 +44,7 @@ total: 92 films
 05.17 THREE COLORS: WHITE (1994) krzysztof kieślowski | dcp | egyptian theater
 05.17 THREE COLORS: RED (1994) krzysztof kieślowski | dcp | egyptian theater
 05.22 SPEAKING PARTS (1989) atom egoyan | streaming | criterion channel
-05.24 TAIGA (1992) ulrike ottinger | dcp | 2220 arts and archives | presented by lightstruck
+05.24 TAIGA (1992) ulrike ottinger | dcp | 2220 arts + archives | presented by lightstruck
 05.30 SPEED RACER (2008) the wachowskis | dcp | egyptian theater
 
 06.04 MYSTERIOUS SKIN (2004) gregg araki | 4k restoration dcp | egyptian theater | gregg araki in-person + q+a *
@@ -65,15 +65,15 @@ total: 92 films
 07.05 EVERYTHING VISIBLE IS EMPTY (1975) toshio matsumoto | [streaming](https://www.youtube.com/watch?v=LY7c2IIzVxw) | youtube
 07.05 MAD GOD (2021) phil tippett | streaming | youtube tv
 07.07 THE BLOODY LADY (1981) viktor kubal | streaming | kanopy
-07.09 BOP SCOTCH (1952) jordan belson | digital | 2220 arts and archives | presented by lightstruck
-07.09 MANDALA (1953) jordan belson | 16mm | 2220 arts and archives | presented by lightstruck
-07.09 SEANCE (1959) jordan belson | digital | 2220 arts and archives | presented by lightstruck
-07.09 RE-ENTRY (1964) jordan belson | 16mm | 2220 arts and archives | presented by lightstruck
-07.09 MOMENTUM (1968) jordan belson | 16mm | 2220 arts and archives | presented by lightstruck
-07.09 COSMOS (1969) jordan belson | 16mm | 2220 arts and archives | presented by lightstruck
-07.09 LIGHT (1973) jordan belson | 16mm | 2220 arts and archives | presented by lightstruck
-07.09 CYCLES (1974) jordan belson, stephen beck | 16mm | 2220 arts and archives | presented by lightstruck
-07.09 UNION (1975) stephen beck | digital | 2220 arts and archives | presented by lightstruck
+07.09 BOP SCOTCH (1952) jordan belson | digital | 2220 arts + archives | presented by lightstruck
+07.09 MANDALA (1953) jordan belson | 16mm | 2220 arts + archives | presented by lightstruck
+07.09 SEANCE (1959) jordan belson | digital | 2220 arts + archives | presented by lightstruck
+07.09 RE-ENTRY (1964) jordan belson | 16mm | 2220 arts + archives | presented by lightstruck
+07.09 MOMENTUM (1968) jordan belson | 16mm | 2220 arts + archives | presented by lightstruck
+07.09 COSMOS (1969) jordan belson | 16mm | 2220 arts + archives | presented by lightstruck
+07.09 LIGHT (1973) jordan belson | 16mm | 2220 arts + archives | presented by lightstruck
+07.09 CYCLES (1974) jordan belson, stephen beck | 16mm | 2220 arts + archives | presented by lightstruck
+07.09 UNION (1975) stephen beck | digital | 2220 arts + archives | presented by lightstruck
 07.11 A MOVIE (1958) bruce conner | 16mm | marciano art foundation | recording angel
 07.11 LOOKING FOR MUSHROOMS (1967) bruce conner | 16mm | marciano art foundation | recording angel
 07.11 BREAKAWAY (1967) bruce conner | 16mm | marciano art foundation | recording angel
@@ -90,7 +90,7 @@ total: 92 films
 07.17 THE RETURN OF GODZILLA (1984) koji hashimoto | streaming | criterion
 07.18 THE STRINGS (2020) ryan glover | streaming | yesmovies.ag
 07.19 THE HITCH-HIKER (1953) ida lupino | streaming | kanopy
-07.20 LE CERCLE ROUGE (1970) jean-pierre melville | 4k | ted mann theater @ academy museum*
+07.20 LE CERCLE ROUGE (1970) jean-pierre melville | 4k | ted mann theater @ academy museum *
 07.22 MAGIC FERRY (2001) masha godovannaya | [streaming](https://lightcone.org/en/film-4353-magic-ferry) | light cone
 07.22 YOURSELF AND YOURS (2016) hong sang-soo | streaming | kanopy
 07.24 BATTLES WITHOUT HONOR AND HUMANITY (1973) kinji fukasaku | dvd | video archives cinema club @ los feliz theater
@@ -111,10 +111,10 @@ total: 92 films
 08.31 SMITHEREENS (1982) susan seidelman | 35mm | los feliz 3
 09.10 DESPERATELY SEEKING SUSAN (1985) susan seidelman | streaming | criterion channel
 09.20 KING LEAR (1987) jean-luc godard | 35mm | los feliz 3
-09.21 EFFECTS (1979) dusty nelson | DCP | los feliz 3
-09.24 BEGOTTEN (1989) e. elias merhige | DCP | egyptian theater | 4k restoration
-09.28 RESIDENT EVIL (2026) zack cregger | DCP | regency theater
-10.02 THE SCOUT (2026) paula gonzález-nasser | DCP | alamd drafthouse | q+a with paula gonzález-nasser, mimi davila and nicola newton
+09.21 EFFECTS (1979) dusty nelson | dcp | los feliz 3
+09.24 BEGOTTEN (1989) e. elias merhige | dcp | egyptian theater | 4k restoration
+09.28 RESIDENT EVIL (2026) zack cregger | dcp | regency theater
+10.02 THE SCOUT (2026) paula gonzález-nasser | dcp | alamo drafthouse | q+a with paula gonzález-nasser, mimi davila and nicola newton
 10.03 THE HITCHER (1986) robert harmon | streaming | criterion channel
-10.06 HOPE (2026) na hong-jin | DCP | regency theater
-10.11 EDVARD MUNCH (1974) peter watkins | 35mm | braindead studios | academy archival print
+10.06 HOPE (2026) na hong-jin | dcp | regency theater
+10.11 EDVARD MUNCH (1974) peter watkins | 35mm | brain dead studios | academy archival print

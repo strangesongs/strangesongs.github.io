@@ -44,16 +44,16 @@ total: 43 shows
 08.06 TY SEGALL | PRIMUS | the greek theater
 08.20 JEFF PARKER ETA IVTET | lodge room
 
-09.04 ORCUTT | SHELLEY | MILLER | barnsdall theater
+09.04 ORCUTT | SHELLEY | MILLER | barnsdall gallery theater
 09.07 TERRY RILEY 90TH BIRTHDAY CELEBRATION w/ BANG ON A CAN ALL-STARS, GYAN RILEY, and special guests | the ford | keyboard study no. 2, a rainbow in curved air, in c
 
 10.05 THE SEAGULL: MALIBU | will geer theatricum botanicum | adapted + directed by ellen geer
 10.11 PATRICK SHIROISHI / M. SAGE / ODEYA NINI / 2220 arts + archives
 10.15 BRAD MEHLDAU | CHRISTIAN MCBRIDE | the wallis
 10.16 JEFF PARKER TRIO + HANGING HEARTS | 2220 arts + archives | angel city jazz fest
-10.17 CHES SMITH'S CLONE ROW + MARY HALVORSON & TOMAS FUJIWARA DUO | 2220 archives | angel city jazz fest
+10.17 CHES SMITH'S CLONE ROW + MARY HALVORSON & TOMAS FUJIWARA DUO | 2220 arts + archives | angel city jazz fest
 10.18 TORTOISE | the broad
-10.24 RACHIKA NAYAR + NINA KEITH PRESENT 'DISINIBLUD' | TYLER HOLMES | 2220 archives
+10.24 RACHIKA NAYAR + NINA KEITH PRESENT 'DISINIBLUD' | TYLER HOLMES | 2220 arts + archives
 
 11.10 NEKO CASE | the bellweather 
 11.22 THE MUSIC OF PAULINE OLIVEROS WITH SHELLEY BURGON | 2220 arts + archives

@@ -10,4 +10,10 @@ node_modules/
 .vscode/
 .idea/
 
-# Generated files
+# Generated files (built by CI; never commit)
+dist/
+
+# Kept locally, not in the repo
+raw files/
+mockups/
+scripts/

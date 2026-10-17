@@ -10,7 +10,7 @@ total: 105 films
 1. ONIBABA (1964) kaneto shindo | dvd | criterion
 2. KURONEKO (1968) kaneto shindo | dvd | criterion
 3. BEYOND THE BLACK RAINBOW (2010) panos cosmatos | netflix streaming
-4. EAMES: THE ARCHITECT AND THE PAINTER (2011) jason cohn and bill jersery | netflix streaming
+4. EAMES: THE ARCHITECT AND THE PAINTER (2011) jason cohn and bill jersey | netflix streaming
 5. THE MOMENT OF TRUTH (Il momento della verita) (1965) francesco rosi | dvd | criterion
 6. THE BAD AND THE BEAUTIFUL (1952) vincente minnelli | dvd
 7. MODERN TIMES (1938) charles chaplin | united states | dvd | criterion *
@@ -18,12 +18,12 @@ total: 105 films
 9. THE GREAT DICTATOR (1940) charles chaplin | dvd | criterion
 10. TO CATCH A THIEF (1954) alfred hitchcock | blu-ray | paramount
 11. THE KING OF MARVIN GARDENS (1972) bob rafelson | dvd | criterion
-12. GHOST IN THE SHELL (1995) mamoro oshii | japan | blu-ray | manga entertainment
+12. GHOST IN THE SHELL (1995) mamoru oshii | japan | blu-ray | manga entertainment
 13. THE BIG HEAT (1953) fritz lang | netflix streaming
 14. PERFECT BLUE (1997) satoshi kon | dvd | manga entertainment
 15. PAPRIKA (2006) satoshi kon | dvd | sony pictures worldwide
 16. KNIFE IN THE WATER (1962) roman polanski | dvd | janus films/criterion
-17. KAGEMUSHA (1980) akria kurosawa | dvd | criterion blu-ray
+17. KAGEMUSHA (1980) akira kurosawa | dvd | criterion blu-ray
 18. BEAUTY AND THE BEAST (La Belle et la Bete) (1946) jean cocteau | dvd | janus films/criterion
 19. TED (2012) seth macfarlane | blu-ray | universal pictures
 20. GIMME SHELTER (1970) david maysles, albert maysles and charlotte zwerin | blu-ray | criterion
@@ -36,8 +36,8 @@ total: 105 films
 27. ZERO DARK THIRTY (2012) kathryn bigelow | theatre screening
 28. A FISTFUL OF DOLLARS (1964) sergio leone | blu-ray | 20th c. fox release
 29. A NEW LEAF (1970) elaine may | blu-ray | olive films
-30. HARIKARI (1962) masaki kobayashi | blu-ray | janus/criterion
-31. OSAKA ELEGY (1936) kenji mizoguich | dvd | janus films
+30. HARIKARI (1962) masaki kobayashi | blu-ray | janus films/criterion
+31. OSAKA ELEGY (1936) kenji mizoguchi | dvd | janus films
 32. MARGARET (2011) kenneth lonergan | blu-ray | fox searchlight
 33. BROADCAST NEWS (1987) james l. brooks | blu-ray | criterion
 34. THE MIRROR (1975) andrei tarkovsky | dvd | kino
@@ -49,9 +49,9 @@ total: 105 films
 40. MR. FREEDOM (1969) william klein | dvd | janus/eclipse
 41. THE MODEL COUPLE (1977) william klein | dvd | janus/eclipse
 42. PRIVATE PARTS (1996) betty thomas | netflix streaming
-43. THE SKIN I LIVE IN (2011) pedro almodovar | blu-ray | sony picture classics
+43. THE SKIN I LIVE IN (2011) pedro almodovar | blu-ray | sony pictures classics
 44. ALPHAVILLE (1965) jean-luc godard | dvd | criterion
-45. HOPSCOTCH (1980) roanld reame | dvd | criterion
+45. HOPSCOTCH (1980) ronald neame | dvd | criterion
 46. THE 39 STEPS (1935) alfred hitchcock | blu-ray | criterion
 47. MINISTRY OF FEAR (1944) fritz lang | blu-ray | criterion
 48. A MARRIED WOMAN (1964) jean-luc godard | dvd | criterion
@@ -69,7 +69,7 @@ total: 105 films
 60. THE MUSIC ROOM (1958) satyajit ray | dvd | criterion
 61. VIVRE SA VIE (MY LIFE TO LIVE) (1962) jean-luc godard | blu-ray | criterion
 62. NAKED (1993) mike leigh | blu-ray | criterion *
-63. THE MASTER (2012) paul thomas anderson | blu-ray | weinstein company
+63. THE MASTER (2012) paul thomas anderson | blu-ray | the weinstein company
 64. HERE AND ELSEWHERE (1976) jean-luc godard and anne-marie miéville | dvd | olive films
 65. KISS ME DEADLY (1955) robert aldrich | blu-ray | criterion
 66. HANNAH AND HER SISTERS (1986) woody allen | blu-ray | mgm *
@@ -80,7 +80,7 @@ total: 105 films
 71. THE MAN WHO KNEW TOO MUCH (1934) alfred hitchcock | blu-ray | criterion
 72. THE DUNGEON MASTERS (2008) keven mcalester | hulu streaming
 73. WET HOT AMERICAN SUMMER (2001) david wain | netflix streaming *
-74. ASHES OF TIME REDUX (2008) wong kar-wai | dvd | song pictures classics
+74. ASHES OF TIME REDUX (2008) wong kar-wai | dvd | sony pictures classics
 75. MEDIUM COOL (1969) haskell wexler | blu-ray | criterion
 76. DAYS OF BEING WILD (1990) wong kar-wai | dvd | kino
 77. GARLIC IS AS GOOD AS TEN MOTHERS (1980) les blank | streaming | huluplus
@@ -104,7 +104,7 @@ total: 105 films
 95. FRANCES HA (2012) noah baumbach | blu-ray | criterion
 96. I MARRIED A WITCH (1942) rené clair | blu-ray | criterion
 97. BABETTE’S FEAST (1987) gabriel axel | blu-ray | criterion
-98. SHADOWS (1959) john cassavettes | blu-ray | criterion
+98. SHADOWS (1959) john cassavetes | blu-ray | criterion
 99. GODZILLA (1954) ishiro honda | blu-ray | criterion
 100. THE HOBBIT: AN UNEXPECTED JOURNEY (2012) peter jackson | blu-ray | warner brothers
 101. THE HOBBIT: THE DESOLATION OF SMAUG (2013) peter jackson | theater viewing | warner brothers

@@ -1,8 +1,13 @@
-# strangesongs site
+# strangesongs site ("cleve")
 
-tracking what i read, watch, and see across each year — plus photography and project links.
+tracking what i read, watch, and see across each year, plus links to music and other projects.
 
-## Photography
+- content lives in `content/` as markdown, one folder per year
+- `npm run build` generates the site into `dist/`; `npm run serve` previews it
+- pushing to `main` builds and deploys `dist/` to GitHub Pages
 
-The photography portfolio is its own project: [whatwesee](https://github.com/strangesongs/whatwesee), served at `/whatwesee/`.
-The sidebar links straight to it; this repo has no photography page of its own.
+see `CLAUDE.md` for the content format and how the build works.
+
+## photography
+
+the photography portfolio is its own project: [whatwesee](https://github.com/strangesongs/whatwesee), served at `/whatwesee/`.

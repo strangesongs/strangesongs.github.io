@@ -16,7 +16,7 @@ total: 104 films
 01.25 THE PERVERT'S GUIDE TO IDEOLOGY (2013) sophie fiennes
 01.30 METROPOLITAN (1990) whit stillman *
 01.31 SCHIZOPOLIS (1996) steven soderbergh
-01.31 BAD LIEUTENANT (1992) abel ferrera
+01.31 BAD LIEUTENANT (1992) abel ferrara
 02.02 HARD EIGHT (1996) paul thomas anderson
 02.02 SYNECDOCHE, NEW YORK (2009) charlie kaufman *
 02.03 HOUSE (1977) nobuhiko obayashi *
@@ -77,7 +77,7 @@ total: 104 films
 09.21 A BRIEF HISTORY OF TIME (1994) errol morris
 10.09 INVESTIGATION OF A CITIZEN UNDER SUSPICION (1970) elio petri
 10.19 A LATE QUARTET (2012) yaron zilberman
-10.15 THE NOTEBOOK (2014) jános szás
+10.15 THE NOTEBOOK (2014) jános szász
 10.22 THE NEW WORLD (2005) terrence malick *
 10.25 ARMY OF SHADOWS (1969) jean-pierre melville *
 11.01 HER (2013) spike jonze

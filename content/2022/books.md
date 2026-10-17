@@ -14,7 +14,7 @@ total: 94 books
 5. A PEOPLE'S GREEN NEW DEAL (2021) max aji
 6. NOTHING PERSONAL (1964) james baldwin and richard avedon
 7. VOICES FROM THE VALLEY (2020) edited by ben tarnoff and moira weigel
-8. SUPER PUMPED: THE BATTLE FOR UBER (2019) mike issac
+8. SUPER PUMPED: THE BATTLE FOR UBER (2019) mike isaac
 9. THE WISDOM OF INSECURITY (1951) alan watts
 10. LASERWRITER II (2021) tamara shopsin
 11. ABOLISH SILICON VALLEY (2020) wendy liu
@@ -33,7 +33,7 @@ total: 94 books
 24. BICYCLE DAY (2018) brian blomerth
 25. THE SWEETER SIDE OF R. CRUMB (2010) r. crumb
 26. R. CRUMB'S AMERICA (2006) r. crumb
-27. PARALLEL LIVES (2008) o. scharuwen
+27. PARALLEL LIVES (2008) olivier schrauwen
 28. JIM CROW AND ITS AFTERLIVES (2022) adolph reed
 29. THE MAN WITHOUT QUALITIES (1989) yoshiharu tsuge
 30. LOVE THAT BUNCH (1990) aline kominsky-crumb
@@ -42,10 +42,10 @@ total: 94 books
 33. THE R. CRUMB HANDBOOK (2005) r. crumb and peter poplaski
 34. PHOTOGRAPHY AT MOMA: 1960 TO NOW (2015) edited by quentin bajac
 35. NINA SIMONE'S GUM (2021) warren ellis
-36. THE MAN WHO GREW HIS BEARD (2010) olivier scharuwen
-37. ARSENE SCHARUWEN (2012) olivier scharuwen
+36. THE MAN WHO GREW HIS BEARD (2010) olivier schrauwen
+37. ARSENE SCHARUWEN (2012) olivier schrauwen
 38. DRAWN TOGETHER (2012) aline kominsky-crumb and r. crumb
-39. WHITE CUBE (2014) brecht vanderbroucke
+39. WHITE CUBE (2014) brecht vandenbroucke
 40. BINKY BROWN MEETS THE HOLY VIRGIN MARY (1972) justin green
 41. HOW ARCHITECTURE WORKS: A HUMANIST'S TOOLKIT (2013) witold rybczynski
 42. THE DEMOCRATIC FOREST (1989) william eggleston (photography)
@@ -86,7 +86,7 @@ total: 94 books
 77. ALL THIS COULD BE DIFFERENT (2022) sarah thankam mathews
 78. JAZZ FAN LOOKS BACK (2002) jayne cortez
 79. THE LANGUAGE OF SAXOPHONES (1996) kamau daaood
-80. THE WISDOM OF NO ESCAPE (1991) pema chodron
+80. THE WISDOM OF NO ESCAPE (1991) pema chödrön
 81. RECYCLOPEDIA: TRIMMINGS, S*PERM**K*T, AND MUSE & DRUDGE (2006) harryette mullen
 82. THE LIES THAT BIND: RETHINKING IDENTITY (2018) kwame anthony appiah
 83. FELICITY (2015) mary oliver
@@ -98,6 +98,6 @@ total: 94 books
 89. THE LOG FROM THE SEA OF CORTEZ (1951) john steinbeck
 90. OCTAVE THE ARTIST (2022) adam j. elkhadem
 91. LIVING IN THE FACE OF DEATH: THE TIBETAN TRADITION (1998) glenn h mullin
-92. TAKING THE LEAP (2009) pema chodron
+92. TAKING THE LEAP (2009) pema chödrön
 93. BERSERK: VOL. 1 (1991) kentaro miura
 94. BERSERK: VOL. 2 (1991) kentaro miura

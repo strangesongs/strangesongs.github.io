@@ -1,17 +1,20 @@
+/*
+ * cleve — one stylesheet for every page.
+ * Raw, handmade, HTML-first: serif type, paper + ink, red accents,
+ * yellow highlight on hover. See RAW_WEB_STYLE_PORTING_GUIDE.md.
+ */
+
 :root {
     --font-serif: Georgia, 'Times New Roman', serif;
-    --font-mono: var(--font-serif);
     --paper: #ffffff;
     --ink: #111111;
-    --link: #111111;
-    --visited: #111111;
     --muted: #5d5d5d;
-    --accent-primary: #ff3300;
-    --accent-secondary: #ff3300;
-    --accent-muted: #5d5d5d;
-    --accent-soft: #e3e3e3;
-    --hover-highlight: #fff269;
+    --accent: #ff3300;
+    --rule: #e3e3e3;
+    --highlight: #fff269;
 }
+
+/* --- base ---------------------------------------------------------------- */
 
 * {
     margin: 0;
@@ -28,26 +31,31 @@ body {
     animation: appear 180ms linear;
 }
 
-a {
-    color: var(--link);
+a,
+a:visited {
+    color: var(--ink);
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 0.1em;
     transition: color 90ms linear, background-color 90ms linear;
 }
 
-a:visited {
-    color: var(--visited);
-}
-
-a:hover {
+/* The one hover/active treatment used everywhere. */
+a:hover,
+.nav-toggle:hover,
+.cleanui-nav a.is-active,
+.rwl-year.is-open .rwl-year-toggle,
+.mnav-rwl-link.is-open,
+.mobile-nav a.is-active {
     color: var(--ink);
-    background: var(--hover-highlight);
+    background: var(--highlight);
+    text-decoration: underline;
     text-decoration-thickness: 2px;
-    text-decoration-color: var(--accent-primary);
+    text-decoration-color: var(--accent);
 }
 
-a:focus-visible {
+a:focus-visible,
+button:focus-visible {
     outline: 2px dashed var(--ink);
     outline-offset: 2px;
 }
@@ -56,14 +64,21 @@ a:focus-visible {
     display: none !important;
 }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* --- layout -------------------------------------------------------------- */
+
 .layout {
     display: grid;
     grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
     min-height: 100vh;
-}
-
-.layout-cleanui {
-    grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
 }
 
 .sidebar {
@@ -72,74 +87,42 @@ a:focus-visible {
     height: 100vh;
     overflow-y: auto;
     border-right: 1px solid var(--ink);
-    padding: 10px 6px 10px 14px;
+    padding: 20px 16px 48px 22px;
     background: var(--paper);
 }
 
-.sidebar-cleanui {
-    padding: 20px 16px 48px 22px;
-    font-family: var(--font-serif);
+.content {
+    padding: 20px 22px 48px;
 }
 
-.sidebar-cleanui .cleanui-masthead {
-    font-family: var(--font-serif);
+/* --- sidebar ------------------------------------------------------------- */
+
+.cleanui-masthead {
     font-size: clamp(1.8rem, 5vw, 2.8rem);
-    font-weight: 400;
     font-style: italic;
     letter-spacing: -0.02em;
     margin-bottom: 1.25em;
-    color: var(--accent-primary);
+    color: var(--accent);
 }
 
-.sidebar-cleanui .cleanui-masthead a {
+.cleanui-masthead a {
     color: inherit;
     text-decoration: none;
-    background: none;
-}
-
-.sidebar-cleanui .cleanui-masthead a:hover {
-    background: var(--hover-highlight);
-    text-decoration: underline;
-    text-decoration-color: var(--accent-primary);
 }
 
 .cleanui-nav {
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
 .cleanui-nav li {
-    font-family: var(--font-serif);
     font-size: 22px;
-    font-weight: 400;
-    font-style: normal;
     line-height: 1.35;
     letter-spacing: -0.01em;
     margin-bottom: 0.35em;
-    max-width: none;
-    padding: 0;
 }
 
 .cleanui-nav a {
-    font-family: inherit;
-    font-weight: inherit;
-    font-style: inherit;
     text-decoration: none;
-    color: var(--ink);
-    background: none;
-}
-
-.cleanui-nav a:hover,
-.cleanui-nav a.is-active {
-    background: var(--hover-highlight);
-    text-decoration: underline;
-    text-decoration-color: var(--accent-primary);
-    color: var(--ink);
-}
-
-.cleanui-nav .depth-1 {
-    margin-left: 0;
 }
 
 .cleanui-nav .depth-2 {
@@ -153,7 +136,7 @@ a:focus-visible {
 }
 
 .cleanui-nav .depth-3 a {
-    color: var(--accent-muted);
+    color: var(--muted);
 }
 
 .cleanui-nav .depth-3 a.is-active {
@@ -168,343 +151,196 @@ a:focus-visible {
     margin-top: 0;
 }
 
-.cleanui-nav:not(.is-rwl-open) .rwl-branch {
+/* Collapsing only happens with JavaScript; without it every year is listed. */
+.js .cleanui-nav:not(.is-rwl-open) .rwl-branch,
+.js .cleanui-nav .rwl-section:not(.is-visible) {
     display: none;
-}
-
-.cleanui-nav.is-rwl-open .depth-3.rwl-section {
-    display: none;
-}
-
-.cleanui-nav.is-rwl-open .depth-3.rwl-section.is-visible {
-    display: list-item;
 }
 
 .nav-toggle {
-    font-family: var(--font-serif);
-    font-size: inherit;
-    font-weight: 400;
-    font-style: normal;
-    line-height: inherit;
+    font: inherit;
     letter-spacing: inherit;
     color: var(--ink);
     background: none;
     border: none;
-    padding: 0;
-    margin: 0;
     cursor: pointer;
     text-align: left;
-    text-transform: lowercase;
     -webkit-appearance: none;
     appearance: none;
 }
 
-.nav-toggle:hover,
-.nav-toggle.is-active {
-    background: var(--hover-highlight);
-    text-decoration: underline;
-    text-decoration-color: var(--accent-primary);
-}
-
-.rwl-year.is-open .rwl-year-toggle {
-    background: var(--hover-highlight);
-    text-decoration: underline;
-    text-decoration-color: var(--accent-primary);
-}
-
-.sidebar li {
-    list-style: none;
-}
-
-.sidebar .mobile-nav {
+.mobile-nav {
     display: none;
 }
 
-.content {
-    padding: 14px 22px 34px;
-    max-width: none;
-}
-
-.content.content-cleanui {
-    padding: 20px 22px 48px;
-    font-family: var(--font-serif);
-    font-weight: 400;
-}
+/* --- page headings ------------------------------------------------------- */
 
 .content header {
     margin-bottom: 10px;
 }
 
-.content header .year-label {
-    font-family: var(--font-serif);
+.year-label {
     font-size: clamp(1.6rem, 5.2vw, 3.5rem);
     font-weight: 600;
     line-height: 0.95;
     letter-spacing: -0.02em;
-    color: var(--accent-primary);
+    color: var(--accent);
     text-transform: uppercase;
 }
 
+/* Small uppercase labels: format lines, notes, totals, section titles. */
+.meta,
+.addendum,
+.count,
+.recent-updates-title,
+.recent-more,
+.recent-file-meta {
+    font-size: 12px;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.meta,
+.addendum {
+    margin-bottom: 8px;
+}
+
+.count {
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+/* --- log sections (read / watch / listen / abandoned) -------------------- */
+
 section {
-    border-top: 1px solid var(--accent-soft);
-    padding-top: 8px;
     margin-bottom: 32px;
 }
 
-.content-cleanui section.books,
-.content-cleanui section.films,
-.content-cleanui section.shows,
-.content-cleanui section.abandoned {
-    border-top: none;
-    padding-top: 0;
+/* The year label already says which section this is. */
+.log > h2 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
 }
 
-section h2 {
-    display: none;
-}
-
-section.films h3.month-heading,
-section.shows h3.month-heading {
-    font-family: var(--font-serif);
+.month-heading {
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.06em;
     line-height: 1.4;
-    text-transform: lowercase;
-    color: var(--accent-primary);
-    margin-top: 24px;
-    margin-bottom: 10px;
+    color: var(--accent);
+    margin: 24px 0 10px;
 }
 
-section.films h3.month-heading:first-of-type,
-section.shows h3.month-heading:first-of-type {
+.month-heading:first-of-type {
     margin-top: 4px;
 }
 
-section > p:first-of-type {
-    font-family: var(--font-serif);
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0.04em;
-    line-height: 1.4;
-    margin-bottom: 8px;
-    padding: 0;
-    text-transform: uppercase;
-    color: var(--muted);
-}
-
-section p.addendum {
-    font-family: var(--font-serif);
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--muted);
-    margin-bottom: 8px;
-}
-
-section p.count {
-    font-family: var(--font-serif);
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--accent-primary);
-    margin-top: 0;
-    margin-bottom: 12px;
-}
-
-section ul,
-section ol {
+.markdown-list {
     list-style: none;
-    padding-left: 0;
 }
 
-section ul + ul {
+.markdown-list + .markdown-list {
     margin-top: 16px;
 }
 
-section ol {
-    counter-reset: entry-counter;
-}
-
-section li {
-    margin-bottom: 8px;
-    font-family: var(--font-serif);
+.markdown-list li {
     font-size: 22px;
-    font-weight: 400;
-    font-style: normal;
     line-height: 1.35;
     letter-spacing: -0.01em;
     max-width: 48ch;
-    padding-top: 0;
-    padding-bottom: 0;
-    transition: none;
+    margin-bottom: 8px;
 }
 
-section .markdown-list {
-    margin: 0;
-}
-
-section .dated-list li,
-section .numbered-list li {
+.dated-list li,
+.numbered-list li {
     display: grid;
     grid-template-columns: 3rem 1fr;
     align-items: start;
     column-gap: 0.45rem;
     margin-bottom: 10px;
-    overflow: visible;
 }
 
-section .dated-list .entry-date,
-section .numbered-list li::before {
-    font-family: var(--font-serif);
+.numbered-list {
+    counter-reset: entry;
+}
+
+.numbered-list li {
+    counter-increment: entry;
+}
+
+.numbered-list li::before {
+    content: '[' counter(entry, decimal-leading-zero) ']';
+}
+
+.entry-date,
+.numbered-list li::before {
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.03em;
-    color: var(--muted);
     line-height: 1.6;
+    color: var(--muted);
 }
 
-section .numbered-list li {
-    counter-increment: entry-counter;
-}
-
-section .numbered-list li::before {
-    content: '[' counter(entry-counter, decimal-leading-zero) ']';
-}
-
-section .dated-list .entry-body {
+.entry-body {
     min-width: 0;
 }
 
-section.films .dated-list li,
-section.shows .dated-list li {
+.films .markdown-list li,
+.shows .markdown-list li {
+    line-height: 1.4;
+}
+
+.films .dated-list li,
+.shows .dated-list li {
     margin-bottom: 12px;
 }
 
-section.films li,
-section.shows li {
-    font-size: 22px;
-    line-height: 1.4;
-}
-
-section.films .dated-list .entry-body,
-section.shows .dated-list .entry-body {
-    line-height: 1.4;
-    padding-top: 0;
-    padding-bottom: 0;
+/* Trailing * in films.md marks a repeat viewing. */
+.repeat {
+    color: var(--accent);
 }
 
 section :target {
-    background: var(--hover-highlight);
-    outline: none;
+    background: var(--highlight);
 }
 
-section.about {
-    border-top: none;
-    padding-top: 0;
-    margin-bottom: 0;
+/* --- about --------------------------------------------------------------- */
+
+.about {
     max-width: 42ch;
 }
 
-section.about p {
-    font-family: var(--font-serif);
-    font-size: 18px;
-    font-weight: 400;
-    letter-spacing: normal;
-    line-height: 1.45;
-    text-transform: none;
+.about p,
+.about .markdown-list {
     margin-bottom: 1em;
 }
 
-section.about > p:first-of-type {
-    font-size: 18px;
-    font-weight: 400;
-    letter-spacing: normal;
-    line-height: 1.45;
-    text-transform: none;
-    margin-bottom: 1em;
-    padding: 0;
-}
-
-section.about h2 {
-    display: none;
-}
-
-section.about li {
+.about .markdown-list li {
     font-size: 18px;
     line-height: 1.45;
     letter-spacing: normal;
-    margin-bottom: 0.4em;
     max-width: none;
-    padding: 0;
+    margin-bottom: 0.4em;
 }
 
-section.about .markdown-list {
-    margin-top: 0;
-    margin-bottom: 1em;
-}
-
-footer {
-    margin-top: 24px;
-    padding-top: 8px;
-    border-top: 1px solid var(--accent-soft);
-    font-family: var(--font-serif);
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--muted);
-}
-
-footer p {
-    margin: 0;
-}
-
-footer a,
-footer a:visited {
-    color: inherit;
-    background: none;
-}
-
-.recent-updates {
-    margin: 0;
-}
-
-.recent-strip {
-    margin: 0;
-    font-family: var(--font-serif);
-    font-size: 18px;
-    line-height: 1.45;
-    color: var(--muted);
-    text-transform: lowercase;
-}
-
-.recent-strip a {
-    color: var(--ink);
-    text-decoration: none;
-}
-
-.recent-strip a:hover {
-    background: var(--hover-highlight);
-    text-decoration: underline;
-    text-decoration-color: var(--accent-primary);
-}
+/* --- home + changelog ---------------------------------------------------- */
 
 .recent-updates-title {
-    font-family: var(--font-serif);
-    font-size: 12px;
     font-weight: 700;
-    text-transform: uppercase;
     letter-spacing: 0.06em;
-    margin: 0 0 8px;
-    padding: 0 0 6px;
-    border-bottom: 1px solid var(--accent-soft);
-    color: var(--muted);
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
 }
 
 .recent-file-block {
-    border-bottom: 1px solid var(--accent-soft);
+    border-bottom: 1px solid var(--rule);
     margin-bottom: 7px;
     padding-bottom: 5px;
 }
@@ -515,43 +351,33 @@ footer a:visited {
     gap: 8px;
     align-items: baseline;
     margin-bottom: 2px;
-    font-family: var(--font-serif);
     font-size: 11px;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--muted);
 }
 
-.file-name {
-    color: var(--ink);
+.recent-file-meta .file-name {
     text-decoration: none;
 }
 
-.recent-file-meta a.file-name:hover {
-    background: var(--hover-highlight);
-    text-decoration: underline;
-    text-decoration-color: var(--accent-primary);
-}
-
 .file-section {
-    color: var(--accent-primary);
+    color: var(--accent);
 }
 
 .file-date {
-    color: var(--muted);
     font-variant-numeric: tabular-nums;
 }
 
 .file-summary {
-    font-family: var(--font-serif);
     font-size: 26px;
-    font-weight: 400;
-    font-style: normal;
     line-height: 1.35;
     letter-spacing: -0.01em;
-    color: var(--ink);
 }
+
+.recent-more {
+    margin-top: 1.5em;
+}
+
+/* --- phones -------------------------------------------------------------- */
 
 @media (max-width: 768px) {
     .layout {
@@ -559,22 +385,19 @@ footer a:visited {
     }
 
     .sidebar {
-        position: sticky;
-        top: 0;
         height: auto;
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid var(--accent-soft);
         z-index: 30;
         padding: 10px 8px;
+        border-right: none;
+        border-bottom: 1px solid var(--rule);
     }
 
-    .sidebar-cleanui .cleanui-masthead,
-    .sidebar-cleanui .cleanui-nav {
+    .cleanui-masthead,
+    .cleanui-nav {
         display: none;
     }
 
-    .sidebar .mobile-nav {
+    .mobile-nav {
         display: block;
     }
 
@@ -585,12 +408,6 @@ footer a:visited {
         align-items: baseline;
     }
 
-    .mnav-main {
-        flex-wrap: nowrap;
-        overflow: visible;
-        gap: 6px 7px;
-    }
-
     .mnav-years {
         margin-top: 8px;
     }
@@ -599,98 +416,63 @@ footer a:visited {
         margin-top: 4px;
     }
 
-    .mnav-main a,
-    .mnav-years a,
-    .mnav-sections a,
-    .mnav-rwl-link {
-        font-family: var(--font-serif);
+    .mobile-nav a {
         font-size: 13px;
         font-weight: 700;
-        letter-spacing: 0;
         white-space: nowrap;
-        color: var(--ink);
         text-decoration: none;
-        background: none;
-        text-transform: lowercase;
     }
 
-    .mnav-main a:hover,
-    .mnav-years a:hover,
-    .mnav-sections a:hover,
-    .mnav-rwl-link:hover,
-    .mnav-rwl-link.is-open,
-    .mnav-years a.is-active {
-        background: var(--hover-highlight);
-        text-decoration: underline;
-        text-decoration-color: var(--accent-primary);
-        color: var(--ink);
+    .mnav-years a[data-leaf] {
+        color: var(--muted);
     }
 
-    .mnav-years a[data-leaf="true"],
-    .mnav-music a[data-leaf="true"] {
-        color: var(--accent-muted);
-    }
-
-    .mnav-years a[data-leaf="true"]::before,
-    .mnav-music a[data-leaf="true"]::before {
+    .mnav-years a[data-leaf]::before {
         content: '- ';
-        color: var(--accent-secondary);
+        color: var(--accent);
     }
 
-    .content {
-        padding: 12px 10px 22px;
+    /* Keep the years row hidden until script.js decides whether to show it. */
+    .js:not(.nav-ready) .mnav-years {
+        display: none;
     }
 
-    .content header .year-label {
+    .year-label {
         font-size: clamp(1.35rem, 9.2vw, 2.3rem);
     }
 
     section {
-        margin-left: 0;
         margin-bottom: 26px;
     }
 
-    section > p:first-of-type {
+    .meta {
         font-size: 11px;
     }
 
-    section li {
+    .markdown-list li {
         font-size: 19px;
     }
 
-    section.films li,
-    section.shows li {
-        font-size: 19px;
+    .films .markdown-list li,
+    .shows .markdown-list li {
         line-height: 1.35;
     }
 
-    section .dated-list li,
-    section .numbered-list li {
+    .dated-list li,
+    .numbered-list li {
         grid-template-columns: 2.7rem 1fr;
         column-gap: 0.42rem;
     }
 
-    section.films .dated-list .entry-body,
-    section.shows .dated-list .entry-body {
-        line-height: 1.35;
-        padding-top: 0.04em;
-        padding-bottom: 0.04em;
-    }
-
-    section .dated-list .entry-date,
-    section .numbered-list li::before {
+    .entry-date,
+    .numbered-list li::before {
         font-size: 10px;
     }
-
 }
 
 @keyframes appear {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {

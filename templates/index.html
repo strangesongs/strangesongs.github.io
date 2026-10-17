@@ -1,36 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>cleve<%= year ? ' - ' + year : '' %></title>
-        <link rel="stylesheet" href="style.css?v=20260723-list-type">
+        <title><%= pageTitle %></title>
+        <meta name="description" content="<%= description %>">
+        <link rel="canonical" href="<%= canonicalUrl %>">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="<%= siteName %>">
+        <meta property="og:title" content="<%= pageTitle %>">
+        <meta property="og:description" content="<%= description %>">
+        <meta property="og:url" content="<%= canonicalUrl %>">
+        <meta name="twitter:card" content="summary">
+        <link rel="icon" href="favicon.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="style.css?v=<%= version %>">
+        <script>document.documentElement.classList.add('js');</script>
     </head>
     <body>
         <div class="layout layout-cleanui">
             <aside class="sidebar sidebar-cleanui">
                 <%- sidebar %>
             </aside>
-            
+
             <main class="content content-cleanui">
-                <% if (year && /^\d{4}$/.test(year)) { %>
+                <% if (yearLabel) { %>
                 <header>
-                    <p class="year-label"><%= year %></p>
+                    <p class="year-label"><%= yearLabel %></p>
                 </header>
                 <% } %>
                 <%- content %>
-                <% if (showFooter && lastUpdated) { %>
-                <footer>
-                    <p>Last updated: <%= lastUpdated %></p>
-                </footer>
-                <% } %>
             </main>
         </div>
-        <script src="script.js?v=20260707b-cleanui"></script>
-        <% if (typeof pageScripts !== 'undefined' && pageScripts && pageScripts.length) { %>
-        <% pageScripts.forEach(function (src) { %>
-        <script src="<%= src %>"></script>
-        <% }); %>
-        <% } %>
+        <script src="script.js?v=<%= version %>"></script>
     </body>
 </html>

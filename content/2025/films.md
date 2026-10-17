@@ -8,16 +8,16 @@ date TITLE (year) director | format | location | notes
 total: 69 films
 
 01.03 VIDEODROME (DIRECTOR'S CUT) (1983) david cronenberg | 4k restoration | academy museum
-01.04 MESHES OF THE AFTERNOON (1943) maya deren | digital | PRS
-01.04 AT LAND (1944) maya deren | digital | PRS
-01.04 MEDITATION ON VIOLENCE (1948) maya deren | digital | PRS
-01.04 RITUAL IN TRANSFIGURED TIME (1946) maya deren | digital | PRS
-01.04 THE VERY EYE OF NIGHT (1955) maya deren | digital | PRS
+01.04 MESHES OF THE AFTERNOON (1943) maya deren | digital | philosophical research society
+01.04 AT LAND (1944) maya deren | digital | philosophical research society
+01.04 MEDITATION ON VIOLENCE (1948) maya deren | digital | philosophical research society
+01.04 RITUAL IN TRANSFIGURED TIME (1946) maya deren | digital | philosophical research society
+01.04 THE VERY EYE OF NIGHT (1955) maya deren | digital | philosophical research society
 01.05 ANDREI RUBLEV (1966) andrei tarkovsky | dcp | egyptian theater
-01.10 TO LIVE AND DIE IN LA (1985) william freidkin | digital file *
+01.10 TO LIVE AND DIE IN LA (1985) william friedkin | digital file *
 01.18 INLAND EMPIRE (2006) david lynch | dcp | egyptian theater
 01.28 THE ROOM NEXT DOOR (2024) pedro almodovar | los feliz 3 | digital
-01.30 TWIN PEAKS: THE RETURN: EPISODE 8 (2017) david lynch | PRS | digital
+01.30 TWIN PEAKS: THE RETURN: EPISODE 8 (2017) david lynch | digital | philosophical research society
 
 02.03 SIX MEN GETTING SICK (1967) david lynch | dcp | egyptian theater
 02.03 THE ALPHABET (1968) david lynch | dcp | egyptian theater
@@ -42,7 +42,7 @@ total: 69 films
 06.07 BEAU TRAVAIL (1999) claire denis | dcp | egyptian theater
 
 07.03 CROCUS (1971) suzan pitt | streaming | criterion channel
-07.05 FLIPSIDE (2023) christopher wilca | streaming | criterion channel
+07.05 FLIPSIDE (2023) chris wilcha | streaming | criterion channel
 07.06 MILLENNIUM MAMBO (2001) hou hsiao-hsien | dcp | los feliz 3
 07.09 MADE IN HONG KONG (1997) fruit chan | dcp | los feliz 3
 07.15 THE KEEP (1983) michael mann | streaming | criterion channel
@@ -52,7 +52,7 @@ total: 69 films
 08.11 IN WATER (2023) hong sang-soo | streaming | kanopy
 08.20 WAYS OF SEEING (1972) f. john berger | bbc | youtube
 08.24 THE NOVELIST'S FILM (2022) hong sang-soo | streaming | kanopy
-08.26 THE FRIENDS (1994) shinji sōmai | 4k restoration | 2220 archives
+08.26 THE FRIENDS (1994) shinji sōmai | 4k restoration | 2220 arts + archives
 08.30 MENUS-PLAISIRS, LES TROISGROS (2023) frederick wiseman | digital | los feliz 3
 08.31 DEEP COVER (1992) bill duke | streaming | criterion channel
 08.31 DAYBREAK EXPRESS (1953) d.a. pennebaker | streaming | criterion channel
@@ -63,10 +63,10 @@ total: 69 films
 09.24 WALK UP (2022) hong sang-soo | streaming | kanopy
 09.24 TRIBULATION 99: ALIEN ANOMALIES UNDER AMERICA (1991) craig baldwin | streaming | night flight plus
 
-10.01 PORT OF SHADOWS (1938) marcel carne | streaming | kanopy
+10.01 PORT OF SHADOWS (1938) marcel carné | streaming | kanopy
 10.01 THE DAY AFTER (2017) hong sang-soo | streaming | kanopy
 10.03 ONE BATTLE AFTER ANOTHER (2025) paul thomas anderson | vista theater | in vista vision
-10.04 PURPLE NOON (1960) rene clement | streaming | criterion
+10.04 PURPLE NOON (1960) rené clément | streaming | criterion
 10.23 BLACK SUNDAY (1960) mario bava | streaming | kanopy
 
 11.03 THE ANDERSON TAPES (1970) sidney lumet | streaming | criterion channel
@@ -79,7 +79,7 @@ total: 69 films
 
 12.05 CHAN IS MISSING (1982) wayne wang | streaming | kanopy
 12.10 SPRING, SUMMER, FALL, WINTER... AND SPRING (2003) kim ki-duk | 35mm | los feliz 3
-12.14 A TASTE OF CHERRY (1997) abbas kiarostami | 35 mm | egyptian theater *
+12.14 A TASTE OF CHERRY (1997) abbas kiarostami | 35mm | egyptian theater *
 12.14 BY THE STREAM (2024) hong sang-soo | digital file
 12.15 SUNDAY IN PEKING (1956) chris marker | streaming | criterion channel
 12.16 THE MASTERMIND (2025) kelly reichardt | streaming | mubi

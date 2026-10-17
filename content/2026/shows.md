@@ -20,18 +20,18 @@ total: 27 shows
 03.13 MMOONN / DANIELA HUERTA | 2220 arts + archives
 03.22 YEFIM BRONFMAN | walt disney concert hall | colburn celebrity recital
 03.24 DIRTY THREE | el rey theater
-03.25 AVA MENDOZA, AMIRTHA KIDAMBI + ANGEL DERADOORIAN / MATANA ROBERTS | 2220 arts and archives
+03.25 AVA MENDOZA, AMIRTHA KIDAMBI + ANGEL DERADOORIAN / MATANA ROBERTS | 2220 arts + archives
 
 04.04 WILD UP: PERFECT OFFERING | nimoy theater
-04.15 RO (B)//ERT LUNDBERG's ADDENDUM, MINGJIA CHEN, GREGG KOWALSKY | 2220 arts and archives
+04.15 RO (B)//ERT LUNDBERG's ADDENDUM, MINGJIA CHEN, GREGG KOWALSKY | 2220 arts + archives
 04.17 LUCK OF THE DRAW | oracle egg
 05.03 THE MOTHER OF US ALL (1947) | streaming | co-production of juilliard school and the new york philharmonic; filmed adaptation of the virgil thomson / gertrude stein
 05.05 GREEN UMBRELLA NEW MUSIC SERIES | walt disney concert hall | piece information coming soon
 05.17 DAS RHEINGOLD (OPERA NORTH) | streaming | [performance link](https://www.youtube.com/watch?v=4EYW49Ru_F4&t=95s)
-05.19 DIE WALKÜRE ACT 1 | walt disney hall | la phil
-05.20 DIE WALKÜRE ACT 2 | walt disney hall | la phil
-05.21 DIE WALKÜRE ACT 3 | walt disney hall | la phil
-05.23 JOAN LA BARBARA / SHELLEY BURGON / MODERN CURRENTS ENSEMBLE | 2220 arts and archives
+05.19 DIE WALKÜRE ACT 1 | walt disney concert hall | la phil
+05.20 DIE WALKÜRE ACT 2 | walt disney concert hall | la phil
+05.21 DIE WALKÜRE ACT 3 | walt disney concert hall | la phil
+05.23 JOAN LA BARBARA / SHELLEY BURGON / MODERN CURRENTS ENSEMBLE | 2220 arts + archives
 05.30 WEEKEND AT JOHNNY'S DAY 3 | coaxial arts
 
 06.10 RAFIQ BHATIA | 2220 arts + archives | environments (w/ ian chang + riley mulherkar)
@@ -50,4 +50,4 @@ total: 27 shows
 10.07 CHARLEMAGNE PALESTINE | the brick
 10.08 BODY/HEAD, MY GENERATION | zebulon
 10.09 HIDDEN IDENTITY | lacma jazz | jazz refractions festival
-10.16 GEORGE, CHIQUITA MAGIC | 2220 arts and archives | jazz refractions festival
+10.16 GEORGE, CHIQUITA MAGIC | 2220 arts + archives | jazz refractions festival

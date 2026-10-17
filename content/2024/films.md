@@ -7,40 +7,40 @@ date TITLE (year) director | format | location | notes
 * denotes repeat viewing
 total: 66 films
 
-01.14 THE DEVILS (1971) ken russell | streaming criterion channel
-01.18 TAIPEI STORY (1985) edward yang | DCP | Los Feliz 3 | edward yang retrospective at AC
-01.19 FLOWERS OF SHANGHAI (1998) hou hsiao-hsien | streaming criterion channel
-01.20 A BRIGHTER SUMMER DAY (1991) edward yang | DCP | Egyptian Theater | Yang retro at AC
+01.14 THE DEVILS (1971) ken russell | streaming | criterion channel
+01.18 TAIPEI STORY (1985) edward yang | dcp | los feliz 3 | edward yang retrospective at american cinematheque
+01.19 FLOWERS OF SHANGHAI (1998) hou hsiao-hsien | streaming | criterion channel
+01.20 A BRIGHTER SUMMER DAY (1991) edward yang | dcp | egyptian theater | edward yang retrospective at american cinematheque
 
-01.28 YI-YI (2000) edward yang | DCP | Egyptian Theater | EY retro at AC *
+01.28 YI-YI (2000) edward yang | dcp | egyptian theater | edward yang retrospective at american cinematheque *
 
-02.01 SUNDAY IN PEKING (1956) chris marker | streaming criterion channel
+02.01 SUNDAY IN PEKING (1956) chris marker | streaming | criterion channel
 02.23 THE PRACTICE OF THE WILD (2010) john j. healy | streaming | vimeo
-02.24 SEXY BEAST (2000) jonathan glazer | streaming criterion channel
-02.25 ORLANDO, MY POLITICAL BIOGRAPHY (2023) paul preciado | streaming criterion channel
+02.24 SEXY BEAST (2000) jonathan glazer | streaming | criterion channel
+02.25 ORLANDO, MY POLITICAL BIOGRAPHY (2023) paul preciado | streaming | criterion channel
 
-02.29 SUZHOU RIVER (2000) lou ye | streaming criterion channel
+02.29 SUZHOU RIVER (2000) lou ye | streaming | criterion channel
 
-03.01 BEAU TRAVAIL (1999) claire denis | DCP | egyptian theater
-03.09 MONA LISA (1986) neil jordon | streaming criterion channel
-03.12 BRIEF ENCOUNTER (1945) david lean | streaming criterion channel *
-03.14 JANINE (1990) cheryl dunye | digital | lightstruck @ 2220 archives
-03.14 THE POTLUCK AND THE PASSION (1993) cheryl dunye | digital | lightstruck @ 2220 archives
-03.14 AN UNTITLED PORTRAIT (1993) cheryl dunye | digital | lightstruck @ 2220 archives
-03.14 VANILLA SEX (1992) cheryl dunye | digital | lightstruck @ 2220 archives
-03.14 SHE DON'T FADE (1991) cheryl dunye | digital | lightstruck @ 2220 archives
-03.14 GREETINGS FROM AFRICA (1995) cheryl dunye | 16mm | lightstruck @ 2220 archives
-03.16 ORIGINAL CAST ALBUM: "COMPANY" (1970) d.a. pennebaker | streaming criterion channel
-03.23 BLACK ORPHEUS (1959) marcel camus | streaming criterion channel
+03.01 BEAU TRAVAIL (1999) claire denis | dcp | egyptian theater
+03.09 MONA LISA (1986) neil jordan | streaming | criterion channel
+03.12 BRIEF ENCOUNTER (1945) david lean | streaming | criterion channel *
+03.14 JANINE (1990) cheryl dunye | digital | lightstruck @ 2220 arts + archives
+03.14 THE POTLUCK AND THE PASSION (1993) cheryl dunye | digital | lightstruck @ 2220 arts + archives
+03.14 AN UNTITLED PORTRAIT (1993) cheryl dunye | digital | lightstruck @ 2220 arts + archives
+03.14 VANILLA SEX (1992) cheryl dunye | digital | lightstruck @ 2220 arts + archives
+03.14 SHE DON'T FADE (1991) cheryl dunye | digital | lightstruck @ 2220 arts + archives
+03.14 GREETINGS FROM AFRICA (1995) cheryl dunye | 16mm | lightstruck @ 2220 arts + archives
+03.16 ORIGINAL CAST ALBUM: "COMPANY" (1970) d.a. pennebaker | streaming | criterion channel
+03.23 BLACK ORPHEUS (1959) marcel camus | streaming | criterion channel
 
 03.31 THE ZONE OF INTEREST (2023) jonathan glazer | streaming on a delta flight
 
 04.13 THE FAVOURITE (2018) yorgos lanthimos | streaming on a latam flight
-04.15 AFTER HOURS (1985) martin scorsese | streaming criterion channel, didn't finish
+04.15 AFTER HOURS (1985) martin scorsese | streaming | criterion channel | didn't finish
 
 04.21 LE SAMOURAI (1967) jean-pierre melville | 4K | los feliz 3
 
-05.03 TURN EVERY PAGE: THE ADVENTURE OF ROBERT CARO AND ROBERT GOTTLIEB (2021) lizzie gottlieb | streaming criterion channel
+05.03 TURN EVERY PAGE: THE ADVENTURE OF ROBERT CARO AND ROBERT GOTTLIEB (2021) lizzie gottlieb | streaming | criterion channel
 05.04 MAPS TO THE STARS (2014) david cronenberg | streaming
 05.10 COMPANY (2011) lonny price | youtube
 05.11 BLACK GOD, WHITE DEVIL (1964) glauber rocha | 4k restoration | los feliz 3
@@ -50,15 +50,15 @@ total: 66 films
 05.19 IT'S COMPLICATED (2009) nancy meyers | amazon prime *
 05.22 EVIL DOES NOT EXIST (2023) ryusuke hamaguchi | alamo drafthouse dtla
 05.24 DRIVE MY CAR (2021) ryusuke hamaguchi | criterion channel
-05.26 IN OUR DAY (2023) hong sang-soo | dcp | 2220 archives
-05.26 SMALL FLOWERS (2022) hong sang-soo | dcp | 2220 archives
+05.26 IN OUR DAY (2023) hong sang-soo | dcp | 2220 arts + archives
+05.26 SMALL FLOWERS (2022) hong sang-soo | dcp | 2220 arts + archives
 
 05.31 THE DAY HE ARRIVES (2012) hong sang-soo | kanopy
 
-06.02 MARGARET: EXTENDED CUT (2011) kenneth lonergan | DCP | egyptian theater | kenneth lonergan and j smith-cameron in-person Q+A
+06.02 MARGARET: EXTENDED CUT (2011) kenneth lonergan | dcp | egyptian theater | kenneth lonergan and j smith-cameron in-person q+a
 06.05 THE LEGEND OF HELL HOUSE (1973) john hough | criterion channel
 
-06.07 ARMY OF SHADOWS (1969) jean-pierre melville | 35 mm | egyptian theater
+06.07 ARMY OF SHADOWS (1969) jean-pierre melville | 35mm | egyptian theater
 
 07.11 THE SILENCE OF MARK ROTHKO (2014) marjoleine boonstra | moca grand
 07.13 NORTH BY NORTHWEST (1959) alfred hitchcock | 70 mm | egyptian theater
@@ -70,7 +70,7 @@ total: 66 films
 07.20 THE COMB (FROM THE MUSEUMS OF SLEEP) (1991) the brothers quay | digital | philosophical research society
 07.31 ZEN: IN SEARCH OF ENLIGHTENMENT (1994) toshimaro ama | youtube
 
-08.02 GOODBYE DRAGON INN (2003) tsai ming-liang | 4k restoration | egyptian theater | q+a with ming-liang and Lee kang-sheng
+08.02 GOODBYE DRAGON INN (2003) tsai ming-liang | 4k restoration | egyptian theater | q+a with tsai ming-liang and lee kang-sheng
 08.03 WALKABOUT (1971) nicolas roeg | criterion channel *
 08.15 CITY OF GOD (2002) fernando meirelles | katia lund | 35mm | new beverly cinema
 08.16 BETWEEN ME AND MY MIND (2019) steven canton | streaming | kanopy

@@ -7,10 +7,14 @@ function saveRwlNavState() {
     }
 
     const openYear = nav.querySelector('.rwl-year.is-open .rwl-year-toggle')?.dataset.year || '';
-    sessionStorage.setItem(RWL_NAV_KEY, JSON.stringify({
-        open: nav.classList.contains('is-rwl-open'),
-        year: openYear
-    }));
+    try {
+        sessionStorage.setItem(RWL_NAV_KEY, JSON.stringify({
+            open: nav.classList.contains('is-rwl-open'),
+            year: openYear
+        }));
+    } catch (error) {
+        // Storage can be unavailable (private mode, blocked site data); nav still works.
+    }
 }
 
 function restoreRwlNavState() {
@@ -42,16 +46,18 @@ function restoreRwlNavState() {
             }
         }
     } catch (error) {
-        sessionStorage.removeItem(RWL_NAV_KEY);
+        try {
+            sessionStorage.removeItem(RWL_NAV_KEY);
+        } catch (ignored) {
+            // Storage unavailable.
+        }
     }
 }
 
 function updateYearPageView(options = {}) {
     const { scrollToTop = false } = options;
     const yearLabel = document.querySelector('.year-label');
-    const sections = Array.from(document.querySelectorAll('main .content section, main > section, .content > section')).filter(
-        section => section.id
-    );
+    const sections = Array.from(document.querySelectorAll('main > section.log[id]'));
 
     if (!yearLabel || sections.length === 0) {
         return;
@@ -205,9 +211,14 @@ function setupMobileNav() {
     if (!rwlLink || !yearsRow || !sectionsRow) return;
 
     const pageName = window.location.pathname.split('/').pop() || '';
-    const yearMatch = pageName.match(/^(20\d{2})\.html$/);
+    const yearMatch = pageName.match(/^(\d{4})\.html$/);
     const currentYear = yearMatch ? yearMatch[1] : '';
     const isYearPage = Boolean(currentYear);
+
+    // The years row ships visible so the site works without JavaScript.
+    // Collapse it here (CSS keeps it hidden until this runs, to avoid a flash).
+    yearsRow.hidden = !isYearPage;
+    document.documentElement.classList.add('nav-ready');
 
     const setActiveYear = year => {
         yearsRow.querySelectorAll('a').forEach(a => {

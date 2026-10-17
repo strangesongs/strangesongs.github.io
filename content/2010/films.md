@@ -15,10 +15,10 @@ total: 40 films
 6. THE SEVENTH CONTINENT (1987) michael haneke
 7. ENCOUNTERS AT THE END OF THE WORLD (2007) werner herzog
 8. HAPPY-GO-LUCKY (2008) mike leigh
-9. VALENTINO: THE LAST EMPEROR (2008) matt tymauer
+9. VALENTINO: THE LAST EMPEROR (2008) matt tyrnauer
 10. PRINCESS MONONOKE (1997) hayao miyazaki
 11. A SINGLE MAN (2009) tom ford
-12. THE INFORMANT! (2009) stephen soderberg
+12. THE INFORMANT! (2009) steven soderbergh
 13. THE LIVING END (1992) gregg araki
 14. THE MUPPETS TAKE MANHATTAN (1984) frank oz
 15. THE ROCKY HORROR PICTURE SHOW (1985) jim sharman

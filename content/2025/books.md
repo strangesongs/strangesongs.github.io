@@ -21,7 +21,7 @@ total: 40 books
 12. KOREATOWN DREAMING: STORIES AND PORTRAITS OF KOREAN IMMIGRANT LIFE (2023) emanuel hahn
 13. IN TRANSIT (1988) mavis gallant
 14. THE FOUR AGREEMENTS (1997) don miguel ruiz
-15. FORMATION: BUILDING A PERSONAL CANON PART ONE (2023) brad melhdau
+15. FORMATION: BUILDING A PERSONAL CANON PART ONE (2023) brad mehldau
 16. HOW TO FUCK LIKE A GIRL (2024) vera blossom
 17. ESCAPE FROM FREEDOM (1941) erich fromm
 18. THE WAY OF EVERYDAY LIFE (1978) taizan maezumi roshi
@@ -34,7 +34,7 @@ total: 40 books
 25. THE NEW FRENCH WINE (2023) jon bonné
 26. ON ZEN PRACTICE (2002) taizan maezumi and bernie glassman
 27. SPIRITUAL ECOLOGY: THE CRY OF THE EARTH (2013) edited by lewellyn vaughan-lee
-28. THE BALLAD OF BETA-2 (1965) samuel r. delaney
+28. THE BALLAD OF BETA-2 (1965) samuel r. delany
 29. APPLE IN CHINA (2025) patrick mcgee
 30. THREE LIVES (1909) gertrude stein
 31. LACK AND TRANSCENDENCE (2000) david r. loy
