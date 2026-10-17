@@ -4,12 +4,5 @@ tracking what i read, watch, and see across each year — plus photography and p
 
 ## Photography
 
-`photography.html` is a **portfolio coming soon** placeholder while the gallery moves to local images.
-
-Drop web-sized JPEGs into `content/photography/albums/{slug}/` (see `content/photography/MIGRATION.md`).
-
-```bash
-npm run build
-npm run serve   # http://localhost:8090/photography.html
-./scripts/smoke-photography.sh
-```
+The photography portfolio is its own project: [whatwesee](https://github.com/strangesongs/whatwesee), served at `/whatwesee/`.
+The sidebar links straight to it; this repo has no photography page of its own.

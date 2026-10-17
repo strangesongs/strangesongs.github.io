@@ -130,7 +130,7 @@ function buildSidebar(currentYear = '', currentSection = '', currentPage = '') {
     const projectLinks = [
         { title: 'consono', href: 'https://consono.bandcamp.com/', external: true },
         { title: 'ad lucem', href: 'https://adlucem.bandcamp.com/', external: true },
-        { title: 'photography', href: 'photography.html', external: false },
+        { title: 'photography', href: 'whatwesee/', external: false },
         { title: 'fruit for all', href: 'https://fruitforall.app/', external: true },
         { title: 'save to photos', href: 'https://savetophotos.com/', external: true }
     ];
@@ -167,10 +167,8 @@ function buildSidebar(currentYear = '', currentSection = '', currentPage = '') {
     }
 
     projectLinks.forEach(link => {
-        const isActive = !link.external && currentPage === 'photography' && link.href === 'photography.html';
-        const activeAttr = isActive ? ' class="is-active"' : '';
         const externalAttr = link.external ? ' target="_blank" rel="noopener"' : '';
-        sidebar += `<li class="depth-1"><a href="${link.href}"${externalAttr}${activeAttr}>${link.title}</a></li>\n`;
+        sidebar += `<li class="depth-1"><a href="${link.href}"${externalAttr}>${link.title}</a></li>\n`;
     });
 
     const aboutActive = currentPage === 'about' ? ' class="is-active"' : '';
@@ -346,53 +344,6 @@ async function buildAbandoned() {
     console.log('Generated abandoned.html');
 }
 
-async function buildPhotography() {
-    console.log('Building photography (coming soon placeholder)...');
-    const assetVersion = '20260826a';
-    const html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Photography by j cretella. Portfolio coming soon.">
-    <meta property="og:title" content="what we see is what we are">
-    <meta property="og:description" content="Photography portfolio coming soon.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://strangesongs.github.io/photography.html">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="what we see is what we are">
-    <meta name="twitter:description" content="Photography portfolio coming soon.">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="photography.css?v=${assetVersion}">
-    <title>what we see is what we are</title>
-</head>
-<body>
-    <div class="top-bar">
-        <a class="hub-link" href="index.html">&larr; cleve</a>
-    </div>
-
-    <header class="site-header">
-        <h1 class="wordmark">what we see is what we are</h1>
-    </header>
-    <hr class="site-rule">
-
-    <main>
-        <p class="coming-soon">portfolio coming soon</p>
-
-        <footer id="contact" class="footer-contact" aria-label="Contact information">
-            <p>photos by j cretella</p>
-            <p><a href="mailto:jcrtll@protonmail.com">jcrtll@protonmail.com</a></p>
-            <p><a href="index.html">cleve</a></p>
-        </footer>
-    </main>
-</body>
-</html>
-`;
-
-    fs.writeFileSync('photography.html', html);
-    console.log('Generated photography.html (coming soon)');
-}
-
 async function build() {
     // ...existing build logic for years, sections, etc...
     console.log('Starting build...');
@@ -408,7 +359,6 @@ async function build() {
     await buildAbout();
     await buildRwl();
     await buildAbandoned();
-    await buildPhotography();
 
     const execSync = require('child_process').execSync;
 

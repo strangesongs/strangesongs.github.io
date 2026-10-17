@@ -30,23 +30,17 @@ content/
     films.md    → "watch" section
     shows.md    → "listen" section
   abandoned.md  → abandoned books/films
-  photography/
-    MIGRATION.md → plan for local portfolio rebuild
-    albums/{slug}/ → drop web-sized JPEGs here (_inbox = staging)
 templates/index.html   # EJS layout (sidebar + main content)
-build.js               # markdown → HTML, sidebar, changelog, index, photography
-photography.css        # standalone photography page styles
+build.js               # markdown → HTML, sidebar, changelog, index
 style.css              # canonical stylesheet (see RAW_WEB_STYLE_PORTING_GUIDE.md)
 script.js              # mobile nav behavior
 ```
 
 ## Photography
 
-Standalone page (`photography.html`) — currently a **portfolio coming soon** placeholder while the gallery moves to local images. Hub still links here.
+The portfolio lives in a separate repo, `whatwesee` (https://github.com/strangesongs/whatwesee), published at `/whatwesee/` on this domain. The sidebar "photography" link points there.
 
-Drop web-sized JPEGs into `content/photography/albums/{slug}/`. Full rebuild plan and next-chat prompt: `content/photography/MIGRATION.md`.
-
-Do not reintroduce Flickr CDN/API for the live gallery.
+Do not add photos or gallery code to this repo.
 
 ## Content format
 
