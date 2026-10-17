@@ -276,7 +276,16 @@ function setupMobileNav() {
 window.addEventListener('hashchange', () => {
     updateYearPageView({ scrollToTop: true });
 });
+// Email links ship pointing at the about page; build the real address here
+// so it never appears in the HTML for scrapers.
+function setupEmailLinks() {
+    document.querySelectorAll('a.email-link[data-user][data-domain]').forEach(link => {
+        link.href = `mailto:${link.dataset.user}@${link.dataset.domain}`;
+    });
+}
+
 window.addEventListener('DOMContentLoaded', () => {
+    setupEmailLinks();
     setupRwlNav();
     restoreRwlNavState();
     setupSectionNavNoJump();

@@ -352,6 +352,15 @@ section :target {
     margin-bottom: 0.4em;
 }
 
+.about h2 {
+    margin: 2em 0 0.5em;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
 /* --- home + changelog ---------------------------------------------------- */
 
 .intro {
@@ -410,6 +419,11 @@ section :target {
 
 .recent-more {
     margin-top: 1.5em;
+}
+
+.intro .not-found-links {
+    margin-top: 1em;
+    font-size: 18px;
 }
 
 /* --- stats --------------------------------------------------------------- */

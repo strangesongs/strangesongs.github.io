@@ -47,9 +47,11 @@ Create `content/YYYY/` with any of `books.md`, `films.md`, `shows.md`, then run 
 ## What the build generates
 
 - `YYYY.html` for each year folder. All sections are on one page; `script.js` shows one section at a time based on the URL hash (`#books`, `#films`, `#shows`). Without JavaScript, every section is shown.
-- `index.html`: the intro from `content/home.md`; a "currently" block with the newest entry in books, films and shows (last read / last watched + location / last show + venue), found automatically from the newest year that has each; then the six most recently committed year/section files, with a summary of the last commit to each ("2 new films added", "1 book edited").
+- `index.html`: the intro from `content/home.md`; a "currently" block with the newest entry in books, films and shows (last read / last watched + location / last show + venue), found automatically from the newest year that has each; then "recent updates": the six year/section files with the most recent commit that **added** entries (edits and cleanups are skipped here; they still show on the changelog).
 - `changelog.html`: the 15 most recently committed content and site files, in the same format.
 - `stats.html` (see below).
+- `404.html`: served by GitHub Pages for any missing path. It uses `<base href="/">` so its relative links work at any depth, and is marked `noindex`.
+- `robots.txt` and `sitemap.xml` (every page), regenerated each build.
 - `about.html`, `abandoned.html`, plus `rwl.html`, a redirect kept for old links.
 - Each page gets a meta description, canonical URL, and Open Graph tags. Year pages describe their counts ("2026: 46 books read, 104 films watched, 40 shows seen.").
 
@@ -70,7 +72,8 @@ Each section file has YAML frontmatter (`title`, `date`), a format line, an opti
 
 - The `total:` line is **not rendered**. The build counts entries itself and shows the totals under the year heading ("46 books · 104 films · 40 shows", each linking to its section). Old files still have `total:` lines; new ones don't need them.
 - Month headings (`### january`) are inserted automatically for dated entries.
-- Text is HTML-escaped, so `&`, `<`, `>` are safe in titles and notes. Markdown links `[text](url)` work anywhere.
+- Text is HTML-escaped, so `&`, `<`, `>` are safe in titles and notes. Markdown links `[text](url)` work anywhere; only `http(s)` and relative URLs become links (anything else, like `javascript:`, is published as plain text). External links open in a new tab.
+- `## heading` lines get an id from their text (`## contact` → `#contact`).
 - Plain lines (the format line, notes like the abandoned intro) render as small uppercase "meta" text.
 
 ### books (`content/YYYY/books.md`)
@@ -132,6 +135,8 @@ Same numbered-list format as books.
 - Desktop: sticky left sidebar with a collapsible "read watch listen" tree. Mobile (≤768px): stacked text nav at the top, with a years row and a sections row.
 - **Works without JavaScript.** The template adds a `js` class to `<html>` before paint; collapsing rules in `style.css` are scoped to `.js`, and the mobile years row ships visible and is collapsed by `script.js` (`nav-ready` class). Keep new interactive features following that pattern.
 - `script.js` uses `sessionStorage` only for remembering which nav year is open, always inside `try/catch`.
+- **The email address never appears in the HTML.** Email links are `<a class="email-link" data-user data-domain href="about.html#contact">`; `script.js` builds the `mailto:` at runtime, and without JavaScript the link goes to the about page, which spells the address out in words. The parts are `EMAIL_USER` / `EMAIL_DOMAIN` in `build.js`. Don't write the plain address into content or templates.
+- Favicon: red italic Georgia "c" (`favicon.svg`).
 - Keep changes minimal and consistent with the existing style.
 
 ## Photography
@@ -143,4 +148,5 @@ The portfolio is a separate repo, `whatwesee` (https://github.com/strangesongs/w
 - Site title/branding: "cleve".
 - Project links and their one-line notes live in `PROJECT_LINKS` at the top of `build.js`. The note shows under the link in the desktop sidebar and as a tooltip on mobile.
 - Do not commit secrets. Do not force-push to main.
+- GitHub Actions in the workflow are **pinned to full commit SHAs** (with the version in a comment). To upgrade one, look up the new release's commit and replace both.
 - Only commit when explicitly asked.

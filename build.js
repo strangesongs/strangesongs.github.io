@@ -15,7 +15,11 @@ const STATIC_FILES = ['style.css', 'script.js', 'favicon.svg'];
 const SITE_URL = 'https://strangesongs.github.io/';
 const SITE_NAME = 'cleve';
 const SITE_DESCRIPTION = 'music, photography, small web projects, and a running log of what i read, watch, and listen to.';
-const EMAIL = 'jcrtll@protonmail.com';
+// The address never appears in the HTML as-is: script.js assembles the mailto
+// link from these parts, and without JavaScript the link goes to the about
+// page, which spells it out in words.
+const EMAIL_USER = 'jcrtll';
+const EMAIL_DOMAIN = 'protonmail.com';
 
 const SECTIONS = [
     { name: 'books', title: 'read', noun: 'book', verb: 'read' },
@@ -143,7 +147,8 @@ function processMarkdown(content, { plainClass = '' } = {}) {
 
     // Headers first so month headings stay on their own lines.
     content = content.replace(/^### (.+)$/gm, '<h3 class="month-heading">$1</h3>');
-    content = content.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+    content = content.replace(/^## (.+)$/gm, (m, text) =>
+        `<h2 id="${text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}">${text}</h2>`);
     content = content.replace(/^# (.+)$/gm, '<h1>$1</h1>');
 
     content = content.replace(/^- (.+)$/gm, (m, body) => `<li class="bullet">${markRepeat(body)}</li>`);
@@ -166,7 +171,13 @@ function processMarkdown(content, { plainClass = '' } = {}) {
     }).join('\n').replace(/\n{3,}/g, '\n\n');
 
     // Links last, once structure is in place. Text and URL are already escaped.
-    content = content.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+    // Only web links and relative paths become links; anything else
+    // (javascript:, data:, ...) is published as plain text.
+    content = content.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, text, url) => {
+        if (/^[a-z][a-z0-9+.-]*:/i.test(url) && !/^https?:/i.test(url)) return text;
+        const external = /^https?:/i.test(url) ? ' target="_blank" rel="noopener"' : '';
+        return `<a href="${url}"${external}>${text}</a>`;
+    });
 
     return content;
 }
@@ -179,6 +190,19 @@ function git(args) {
     } catch (error) {
         return '';
     }
+}
+
+// Newest commit that added entries to the file (for the homepage), so
+// typo fixes and cleanups don't push real additions off the list.
+function lastAddition(file, noun) {
+    const log = git(['log', '-n', '50', '--format=%H %ct', '--', file]);
+    for (const line of log.split('\n').filter(Boolean)) {
+        const [hash, time] = line.split(' ');
+        const commit = { hash, time: Number(time) };
+        const summary = summarizeCommit(commit, file, noun);
+        if (/ added$/.test(summary)) return { date: new Date(commit.time * 1000), summary };
+    }
+    return null;
 }
 
 function lastCommit(file) {
@@ -256,7 +280,7 @@ function assetVersion() {
 const template = fs.readFileSync(TEMPLATE_PATH, 'utf8');
 const version = assetVersion();
 
-function writePage(fileName, { title, description, sidebar, content, yearLabel = '', yearTotals = '' }) {
+function writePage(fileName, { title, description, sidebar, content, yearLabel = '', yearTotals = '', baseHref = '', noindex = false }) {
     const html = ejs.render(template, {
         pageTitle: title ? `${SITE_NAME} - ${title}` : SITE_NAME,
         siteName: SITE_NAME,
@@ -266,10 +290,16 @@ function writePage(fileName, { title, description, sidebar, content, yearLabel =
         sidebar,
         content,
         yearLabel,
-        yearTotals
+        yearTotals,
+        baseHref,
+        noindex
     });
     fs.writeFileSync(path.join(OUT_DIR, fileName), html);
     console.log(`Generated ${fileName}`);
+}
+
+function emailLink() {
+    return `<a href="about.html#contact" class="email-link" data-user="${EMAIL_USER}" data-domain="${EMAIL_DOMAIN}">email</a>`;
 }
 
 function buildSidebar(years, { currentYear = '', currentSection = '', currentPage = '' } = {}) {
@@ -301,7 +331,7 @@ function buildSidebar(years, { currentYear = '', currentSection = '', currentPag
 
     html += `<li class="depth-1 nav-footer"><a href="about.html"${active(currentPage === 'about')}>about</a></li>\n`;
     html += `<li class="depth-1 nav-footer"><a href="changelog.html"${active(currentPage === 'changelog')}>changelog</a></li>\n`;
-    html += `<li class="depth-1 nav-footer"><a href="mailto:${EMAIL}">email</a></li>\n`;
+    html += `<li class="depth-1 nav-footer">${emailLink()}</li>\n`;
     html += `</ul>\n`;
 
     // Mobile nav. The years row is visible by default so it works without
@@ -313,7 +343,7 @@ function buildSidebar(years, { currentYear = '', currentSection = '', currentPag
     PROJECT_LINKS.forEach(link => {
         html += `\n    <a ${projectLinkAttrs(link)}>${link.title}</a>`;
     });
-    html += `\n    <a href="mailto:${EMAIL}">email</a>`;
+    html += `\n    ${emailLink()}`;
     html += `\n  </div>`;
     html += `\n  <div class="mnav-row mnav-years" id="mnav-years">`;
     newestFirst.forEach(year => {
@@ -431,13 +461,22 @@ function currentlyBlock(years) {
 }
 
 function buildHome(years, sources) {
+    const additions = sources
+        .filter(source => source.isLog)
+        .map(source => {
+            const added = lastAddition(source.file, source.noun);
+            return added ? { ...source, ...added } : null;
+        })
+        .filter(Boolean)
+        .sort((a, b) => b.date - a.date);
+
     const introPath = path.join(CONTENT_DIR, 'home.md');
     let content = fs.existsSync(introPath)
         ? `<section class="intro">\n    ${processMarkdown(fs.readFileSync(introPath, 'utf8'))}\n</section>\n`
         : '';
     content += currentlyBlock(years);
     content += '<section class="recent-updates">\n  <h2 class="recent-updates-title">recent updates</h2>';
-    sources.filter(source => source.isLog).slice(0, 6).forEach(source => {
+    additions.slice(0, 6).forEach(source => {
         content += updateBlock(source);
     });
     content += '\n  <p class="recent-more"><a href="changelog.html">full changelog</a></p>';
@@ -469,6 +508,32 @@ function buildStats(years) {
         sidebar: buildSidebar(years, { currentPage: 'stats' }),
         content: `<div class="stats">\n${renderStats(stats, { escapeHtml, plural })}</div>`
     });
+}
+
+// GitHub Pages serves 404.html for any missing path, at any depth, so this
+// page uses root-relative URLs via <base href="/">.
+function buildNotFound(years) {
+    writePage('404.html', {
+        title: 'not found',
+        description: 'page not found.',
+        baseHref: '/',
+        noindex: true,
+        sidebar: buildSidebar(years),
+        content: `<section class="intro not-found">
+    <p>nothing here.</p>
+    <p class="not-found-links"><a href="index.html">home</a> · <a href="${years[years.length - 1]}.html">${years[years.length - 1]}</a> · <a href="stats.html">stats</a> · <a href="changelog.html">changelog</a></p>
+</section>`
+    });
+}
+
+function buildRobotsAndSitemap(years) {
+    const pages = ['', ...[...years].reverse().map(y => `${y}.html`), 'stats.html', 'abandoned.html', 'about.html', 'changelog.html'];
+    const today = formatDate(new Date());
+    const urls = pages.map(page => `  <url><loc>${SITE_URL}${page}</loc><lastmod>${today}</lastmod></url>`).join('\n');
+    fs.writeFileSync(path.join(OUT_DIR, 'sitemap.xml'),
+        `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
+    fs.writeFileSync(path.join(OUT_DIR, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}sitemap.xml\n`);
+    console.log('Generated sitemap.xml, robots.txt');
 }
 
 // Old URL kept alive for anyone who bookmarked it.
@@ -516,6 +581,8 @@ function build() {
     buildHome(years, sources);
     buildChangelog(years, sources);
     buildStats(years);
+    buildNotFound(years);
+    buildRobotsAndSitemap(years);
     buildRwlRedirect();
 
     console.log('Build complete!');
