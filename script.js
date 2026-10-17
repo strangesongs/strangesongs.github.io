@@ -77,6 +77,10 @@ function updateYearPageView(options = {}) {
         document.title = `cleve - ${sectionTitle} ${currentYear}`;
     }
 
+    document.querySelectorAll('.year-totals a').forEach(link => {
+        link.classList.toggle('is-active', link.hash === `#${shownSection.id}`);
+    });
+
     document.querySelectorAll('.cleanui-nav .depth-3.rwl-section a').forEach(link => {
         link.classList.toggle('is-active', link.hash === `#${shownSection.id}` && link.pathname.endsWith(`${currentYear}.html`));
     });

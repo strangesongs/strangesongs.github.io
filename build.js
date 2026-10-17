@@ -223,6 +223,7 @@ function collectSources(years) {
 
     sources.push({ file: path.join(CONTENT_DIR, 'abandoned.md'), label: 'abandoned', href: 'abandoned.html', noun: 'entry' });
     sources.push({ file: path.join(CONTENT_DIR, 'about.md'), label: 'about', href: 'about.html', noun: null });
+    sources.push({ file: path.join(CONTENT_DIR, 'home.md'), label: 'home', href: 'index.html', noun: null });
     ['style.css', 'script.js', TEMPLATE_PATH, 'build.js'].forEach(file => {
         sources.push({ file, label: file, href: null, noun: null });
     });
@@ -248,7 +249,7 @@ function assetVersion() {
 const template = fs.readFileSync(TEMPLATE_PATH, 'utf8');
 const version = assetVersion();
 
-function writePage(fileName, { title, description, sidebar, content, yearLabel = '' }) {
+function writePage(fileName, { title, description, sidebar, content, yearLabel = '', yearTotals = '' }) {
     const html = ejs.render(template, {
         pageTitle: title ? `${SITE_NAME} - ${title}` : SITE_NAME,
         siteName: SITE_NAME,
@@ -257,7 +258,8 @@ function writePage(fileName, { title, description, sidebar, content, yearLabel =
         version,
         sidebar,
         content,
-        yearLabel
+        yearLabel,
+        yearTotals
     });
     fs.writeFileSync(path.join(OUT_DIR, fileName), html);
     console.log(`Generated ${fileName}`);
@@ -320,13 +322,16 @@ function buildSidebar(years, { currentYear = '', currentSection = '', currentPag
 function buildYear(year, years) {
     const sections = sectionsForYear(year);
     const counts = [];
+    const totals = [];
     let content = '';
 
     sections.forEach(section => {
         let raw = fs.readFileSync(path.join(CONTENT_DIR, year, `${section.name}.md`), 'utf8');
         const count = countEntries(raw);
         counts.push(`${count} ${plural(section.noun, count)} ${section.verb}`);
-        raw = raw.replace(/^total:.*$/m, `total: ${count} ${section.name}`);
+        totals.push(`<a href="#${section.name}">${count} ${plural(section.noun, count)}</a>`);
+        // The year header shows live totals, so the file's own total line is dropped.
+        raw = raw.replace(/^total:.*\n?/m, '');
 
         content += `<section id="${section.name}" class="log ${section.name}" data-section-title="${section.title}">\n`;
         content += `    <h2>${section.title}</h2>\n`;
@@ -339,7 +344,8 @@ function buildYear(year, years) {
         description: `${year}: ${counts.join(', ')}.`,
         sidebar: buildSidebar(years, { currentYear: year, currentSection: sections[0].name }),
         content,
-        yearLabel: year
+        yearLabel: year,
+        yearTotals: totals.join(' · ')
     });
 }
 
@@ -369,8 +375,58 @@ function updateBlock(source) {
         + `<div class="file-summary">${escapeHtml(source.summary)}</div></div>`;
 }
 
+// Split an entry line into its parts: date (MM.DD or ''), main text, fields.
+function parseEntry(line) {
+    const dated = line.match(/^(\d{2})\.(\d{2})\s+(.+)$/);
+    const body = dated ? dated[3] : line.replace(/^(?:- |\d+\.\s+)/, '');
+    const fields = body
+        .replace(/\s*\*$/, '')
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+        .split('|')
+        .map(field => field.trim());
+    return { month: dated ? dated[1] : '', day: dated ? dated[2] : '', main: fields[0], fields };
+}
+
+// The newest entry in a section, from the newest year that has one.
+function latestEntry(years, section) {
+    for (const year of [...years].reverse()) {
+        const file = path.join(CONTENT_DIR, year, `${section.name}.md`);
+        if (!fs.existsSync(file)) continue;
+        const lines = fs.readFileSync(file, 'utf8').split('\n').map(line => line.trim()).filter(line => ENTRY_PATTERN.test(line));
+        if (lines.length) return { year, ...parseEntry(lines[lines.length - 1]) };
+    }
+    return null;
+}
+
+function currentlyBlock(years) {
+    const rows = [
+        { section: SECTIONS[0], label: 'last read', place: () => '' },
+        { section: SECTIONS[1], label: 'last watched', place: entry => entry.fields[2] || '' },
+        { section: SECTIONS[2], label: 'last show', place: entry => entry.fields[1] || '' }
+    ];
+
+    let html = '<section class="recent-updates currently">\n  <h2 class="recent-updates-title">currently</h2>';
+    rows.forEach(({ section, label, place }) => {
+        const entry = latestEntry(years, section);
+        if (!entry) return;
+        const date = entry.month ? `${entry.year}-${entry.month}-${entry.day}` : entry.year;
+        const where = place(entry);
+        html += `\n  <div class="recent-file-block"><div class="recent-file-meta">`;
+        html += `<a href="${entry.year}.html#${section.name}" class="file-name">${label}</a>`;
+        html += `<span class="file-date">${escapeHtml(date)}</span>`;
+        if (where) html += `<span class="file-section">${escapeHtml(where)}</span>`;
+        html += `</div><div class="file-summary">${escapeHtml(entry.main)}</div></div>`;
+    });
+    return html + '\n</section>\n';
+}
+
 function buildHome(years, sources) {
-    let content = '<section class="recent-updates">\n  <h2 class="recent-updates-title">recent updates</h2>';
+    const introPath = path.join(CONTENT_DIR, 'home.md');
+    let content = fs.existsSync(introPath)
+        ? `<section class="intro">\n    ${processMarkdown(fs.readFileSync(introPath, 'utf8'))}\n</section>\n`
+        : '';
+    content += currentlyBlock(years);
+    content += '<section class="recent-updates">\n  <h2 class="recent-updates-title">recent updates</h2>';
     sources.filter(source => source.isLog).slice(0, 6).forEach(source => {
         content += updateBlock(source);
     });

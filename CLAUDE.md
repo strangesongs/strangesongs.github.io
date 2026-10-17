@@ -31,6 +31,7 @@ content/
     shows.md     → "listen" section
   abandoned.md   → abandoned books/films
   about.md       → about page
+  home.md        → homepage intro
 templates/index.html   # the one EJS page layout (meta tags, sidebar, main)
 build.js               # markdown → dist/ (pages, sidebar, home, changelog)
 style.css              # the one stylesheet
@@ -45,7 +46,7 @@ Create `content/YYYY/` with any of `books.md`, `films.md`, `shows.md`, then run 
 ## What the build generates
 
 - `YYYY.html` for each year folder. All sections are on one page; `script.js` shows one section at a time based on the URL hash (`#books`, `#films`, `#shows`). Without JavaScript, every section is shown.
-- `index.html`: the six most recently committed year/section files, with a summary of the last commit to each ("2 new films added", "1 book edited").
+- `index.html`: the intro from `content/home.md`; a "currently" block with the newest entry in books, films and shows (last read / last watched + location / last show + venue), found automatically from the newest year that has each; then the six most recently committed year/section files, with a summary of the last commit to each ("2 new films added", "1 book edited").
 - `changelog.html`: the 15 most recently committed content and site files, in the same format.
 - `about.html`, `abandoned.html`, plus `rwl.html`, a redirect kept for old links.
 - Each page gets a meta description, canonical URL, and Open Graph tags. Year pages describe their counts ("2026: 46 books read, 104 films watched, 40 shows seen.").
@@ -56,7 +57,7 @@ Summaries come from the **last commit** touching each file. Entries added and re
 
 Each section file has YAML frontmatter (`title`, `date`), a format line, an optional `* denotes repeat viewing` line, a `total:` line, then entries.
 
-- `total:` is **recalculated on every build** from the entry count, so the number in the source file can be stale; don't bother updating it by hand.
+- The `total:` line is **not rendered**. The build counts entries itself and shows the totals under the year heading ("46 books · 104 films · 40 shows", each linking to its section). Old files still have `total:` lines; new ones don't need them.
 - Month headings (`### january`) are inserted automatically for dated entries.
 - Text is HTML-escaped, so `&`, `<`, `>` are safe in titles and notes. Markdown links `[text](url)` work anywhere.
 - Plain lines (the format line, notes like the abandoned intro) render as small uppercase "meta" text.

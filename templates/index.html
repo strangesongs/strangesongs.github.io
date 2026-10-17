@@ -26,6 +26,7 @@
                 <% if (yearLabel) { %>
                 <header>
                     <p class="year-label"><%= yearLabel %></p>
+                    <% if (yearTotals) { %><p class="year-totals"><%- yearTotals %></p><% } %>
                 </header>
                 <% } %>
                 <%- content %>

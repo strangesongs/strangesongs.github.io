@@ -188,6 +188,21 @@ button:focus-visible {
     text-transform: uppercase;
 }
 
+.year-totals {
+    margin-top: 8px;
+    font-size: 15px;
+    color: var(--muted);
+}
+
+.year-totals a {
+    color: var(--muted);
+    text-decoration: none;
+}
+
+.year-totals a.is-active {
+    color: var(--ink);
+}
+
 /* Small uppercase labels: format lines, notes, totals, section titles. */
 .meta,
 .addendum,
@@ -331,6 +346,18 @@ section :target {
 
 /* --- home + changelog ---------------------------------------------------- */
 
+.intro {
+    max-width: 32ch;
+    margin-bottom: 40px;
+}
+
+.intro p {
+    font-size: 26px;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+}
+
+
 .recent-updates-title {
     font-weight: 700;
     letter-spacing: 0.06em;
@@ -439,6 +466,10 @@ section :target {
 
     .year-label {
         font-size: clamp(1.35rem, 9.2vw, 2.3rem);
+    }
+
+    .intro p {
+        font-size: 22px;
     }
 
     section {
