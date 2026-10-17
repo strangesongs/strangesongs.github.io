@@ -7,12 +7,12 @@ date PERFORMER | VENUE | NOTES
 total: 26 shows
 
 01.22 MARY LATTIMORE + STEVE GUNN | zebulon | mary lattimore residency, solo and collaboration sets
-01.26 LA PHILHARMONIC W/ANNE-SOPHIE MUTTER & PABLO FERRÁNDEZ, CONDUCTOR GUSTAVO DUDAMEL | walt disney concert hall | BRAHMS double concerto and BRUCKNER symphony #1
+01.26 LA PHILHARMONIC w/ ANNE-SOPHIE MUTTER + PABLO FERRÁNDEZ, CONDUCTOR GUSTAVO DUDAMEL | walt disney concert hall | brahms double concerto and bruckner symphony #1
 
 02.11 ANNA BUTTERSS + BEN LUMSDAINE, JEREMY CUNNINGHAM QUARTET | 2220 arts + archives
 
-03.08 LA PHILHARMONIC W/MAO FUJITA, CONDUCTOR DOMINGO HINDOYAN | walt disney concert hall | GUBAIDULINA poema-skazka, RACHMANINOFF piano concerto no. 2 in c minor, op. 18, PROKOFIEV symphony no. 5 in B-flat major, op. 100
-03.19 TIMO ANDRES, ANTON BATAGOV, LARA DOWNES, JENNY LIN, MAKI NAMEKAWA | walt disney concert hall | PHILIP GLASS: the complete etudes, 1-20
+03.08 LA PHILHARMONIC w/ MAO FUJITA, CONDUCTOR DOMINGO HINDOYAN | walt disney concert hall | gubaidulina poema-skazka, rachmaninoff piano concerto no. 2 in c minor, op. 18, prokofiev symphony no. 5 in b-flat major, op. 100
+03.19 TIMO ANDRES, ANTON BATAGOV, LARA DOWNES, JENNY LIN, MAKI NAMEKAWA | walt disney concert hall | philip glass: the complete etudes, 1-20
 
 04.21 JOSH JOHNSON, JEREMIAH CHIU, DJ ROCIO WYLDEFLOWER CONTRERAS | 2220 arts + archives
 
@@ -21,13 +21,13 @@ total: 26 shows
 05.30 NATURAL INFORMATION SOCIETY, JEFF PARKER, JOSH JOHNSON, ANNA BUTTERSS, MIKEL PATRICK AVERY QUARTET | lodge room
 
 06.20 MARTÍN ESCALANTE, BILL ORCUTT, ZOH AMBA, CHRIS CORSANO | zebulon
-06.30 ZACHARY JAMES WATKINS, WHITE BOY SCREAM, SUMAC W/ZACHARY JAMES WATKINS AND PATRICK SHIROISHI | 2220 arts + archives
+06.30 ZACHARY JAMES WATKINS, WHITE BOY SCREAM, SUMAC w/ ZACHARY JAMES WATKINS + PATRICK SHIROISHI | 2220 arts + archives
 
 07.10 SMALL MEDIUM LARGE | zebulon
-07.22 JEFF PARKER ETA IVTET (JEFF PARKER, JOSH JOHNSON, ANNA BUTTERSS AND JAY BELLEROSE) | zebulon
-07.28 PHISH (LIVE @ ALPINE VALLEY MUSIC THEATRE EAST TROY, WI) | couch tour
+07.22 JEFF PARKER ETA IVTET (JEFF PARKER, JOSH JOHNSON, ANNA BUTTERSS, JAY BELLEROSE) | zebulon
+07.28 PHISH | streaming | couch tour: live @ alpine valley music theatre, east troy, wi
 
-08.10 LOW LIFE, SHARADA SHASHIDHAR, LARAAJI & ARJI OCEANANDA | grand performances dtla
+08.10 LOW LIFE, SHARADA SHASHIDHAR, LARAAJI + ARJI OCEANANDA | grand performances dtla
 
 09.05 SUMAN LAHA, JYOTI PRAKASH, THOMAS KLEPPER SINGH | philosophical research society
 09.07 EXO-TECH | 2220 arts + archives
@@ -41,5 +41,5 @@ total: 26 shows
 11.29 COCHEMEA, RYAN SAWYER, MATANA ROBERTS, JEFF PARKER | zebulon
 
 12.01 LA PHIL CHAMBER MUSIC: INTIMATE SCHOENBERG: VERKLÄRTE NACHT AND FIRST STRING QUARTET | walt disney concert hall
-12.15 LA PHILHARMONIC: SCHOENBERG's GURRELIEDER | walt disney concert hall
-12.17 JEFF PARKER ETA IVtet | zebulon
+12.15 LA PHILHARMONIC: SCHOENBERG'S GURRELIEDER | walt disney concert hall
+12.17 JEFF PARKER ETA IVTET | zebulon

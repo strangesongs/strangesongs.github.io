@@ -8,10 +8,10 @@ total: 43 shows
 
 01.07 LA PHILHARMONIC | walt disney concert hall | chamber music performance of schumann, beach, brahms
 01.17 BROOKLYN RIDER | the wallis | philip glass string quartets
-01.23 MARY LATTIMORE, WALT MCCLEMENS | zebulon
+01.23 MARY LATTIMORE, WALT MCCLEMENTS | zebulon
 01.31 ESPERANZA SPALDING + MILTON NASCIMENTO | 2220 arts + archives
 
-02.01 MEMORYHOUSE: LA BALLET performance | the wallis
+02.01 MEMORYHOUSE: LA BALLET | the wallis | ballet performance
 02.20 LA PHILHARMONIC | walt disney concert hall | mahler grooves festival: blumine, symphony no. 10: adagio, des knaben wunderhorn
 02.24 FRAIL, URSULA | zebulon
 
@@ -30,8 +30,8 @@ total: 43 shows
 04.26 PHISH | hollywood bowl
 04.30 GODSPEED YOU! BLACK EMPEROR | the bellweather
 
-05.08 PAUL CORNISH w/JEFF PARKER, ERIC REVIS and JONATHAN PINSON | townhouse venice
-05.13 GOOD DOG: BILL FRISELL, GREG LEISZ, TONY SCHERR and KENNY WOLLESEN | zebulon
+05.08 PAUL CORNISH w/ JEFF PARKER, ERIC REVIS, JONATHAN PINSON | townhouse venice
+05.13 GOOD DOG: BILL FRISELL, GREG LEISZ, TONY SCHERR, KENNY WOLLESEN | zebulon
 05.20 TIGRAN HAMASYAN | schoenberg hall @ ucla
 05.30 BILL ORCUTT "THE FOUR LOUIES" | zebulon
 
@@ -45,10 +45,10 @@ total: 43 shows
 08.20 JEFF PARKER ETA IVTET | lodge room
 
 09.04 ORCUTT SHELLEY MILLER | barnsdall gallery theater
-09.07 TERRY RILEY 90TH BIRTHDAY CELEBRATION w/ BANG ON A CAN ALL-STARS, GYAN RILEY, and special guests | the ford | keyboard study no. 2, a rainbow in curved air, in c
+09.07 TERRY RILEY 90TH BIRTHDAY CELEBRATION w/ BANG ON A CAN ALL-STARS, GYAN RILEY | the ford | with special guests; keyboard study no. 2, a rainbow in curved air, in c
 
 10.05 THE SEAGULL: MALIBU | will geer theatricum botanicum | adapted + directed by ellen geer
-10.11 PATRICK SHIROISHI / M. SAGE / ODEYA NINI / 2220 arts + archives
+10.11 PATRICK SHIROISHI, M. SAGE, ODEYA NINI | 2220 arts + archives
 10.15 BRAD MEHLDAU, CHRISTIAN MCBRIDE | the wallis
 10.16 JEFF PARKER TRIO + HANGING HEARTS | 2220 arts + archives | angel city jazz fest
 10.17 CHES SMITH'S CLONE ROW + MARY HALVORSON & TOMAS FUJIWARA DUO | 2220 arts + archives | angel city jazz fest
@@ -56,7 +56,7 @@ total: 43 shows
 10.24 RACHIKA NAYAR + NINA KEITH PRESENT 'DISINIBLUD', TYLER HOLMES | 2220 arts + archives
 
 11.10 NEKO CASE | the bellweather
-11.22 THE MUSIC OF PAULINE OLIVEROS WITH SHELLEY BURGON | 2220 arts + archives
+11.22 THE MUSIC OF PAULINE OLIVEROS w/ SHELLEY BURGON | 2220 arts + archives
 
 12.01 SML | 2220 arts + archives | two sets
 12.02 SML | 2220 arts + archives | two sets

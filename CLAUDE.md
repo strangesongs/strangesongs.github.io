@@ -106,7 +106,14 @@ total: N shows
 MM.DD PERFORMER | venue | optional notes
 ```
 
-The second field is **always the venue**. Separate the acts on a bill with `, ` (e.g. `MYRIAM GENDRON, JIM WHITE + MELISSA ANDERSON | zebulon`); use ` + ` for acts playing a set together. Never separate acts with ` | `.
+The second field is **always the venue** (`streaming` for streamed performances). Performer field rules:
+
+- **`, `** separates the acts on a bill: `FRED FRITH, SHELLEY BURGON, MODERN CURRENT`
+- **` + `** joins people playing together as one group or set: `WIL BLADES + JEFF PARKER + ROY MCCURDY JR`. This is intentional; never "correct" it to a comma.
+- **` w/ `** (lowercase, with spaces) introduces guests or the featured players: `BILL FRISELL TRIO w/ LUKE BERGMAN + TIM ANGULO`
+- Never ` / ` or ` | ` between acts, and no trailing "and" in lists. `/` with no spaces is part of a name (`BODY/HEAD`), as is `&` inside a group's name (`MARY HALVORSON & TOMAS FUJIWARA DUO`).
+- The whole performer field is UPPERCASE (except `w/`): `MCCURDY`, not `McCURDY`. Notes are lowercase, including composer names.
+- Lineups go in parentheses: `HEART TRIO (WILLIAM PARKER, COOPER MOORE, HAMID DRAKE)`.
 
 ### abandoned (`content/abandoned.md`)
 
