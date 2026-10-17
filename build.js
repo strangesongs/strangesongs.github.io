@@ -192,19 +192,6 @@ function git(args) {
     }
 }
 
-// Newest commit that added entries to the file (for the homepage), so
-// typo fixes and cleanups don't push real additions off the list.
-function lastAddition(file, noun) {
-    const log = git(['log', '-n', '50', '--format=%H %ct', '--', file]);
-    for (const line of log.split('\n').filter(Boolean)) {
-        const [hash, time] = line.split(' ');
-        const commit = { hash, time: Number(time) };
-        const summary = summarizeCommit(commit, file, noun);
-        if (/ added$/.test(summary)) return { date: new Date(commit.time * 1000), summary };
-    }
-    return null;
-}
-
 function lastCommit(file) {
     const out = git(['log', '-1', '--format=%H %ct', '--', file]);
     if (!out) return null;
@@ -235,7 +222,7 @@ function summarizeCommit(commit, file, noun) {
     return 'updated';
 }
 
-// Everything that can appear in "recent updates" or the changelog.
+// Everything that can appear in the changelog.
 function collectSources(years) {
     const sources = [];
 
@@ -426,56 +413,56 @@ function parseEntry(line) {
     return { month: dated ? dated[1] : '', day: dated ? dated[2] : '', main: fields[0], fields };
 }
 
-// The newest entry in a section, from the newest year that has one.
-function latestEntry(years, section) {
+// The newest `count` entries in a section, newest first, continuing into
+// earlier years when the newest year has fewer.
+function recentEntries(years, section, count) {
+    const found = [];
     for (const year of [...years].reverse()) {
         const file = path.join(CONTENT_DIR, year, `${section.name}.md`);
         if (!fs.existsSync(file)) continue;
         const lines = fs.readFileSync(file, 'utf8').split('\n').map(line => line.trim()).filter(line => ENTRY_PATTERN.test(line));
-        if (lines.length) return { year, ...parseEntry(lines[lines.length - 1]) };
+        for (const line of lines.reverse()) {
+            const number = (line.match(/^(\d+)\./) || [])[1] || '';
+            found.push({ year, number, ...parseEntry(line) });
+            if (found.length === count) return found;
+        }
     }
-    return null;
+    return found;
 }
 
-function currentlyBlock(years) {
-    const rows = [
-        { section: SECTIONS[0], label: 'last read', place: () => '' },
-        { section: SECTIONS[1], label: 'last watched', place: entry => entry.fields[2] || '' },
-        { section: SECTIONS[2], label: 'last show', place: entry => entry.fields[1] || '' }
-    ];
+const HOME_SECTIONS = [
+    { section: SECTIONS[0], title: 'recently read', where: () => '' },
+    { section: SECTIONS[1], title: 'recently watched', where: entry => entry.fields[2] || entry.fields[1] || '' },
+    { section: SECTIONS[2], title: 'recently heard', where: entry => entry.fields[1] || '' }
+];
 
-    let html = '<section class="recent-updates currently">\n  <h2 class="recent-updates-title">currently</h2>';
-    rows.forEach(({ section, label, place }) => {
-        const entry = latestEntry(years, section);
-        if (!entry) return;
-        const date = entry.month ? `${entry.year}-${entry.month}-${entry.day}` : entry.year;
-        const where = place(entry);
-        html += `\n  <div class="recent-file-block"><div class="recent-file-meta">`;
-        html += `<a href="${entry.year}.html#${section.name}" class="file-name">${label}</a>`;
-        html += `<span class="file-date">${escapeHtml(date)}</span>`;
-        if (where) html += `<span class="file-section">${escapeHtml(where)}</span>`;
-        html += `</div><div class="file-summary">${escapeHtml(entry.main)}</div></div>`;
+function buildHome(years) {
+    const newestYear = years[years.length - 1];
+    let content = '';
+
+    HOME_SECTIONS.forEach(({ section, title, where }) => {
+        const entries = recentEntries(years, section, 5);
+        if (!entries.length) return;
+
+        content += `<section class="home-log ${section.name}">\n  <h2 class="recent-updates-title">${title}</h2>\n`;
+        content += '  <ul class="markdown-list dated-list">';
+        entries.forEach(entry => {
+            // Dated entries show MM.DD (plus the year when it isn't the current one);
+            // books have no dates, so they show their list number, as on the year page.
+            const date = entry.month
+                ? `${entry.month}.${entry.day}${entry.year !== newestYear ? `.${entry.year.slice(2)}` : ''}`
+                : entry.number ? `[${entry.number.padStart(2, '0')}]` : entry.year;
+            const place = where(entry);
+            content += `\n    <li class="dated"><span class="entry-date">${escapeHtml(date)}</span>`;
+            content += `<span class="entry-body"><a href="${entry.year}.html#${section.name}">${escapeHtml(entry.main)}</a>`;
+            if (place) content += `<span class="entry-where">${escapeHtml(place)}</span>`;
+            content += '</span></li>';
+        });
+        content += '\n  </ul>\n';
+        const latestYear = entries[0].year;
+        content += `  <p class="recent-more"><a href="${latestYear}.html#${section.name}">all ${section.name} in ${latestYear}</a></p>\n`;
+        content += '</section>\n';
     });
-    return html + '\n</section>\n';
-}
-
-function buildHome(years, sources) {
-    const additions = sources
-        .filter(source => source.isLog)
-        .map(source => {
-            const added = lastAddition(source.file, source.noun);
-            return added ? { ...source, ...added } : null;
-        })
-        .filter(Boolean)
-        .sort((a, b) => b.date - a.date);
-
-    let content = currentlyBlock(years);
-    content += '<section class="recent-updates">\n  <h2 class="recent-updates-title">recent updates</h2>';
-    additions.slice(0, 6).forEach(source => {
-        content += updateBlock(source);
-    });
-    content += '\n  <p class="recent-more"><a href="changelog.html">full changelog</a></p>';
-    content += '\n</section>';
 
     writePage('index.html', { sidebar: buildSidebar(years), content });
 }
@@ -573,7 +560,7 @@ function build() {
     });
 
     const sources = collectSources(years);
-    buildHome(years, sources);
+    buildHome(years);
     buildChangelog(years, sources);
     buildStats(years);
     buildNotFound(years);

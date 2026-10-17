@@ -418,7 +418,28 @@ section :target {
 }
 
 .recent-more {
-    margin-top: 1.5em;
+    margin-top: 1em;
+}
+
+/* Homepage: the newest few entries of each log. */
+.home-log {
+    margin-bottom: 48px;
+}
+
+.home-log .recent-updates-title {
+    margin-bottom: 14px;
+}
+
+.home-log .entry-body a {
+    text-decoration: none;
+}
+
+.entry-where {
+    display: block;
+    margin-top: 2px;
+    font-size: 14px;
+    letter-spacing: 0;
+    color: var(--muted);
 }
 
 .intro .not-found-links {

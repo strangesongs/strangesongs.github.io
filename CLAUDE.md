@@ -46,7 +46,7 @@ Create `content/YYYY/` with any of `books.md`, `films.md`, `shows.md`, then run 
 ## What the build generates
 
 - `YYYY.html` for each year folder. All sections are on one page; `script.js` shows one section at a time based on the URL hash (`#books`, `#films`, `#shows`). Without JavaScript, every section is shown.
-- `index.html`: a "currently" block with the newest entry in books, films and shows (last read / last watched + location / last show + venue), found automatically from the newest year that has each; then "recent updates": the six year/section files with the most recent commit that **added** entries (edits and cleanups are skipped here; they still show on the changelog).
+- `index.html`: three short lists, **recently read**, **recently watched** and **recently heard**, each with the newest five entries of that log (films with their cinema/location, shows with their venue), linking to the year page. If the newest year has fewer than five, earlier years fill in. No changelog-style updates on the homepage.
 - `changelog.html`: the 15 most recently committed content and site files, in the same format.
 - `stats.html` (see below).
 - `404.html`: served by GitHub Pages for any missing path. It uses `<base href="/">` so its relative links work at any depth, and is marked `noindex`.
