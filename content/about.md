@@ -2,13 +2,11 @@
 title: about
 ---
 
-cleve is j. cretella's personal page: a home base for music, photography and a few small web projects, and for read watch listen, a running log of the books i finish, the films i see and the shows i go to.
+hi, my name is cleve. this page is a home base on the internet for my various projects, including links to musical projects, websites and a running log of books, films and shows i've consumed in the last decade or so.
 
-the music lives on bandcamp: consono, and ad lucem for guitar + electronics. photography is at [whatwesee](whatwesee/). fruit for all is a local fruit-finding app, and save to photos is a collection of assorted found images.
+hit the email button to get in touch.
 
-read watch listen goes back to 2010, with gaps. most of the films and shows are around los angeles: repertory screenings at the egyptian, los feliz 3 and 2220 arts + archives, and a lot of live music in small rooms. abandoned is for what i didn't finish. stats adds it all up.
-
-the site is made by hand: plain html built from text files.
+thanks for visiting.
 
 ## contact
 
