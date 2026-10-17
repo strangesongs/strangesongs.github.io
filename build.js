@@ -254,7 +254,6 @@ function collectSources(years) {
 
     sources.push({ file: path.join(CONTENT_DIR, 'abandoned.md'), label: 'abandoned', href: 'abandoned.html', noun: 'entry' });
     sources.push({ file: path.join(CONTENT_DIR, 'about.md'), label: 'about', href: 'about.html', noun: null });
-    sources.push({ file: path.join(CONTENT_DIR, 'home.md'), label: 'home', href: 'index.html', noun: null });
     ['style.css', 'script.js', TEMPLATE_PATH, 'build.js', 'stats.js'].forEach(file => {
         sources.push({ file, label: file, href: null, noun: null });
     });
@@ -470,11 +469,7 @@ function buildHome(years, sources) {
         .filter(Boolean)
         .sort((a, b) => b.date - a.date);
 
-    const introPath = path.join(CONTENT_DIR, 'home.md');
-    let content = fs.existsSync(introPath)
-        ? `<section class="intro">\n    ${processMarkdown(fs.readFileSync(introPath, 'utf8'))}\n</section>\n`
-        : '';
-    content += currentlyBlock(years);
+    let content = currentlyBlock(years);
     content += '<section class="recent-updates">\n  <h2 class="recent-updates-title">recent updates</h2>';
     additions.slice(0, 6).forEach(source => {
         content += updateBlock(source);
