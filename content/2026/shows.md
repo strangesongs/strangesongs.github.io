@@ -25,7 +25,7 @@ total: 27 shows
 04.04 WILD UP: PERFECT OFFERING | nimoy theater
 04.15 RO (B)//ERT LUNDBERG'S ADDENDUM, MINGJIA CHEN, GREGG KOWALSKY | 2220 arts + archives
 04.17 LUCK OF THE DRAW | oracle egg
-05.03 THE MOTHER OF US ALL (1947) | streaming | co-production of juilliard school and the new york philharmonic; filmed adaptation of the virgil thomson / gertrude stein
+05.03 THE MOTHER OF US ALL (1947) | streaming | co-production of juilliard school and the new york philharmonic; filmed adaptation of the virgil thomson / gertrude stein opera
 05.05 GREEN UMBRELLA NEW MUSIC SERIES | walt disney concert hall | piece information coming soon
 05.17 DAS RHEINGOLD (OPERA NORTH) | streaming | [performance link](https://www.youtube.com/watch?v=4EYW49Ru_F4&t=95s)
 05.19 DIE WALKÜRE ACT 1 | walt disney concert hall | la phil

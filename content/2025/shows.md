@@ -24,7 +24,7 @@ total: 43 shows
 04.14 EARTH, STEBMO | lodge room | earth playing "hex: or printing in the infernal method" album
 04.16 GREGORY UHLMANN, JOSH JOHNSON, SAM WILKES | barnsdall gallery theater
 04.18 NICO GEORIS, DIVA AND THE PEARLY GATES | 2220 arts + archives
-04.19 ISAIAH MITCHELL | chöd meditation led by psychedelic sangha, visuals by arik moonhawk roper
+04.19 ISAIAH MITCHELL | philosophical research society | chöd meditation led by psychedelic sangha, visuals by arik moonhawk roper
 04.22 LA PHILHARMONIC | walt disney concert hall | mendelssohn "string octet, op. 20", neilsen "string quartet no. 1, op. 13", arutiunian, "suite (for clarinet, violin, piano)"
 04.23 YHWH NAILGUN, MORGAN GARRETT | the echo
 04.26 PHISH | hollywood bowl
