@@ -412,6 +412,135 @@ section :target {
     margin-top: 1.5em;
 }
 
+/* --- stats --------------------------------------------------------------- */
+
+.stats {
+    max-width: 52rem;
+}
+
+.stats .content header,
+.stats header {
+    margin-bottom: 28px;
+}
+
+.stats-block {
+    margin-bottom: 44px;
+}
+
+.stats-note,
+.stats-inline {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.stats-inline a {
+    color: var(--ink);
+}
+
+.stats-lead {
+    font-size: 26px;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+}
+
+.stats-subtitle {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin: 4px 0 8px;
+}
+
+.stats-pair {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 8px 40px;
+}
+
+.stats-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+}
+
+.stats-table th,
+.stats-table td {
+    padding: 6px 12px 6px 0;
+    border-bottom: 1px solid var(--rule);
+    text-align: right;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.stats-table th:first-child {
+    text-align: left;
+}
+
+.stats-table thead th {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.stats-table tfoot th,
+.stats-table tfoot td {
+    font-weight: 700;
+    border-bottom: none;
+    border-top: 1px solid var(--ink);
+}
+
+.stats-table a {
+    text-decoration: none;
+}
+
+.bars {
+    display: grid;
+    gap: 2px;
+}
+
+.bar-row {
+    display: grid;
+    grid-template-columns: minmax(8rem, 14rem) 1fr 2.5rem;
+    align-items: center;
+    column-gap: 12px;
+    padding: 2px 0;
+}
+
+.bars-months .bar-row {
+    grid-template-columns: 2.5rem 1fr 2.5rem;
+}
+
+.bar-row:hover {
+    background: var(--highlight);
+}
+
+.bar-label {
+    font-size: 16px;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+.bar-track {
+    height: 12px;
+}
+
+.bar-fill {
+    display: block;
+    height: 100%;
+    min-width: 2px;
+    background: var(--accent);
+    border-radius: 0 3px 3px 0;
+}
+
+.bar-value {
+    font-size: 15px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
 /* --- phones -------------------------------------------------------------- */
 
 @media (max-width: 768px) {
@@ -478,6 +607,21 @@ section :target {
 
     .intro p {
         font-size: 22px;
+    }
+
+    .bar-row {
+        grid-template-columns: minmax(6rem, 9rem) 1fr 2rem;
+        column-gap: 8px;
+    }
+
+    .bar-label {
+        font-size: 14px;
+    }
+
+    .stats-table th,
+    .stats-table td {
+        font-size: 16px;
+        padding-right: 8px;
     }
 
     section {

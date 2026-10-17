@@ -3,6 +3,7 @@ const path = require('path');
 const crypto = require('crypto');
 const { execFileSync } = require('child_process');
 const ejs = require('ejs');
+const { collectStats, renderStats } = require('./stats');
 
 // --- site config -----------------------------------------------------------
 
@@ -230,7 +231,7 @@ function collectSources(years) {
     sources.push({ file: path.join(CONTENT_DIR, 'abandoned.md'), label: 'abandoned', href: 'abandoned.html', noun: 'entry' });
     sources.push({ file: path.join(CONTENT_DIR, 'about.md'), label: 'about', href: 'about.html', noun: null });
     sources.push({ file: path.join(CONTENT_DIR, 'home.md'), label: 'home', href: 'index.html', noun: null });
-    ['style.css', 'script.js', TEMPLATE_PATH, 'build.js'].forEach(file => {
+    ['style.css', 'script.js', TEMPLATE_PATH, 'build.js', 'stats.js'].forEach(file => {
         sources.push({ file, label: file, href: null, noun: null });
     });
 
@@ -273,7 +274,7 @@ function writePage(fileName, { title, description, sidebar, content, yearLabel =
 
 function buildSidebar(years, { currentYear = '', currentSection = '', currentPage = '' } = {}) {
     const newestFirst = [...years].reverse();
-    const rwlExpanded = Boolean(currentYear) || currentPage === 'abandoned';
+    const rwlExpanded = Boolean(currentYear) || currentPage === 'abandoned' || currentPage === 'stats';
     const active = isActive => (isActive ? ' class="is-active"' : '');
 
     let html = `<p class="cleanui-masthead primary"><a href="index.html">${SITE_NAME}</a></p>\n`;
@@ -291,6 +292,7 @@ function buildSidebar(years, { currentYear = '', currentSection = '', currentPag
     });
 
     html += `<li class="depth-2 rwl-branch"><a href="abandoned.html"${active(currentPage === 'abandoned')}>abandoned</a></li>\n`;
+    html += `<li class="depth-2 rwl-branch"><a href="stats.html"${active(currentPage === 'stats')}>stats</a></li>\n`;
 
     PROJECT_LINKS.forEach(link => {
         const note = link.note ? `<span class="nav-note">${escapeHtml(link.note)}</span>` : '';
@@ -319,6 +321,7 @@ function buildSidebar(years, { currentYear = '', currentSection = '', currentPag
         html += `\n    <a href="${year}.html" data-year="${year}" data-sections="${sections}">${year}</a>`;
     });
     html += `\n    <a href="abandoned.html" data-leaf="true">abandoned</a>`;
+    html += `\n    <a href="stats.html" data-leaf="true">stats</a>`;
     html += `\n  </div>`;
     html += `\n  <div class="mnav-row mnav-sections" hidden></div>`;
     html += `\n</nav>`;
@@ -458,6 +461,16 @@ function buildChangelog(years, sources) {
     });
 }
 
+function buildStats(years) {
+    const stats = collectStats(CONTENT_DIR, years);
+    writePage('stats.html', {
+        title: 'stats',
+        description: `${stats.allFilms.length} films, ${stats.allShows.length} shows and counting: formats, cinemas, venues and directors.`,
+        sidebar: buildSidebar(years, { currentPage: 'stats' }),
+        content: `<div class="stats">\n${renderStats(stats, { escapeHtml, plural })}</div>`
+    });
+}
+
 // Old URL kept alive for anyone who bookmarked it.
 function buildRwlRedirect() {
     fs.writeFileSync(path.join(OUT_DIR, 'rwl.html'), `<!DOCTYPE html>
@@ -502,6 +515,7 @@ function build() {
     const sources = collectSources(years);
     buildHome(years, sources);
     buildChangelog(years, sources);
+    buildStats(years);
     buildRwlRedirect();
 
     console.log('Build complete!');

@@ -34,6 +34,7 @@ content/
   home.md        → homepage intro
 templates/index.html   # the one EJS page layout (meta tags, sidebar, main)
 build.js               # markdown → dist/ (pages, sidebar, home, changelog)
+stats.js               # stats page: parsing + rendering, used by build.js
 style.css              # the one stylesheet
 script.js              # sidebar collapsing, year-page section switching, mobile nav
 favicon.svg
@@ -48,10 +49,20 @@ Create `content/YYYY/` with any of `books.md`, `films.md`, `shows.md`, then run 
 - `YYYY.html` for each year folder. All sections are on one page; `script.js` shows one section at a time based on the URL hash (`#books`, `#films`, `#shows`). Without JavaScript, every section is shown.
 - `index.html`: the intro from `content/home.md`; a "currently" block with the newest entry in books, films and shows (last read / last watched + location / last show + venue), found automatically from the newest year that has each; then the six most recently committed year/section files, with a summary of the last commit to each ("2 new films added", "1 book edited").
 - `changelog.html`: the 15 most recently committed content and site files, in the same format.
+- `stats.html` (see below).
 - `about.html`, `abandoned.html`, plus `rwl.html`, a redirect kept for old links.
 - Each page gets a meta description, canonical URL, and Open Graph tags. Year pages describe their counts ("2026: 46 books read, 104 films watched, 40 shows seen.").
 
 Summaries come from the **last commit** touching each file. Entries added and removed in the same commit count as edits, so fixing a typo doesn't show up as "new". Uncommitted changes show as "not yet committed" in a local build.
+
+## Stats page (`stats.js`)
+
+Linked under "read watch listen" next to abandoned. Built entirely from `content/` at build time:
+totals by year (with films seen in a cinema), the newest year by month, films by format, top cinemas, streaming services, show venues, most-watched directors, and repeat viewings.
+
+Older years record format/location inconsistently, so `stats.js` recognizes **formats, cinemas and streaming services by name in any field**, using the lookup tables at the top of the file (`FORMATS`, `CINEMAS`, `SERVICES`). When you start going to a new cinema or using a new streaming service, add it there, or it won't show up in those charts. Show venues are read straight from the second field, which is why that field must always be the venue.
+
+The bars are plain HTML/CSS (no chart library): one series each, in `--accent`, with the value printed beside every bar and a `title` tooltip.
 
 ## Content format
 
