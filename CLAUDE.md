@@ -93,7 +93,7 @@ total: N shows
 MM.DD PERFORMER | venue | optional notes
 ```
 
-Some older entries separate the acts on a bill with ` | ` (e.g. `MYRIAM GENDRON | JIM WHITE + MELISSA ANDERSON | zebulon`), which makes the venue column ambiguous. For new entries, join acts with `, ` or ` + ` so the second field is always the venue.
+The second field is **always the venue**. Separate the acts on a bill with `, ` (e.g. `MYRIAM GENDRON, JIM WHITE + MELISSA ANDERSON | zebulon`); use ` + ` for acts playing a set together. Never separate acts with ` | `.
 
 ### abandoned (`content/abandoned.md`)
 
@@ -102,6 +102,7 @@ Same numbered-list format as books.
 ## Content conventions
 
 - Titles and performers in UPPERCASE; authors, directors, formats, venues, and notes in lowercase.
+- All other site text (intro, about, nav, notes, labels) is lowercase, always, including names ("j. cretella", "koreatown, los angeles").
 - Formats in lowercase: `dcp`, `35mm`, `16mm`, `4k restoration`, `digital`, `streaming`, `blu-ray`, `dvd`.
 - For streaming, the location field is the service: `streaming | criterion channel`, `streaming | kanopy`, `streaming | mubi`. In the 2013 list, `criterion` / `janus films/criterion` is the **disc label**, not the streaming service.
 - Use these canonical venue names (most common):
@@ -129,5 +130,6 @@ The portfolio is a separate repo, `whatwesee` (https://github.com/strangesongs/w
 ## Repo rules
 
 - Site title/branding: "cleve".
+- Project links and their one-line notes live in `PROJECT_LINKS` at the top of `build.js`. The note shows under the link in the desktop sidebar and as a tooltip on mobile.
 - Do not commit secrets. Do not force-push to main.
 - Only commit when explicitly asked.

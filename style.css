@@ -143,6 +143,14 @@ button:focus-visible {
     color: var(--ink);
 }
 
+.cleanui-nav .nav-note {
+    display: block;
+    margin-top: -0.2em;
+    font-size: 14px;
+    letter-spacing: 0;
+    color: var(--muted);
+}
+
 .cleanui-nav .nav-footer {
     margin-top: 2.5em;
 }

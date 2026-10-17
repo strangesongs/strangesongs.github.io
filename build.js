@@ -23,11 +23,11 @@ const SECTIONS = [
 ];
 
 const PROJECT_LINKS = [
-    { title: 'consono', href: 'https://consono.bandcamp.com/', external: true },
-    { title: 'ad lucem', href: 'https://adlucem.bandcamp.com/', external: true },
-    { title: 'photography', href: 'whatwesee/', external: false },
-    { title: 'fruit for all', href: 'https://fruitforall.app/', external: true },
-    { title: 'save to photos', href: 'https://savetophotos.com/', external: true }
+    { title: 'consono', note: 'music', href: 'https://consono.bandcamp.com/', external: true },
+    { title: 'ad lucem', note: 'guitar + electronics', href: 'https://adlucem.bandcamp.com/', external: true },
+    { title: 'photography', note: '', href: 'whatwesee/', external: false },
+    { title: 'fruit for all', note: 'local fruit-finding app', href: 'https://fruitforall.app/', external: true },
+    { title: 'save to photos', note: 'assorted found images', href: 'https://savetophotos.com/', external: true }
 ];
 
 const MONTH_NAMES = [
@@ -59,6 +59,12 @@ function formatDate(date) {
 
 function externalAttr(link) {
     return link.external ? ' target="_blank" rel="noopener"' : '';
+}
+
+// Project links carry a short note: shown under the link in the sidebar,
+// and as a tooltip in the mobile nav (which has no room for it).
+function projectLinkAttrs(link) {
+    return `href="${link.href}"${externalAttr(link)}${link.note ? ` title="${escapeAttr(link.note)}"` : ''}`;
 }
 
 // Every content/YYYY folder that has at least one section file, oldest first.
@@ -287,7 +293,8 @@ function buildSidebar(years, { currentYear = '', currentSection = '', currentPag
     html += `<li class="depth-2 rwl-branch"><a href="abandoned.html"${active(currentPage === 'abandoned')}>abandoned</a></li>\n`;
 
     PROJECT_LINKS.forEach(link => {
-        html += `<li class="depth-1"><a href="${link.href}"${externalAttr(link)}>${link.title}</a></li>\n`;
+        const note = link.note ? `<span class="nav-note">${escapeHtml(link.note)}</span>` : '';
+        html += `<li class="depth-1 project"><a ${projectLinkAttrs(link)}>${link.title}</a>${note}</li>\n`;
     });
 
     html += `<li class="depth-1 nav-footer"><a href="about.html"${active(currentPage === 'about')}>about</a></li>\n`;
@@ -302,7 +309,7 @@ function buildSidebar(years, { currentYear = '', currentSection = '', currentPag
     html += `\n    <a href="about.html">about</a>`;
     html += `\n    <a href="#mnav-years" class="mnav-rwl-link">read watch listen</a>`;
     PROJECT_LINKS.forEach(link => {
-        html += `\n    <a href="${link.href}"${externalAttr(link)}>${link.title}</a>`;
+        html += `\n    <a ${projectLinkAttrs(link)}>${link.title}</a>`;
     });
     html += `\n    <a href="mailto:${EMAIL}">email</a>`;
     html += `\n  </div>`;
