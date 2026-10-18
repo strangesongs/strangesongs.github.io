@@ -5,8 +5,6 @@ date: 2023
 
 TITLE (year) author | notes
 
-total: 44 books
-
 1. WHEN YOU GREET ME I BOW: NOTES AND REFLECTIONS FROM A LIFE IN ZEN (2009) norman fischer
 2. DOCTOR OF HORROR AND OTHER STORIES (1971) graham ingels
 3. THE TROUBLEMAKERS (2009) gilbert hernandez

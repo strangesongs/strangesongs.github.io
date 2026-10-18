@@ -7,7 +7,6 @@
     "build": "node build.js",
     "serve": "python3 -m http.server 8090 --directory dist",
     "watch": "nodemon --watch content --watch templates --watch build.js --watch stats.js --watch style.css --watch script.js --exec 'node build.js'",
-    "deploy": "npm run build && git add content && git commit -m \"update content\" && git push",
     "add": "node tools/add-entry/server.js --open"
   },
   "dependencies": {

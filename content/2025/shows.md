@@ -4,7 +4,6 @@ date: 2025
 ---
 
 date PERFORMER | VENUE | NOTES
-total: 43 shows
 
 01.07 LA PHILHARMONIC | walt disney concert hall | chamber music performance of schumann, beach, brahms
 01.17 BROOKLYN RIDER | the wallis | philip glass string quartets
@@ -61,8 +60,4 @@ total: 43 shows
 12.01 SML | 2220 arts + archives | two sets
 12.02 SML | 2220 arts + archives | two sets
 12.12 THE MOUNTAIN GOATS | teragram ballroom
-
-
-
-
 

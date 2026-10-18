@@ -165,7 +165,6 @@ function processMarkdown(content, { plainClass = '' } = {}) {
         line = line.trim();
         if (line === '' || line.startsWith('<')) return line;
         if (line.startsWith('* denotes')) return `<p class="addendum">${line}</p>`;
-        if (line.startsWith('total:')) return `<p class="count">${line}</p>`;
         return plainClass ? `<p class="${plainClass}">${line}</p>` : `<p>${line}</p>`;
     }).join('\n').replace(/\n{3,}/g, '\n\n');
 
@@ -220,8 +219,8 @@ function buildSidebar(years, { currentYear = '', currentPage = '' } = {}) {
 
     // Desktop: every year is one plain link, always visible. Sections are
     // switched on the year page itself (the totals line under the year).
-    let html = `<p class="cleanui-masthead"><a href="index.html">${SITE_NAME}</a></p>\n`;
-    html += '<ul class="cleanui-nav">\n';
+    let html = `<p class="masthead"><a href="index.html">${SITE_NAME}</a></p>\n`;
+    html += '<ul class="site-nav">\n';
     html += '<li class="depth-1 nav-label">read watch listen</li>\n';
     newestFirst.forEach(year => {
         html += `<li class="depth-2"><a href="${year}.html"${active(year === currentYear)}>${year}</a></li>\n`;
@@ -269,8 +268,6 @@ function buildYear(year, years) {
         const count = countEntries(raw);
         counts.push(`${count} ${plural(section.noun, count)} ${section.verb}`);
         totals.push(`<a href="#${section.name}">${count} ${plural(section.noun, count)}</a>`);
-        // The year header shows live totals, so the file's own total line is dropped.
-        raw = raw.replace(/^total:.*\n?/m, '');
 
         content += `<section id="${section.name}" class="log ${section.name}" data-section-title="${section.title}">\n`;
         content += `    <h2>${section.title}</h2>\n`;

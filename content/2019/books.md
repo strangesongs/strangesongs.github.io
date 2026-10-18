@@ -5,8 +5,6 @@ date: 2019
 
 TITLE (year) author | notes
 
-total: 9 books
-
 1. THE NEW JIM CROW (2010) michelle alexander
 2. TRANS* (2018) jack halberstam
 3. HORROR IN ARCHITECTURE (2013) josh comaroff and ong ker-shing

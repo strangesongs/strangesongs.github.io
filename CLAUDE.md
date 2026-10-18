@@ -9,7 +9,6 @@ npm install            # install dependencies (ejs, nodemon)
 npm run build          # generate the site into dist/
 npm run watch          # rebuild on content/template/build/style/script changes
 npm run serve          # preview dist/ at http://localhost:8090
-npm run deploy         # build, commit content/ only, push
 npm run add            # open the add-entry form (same as the "cleve add" app)
 ```
 
@@ -19,7 +18,7 @@ npm run add            # open the add-entry form (same as the "cleve add" app)
 - `dist/` is gitignored. Never commit generated HTML, and never hand-edit files in `dist/`.
 - `.github/workflows/build.yml` runs on every push to `main`: `npm ci`, `npm run build`, then uploads **only `dist/`** to Pages. Nothing else in the repo (mockups, raw files, node_modules, docs) is published. Keep it that way: never change the upload path back to `.`.
 - Asset URLs get a `?v=<hash>` of the static files' contents, so the CSS/JS cache-busts automatically. Don't hand-edit version strings.
-- The repo itself is public on GitHub. `raw files/` (original pre-markdown lists), `mockups/` (design explorations) and `scripts/` (one-off importer) are gitignored and exist only on the owner's machine; don't re-add them. They remain in old git history.
+- The repo itself is public on GitHub. The original pre-markdown lists (`raw files/`), early design mockups (`mockups/`) and their one-off importer (`scripts/`) were removed; they survive only in old git history (e.g. `git show <old-commit>:"raw files/viewing list.rtf"`).
 
 ## Project structure
 
@@ -76,9 +75,9 @@ The bars are plain HTML/CSS (no chart library): one series each, in `--accent`, 
 
 ## Content format
 
-Each section file has YAML frontmatter (`title`, `date`), a format line, an optional `* denotes repeat viewing` line, a `total:` line, then entries.
+Each section file has YAML frontmatter (`title`, `date`), a format line, an optional `* denotes repeat viewing` line, then entries.
 
-- The `total:` line is **not rendered**. The build counts entries itself and shows the totals under the year heading ("46 books · 104 films · 40 shows", each linking to its section). Old files still have `total:` lines; new ones don't need them.
+- There are no `total:` lines: the build counts entries and shows the totals under the year heading ("46 books · 104 films · 40 shows", each linking to its section).
 - Month headings (`### january`) are inserted automatically for dated entries.
 - Text is HTML-escaped, so `&`, `<`, `>` are safe in titles and notes. Markdown links `[text](url)` work anywhere; only `http(s)` and relative URLs become links (anything else, like `javascript:`, is published as plain text). External links open in a new tab.
 - `## heading` lines get an id from their text (`## contact` → `#contact`).
@@ -89,8 +88,6 @@ Each section file has YAML frontmatter (`title`, `date`), a format line, an opti
 ```
 TITLE (year) author | notes
 
-total: N books
-
 1. TITLE (year) author | optional notes
 ```
 
@@ -99,7 +96,6 @@ total: N books
 ```
 date TITLE (year) director | format | location | notes
 * denotes repeat viewing
-total: N films
 
 MM.DD TITLE (year) director | format | location | optional notes
 ```
@@ -110,7 +106,6 @@ Older years (2010, 2013, part of 2014) use a numbered list instead of dates. A r
 
 ```
 date PERFORMER | VENUE | NOTES
-total: N shows
 
 MM.DD PERFORMER | venue | optional notes
 ```
@@ -145,7 +140,7 @@ Same numbered-list format as books.
 
 ## Design
 
-- Raw, handmade, HTML-first: see `RAW_WEB_STYLE_PORTING_GUIDE.md`.
+- Raw, handmade, HTML-first. One serif voice for everything; accents sparse; no decorative chrome.
 - Serif type (Georgia), white paper, near-black ink, red (`--accent`) accents, yellow (`--highlight`) hover with red underline. Colors are the CSS custom properties at the top of `style.css`; use them rather than raw hex values.
 - Navigation is flat and always visible, by design (the owner chose "calmest"): the desktop sidebar lists every year as one plain link under "read watch listen", then `abandoned · stats`, the projects, about and email. Nothing expands or collapses. On phones (≤768px) the same links are two wrapping rows at the top. Sections (books/films/shows) are switched on the year page itself via the totals line under the year, not in the nav.
 - The homepage section headings carry the year's count on the right ("104 films in 2026"), linking to that section.

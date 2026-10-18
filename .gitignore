@@ -13,10 +13,5 @@ node_modules/
 # Generated files (built by CI; never commit)
 dist/
 
-# Kept locally, not in the repo
-raw files/
-mockups/
-scripts/
-
 # Built locally by tools/add-entry/make-app.sh (has this machine's path baked in)
 tools/add-entry/*.app/

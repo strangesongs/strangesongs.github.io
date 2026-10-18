@@ -5,8 +5,6 @@ date: 2025
 
 TITLE (year) author | notes
 
-total: 40 books
-
 1. WHEN THE TREES SAY NOTHING: WRITINGS ON NATURE (2003) thomas merton
 2. THE PLACES THAT SCARE YOU (2001) pema chödrön
 3. BUDDHA (2001) karen armstrong

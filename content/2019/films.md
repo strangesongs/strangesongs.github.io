@@ -5,7 +5,6 @@ date: 2019
 
 date TITLE (year) director | format | location | notes
 * denotes repeat viewing
-total: 7 films
 
 1. THE KILLING OF A CHINESE BOOKIE (1976) john cassavetes *
 2. THE LOVE WITCH (2016) anna biller

@@ -5,8 +5,6 @@ date: 2010
 
 TITLE (year) author | notes
 
-total: 7 books
-
 1. THE COMING INSURRECTION (2007) the invisible committee
 2. THE SUBVERSIVE COPY EDITOR (2004) carol fisher saller
 3. DON'T GET TOO COMFORTABLE (2005) david rakoff

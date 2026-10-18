@@ -5,7 +5,6 @@ date: 2010
 
 date TITLE (year) director | format | location | notes
 * denotes repeat viewing
-total: 40 films
 
 1. RUN, FAT BOY, RUN (2007) david schwimmer
 2. MARC JACOBS AND LOUIS VUITTON (2007) loïc prigent

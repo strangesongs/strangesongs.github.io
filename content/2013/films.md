@@ -5,7 +5,6 @@ date: 2013
 
 date TITLE (year) director | format | location | notes
 * denotes repeat viewing
-total: 105 films
 
 1. ONIBABA (1964) kaneto shindo | dvd | criterion
 2. KURONEKO (1968) kaneto shindo | dvd | criterion

@@ -5,7 +5,6 @@ date: 2026
 
 date TITLE (year) director | format | location | notes
 * denotes repeat viewing
-total: 92 films
 
 01.09 BURNING (2018) lee chang-dong | streaming | apple tv
 01.10 BREAD AND ALLEY (1970) abbas kiarostami | streaming | criterion channel

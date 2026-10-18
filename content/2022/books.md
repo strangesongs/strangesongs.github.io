@@ -5,8 +5,6 @@ date: 2022
 
 TITLE (year) author | notes
 
-total: 94 books
-
 1. THE GOLDEN GATE (1986) vikram seth
 2. THE PLEASURE OF THE TEXT (1973) sami alwani
 3. HARD TRAVEL TO SACRED PLACES (1994) rudolph wurlitzer

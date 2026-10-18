@@ -4,7 +4,6 @@ date: 2024
 ---
 
 date PERFORMER | VENUE | NOTES
-total: 26 shows
 
 01.22 MARY LATTIMORE + STEVE GUNN | zebulon | mary lattimore residency, solo and collaboration sets
 01.26 LA PHILHARMONIC w/ ANNE-SOPHIE MUTTER + PABLO FERRÁNDEZ, CONDUCTOR GUSTAVO DUDAMEL | walt disney concert hall | brahms double concerto and bruckner symphony #1

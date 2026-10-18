@@ -5,7 +5,6 @@ date: 2014
 
 date TITLE (year) director | format | location | notes
 * denotes repeat viewing
-total: 104 films
 
 01.01 THE MAESTRO: KING OF THE COWBOY ARTISTS (1995) les blank
 01.02 PICNIC AT HANGING ROCK (1975) peter weir

@@ -5,7 +5,6 @@ date: 2025
 
 date TITLE (year) director | format | location | notes
 * denotes repeat viewing
-total: 69 films
 
 01.03 VIDEODROME (DIRECTOR'S CUT) (1983) david cronenberg | 4k restoration | academy museum
 01.04 MESHES OF THE AFTERNOON (1943) maya deren | digital | philosophical research society

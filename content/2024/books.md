@@ -5,8 +5,6 @@ date: 2024
 
 TITLE (year) author | notes
 
-total: 46 books
-
 1. THE SECRET TO SUPERHUMAN STRENGTH (2021) alison bechdel
 2. THE HISTORY OF LAST NIGHT'S DREAM (2007) rodger kamenetz | started 2023
 3. ENLIGHTENED TRANSEXUAL COMICS (2023) sam szabo
