@@ -141,7 +141,7 @@ Same numbered-list format as books.
 ## Design
 
 - Raw, handmade, HTML-first. One serif voice for everything; accents sparse; no decorative chrome.
-- Serif type (Georgia), white paper, near-black ink, red (`--accent`) accents, yellow (`--highlight`) hover with red underline. Colors are the CSS custom properties at the top of `style.css`; use them rather than raw hex values.
+- Serif type (Georgia), white paper, near-black ink, red (`--accent`, #dd2c00, chosen to pass 4.5:1 contrast on white) accents, yellow (`--highlight`) hover with red underline. Colors are the CSS custom properties at the top of `style.css`; use them rather than raw hex values.
 - Navigation is flat and always visible, by design (the owner chose "calmest"): the desktop sidebar lists every year as one plain link under "read watch listen", then `abandoned · stats`, the projects, about and email. Nothing expands or collapses. On phones (≤768px) the same links are two wrapping rows at the top. Sections (books/films/shows) are switched on the year page itself via the totals line under the year, not in the nav.
 - The homepage section headings carry the year's count on the right ("104 films in 2026"), linking to that section.
 - **Works without JavaScript.** All navigation is plain links. `script.js` only shows one section at a time on year pages (without it, every section shows) and assembles the email links. Keep new features working without it.
