@@ -35,7 +35,7 @@ templates/index.html   # the one EJS page layout (meta tags, sidebar, main)
 build.js               # markdown → dist/ (pages, sidebar, home, stats, 404, sitemap)
 stats.js               # stats page: parsing + rendering, used by build.js
 style.css              # the one stylesheet
-script.js              # sidebar collapsing, year-page section switching, mobile nav
+script.js              # year-page section switching, email links
 favicon.svg
 tools/add-entry/       # "cleve add": local form for adding entries (see below)
 ```
@@ -147,9 +147,9 @@ Same numbered-list format as books.
 
 - Raw, handmade, HTML-first: see `RAW_WEB_STYLE_PORTING_GUIDE.md`.
 - Serif type (Georgia), white paper, near-black ink, red (`--accent`) accents, yellow (`--highlight`) hover with red underline. Colors are the CSS custom properties at the top of `style.css`; use them rather than raw hex values.
-- Desktop: sticky left sidebar with a collapsible "read watch listen" tree. Mobile (≤768px): stacked text nav at the top, with a years row and a sections row.
-- **Works without JavaScript.** The template adds a `js` class to `<html>` before paint; collapsing rules in `style.css` are scoped to `.js`, and the mobile years row ships visible and is collapsed by `script.js` (`nav-ready` class). Keep new interactive features following that pattern.
-- `script.js` uses `sessionStorage` only for remembering which nav year is open, always inside `try/catch`.
+- Navigation is flat and always visible, by design (the owner chose "calmest"): the desktop sidebar lists every year as one plain link under "read watch listen", then `abandoned · stats`, the projects, about and email. Nothing expands or collapses. On phones (≤768px) the same links are two wrapping rows at the top. Sections (books/films/shows) are switched on the year page itself via the totals line under the year, not in the nav.
+- The homepage section headings carry the year's count on the right ("104 films in 2026"), linking to that section.
+- **Works without JavaScript.** All navigation is plain links. `script.js` only shows one section at a time on year pages (without it, every section shows) and assembles the email links. Keep new features working without it.
 - **The email address never appears in the HTML.** Email links are `<a class="email-link" data-user data-domain href="about.html#contact">`; `script.js` builds the `mailto:` at runtime, and without JavaScript the link goes to the about page, which spells the address out in words. The parts are `EMAIL_USER` / `EMAIL_DOMAIN` in `build.js`. Don't write the plain address into content or templates.
 - Favicon: red italic Georgia "c" (`favicon.svg`).
 - Keep changes minimal and consistent with the existing style.

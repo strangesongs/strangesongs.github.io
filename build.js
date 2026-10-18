@@ -214,27 +214,19 @@ function emailLink() {
     return `<a href="about.html#contact" class="email-link" data-user="${EMAIL_USER}" data-domain="${EMAIL_DOMAIN}">email</a>`;
 }
 
-function buildSidebar(years, { currentYear = '', currentSection = '', currentPage = '' } = {}) {
+function buildSidebar(years, { currentYear = '', currentPage = '' } = {}) {
     const newestFirst = [...years].reverse();
-    const rwlExpanded = Boolean(currentYear) || currentPage === 'abandoned' || currentPage === 'stats';
     const active = isActive => (isActive ? ' class="is-active"' : '');
 
-    let html = `<p class="cleanui-masthead primary"><a href="index.html">${SITE_NAME}</a></p>\n`;
-    html += `<ul class="cleanui-nav${rwlExpanded ? ' is-rwl-open' : ''}">\n`;
-    html += `<li class="depth-1"><button type="button" class="nav-toggle rwl-root-toggle" aria-expanded="${rwlExpanded}">read watch listen</button></li>\n`;
-
+    // Desktop: every year is one plain link, always visible. Sections are
+    // switched on the year page itself (the totals line under the year).
+    let html = `<p class="cleanui-masthead"><a href="index.html">${SITE_NAME}</a></p>\n`;
+    html += '<ul class="cleanui-nav">\n';
+    html += '<li class="depth-1 nav-label">read watch listen</li>\n';
     newestFirst.forEach(year => {
-        const isCurrentYear = year === currentYear;
-        html += `<li class="depth-2 rwl-branch rwl-year${isCurrentYear ? ' is-open' : ''}"><button type="button" class="nav-toggle rwl-year-toggle" data-year="${year}" aria-expanded="${isCurrentYear}">${year}</button></li>\n`;
-        sectionsForYear(year).forEach(section => {
-            const visible = isCurrentYear ? ' is-visible' : '';
-            const isActive = isCurrentYear && section.name === currentSection;
-            html += `<li class="depth-3 rwl-branch rwl-section${visible}" data-year="${year}"><a href="${year}.html#${section.name}"${active(isActive)}>${section.name}</a></li>\n`;
-        });
+        html += `<li class="depth-2"><a href="${year}.html"${active(year === currentYear)}>${year}</a></li>\n`;
     });
-
-    html += `<li class="depth-2 rwl-branch"><a href="abandoned.html"${active(currentPage === 'abandoned')}>abandoned</a></li>\n`;
-    html += `<li class="depth-2 rwl-branch"><a href="stats.html"${active(currentPage === 'stats')}>stats</a></li>\n`;
+    html += `<li class="depth-2 nav-extras"><a href="abandoned.html"${active(currentPage === 'abandoned')}>abandoned</a> · <a href="stats.html"${active(currentPage === 'stats')}>stats</a></li>\n`;
 
     PROJECT_LINKS.forEach(link => {
         const note = link.note ? `<span class="nav-note">${escapeHtml(link.note)}</span>` : '';
@@ -243,29 +235,25 @@ function buildSidebar(years, { currentYear = '', currentSection = '', currentPag
 
     html += `<li class="depth-1 nav-footer"><a href="about.html"${active(currentPage === 'about')}>about</a></li>\n`;
     html += `<li class="depth-1 nav-footer">${emailLink()}</li>\n`;
-    html += `</ul>\n`;
+    html += '</ul>\n';
 
-    // Mobile nav. The years row is visible by default so it works without
-    // JavaScript; script.js collapses it.
-    html += `\n<nav class="mobile-nav">`;
-    html += `\n  <div class="mnav-row mnav-main">`;
-    html += `\n    <a href="about.html">about</a>`;
-    html += `\n    <a href="#mnav-years" class="mnav-rwl-link">read watch listen</a>`;
+    // Phones: the same links as two wrapping rows of text.
+    html += '\n<nav class="mobile-nav">';
+    html += '\n  <div class="mnav-row mnav-main">';
+    html += `\n    <a href="about.html"${active(currentPage === 'about')}>about</a>`;
     PROJECT_LINKS.forEach(link => {
         html += `\n    <a ${projectLinkAttrs(link)}>${link.title}</a>`;
     });
     html += `\n    ${emailLink()}`;
-    html += `\n  </div>`;
-    html += `\n  <div class="mnav-row mnav-years" id="mnav-years">`;
+    html += '\n  </div>';
+    html += '\n  <div class="mnav-row mnav-years">';
     newestFirst.forEach(year => {
-        const sections = sectionsForYear(year).map(section => section.name).join(',');
-        html += `\n    <a href="${year}.html" data-year="${year}" data-sections="${sections}">${year}</a>`;
+        html += `\n    <a href="${year}.html"${active(year === currentYear)}>${year}</a>`;
     });
-    html += `\n    <a href="abandoned.html" data-leaf="true">abandoned</a>`;
-    html += `\n    <a href="stats.html" data-leaf="true">stats</a>`;
-    html += `\n  </div>`;
-    html += `\n  <div class="mnav-row mnav-sections" hidden></div>`;
-    html += `\n</nav>`;
+    html += `\n    <a href="abandoned.html" class="mnav-extra${currentPage === 'abandoned' ? ' is-active' : ''}">abandoned</a>`;
+    html += `\n    <a href="stats.html" class="mnav-extra${currentPage === 'stats' ? ' is-active' : ''}">stats</a>`;
+    html += '\n  </div>';
+    html += '\n</nav>';
 
     return html;
 }
@@ -293,7 +281,7 @@ function buildYear(year, years) {
     writePage(`${year}.html`, {
         title: year,
         description: `${year}: ${counts.join(', ')}.`,
-        sidebar: buildSidebar(years, { currentYear: year, currentSection: sections[0].name }),
+        sidebar: buildSidebar(years, { currentYear: year }),
         content,
         yearLabel: year,
         yearTotals: totals.join(' · ')
@@ -358,7 +346,10 @@ function buildHome(years) {
         const entries = recentEntries(years, section, 5);
         if (!entries.length) return;
 
-        content += `<section class="home-log ${section.name}">\n  <h2 class="section-title">${title}</h2>\n`;
+        const latestYear = entries[0].year;
+        const count = countEntries(fs.readFileSync(path.join(CONTENT_DIR, latestYear, `${section.name}.md`), 'utf8'));
+        content += `<section class="home-log ${section.name}">\n  <div class="section-head"><h2 class="section-title">${title}</h2>`;
+        content += `<a class="section-count" href="${latestYear}.html#${section.name}">${count} ${plural(section.noun, count)} in ${latestYear}</a></div>\n`;
         content += '  <ul class="markdown-list dated-list">';
         entries.forEach(entry => {
             // Dated entries show MM.DD (plus the year when it isn't the current one);
@@ -373,8 +364,6 @@ function buildHome(years) {
             content += '</span></li>';
         });
         content += '\n  </ul>\n';
-        const latestYear = entries[0].year;
-        content += `  <p class="recent-more"><a href="${latestYear}.html#${section.name}">all ${section.name} in ${latestYear}</a></p>\n`;
         content += '</section>\n';
     });
 

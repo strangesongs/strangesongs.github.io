@@ -16,7 +16,6 @@
         <meta name="twitter:card" content="summary">
         <link rel="icon" href="favicon.svg" type="image/svg+xml">
         <link rel="stylesheet" href="style.css?v=<%= version %>">
-        <script>document.documentElement.classList.add('js');</script>
     </head>
     <body>
         <div class="layout layout-cleanui">
@@ -27,7 +26,7 @@
             <main class="content content-cleanui">
                 <% if (yearLabel) { %>
                 <header>
-                    <p class="year-label"><%= yearLabel %></p>
+                    <p class="year-label" data-year="<%= yearLabel %>"><%= yearLabel %></p>
                     <% if (yearTotals) { %><p class="year-totals"><%- yearTotals %></p><% } %>
                 </header>
                 <% } %>

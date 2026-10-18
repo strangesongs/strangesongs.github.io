@@ -42,10 +42,7 @@ a:visited {
 
 /* The one hover/active treatment used everywhere. */
 a:hover,
-.nav-toggle:hover,
 .cleanui-nav a.is-active,
-.rwl-year.is-open .rwl-year-toggle,
-.mnav-rwl-link.is-open,
 .mobile-nav a.is-active {
     color: var(--ink);
     background: var(--highlight);
@@ -130,17 +127,14 @@ button:focus-visible {
     font-size: 18px;
 }
 
-.cleanui-nav .depth-3 {
-    margin-left: 2.5rem;
+.cleanui-nav .nav-extras {
     font-size: 15px;
-}
-
-.cleanui-nav .depth-3 a {
     color: var(--muted);
+    margin: 0.6em 0 1.6em 1.25rem;
 }
 
-.cleanui-nav .depth-3 a.is-active {
-    color: var(--ink);
+.cleanui-nav .nav-extras a {
+    color: var(--muted);
 }
 
 .cleanui-nav .nav-note {
@@ -157,24 +151,6 @@ button:focus-visible {
 
 .cleanui-nav .nav-footer + .nav-footer {
     margin-top: 0;
-}
-
-/* Collapsing only happens with JavaScript; without it every year is listed. */
-.js .cleanui-nav:not(.is-rwl-open) .rwl-branch,
-.js .cleanui-nav .rwl-section:not(.is-visible) {
-    display: none;
-}
-
-.nav-toggle {
-    font: inherit;
-    letter-spacing: inherit;
-    color: var(--ink);
-    background: none;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-    -webkit-appearance: none;
-    appearance: none;
 }
 
 .mobile-nav {
@@ -216,7 +192,7 @@ button:focus-visible {
 .addendum,
 .count,
 .section-title,
-.recent-more {
+.section-count {
     font-size: 12px;
     line-height: 1.4;
     letter-spacing: 0.04em;
@@ -382,17 +358,33 @@ section :target {
     border-bottom: 1px solid var(--rule);
 }
 
-.recent-more {
-    margin-top: 1em;
-}
-
 /* Homepage: the newest few entries of each log. */
 .home-log {
     margin-bottom: 48px;
 }
 
-.home-log .section-title {
+.section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    padding-bottom: 6px;
     margin-bottom: 14px;
+    border-bottom: 1px solid var(--rule);
+}
+
+.section-head .section-title {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+.section-count,
+.section-count:visited {
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    text-decoration: none;
 }
 
 .home-log .entry-body a {
@@ -576,10 +568,6 @@ section :target {
         margin-top: 8px;
     }
 
-    .mnav-sections {
-        margin-top: 4px;
-    }
-
     .mobile-nav a {
         font-size: 13px;
         font-weight: 700;
@@ -587,18 +575,8 @@ section :target {
         text-decoration: none;
     }
 
-    .mnav-years a[data-leaf] {
+    .mnav-years .mnav-extra {
         color: var(--muted);
-    }
-
-    .mnav-years a[data-leaf]::before {
-        content: '- ';
-        color: var(--accent);
-    }
-
-    /* Keep the years row hidden until script.js decides whether to show it. */
-    .js:not(.nav-ready) .mnav-years {
-        display: none;
     }
 
     .year-label {
