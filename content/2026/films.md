@@ -117,3 +117,4 @@ date TITLE (year) director | format | location | notes
 10.03 THE HITCHER (1986) robert harmon | streaming | criterion channel
 10.06 HOPE (2026) na hong-jin | dcp | regency theater
 10.11 EDVARD MUNCH (1974) peter watkins | 35mm | brain dead studios | academy archival print
+10.19 YOU CAN SEE EVERYTHING (2026) nathan felder and lance oppenheimer | dcp | regal la live
