@@ -228,13 +228,14 @@ button:focus-visible {
     margin-bottom: 10px;
 }
 
+/* Page headings speak in the masthead's voice: lowercase red italic. */
 .year-label {
     font-size: clamp(1.6rem, 5.2vw, 3.5rem);
-    font-weight: 600;
-    line-height: 0.95;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1;
     letter-spacing: -0.02em;
     color: var(--accent);
-    text-transform: uppercase;
 }
 
 .year-totals {
