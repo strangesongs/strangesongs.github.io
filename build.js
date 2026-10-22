@@ -268,7 +268,8 @@ function buildSidebar(years, { currentYear = '', currentPage = '' } = {}) {
     html += `<li class="depth-1 nav-footer">${emailLink()}</li>\n`;
     html += '</ul>\n';
 
-    // Phones: the same links as two wrapping rows of text.
+    // Phones: the same links as wrapping rows of text, with the years folded
+    // behind "read watch listen" like the desktop sidebar.
     html += '\n<nav class="mobile-nav">';
     html += '\n  <div class="mnav-row mnav-main">';
     html += `\n    <a href="about.html"${active(currentPage === 'about')}>about</a>`;
@@ -277,6 +278,8 @@ function buildSidebar(years, { currentYear = '', currentPage = '' } = {}) {
     });
     html += `\n    ${emailLink()}`;
     html += '\n  </div>';
+    html += `\n  <details class="mnav-log"${inLog ? ' open' : ''}>`;
+    html += '\n  <summary>read watch listen</summary>';
     html += '\n  <div class="mnav-row mnav-years">';
     newestFirst.forEach(year => {
         html += `\n    <a href="${year}.html"${active(year === currentYear)}>${year}</a>`;
@@ -284,6 +287,7 @@ function buildSidebar(years, { currentYear = '', currentPage = '' } = {}) {
     html += `\n    <a href="abandoned.html" class="mnav-extra${currentPage === 'abandoned' ? ' is-active' : ''}">abandoned</a>`;
     html += `\n    <a href="stats.html" class="mnav-extra${currentPage === 'stats' ? ' is-active' : ''}">stats</a>`;
     html += '\n  </div>';
+    html += '\n  </details>';
     html += '\n</nav>';
 
     return html;

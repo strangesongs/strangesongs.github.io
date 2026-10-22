@@ -663,9 +663,14 @@ section :target {
         border-bottom: 1px solid var(--rule);
     }
 
-    .masthead,
     .site-nav {
         display: none;
+    }
+
+    .masthead {
+        font-size: 2rem;
+        line-height: 1.1;
+        margin-bottom: 0.3em;
     }
 
     .mobile-nav {
@@ -679,8 +684,38 @@ section :target {
         align-items: baseline;
     }
 
-    .mnav-years {
+    .mnav-log {
         margin-top: 8px;
+    }
+
+    .mnav-log summary {
+        display: inline;
+        list-style: none;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    .mnav-log summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .mnav-log summary::after {
+        content: '+';
+        margin-left: 0.3em;
+        color: var(--accent);
+    }
+
+    .mnav-log[open] > summary::after {
+        content: '\2212';
+    }
+
+    .mnav-log summary:hover {
+        background: var(--highlight);
+    }
+
+    .mnav-years {
+        margin-top: 6px;
     }
 
     .mobile-nav a {
