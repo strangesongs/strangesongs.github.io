@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <rect width="32" height="32" fill="#ffffff"/>
-  <text x="15" y="25" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="30" fill="#dd2c00">c</text>
+  <!-- Spectral Italic "c", traced from the font so it renders without it -->
+  <path transform="translate(16 16) scale(0.04 -0.04) translate(-227.5 -225)" fill="#dd2c00" d="M380 140Q337 64 293.0 27.0Q249 -10 198 -10Q126 -10 88.0 33.5Q50 77 50 160Q50 213 71.0 265.5Q92 318 128.0 362.5Q164 407 210.0 433.5Q256 460 307 460Q339 460 360.5 446.5Q382 433 393.5 415.0Q405 397 405 384Q405 367 391 359L355 336L299 422Q268 422 237.0 403.5Q206 385 180.5 353.5Q155 322 140.0 282.0Q125 242 125 199Q125 129 149.5 90.5Q174 52 229 52Q246 52 267.0 58.5Q288 65 313.0 85.5Q338 106 368 148H370Z"/>
 </svg>

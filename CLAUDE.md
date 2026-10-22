@@ -14,7 +14,7 @@ npm run add            # open the add-entry form (same as the "cleve add" app)
 
 ## How it builds and deploys
 
-- `build.js` reads `content/` and `templates/index.html`, and writes **everything** the site serves into `dist/`: the HTML pages plus copies of `style.css`, `script.js`, and `favicon.svg`.
+- `build.js` reads `content/` and `templates/index.html`, and writes **everything** the site serves into `dist/`: the HTML pages plus copies of `style.css`, `script.js`, `favicon.svg`, and the `fonts/` folder.
 - `dist/` is gitignored. Never commit generated HTML, and never hand-edit files in `dist/`.
 - `.github/workflows/build.yml` runs on every push to `main`: `npm ci`, `npm run build`, then uploads **only `dist/`** to Pages. Nothing else in the repo (mockups, raw files, node_modules, docs) is published. Keep it that way: never change the upload path back to `.`.
 - Asset URLs get a `?v=<hash>` of the static files' contents, so the CSS/JS cache-busts automatically. Don't hand-edit version strings.
@@ -30,12 +30,15 @@ content/
     shows.md     → "listen" section
   abandoned.md   → abandoned books/films
   about.md       → about page
+  writing.md     → writing page text (shown while it has no links)
+  music.md, projects.md → optional intro above those pages' lists
 templates/index.html   # the one EJS page layout (meta tags, sidebar, main)
 build.js               # markdown → dist/ (pages, sidebar, home, stats, 404, sitemap)
 stats.js               # stats page: parsing + rendering, used by build.js
 style.css              # the one stylesheet
 script.js              # year-page section switching, email links
 favicon.svg
+fonts/                 # Spectral woff files (Latin subset) + OFL.txt
 tools/add-entry/       # "cleve add": local form for adding entries (see below)
 ```
 
@@ -51,6 +54,7 @@ Create `content/YYYY/` with any of `books.md`, `films.md`, `shows.md`, then run 
 - `404.html`: served by GitHub Pages for any missing path. It uses `<base href="/">` so its relative links work at any depth, and is marked `noindex`.
 - `robots.txt` and `sitemap.xml` (every page), regenerated each build.
 - `about.html`, `abandoned.html`, plus `rwl.html`, a redirect kept for old links.
+- `music.html`, `projects.html`, `writing.html`: lists of outside links from `MUSIC_LINKS`, `PROJECT_LINKS` and `WRITING_LINKS` in `build.js`. Each entry is the name (no underline) with its note and domain in grey under it. `WRITING_LINKS` is empty for now, so that page shows `content/writing.md`.
 - Each page gets a meta description, canonical URL, and Open Graph tags. Year pages describe their counts ("2026: 46 books read, 104 films watched, 40 shows seen.").
 
 ## Adding entries: "cleve add" (`tools/add-entry/`)
@@ -141,12 +145,13 @@ Same numbered-list format as books.
 ## Design
 
 - Raw, handmade, HTML-first. One serif voice for everything; accents sparse; no decorative chrome.
-- Serif type (Georgia), white paper, near-black ink, red (`--accent`, #dd2c00, chosen to pass 4.5:1 contrast on white) accents, yellow (`--highlight`) hover with red underline. Colors are the CSS custom properties at the top of `style.css`; use them rather than raw hex values.
-- Navigation is flat and always visible, by design (the owner chose "calmest"): the desktop sidebar lists every year as one plain link under "read watch listen", then `abandoned · stats`, the projects, about and email. Nothing expands or collapses. On phones (≤768px) the same links are two wrapping rows at the top. Sections (books/films/shows) are switched on the year page itself via the totals line under the year, not in the nav.
+- Serif type (Spectral, self-hosted from `fonts/`; Georgia is the fallback), white paper, near-black ink, red (`--accent`, #dd2c00, chosen to pass 4.5:1 contrast on white) accents, yellow (`--highlight`) hover with red underline. Colors are the CSS custom properties at the top of `style.css`; use them rather than raw hex values.
+- Sidebar order: about; then music, projects, writing (`NAV_PAGES` in `build.js`); then "read watch listen", which opens to show every year plus `abandoned · stats`; then email. "read watch listen" is a plain `<details>` (works without JavaScript), open on year pages, abandoned and stats, closed elsewhere. On phones (≤768px) the links are two wrapping rows at the top (about, music, projects, writing, email; then the years, always shown). Sections (books/films/shows) are switched on the year page itself via the totals line under the year, not in the nav.
+- Small grey text (venues, notes, totals, format lines) uses Spectral medium (500), since its regular weight is light at those sizes.
 - The homepage section headings carry the year's count on the right ("104 films in 2026"), linking to that section.
 - **Works without JavaScript.** All navigation is plain links. `script.js` only shows one section at a time on year pages (without it, every section shows) and assembles the email links. Keep new features working without it.
 - **The email address never appears in the HTML.** Email links are `<a class="email-link" data-user data-domain href="about.html#contact">`; `script.js` builds the `mailto:` at runtime, and without JavaScript the link goes to the about page, which spells the address out in words. The parts are `EMAIL_USER` / `EMAIL_DOMAIN` in `build.js`. Don't write the plain address into content or templates.
-- Favicon: red italic Georgia "c" (`favicon.svg`).
+- Favicon: red italic Spectral "c" (`favicon.svg`), drawn as a path traced from the font, so it needs no font to render.
 - Keep changes minimal and consistent with the existing style.
 
 ## Photography
@@ -156,7 +161,7 @@ The portfolio is a separate repo, `whatwesee` (https://github.com/strangesongs/w
 ## Repo rules
 
 - Site title/branding: "cleve".
-- Project links and their one-line notes live in `PROJECT_LINKS` at the top of `build.js`. The note shows under the link in the desktop sidebar and as a tooltip on mobile.
+- Outside links and their one-line notes live in `MUSIC_LINKS`, `PROJECT_LINKS` and `WRITING_LINKS` at the top of `build.js`, and show on their pages (not in the sidebar).
 - Do not commit secrets. Do not force-push to main.
 - GitHub Actions in the workflow are **pinned to full commit SHAs** (with the version in a comment). To upgrade one, look up the new release's commit and replace both.
 - Only commit when explicitly asked.

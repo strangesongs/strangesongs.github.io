@@ -10,6 +10,7 @@ const OUT_DIR = 'dist';
 const CONTENT_DIR = 'content';
 const TEMPLATE_PATH = path.join('templates', 'index.html');
 const STATIC_FILES = ['style.css', 'script.js', 'favicon.svg'];
+const FONTS_DIR = 'fonts'; // Spectral, self-hosted (OFL); copied whole into dist/
 
 const SITE_URL = 'https://strangesongs.github.io/';
 const SITE_NAME = 'cleve';
@@ -26,13 +27,28 @@ const SECTIONS = [
     { name: 'shows', title: 'listen', noun: 'show', verb: 'seen' }
 ];
 
-const PROJECT_LINKS = [
+// Sidebar links to the site's own pages, in sidebar order.
+const NAV_PAGES = [
+    { name: 'music', title: 'music' },
+    { name: 'projects', title: 'projects' },
+    { name: 'writing', title: 'writing' }
+];
+
+// Links listed on music.html, projects.html and writing.html, each with a one-line note.
+const MUSIC_LINKS = [
     { title: 'consono', note: 'music', href: 'https://consono.bandcamp.com/', external: true },
-    { title: 'ad lucem', note: 'guitar + electronics', href: 'https://adlucem.bandcamp.com/', external: true },
-    { title: 'photography', note: '', href: 'whatwesee/', external: false },
+    { title: 'ad lucem', note: 'guitar + electronics', href: 'https://adlucem.bandcamp.com/', external: true }
+];
+
+const PROJECT_LINKS = [
+    { title: 'photography', note: 'photo portfolio', href: 'whatwesee/', external: false },
     { title: 'fruit for all', note: 'local fruit-finding app', href: 'https://fruitforall.app/', external: true },
     { title: 'save to photos', note: 'assorted found images', href: 'https://savetophotos.com/', external: true }
 ];
+
+// Writing published elsewhere: { title, note, href, external: true }.
+// While this is empty the page shows content/writing.md ("coming soon.").
+const WRITING_LINKS = [];
 
 const MONTH_NAMES = [
     'january', 'february', 'march', 'april', 'may', 'june',
@@ -65,11 +81,6 @@ function externalAttr(link) {
     return link.external ? ' target="_blank" rel="noopener"' : '';
 }
 
-// Project links carry a short note: shown under the link in the sidebar,
-// and as a tooltip in the mobile nav (which has no room for it).
-function projectLinkAttrs(link) {
-    return `href="${link.href}"${externalAttr(link)}${link.note ? ` title="${escapeAttr(link.note)}"` : ''}`;
-}
 
 // Every content/YYYY folder that has at least one section file, oldest first.
 function discoverYears() {
@@ -219,20 +230,23 @@ function buildSidebar(years, { currentYear = '', currentPage = '' } = {}) {
 
     // Desktop: every year is one plain link, always visible. Sections are
     // switched on the year page itself (the totals line under the year).
+    // Order: about, then the site's own pages and the log, then email.
     let html = `<p class="masthead"><a href="index.html">${SITE_NAME}</a></p>\n`;
     html += '<ul class="site-nav">\n';
-    html += '<li class="depth-1 nav-label">read watch listen</li>\n';
+    html += `<li class="depth-1"><a href="about.html"${active(currentPage === 'about')}>about</a></li>\n`;
+    NAV_PAGES.forEach((page, i) => {
+        html += `<li class="depth-1 nav-page${i === 0 ? ' nav-group' : ''}"><a href="${page.name}.html"${active(currentPage === page.name)}>${page.title}</a></li>\n`;
+    });
+    // The years fold away behind "read watch listen" (a plain <details>, so it
+    // works without JavaScript). Open on any page that belongs to the log.
+    const inLog = currentYear || currentPage === 'abandoned' || currentPage === 'stats';
+    html += `<li class="depth-1 nav-log"><details${inLog ? ' open' : ''}>\n<summary>read watch listen</summary>\n<ul>\n`;
     newestFirst.forEach(year => {
         html += `<li class="depth-2"><a href="${year}.html"${active(year === currentYear)}>${year}</a></li>\n`;
     });
     html += `<li class="depth-2 nav-extras"><a href="abandoned.html"${active(currentPage === 'abandoned')}>abandoned</a> · <a href="stats.html"${active(currentPage === 'stats')}>stats</a></li>\n`;
+    html += '</ul>\n</details></li>\n';
 
-    PROJECT_LINKS.forEach(link => {
-        const note = link.note ? `<span class="nav-note">${escapeHtml(link.note)}</span>` : '';
-        html += `<li class="depth-1 project"><a ${projectLinkAttrs(link)}>${link.title}</a>${note}</li>\n`;
-    });
-
-    html += `<li class="depth-1 nav-footer"><a href="about.html"${active(currentPage === 'about')}>about</a></li>\n`;
     html += `<li class="depth-1 nav-footer">${emailLink()}</li>\n`;
     html += '</ul>\n';
 
@@ -240,8 +254,8 @@ function buildSidebar(years, { currentYear = '', currentPage = '' } = {}) {
     html += '\n<nav class="mobile-nav">';
     html += '\n  <div class="mnav-row mnav-main">';
     html += `\n    <a href="about.html"${active(currentPage === 'about')}>about</a>`;
-    PROJECT_LINKS.forEach(link => {
-        html += `\n    <a ${projectLinkAttrs(link)}>${link.title}</a>`;
+    NAV_PAGES.forEach(page => {
+        html += `\n    <a href="${page.name}.html"${active(currentPage === page.name)}>${page.title}</a>`;
     });
     html += `\n    ${emailLink()}`;
     html += '\n  </div>';
@@ -297,6 +311,28 @@ function buildSimplePage(name, years, { title, description, sectionAttrs, headin
         description,
         sidebar: buildSidebar(years, { currentPage: name }),
         content: `<section ${sectionAttrs}>${headingHtml}\n    ${body}\n</section>`
+    });
+}
+
+// A page listing outside links (music, projects, writing), each with its note under it.
+// An optional content/<name>.md is shown above the list.
+function buildLinkPage(name, years, { title, description, links }) {
+    const introPath = path.join(CONTENT_DIR, `${name}.md`);
+    const intro = fs.existsSync(introPath) ? processMarkdown(fs.readFileSync(introPath, 'utf8')) + '\n' : '';
+    const items = links.map(link => {
+        // Under the name: the note, then where the link goes.
+        const domain = link.external ? link.href.replace(/^https?:\/\//, '').replace(/\/$/, '') : '';
+        const where = [link.note, domain].filter(Boolean).map(escapeHtml).join(' · ');
+        return `\n        <li><a href="${link.href}"${externalAttr(link)}><span class="link-title">${link.title}</span>`
+            + `${where ? `<span class="entry-where">${where}</span>` : ''}</a></li>`;
+    }).join('');
+
+    writePage(`${name}.html`, {
+        title,
+        description,
+        sidebar: buildSidebar(years, { currentPage: name }),
+        yearLabel: title,
+        content: `<section class="link-page">\n    ${intro}${items ? `<ul class="markdown-list link-list">${items}\n    </ul>` : ''}\n</section>`
     });
 }
 
@@ -394,7 +430,8 @@ function buildNotFound(years) {
 }
 
 function buildRobotsAndSitemap(years) {
-    const pages = ['', ...[...years].reverse().map(y => `${y}.html`), 'stats.html', 'abandoned.html', 'about.html'];
+    const pages = ['', ...[...years].reverse().map(y => `${y}.html`), 'stats.html', 'abandoned.html',
+        ...NAV_PAGES.map(page => `${page.name}.html`), 'about.html'];
     const today = formatDate(new Date());
     const urls = pages.map(page => `  <url><loc>${SITE_URL}${page}</loc><lastmod>${today}</lastmod></url>`).join('\n');
     fs.writeFileSync(path.join(OUT_DIR, 'sitemap.xml'),
@@ -427,6 +464,7 @@ function build() {
     fs.mkdirSync(OUT_DIR, { recursive: true });
 
     STATIC_FILES.forEach(file => fs.copyFileSync(file, path.join(OUT_DIR, file)));
+    fs.cpSync(FONTS_DIR, path.join(OUT_DIR, FONTS_DIR), { recursive: true });
 
     const years = discoverYears();
     years.forEach(year => buildYear(year, years));
@@ -442,6 +480,22 @@ function build() {
         sectionAttrs: 'id="abandoned" class="log abandoned" data-section-title="abandoned"',
         heading: 'abandoned',
         plainClass: 'meta'
+    });
+
+    buildLinkPage('music', years, {
+        title: 'music',
+        description: 'music projects: consono and ad lucem.',
+        links: MUSIC_LINKS
+    });
+    buildLinkPage('projects', years, {
+        title: 'projects',
+        description: 'photography and small web projects.',
+        links: PROJECT_LINKS
+    });
+    buildLinkPage('writing', years, {
+        title: 'writing',
+        description: 'writing published elsewhere.',
+        links: WRITING_LINKS
     });
 
     buildHome(years);

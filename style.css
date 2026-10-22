@@ -4,8 +4,50 @@
  * yellow highlight on hover. See RAW_WEB_STYLE_PORTING_GUIDE.md.
  */
 
+/* Spectral (Production Type, SIL Open Font License: fonts/OFL.txt),
+   subset to Latin and served from fonts/. */
+@font-face {
+    font-family: 'Spectral';
+    src: url('fonts/spectral-regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Spectral';
+    src: url('fonts/spectral-italic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Spectral';
+    src: url('fonts/spectral-medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Spectral';
+    src: url('fonts/spectral-semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Spectral';
+    src: url('fonts/spectral-bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
-    --font-serif: Georgia, 'Times New Roman', serif;
+    --font-serif: 'Spectral', Georgia, 'Times New Roman', serif;
     --paper: #ffffff;
     --ink: #111111;
     --muted: #5d5d5d;
@@ -89,7 +131,7 @@ button:focus-visible {
     font-size: clamp(1.8rem, 5vw, 2.8rem);
     font-style: italic;
     letter-spacing: -0.02em;
-    margin-bottom: 1.25em;
+    margin-bottom: 0.45em;
     color: var(--accent);
 }
 
@@ -136,12 +178,46 @@ button:focus-visible {
     color: var(--muted);
 }
 
-.site-nav .nav-footer {
-    margin-top: 2.5em;
+.site-nav .nav-group {
+    margin-top: 1.1em;
 }
 
-.site-nav .nav-footer + .nav-footer {
+/* "read watch listen": click to show the years. */
+.site-nav .nav-log ul {
+    list-style: none;
+    margin-top: 0.35em;
+}
+
+.site-nav summary {
+    display: inline;
+    list-style: none;
+    cursor: pointer;
+}
+
+.site-nav summary::-webkit-details-marker {
+    display: none;
+}
+
+.site-nav summary::after {
+    content: '+';
+    margin-left: 0.35em;
+    color: var(--accent);
+}
+
+.site-nav details[open] > summary::after {
+    content: '\2212';
+}
+
+.site-nav summary:hover {
+    background: var(--highlight);
+}
+
+.site-nav details:not([open]) + * {
     margin-top: 0;
+}
+
+.site-nav .nav-footer {
+    margin-top: 1.6em;
 }
 
 .mobile-nav {
@@ -291,6 +367,41 @@ section {
 
 section :target {
     background: var(--highlight);
+}
+
+/* --- music / projects / writing ---------------------------------------- */
+
+.content header + .link-page {
+    margin-top: 22px;
+}
+
+/* The whole entry is the link: no underline, the usual yellow on hover. */
+.link-list li {
+    margin-bottom: 18px;
+}
+
+.link-list a,
+.link-list a:hover {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.link-list .entry-where {
+    margin-top: 1px;
+}
+
+/* Spectral's regular weight is light at label sizes: small grey text uses medium. */
+.meta,
+.addendum,
+.section-title,
+.year-totals,
+.entry-where,
+.site-nav .nav-note,
+.site-nav .nav-extras,
+.stats-note,
+.stats-inline,
+.bar-value {
+    font-weight: 500;
 }
 
 /* --- about --------------------------------------------------------------- */
