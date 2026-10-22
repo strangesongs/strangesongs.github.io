@@ -316,11 +316,12 @@ section {
     margin-bottom: 8px;
 }
 
+/* Dates and list numbers sit on the baseline of the entry's first line. */
 .dated-list li,
 .numbered-list li {
     display: grid;
     grid-template-columns: 3rem 1fr;
-    align-items: start;
+    align-items: baseline;
     column-gap: 0.45rem;
     margin-bottom: 10px;
 }
@@ -457,6 +458,11 @@ section :target {
 /* Homepage: the newest few entries of each log. */
 .home-log {
     margin-bottom: 48px;
+}
+
+/* Line the first homepage label up with the masthead beside it. */
+.content > .home-log:first-child {
+    margin-top: 10px;
 }
 
 .section-head {
@@ -639,7 +645,7 @@ section :target {
     .sidebar {
         height: auto;
         z-index: 30;
-        padding: 10px 8px;
+        padding: 12px 22px;
         border-right: none;
         border-bottom: 1px solid var(--rule);
     }
@@ -708,6 +714,10 @@ section :target {
 
     .markdown-list li {
         font-size: 19px;
+    }
+
+    .content > .home-log:first-child {
+        margin-top: 0;
     }
 
     .films .markdown-list li,
