@@ -51,3 +51,4 @@ date PERFORMER | VENUE | NOTES
 10.09 HIDDEN IDENTITY | lacma | jazz at lacma, jazz refractions festival
 10.16 GEORGE, CHIQUITA MAGIC | 2220 arts + archives | jazz refractions festival
 10.17 FREMAJAKO, DOYEON KIM’S QUARTET | redcat | jazz refractions/angel city jazz festival
+10.21 JAFFE / DAHL / REINHART / HAFFNER QUARTET, CHRISTINA WHEELER | 2220 arts and archives
