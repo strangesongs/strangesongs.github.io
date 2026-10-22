@@ -144,6 +144,24 @@ function insertMonthHeaders(content) {
     return result.join('\n');
 }
 
+// The title (books, films) or performer (shows) at the start of an entry:
+// everything before " (YYYY)", or else before the first " | ". Wrapped in
+// <span class="title"> so it can be set in small caps; the source stays in
+// capitals. Only wrapped when it has no lowercase letters (other than "w/",
+// which gets its own span so it stays lowercase).
+function markTitle(body) {
+    const m = body.match(/^(.+?)(?=\s\(\d{4}\)|\s\|\s|\s\*$|$)/);
+    if (!m) return body;
+    // Ignore what can be lowercase inside a title: "w/", entities, link URLs.
+    const hasLower = text => /[a-z]/.test(text.replace(/ w\/ /g, ' ').replace(/&[a-z]+;/g, '').replace(/\]\([^)]*\)/g, ']'));
+    let title = m[1];
+    // "THE MOMENT OF TRUTH (Il momento della verita)": only the capitals part.
+    if (hasLower(title)) title = (title.match(/^(.+?)(?=\s\()/) || [])[1] || '';
+    if (!title || hasLower(title)) return body;
+    const inner = title.replace(/ w\/ /g, ' <span class="title-lower">w/</span> ');
+    return `<span class="title">${inner}</span>${body.slice(title.length)}`;
+}
+
 // A trailing "*" marks a repeat viewing.
 function markRepeat(body) {
     return body.replace(/\s*\*$/, ' <span class="repeat" title="repeat viewing">*</span>');
@@ -162,9 +180,9 @@ function processMarkdown(content, { plainClass = '' } = {}) {
     content = content.replace(/^# (.+)$/gm, '<h1>$1</h1>');
 
     content = content.replace(/^- (.+)$/gm, (m, body) => `<li class="bullet">${markRepeat(body)}</li>`);
-    content = content.replace(/^\d+\.\s+(.+)$/gm, (m, body) => `<li class="numbered">${markRepeat(body)}</li>`);
+    content = content.replace(/^\d+\.\s+(.+)$/gm, (m, body) => `<li class="numbered"><span class="entry-body">${markRepeat(markTitle(body))}</span></li>`);
     content = content.replace(/^(\d{2}\.\d{2})\s+(.+)$/gm, (m, date, body) =>
-        `<li class="dated"><span class="entry-date">${date}</span><span class="entry-body">${markRepeat(body)}</span></li>`
+        `<li class="dated"><span class="entry-date">${date}</span><span class="entry-body">${markRepeat(markTitle(body))}</span></li>`
     );
 
     // Blank lines split lists into separate groups.
@@ -392,7 +410,7 @@ function buildHome(years) {
                 : entry.number ? `[${entry.number.padStart(2, '0')}]` : entry.year;
             const place = where(entry);
             content += `\n    <li class="dated"><span class="entry-date">${escapeHtml(date)}</span>`;
-            content += `<span class="entry-body"><a href="${entry.year}.html#${section.name}">${escapeHtml(entry.main)}</a>`;
+            content += `<span class="entry-body"><a href="${entry.year}.html#${section.name}">${markTitle(escapeHtml(entry.main))}</a>`;
             if (place) content += `<span class="entry-where">${escapeHtml(place)}</span>`;
             content += '</span></li>';
         });

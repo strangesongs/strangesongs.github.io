@@ -361,6 +361,19 @@ section {
     margin-bottom: 12px;
 }
 
+/* Titles and performers are capitals in the source; show them as Spectral's
+   true small caps. Digits and "w/" keep their normal form. */
+.title {
+    font-variant-caps: all-small-caps;
+    font-variant-numeric: lining-nums;
+    letter-spacing: 0.035em;
+}
+
+.title-lower {
+    font-variant-caps: normal;
+    letter-spacing: normal;
+}
+
 /* Trailing * in films.md marks a repeat viewing. */
 .repeat {
     color: var(--accent);
