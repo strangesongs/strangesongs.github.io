@@ -119,4 +119,5 @@ date TITLE (year) director | format | location | notes
 10.11 EDVARD MUNCH (1974) peter watkins | 35mm | brain dead studios | academy archival print
 10.19 YOU CAN SEE EVERYTHING (2026) nathan felder and lance oppenheimer | dcp | regal la live
 10.21 BETTY TELLS HER STORY (1972) liane brandon | streaming | criterion channel
+10.22 GODARD 1980 (1980) jon jost, donald ranvaud, peter wollen | dvd | criterion collection
 10.23 ROBERT WILSON AND THE CIVIL WARS (1985) howard brookner | streaming | criterion channel
