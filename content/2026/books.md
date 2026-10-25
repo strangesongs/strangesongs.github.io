@@ -51,3 +51,4 @@ TITLE (year) author | notes
 44. A WILD PATIENCE HAS TAKEN ME THIS FAR: POEMS 1978-1981 (1981) adrienne rich
 45. THE DREAM OF A COMMON LANGUAGE: POEMS 1974 - 1977 (1978) adrienne rich
 46. TRANS GIRL SUICIDE MUSEUM (2019) hannah baer
+47. NADJA (1928) andré breton | translated by mark polizzotti (translation 2025)
