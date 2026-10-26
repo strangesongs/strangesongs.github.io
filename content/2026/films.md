@@ -122,3 +122,4 @@ date TITLE (year) director | format | location | notes
 10.22 GODARD 1980 (1980) jon jost, donald ranvaud, peter wollen | dvd | criterion collection
 10.22 EVERY MAN FOR HIMSELF (1980) jean-luc godard | dvd | criterion collection
 10.23 ROBERT WILSON AND THE CIVIL WARS (1985) howard brookner | streaming | criterion channel
+10.25 HAIL MARY (1985) jean-luc godard | dvd | home viewing *
