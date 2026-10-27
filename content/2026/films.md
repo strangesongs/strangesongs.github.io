@@ -124,3 +124,4 @@ date TITLE (year) director | format | location | notes
 10.23 ROBERT WILSON AND THE CIVIL WARS (1985) howard brookner | streaming | criterion channel
 10.25 HAIL MARY (1985) jean-luc godard | dvd | new yorker video *
 10.25 THE BOOK OF MARY (1985) anne-marie miéville | dvd | new yorker video
+10.26 DAUGHTERS OF DARKNESS (1971) harry kümel | dcp | alamo drafthouse | queer film theory 101 series
