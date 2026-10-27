@@ -25,7 +25,7 @@ date TITLE (year) director | format | location | notes
 02.03 THE AMPUTEE (VERSION 2) (1974) david lynch | dcp | egyptian theater
 02.03 PREMONITIONS FOLLOWING AN EVIL DEED (1995) david lynch | dcp | egyptian theater
 02.03 ERASERHEAD (1977) david lynch | dcp | egyptian theater
-02.07 PERFECT DAYS (2023) wim wenders | digital | home screening
+02.07 PERFECT DAYS (2023) wim wenders | streaming | kanopy
 02.23 SLIVER (1993) philip noyce | digital | criterion channel
 02.28 RA: PATH OF THE SUN GOD (1990) lesley keen | digital | philosophical research society
 02.28 ORPHEUS AND EURYDICE (1984) lesley keen | digital | philosophical research society

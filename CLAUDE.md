@@ -133,6 +133,7 @@ Same numbered-list format as books.
 - All other site text (intro, about, nav, notes, labels) is lowercase, always, including names ("j. cretella", "koreatown, los angeles").
 - Formats in lowercase: `dcp`, `35mm`, `16mm`, `4k restoration`, `digital`, `streaming`, `blu-ray`, `dvd`.
 - For streaming, the location field is the service: `streaming | criterion channel`, `streaming | kanopy`, `streaming | mubi`. In the 2013 list, `criterion` / `janus films/criterion` is the **disc label**, not the streaming service.
+- For discs watched at home, the location field is the disc's label: `dvd | criterion collection`, `dvd | new yorker video`, `blu-ray | arrow video`. Don't write "home" or "home viewing": anything without a cinema is already counted as home viewing. A disc projected at a venue takes the venue instead (`dvd | video archives cinema club @ los feliz theater`).
 - Use these canonical venue names (most common):
   - `2220 arts + archives` (for lightstruck screenings there, `lightstruck @ 2220 arts + archives` or `2220 arts + archives | presented by lightstruck`)
   - `walt disney concert hall`
