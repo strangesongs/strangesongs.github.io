@@ -127,3 +127,5 @@ date TITLE (year) director | format | location | notes
 10.26 DAUGHTERS OF DARKNESS (1971) harry kümel | dcp | alamo drafthouse | queer film theory 101 series
 10.31 THE VANISHING (1988) george sluizer | streaming | criterion channel
 10.31 RETURN TO REASON (1923) man ray | streaming | youtube
+
+11.01 PETRICHOR (2017) timoleon wilkins | streaming | vimeo | https://vimeo.com/channels/16mm/246214447
