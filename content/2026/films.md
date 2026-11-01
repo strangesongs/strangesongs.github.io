@@ -129,3 +129,4 @@ date TITLE (year) director | format | location | notes
 10.31 RETURN TO REASON (1923) man ray | streaming | youtube
 
 11.01 PETRICHOR (2017) timoleon wilkins | streaming | vimeo | https://vimeo.com/channels/16mm/246214447
+11.01 WALKING FROM MUNICH TO BERLIN (1927) oskar fischinger | streaming | home | https://ok.ru/video/2544535079450
