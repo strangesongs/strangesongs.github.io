@@ -126,3 +126,4 @@ date TITLE (year) director | format | location | notes
 10.25 THE BOOK OF MARY (1985) anne-marie miéville | dvd | new yorker video
 10.26 DAUGHTERS OF DARKNESS (1971) harry kümel | dcp | alamo drafthouse | queer film theory 101 series
 10.31 THE VANISHING (1988) george sluizer | streaming | criterion channel
+10.31 RETURN TO REASON (1923) man ray | streaming | youtube
