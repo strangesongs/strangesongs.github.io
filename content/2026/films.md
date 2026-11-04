@@ -130,3 +130,4 @@ date TITLE (year) director | format | location | notes
 
 11.01 PETRICHOR (2017) timoleon wilkins | streaming | vimeo | https://vimeo.com/channels/16mm/246214447
 11.01 WALKING FROM MUNICH TO BERLIN (1927) oskar fischinger | streaming | home | https://ok.ru/video/2544535079450
+11.02 FOR EVER MOZART (1996) jean-luc godard | dvd | new yorker video
