@@ -56,6 +56,8 @@ const SERVICES = [
     [/vimeo/, 'vimeo'],
     [/amazon/, 'amazon prime'],
     [/night flight/, 'night flight plus'],
+    [/ok\.ru/, 'ok.ru'],
+    [/yesmovies/, 'yesmovies'],
     [/light ?cone/, 'light cone'],
     [/flight/, 'in-flight']
 ];

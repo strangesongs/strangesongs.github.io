@@ -32,9 +32,9 @@ date TITLE (year) director | format | location | notes
 03.16 ORIGINAL CAST ALBUM: "COMPANY" (1970) d.a. pennebaker | streaming | criterion channel
 03.23 BLACK ORPHEUS (1959) marcel camus | streaming | criterion channel
 
-03.31 THE ZONE OF INTEREST (2023) jonathan glazer | streaming on a delta flight
+03.31 THE ZONE OF INTEREST (2023) jonathan glazer | streaming | delta flight
 
-04.13 THE FAVOURITE (2018) yorgos lanthimos | streaming on a latam flight
+04.13 THE FAVOURITE (2018) yorgos lanthimos | streaming | latam flight
 04.15 AFTER HOURS (1985) martin scorsese | streaming | criterion channel | didn't finish
 
 04.21 LE SAMOURAI (1967) jean-pierre melville | 4K | los feliz 3

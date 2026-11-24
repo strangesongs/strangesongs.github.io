@@ -86,7 +86,7 @@ date TITLE (year) director | format | location | notes
 07.13 VISIONS IN MEDITATION #1 (1989) stan brakhage | [streaming](https://www.youtube.com/watch?v=FHr8-Jleq4Y) | youtube
 07.13 VISIONS IN MEDITATION #2: MESA VERDE (1989) stan brakhage | [streaming](https://www.youtube.com/watch?v=FHr8-Jleq4Y&t=979s) | youtube
 07.13 VISIONS IN MEDITATION #3: PLATO'S CAVE (1990) stan brakhage | [streaming](https://www.youtube.com/watch?v=PQdztPEOoA0) | youtube
-07.17 THE RETURN OF GODZILLA (1984) koji hashimoto | streaming | criterion
+07.17 THE RETURN OF GODZILLA (1984) koji hashimoto | streaming | criterion channel
 07.18 THE STRINGS (2020) ryan glover | streaming | yesmovies.ag
 07.19 THE HITCH-HIKER (1953) ida lupino | streaming | kanopy
 07.20 LE CERCLE ROUGE (1970) jean-pierre melville | 4k | ted mann theater @ academy museum *
@@ -129,8 +129,8 @@ date TITLE (year) director | format | location | notes
 10.31 RETURN TO REASON (1923) man ray | streaming | youtube
 
 11.01 PETRICHOR (2017) timoleon wilkins | streaming | vimeo | https://vimeo.com/channels/16mm/246214447
-11.01 WALKING FROM MUNICH TO BERLIN (1927) oskar fischinger | streaming | home | https://ok.ru/video/2544535079450
+11.01 WALKING FROM MUNICH TO BERLIN (1927) oskar fischinger | streaming | ok.ru | https://ok.ru/video/2544535079450
 11.02 FOR EVER MOZART (1996) jean-luc godard | dvd | new yorker video
-11.08 GIRLS LIKE GIRLS (2026) hayley kiyoko | streaming | united streaming
+11.08 GIRLS LIKE GIRLS (2026) hayley kiyoko | streaming | united flight
 11.08 TWO SEASONS, TWO STRANGERS (2025) sho miyake | streaming | united flight
 11.23 RED ROOMS (2023) pascal plante | streaming | kanopy

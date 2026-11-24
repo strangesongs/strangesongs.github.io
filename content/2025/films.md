@@ -65,7 +65,7 @@ date TITLE (year) director | format | location | notes
 10.01 PORT OF SHADOWS (1938) marcel carné | streaming | kanopy
 10.01 THE DAY AFTER (2017) hong sang-soo | streaming | kanopy
 10.03 ONE BATTLE AFTER ANOTHER (2025) paul thomas anderson | vista theater | in vista vision
-10.04 PURPLE NOON (1960) rené clément | streaming | criterion
+10.04 PURPLE NOON (1960) rené clément | streaming | criterion channel
 10.23 BLACK SUNDAY (1960) mario bava | streaming | kanopy
 
 11.03 THE ANDERSON TAPES (1970) sidney lumet | streaming | criterion channel
@@ -83,5 +83,5 @@ date TITLE (year) director | format | location | notes
 12.15 SUNDAY IN PEKING (1956) chris marker | streaming | criterion channel
 12.16 THE MASTERMIND (2025) kelly reichardt | streaming | mubi
 12.17 EEPHUS (2024) carson lund | streaming | mubi
-12.30 DESIRE: THE CARL CRAIG STORY (2024) jean-cosme delaloye | streaming on united flight
-12.30 BECOMING LED ZEPPELIN (2025) bernard macmahon | streaming on united flight
+12.30 DESIRE: THE CARL CRAIG STORY (2024) jean-cosme delaloye | streaming | united flight
+12.30 BECOMING LED ZEPPELIN (2025) bernard macmahon | streaming | united flight

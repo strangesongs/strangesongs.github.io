@@ -8,8 +8,8 @@ date TITLE (year) director | format | location | notes
 
 1. ONIBABA (1964) kaneto shindo | dvd | criterion
 2. KURONEKO (1968) kaneto shindo | dvd | criterion
-3. BEYOND THE BLACK RAINBOW (2010) panos cosmatos | netflix streaming
-4. EAMES: THE ARCHITECT AND THE PAINTER (2011) jason cohn and bill jersey | netflix streaming
+3. BEYOND THE BLACK RAINBOW (2010) panos cosmatos | streaming | netflix
+4. EAMES: THE ARCHITECT AND THE PAINTER (2011) jason cohn and bill jersey | streaming | netflix
 5. THE MOMENT OF TRUTH (Il momento della verita) (1965) francesco rosi | dvd | criterion
 6. THE BAD AND THE BEAUTIFUL (1952) vincente minnelli | dvd
 7. MODERN TIMES (1938) charles chaplin | united states | dvd | criterion *
@@ -18,7 +18,7 @@ date TITLE (year) director | format | location | notes
 10. TO CATCH A THIEF (1954) alfred hitchcock | blu-ray | paramount
 11. THE KING OF MARVIN GARDENS (1972) bob rafelson | dvd | criterion
 12. GHOST IN THE SHELL (1995) mamoru oshii | japan | blu-ray | manga entertainment
-13. THE BIG HEAT (1953) fritz lang | netflix streaming
+13. THE BIG HEAT (1953) fritz lang | streaming | netflix
 14. PERFECT BLUE (1997) satoshi kon | dvd | manga entertainment
 15. PAPRIKA (2006) satoshi kon | dvd | sony pictures worldwide
 16. KNIFE IN THE WATER (1962) roman polanski | dvd | janus films/criterion
@@ -44,10 +44,10 @@ date TITLE (year) director | format | location | notes
 36. SISTERS OF THE GION (Gion no shimai) (1936) kenji mizoguchi | dvd | janus films/criterion
 37. EATING RAOUL (1982) paul bartel | blu-ray | criterion
 38. INSIGNIFICANCE (1985) nicolas roeg | blu-ray | criterion
-39. THE COMEDY (2012) rick alverson | netflix streaming
+39. THE COMEDY (2012) rick alverson | streaming | netflix
 40. MR. FREEDOM (1969) william klein | dvd | janus/eclipse
 41. THE MODEL COUPLE (1977) william klein | dvd | janus/eclipse
-42. PRIVATE PARTS (1996) betty thomas | netflix streaming
+42. PRIVATE PARTS (1996) betty thomas | streaming | netflix
 43. THE SKIN I LIVE IN (2011) pedro almodovar | blu-ray | sony pictures classics
 44. ALPHAVILLE (1965) jean-luc godard | dvd | criterion
 45. HOPSCOTCH (1980) ronald neame | dvd | criterion
@@ -77,8 +77,8 @@ date TITLE (year) director | format | location | notes
 69. TO ROME WITH LOVE (2006) woody allen | blu-ray | sony
 70. BLUE JASMINE (2013) woody allen | theater viewing
 71. THE MAN WHO KNEW TOO MUCH (1934) alfred hitchcock | blu-ray | criterion
-72. THE DUNGEON MASTERS (2008) keven mcalester | hulu streaming
-73. WET HOT AMERICAN SUMMER (2001) david wain | netflix streaming *
+72. THE DUNGEON MASTERS (2008) keven mcalester | streaming | hulu
+73. WET HOT AMERICAN SUMMER (2001) david wain | streaming | netflix *
 74. ASHES OF TIME REDUX (2008) wong kar-wai | dvd | sony pictures classics
 75. MEDIUM COOL (1969) haskell wexler | blu-ray | criterion
 76. DAYS OF BEING WILD (1990) wong kar-wai | dvd | kino
