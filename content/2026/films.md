@@ -134,3 +134,4 @@ date TITLE (year) director | format | location | notes
 11.08 GIRLS LIKE GIRLS (2026) hayley kiyoko | streaming | united flight
 11.08 TWO SEASONS, TWO STRANGERS (2025) sho miyake | streaming | united flight
 11.23 RED ROOMS (2023) pascal plante | streaming | kanopy
+11.26 THE VANISHING (1988) george sluizer | streaming | criterion channel *
