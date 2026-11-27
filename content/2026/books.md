@@ -53,3 +53,4 @@ TITLE (year) author | notes
 46. TRANS GIRL SUICIDE MUSEUM (2019) hannah baer
 47. NADJA (1928) andré breton | translated by mark polizzotti (translation 2025)
 48. DON JUAN IN THE VILLAGE (1990) jane delynn
+49. THE LESBIAN BODY (1973) monique wittig | translated by david le vay
