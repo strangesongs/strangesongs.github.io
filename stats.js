@@ -72,15 +72,15 @@ function match(rules, text) {
 function readEntries(file) {
     if (!fs.existsSync(file)) return [];
     return fs.readFileSync(file, 'utf8').split('\n').map(line => line.trim()).flatMap(line => {
-        const m = line.match(/^(?:(\d{2})\.\d{2}|\d+\.|-)\s+(.+)$/);
+        const m = line.match(/^(?:(\d{2})\.(\d{2})|\d+\.|-)\s+(.+)$/);
         if (!m) return [];
-        const repeat = /\s\*$|\*$/.test(m[2]);
-        const fields = m[2]
+        const repeat = /\s\*$|\*$/.test(m[3]);
+        const fields = m[3]
             .replace(/\s*\*$/, '')
             .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
             .split('|')
             .map(field => field.trim().toLowerCase());
-        return [{ month: m[1] ? Number(m[1]) : null, main: fields[0], extra: fields.slice(1), repeat }];
+        return [{ month: m[1] ? Number(m[1]) : null, day: m[2] ? Number(m[2]) : null, main: fields[0], extra: fields.slice(1), repeat }];
     });
 }
 
@@ -229,4 +229,4 @@ ${block('most-watched directors', bars(stats.directors, { unit: 'film' }), 'coun
 ${block('repeat viewings', repeats)}`.replace(/\n{3,}/g, '\n\n');
 }
 
-module.exports = { collectStats, renderStats };
+module.exports = { collectStats, renderStats, readEntries, analyzeFilm, tally, NOT_A_VENUE, MONTHS, CINEMAS };

@@ -500,6 +500,11 @@ section :target {
     color: var(--muted);
 }
 
+/* "on this day": filled in by script.js. */
+.on-this-day .section-count {
+    color: var(--muted);
+}
+
 .intro .not-found-links {
     margin-top: 1em;
     font-size: var(--text-body);

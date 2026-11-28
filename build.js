@@ -3,6 +3,7 @@ const path = require('path');
 const crypto = require('crypto');
 const ejs = require('ejs');
 const { collectStats, renderStats } = require('./stats');
+const { reviewYears, collectReview, renderReview } = require('./review');
 
 // --- site config -----------------------------------------------------------
 
@@ -27,11 +28,14 @@ const SECTIONS = [
     { name: 'shows', title: 'listen', noun: 'show', verb: 'seen' }
 ];
 
-// Sidebar links to the site's own pages, in sidebar order.
+// Sidebar links, in sidebar order: the site's own pages, plus photography,
+// which goes straight to the portfolio site (same tab, it's a nav item).
+// writing stays out of the nav until WRITING_LINKS has something in it.
 const NAV_PAGES = [
     { name: 'music', title: 'music' },
+    { name: 'photography', title: 'photography', href: 'https://whatweseeiswhatweare.com/' },
     { name: 'projects', title: 'projects' },
-    { name: 'writing', title: 'writing' }
+    { name: 'writing', title: 'writing', hideWhenEmpty: true }
 ];
 
 // Links listed on music.html, projects.html and writing.html, each with a one-line note.
@@ -41,7 +45,6 @@ const MUSIC_LINKS = [
 ];
 
 const PROJECT_LINKS = [
-    { title: 'photography', note: 'photo portfolio', href: 'https://whatweseeiswhatweare.com/', external: true },
     { title: 'fruit for all', note: 'local fruit-finding app', href: 'https://fruitforall.app/', external: true },
     { title: 'save to photos', note: 'assorted found images', href: 'https://savetophotos.com/', external: true }
 ];
@@ -49,6 +52,9 @@ const PROJECT_LINKS = [
 // Writing published elsewhere: { title, note, href, external: true }.
 // While this is empty the page shows content/writing.md ("coming soon.").
 const WRITING_LINKS = [];
+
+// The photography site; "on this day" reads its photos.json in the browser.
+const PHOTO_SITE = 'https://whatweseeiswhatweare.com/';
 
 const MONTH_NAMES = [
     'january', 'february', 'march', 'april', 'may', 'june',
@@ -238,6 +244,14 @@ function writePage(fileName, { title, description, sidebar, content, yearLabel =
     console.log(`Generated ${fileName}`);
 }
 
+function navPages() {
+    return NAV_PAGES.filter(page => !(page.hideWhenEmpty && page.name === 'writing' && WRITING_LINKS.length === 0));
+}
+
+function navHref(page) {
+    return page.href || `${page.name}.html`;
+}
+
 function emailLink() {
     return `<a href="about.html#contact" class="email-link" data-user="${EMAIL_USER}" data-domain="${EMAIL_DOMAIN}">email</a>`;
 }
@@ -252,8 +266,8 @@ function buildSidebar(years, { currentYear = '', currentPage = '' } = {}) {
     let html = `<p class="masthead"><a href="index.html">${SITE_NAME}</a></p>\n`;
     html += '<ul class="site-nav">\n';
     html += `<li class="depth-1"><a href="about.html"${active(currentPage === 'about')}>about</a></li>\n`;
-    NAV_PAGES.forEach((page, i) => {
-        html += `<li class="depth-1 nav-page${i === 0 ? ' nav-group' : ''}"><a href="${page.name}.html"${active(currentPage === page.name)}>${page.title}</a></li>\n`;
+    navPages().forEach((page, i) => {
+        html += `<li class="depth-1 nav-page${i === 0 ? ' nav-group' : ''}"><a href="${navHref(page)}"${active(currentPage === page.name)}>${page.title}</a></li>\n`;
     });
     // The years fold away behind "read watch listen" (a plain <details>, so it
     // works without JavaScript). Open on any page that belongs to the log.
@@ -273,8 +287,8 @@ function buildSidebar(years, { currentYear = '', currentPage = '' } = {}) {
     html += '\n<nav class="mobile-nav">';
     html += '\n  <div class="mnav-row mnav-main">';
     html += `\n    <a href="about.html"${active(currentPage === 'about')}>about</a>`;
-    NAV_PAGES.forEach(page => {
-        html += `\n    <a href="${page.name}.html"${active(currentPage === page.name)}>${page.title}</a>`;
+    navPages().forEach(page => {
+        html += `\n    <a href="${navHref(page)}"${active(currentPage === page.name)}>${page.title}</a>`;
     });
     html += `\n    ${emailLink()}`;
     html += '\n  </div>';
@@ -422,17 +436,66 @@ function buildHome(years) {
         content += '</section>\n';
     });
 
+    // Filled in by script.js from onthisday.json and the photo site's
+    // photos.json, using the visitor's own date. Hidden without JavaScript
+    // or when nothing matches.
+    content += `<section class="home-log on-this-day" id="on-this-day" hidden data-photos="${PHOTO_SITE}">\n`;
+    content += '  <div class="section-head"><h2 class="section-title">on this day</h2><span class="section-count otd-date"></span></div>\n';
+    content += '  <ul class="markdown-list dated-list otd-list"></ul>\n';
+    content += '</section>\n';
+
     writePage('index.html', { sidebar: buildSidebar(years), content });
 }
 
-function buildStats(years) {
+// Every dated film and show, for the homepage's "on this day". Books have no
+// dates, so they aren't in it. Kept small: short keys, one array.
+function buildOnThisDay(years) {
+    const entries = [];
+    years.forEach(year => {
+        [SECTIONS[1], SECTIONS[2]].forEach(section => {
+            const file = path.join(CONTENT_DIR, year, `${section.name}.md`);
+            if (!fs.existsSync(file)) return;
+            fs.readFileSync(file, 'utf8').split('\n').map(line => line.trim()).forEach(line => {
+                if (!/^\d{2}\.\d{2}\s/.test(line)) return;
+                const entry = parseEntry(line);
+                const where = section.name === 'films' ? (entry.fields[2] || entry.fields[1] || '') : (entry.fields[1] || '');
+                entries.push({
+                    y: Number(year), m: Number(entry.month), d: Number(entry.day), s: section.name,
+                    t: markTitle(escapeHtml(entry.main)), w: escapeHtml(where)
+                });
+            });
+        });
+    });
+    fs.writeFileSync(path.join(OUT_DIR, 'onthisday.json'), JSON.stringify(entries));
+    console.log(`Generated onthisday.json (${entries.length} entries)`);
+}
+
+function buildStats(years, reviewed = []) {
     const stats = collectStats(CONTENT_DIR, years);
+    const reviewLinks = reviewed.length
+        ? `<p class="stats-inline review-links">year in review: ${[...reviewed].reverse().map(y => `<a href="review-${y}.html">${y}</a>`).join(' · ')}</p>\n`
+        : '';
     writePage('stats.html', {
         title: 'stats',
         description: `${stats.allFilms.length} films, ${stats.allShows.length} shows and counting: formats, cinemas, venues and directors.`,
         sidebar: buildSidebar(years, { currentPage: 'stats' }),
-        content: `<div class="stats">\n${renderStats(stats, { escapeHtml, plural })}</div>`
+        content: `<div class="stats">\n${renderStats(stats, { escapeHtml, plural }).replace('</header>', `</header>\n${reviewLinks}`)}</div>`
     });
+}
+
+// One "year in review" page per year with dated films or shows.
+function buildReviews(years) {
+    const reviewed = reviewYears(CONTENT_DIR, years);
+    reviewed.forEach(year => {
+        const review = collectReview(CONTENT_DIR, years, year);
+        writePage(`review-${year}.html`, {
+            title: `${year} in review`,
+            description: `${year} in review: months, cinemas, venues, directors and books.`,
+            sidebar: buildSidebar(years, { currentPage: 'stats' }),
+            content: `<div class="stats review">\n${renderReview(review, { escapeHtml, plural, markTitle })}</div>`
+        });
+    });
+    return reviewed;
 }
 
 // GitHub Pages serves 404.html for any missing path, at any depth, so this
@@ -451,9 +514,10 @@ function buildNotFound(years) {
     });
 }
 
-function buildRobotsAndSitemap(years) {
-    const pages = ['', ...[...years].reverse().map(y => `${y}.html`), 'stats.html', 'abandoned.html',
-        ...NAV_PAGES.map(page => `${page.name}.html`), 'about.html'];
+function buildRobotsAndSitemap(years, reviewed = []) {
+    const pages = ['', ...[...years].reverse().map(y => `${y}.html`), 'stats.html',
+        ...[...reviewed].reverse().map(y => `review-${y}.html`), 'abandoned.html',
+        ...navPages().filter(page => !page.href).map(page => `${page.name}.html`), 'about.html'];
     const today = formatDate(new Date());
     const urls = pages.map(page => `  <url><loc>${SITE_URL}${page}</loc><lastmod>${today}</lastmod></url>`).join('\n');
     fs.writeFileSync(path.join(OUT_DIR, 'sitemap.xml'),
@@ -511,7 +575,7 @@ function build() {
     });
     buildLinkPage('projects', years, {
         title: 'projects',
-        description: 'photography and small web projects.',
+        description: 'small web projects.',
         links: PROJECT_LINKS
     });
     buildLinkPage('writing', years, {
@@ -521,9 +585,11 @@ function build() {
     });
 
     buildHome(years);
-    buildStats(years);
+    buildOnThisDay(years);
+    const reviewed = buildReviews(years);
+    buildStats(years, reviewed);
     buildNotFound(years);
-    buildRobotsAndSitemap(years);
+    buildRobotsAndSitemap(years, reviewed);
     buildRwlRedirect();
 
     console.log('Build complete!');
