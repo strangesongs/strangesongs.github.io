@@ -34,7 +34,8 @@ cat > "$APP/Contents/MacOS/run" <<RUN
 #!/bin/zsh
 # Finder starts apps with a bare PATH, so load the login shell setup
 # (Homebrew, nvm, etc.) to find node and git, then start the form.
-REPO="$REPO_ON_MAC"
+REPO="\$(cd "\$(dirname "\$0")/../../../../.." && pwd)"   # the site folder, wherever it is
+[ -f "\$REPO/build.js" ] || REPO="$REPO_ON_MAC"
 source ~/.zprofile >/dev/null 2>&1
 source ~/.zshrc >/dev/null 2>&1
 export PATH="\$PATH:/opt/homebrew/bin:/usr/local/bin"
