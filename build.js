@@ -41,7 +41,7 @@ const MUSIC_LINKS = [
 ];
 
 const PROJECT_LINKS = [
-    { title: 'photography', note: 'photo portfolio', href: 'whatwesee/', external: false },
+    { title: 'photography', note: 'photo portfolio', href: 'https://whatweseeiswhatweare.com/', external: true },
     { title: 'fruit for all', note: 'local fruit-finding app', href: 'https://fruitforall.app/', external: true },
     { title: 'save to photos', note: 'assorted found images', href: 'https://savetophotos.com/', external: true }
 ];

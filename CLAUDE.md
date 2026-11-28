@@ -162,7 +162,7 @@ Same numbered-list format as books.
 
 ## Photography
 
-The portfolio is a separate repo, `whatwesee` (https://github.com/strangesongs/whatwesee), published at `/whatwesee/` on this domain by its own Pages deployment. The "photography" nav link points there. Do not add photos or gallery code to this repo.
+The portfolio is a separate repo, `whatwesee` (https://github.com/strangesongs/whatwesee), published at https://whatweseeiswhatweare.com/ by its own Pages deployment. The "photography" link on the projects page points there. Do not add photos or gallery code to this repo.
 
 ## Repo rules
 

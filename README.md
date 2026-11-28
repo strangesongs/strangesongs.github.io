@@ -11,4 +11,4 @@ see `CLAUDE.md` for the content format and how the build works.
 
 ## photography
 
-the photography portfolio is its own project: [whatwesee](https://github.com/strangesongs/whatwesee), served at `/whatwesee/`.
+the photography portfolio is its own project: [whatwesee](https://github.com/strangesongs/whatwesee), served at [whatweseeiswhatweare.com](https://whatweseeiswhatweare.com/).
